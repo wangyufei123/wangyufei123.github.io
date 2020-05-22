@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lwblog.xyz/"/>
-  <updated>2020-05-18T01:15:21.103Z</updated>
+  <updated>2020-05-22T05:30:15.151Z</updated>
   <id>http://lwblog.xyz/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java8日期和时间处理</title>
+    <link href="http://lwblog.xyz/posts/58f1702a.html"/>
+    <id>http://lwblog.xyz/posts/58f1702a.html</id>
+    <published>2020-05-21T14:13:14.000Z</published>
+    <updated>2020-05-22T05:30:15.151Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://lwblog.xyz/categories/java/"/>
+    
+    
+      <category term="日期" scheme="http://lwblog.xyz/tags/%E6%97%A5%E6%9C%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>谷歌浏览器调试技巧</title>
     <link href="http://lwblog.xyz/posts/4cc93b7c.html"/>
     <id>http://lwblog.xyz/posts/4cc93b7c.html</id>
     <published>2020-05-18T01:14:32.000Z</published>
-    <updated>2020-05-18T01:15:21.103Z</updated>
+    <updated>2020-05-18T01:15:41.580Z</updated>
     
     <summary type="html">
     
@@ -40,9 +59,9 @@
     <link href="http://lwblog.xyz/posts/af6fa0b3.html"/>
     <id>http://lwblog.xyz/posts/af6fa0b3.html</id>
     <published>2020-05-17T03:17:09.000Z</published>
-    <updated>2020-05-17T14:03:03.028Z</updated>
+    <updated>2020-05-22T13:47:44.551Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="折腾原因"><a href="#折腾原因" class="headerlink" title="折腾原因"></a>折腾原因</h2><p>前段时间由于某些原因，Goindex基于rclone挂载的谷歌云盘在某些原因的情况下不能免科学上网进行访问。这对于我这个大量文件都存放在谷歌云盘上的人来说就有点难受了。毕竟咱是一个无产阶级没有那么多的money进行购买机场流量。只能在茫茫的查找对应的替代品，功夫不负有心人。最终在努力下终于找到一个解决的办法，故此在这里记录一下</p><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul><li>能科学上网的环境(准备的情况下需要科学上网)</li><li><a href="https://rclone.org/downloads/" target="_blank" rel="noopener">rclone</a>  <strong>下载安装rclone</strong></li><li><a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CLOUDFLARE</a> <strong>提前注册好账号</strong></li><li><a href="https://install.gd.workers.dev/" target="_blank" rel="noopener">Goindex</a> <strong>现在已经不能用了，原先我就是用的这个</strong></li></ul><h2 id="安装免科学上网访问谷歌云盘"><a href="#安装免科学上网访问谷歌云盘" class="headerlink" title="安装免科学上网访问谷歌云盘"></a>安装免科学上网访问谷歌云盘</h2><p>我是在参考YouTube上大佬小小白的视频进行操作的，这里附上大佬的<a href="https://www.youtube.com/watch?v=oPcb1FZXu5o" target="_blank" rel="noopener">视频链接</a>。各位看官，可以先参考这位大佬的视频进行操作。如果顺利的话就能正常的免科学上网的访问自己的谷歌云盘了。但是，我偏偏是这个不幸中的一人。我按照视频的操作过程中，总是卡在获取谷歌云盘的token验证失败的情况，查了很多资料都没能解决此问题。如果你也遇到这样的问题话，可以参考我的做法。<br>首先，<strong><em>你原先在GoIndex上生成过对应的代码，并且在cloudflare上部署过</em></strong>，下图是我部署代码的部分截图<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gevadnpk2xj31o20jetce.jpg" alt=""><br>其次，需要在cloudflare上新建一个worked，将<a href="https://github.com/yanzai/goindex" target="_blank" rel="noopener">这里</a>index.js的代码复制到刚刚新建的worked中，并且将下图中的ID、密钥和token替换成原先使用Goindex生成的代码中的ID、密钥和token。(<strong><em>这里之所以是这样做，是因为使用rclone生成token的时候总是报错</em></strong>)<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gevahdci01j31je0u0k1z.jpg" alt=""><br>最后，保存并部署代码就OK了，这样就能再次在不科学上网的情况下继续浏览自己谷歌云盘中的内容了。<br>在这次更新的代码中还有很多的改进，比如可以对不同的文件夹赋予不同的权限，能在进行搜索操作</p><p><strong><em>文章参考：</em></strong></p><ol><li><a href="https://www.youtube.com/watch?v=oPcb1FZXu5o" target="_blank" rel="noopener">小小白大佬的视频</a></li><li><a href="https://xiaoxiaobai.ga/?p=256" target="_blank" rel="noopener">小小白大佬的文档说明</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="折腾原因"><a href="#折腾原因" class="headerlink" title="折腾原因"></a>折腾原因</h2><p>前段时间由于某些原因，Goindex基于rclone挂载的谷歌云盘在某些原因的情况下不能免科学上网进行访问。这对于我这个大量文件都存放在谷歌云盘上的人来说就有点难受了。毕竟咱是一个无产阶级没有那么多的money进行购买机场流量。只能在茫茫的查找对应的替代品，功夫不负有心人。最终在努力下终于找到一个解决的办法，故此在这里记录一下</p><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul><li>能科学上网的环境(准备的情况下需要科学上网)</li><li><a href="https://rclone.org/downloads/" target="_blank" rel="noopener">rclone</a>  <strong>下载安装rclone</strong></li><li><a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CLOUDFLARE</a> <strong>提前注册好账号</strong></li><li><a href="https://install.gd.workers.dev/" target="_blank" rel="noopener">Goindex</a> <strong>现在已经不能用了，原先我就是用的这个</strong></li></ul><h2 id="安装免科学上网访问谷歌云盘"><a href="#安装免科学上网访问谷歌云盘" class="headerlink" title="安装免科学上网访问谷歌云盘"></a>安装免科学上网访问谷歌云盘</h2><p>我是在参考YouTube上大佬小小白的视频进行操作的，这里附上大佬的<a href="https://www.youtube.com/watch?v=oPcb1FZXu5o" target="_blank" rel="noopener">视频链接</a>。各位看官，可以先参考这位大佬的视频进行操作。如果顺利的话就能正常的免科学上网的访问自己的谷歌云盘了。但是，我偏偏是这个不幸中的一人。我按照视频的操作过程中，总是卡在获取谷歌云盘的token验证失败的情况，查了很多资料都没能解决此问题。如果你也遇到这样的问题话，可以参考我的做法。<br>首先，<strong><em>你原先在GoIndex上生成过对应的代码，并且在cloudflare上部署过</em></strong>，下图是我部署代码的部分截图<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gevadnpk2xj31o20jetce.jpg" alt=""><br>其次，需要在cloudflare上新建一个worked，将<a href="https://github.com/yanzai/goindex" target="_blank" rel="noopener">这里</a>index.js的代码复制到刚刚新建的worked中，并且将下图中的ID、密钥和token替换成原先使用Goindex生成的代码中的ID、密钥和token。(<strong><em>这里之所以是这样做，是因为使用rclone生成token的时候总是报错</em></strong>)<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gevahdci01j31je0u0k1z.jpg" alt=""><br>最后，保存并部署代码就OK了，这样就能再次在不科学上网的情况下继续浏览自己谷歌云盘中的内容了。<br>在这次更新的代码中还有很多的改进，比如可以对不同的文件夹赋予不同的权限，能在进行搜索操作</p><h2 id="GDIndex代码生成器"><a href="#GDIndex代码生成器" class="headerlink" title="GDIndex代码生成器"></a>GDIndex代码生成器</h2><p>虽然GoIndex代码生成器目前已经不能使用了，但是现在有一个新的GDIndex代码生成器可以替代GoIndex的代码生成器<br><a href="https://gdindex-code-builder.glitch.me/" target="_blank" rel="noopener">GDIndex</a>的使用方法同GoIndex。需要的小伙伴可以自行百度设置，或者参考上面提到的视频。</p><p><strong><em>文章参考：</em></strong></p><ol><li><a href="https://www.youtube.com/watch?v=oPcb1FZXu5o" target="_blank" rel="noopener">小小白大佬的视频</a></li><li><a href="https://xiaoxiaobai.ga/?p=256" target="_blank" rel="noopener">小小白大佬的文档说明</a></li></ol>]]></content>
     
     <summary type="html">
     
@@ -82,6 +101,29 @@
   </entry>
   
   <entry>
+    <title>sqlserver数据库还原单表数据操作</title>
+    <link href="http://lwblog.xyz/posts/4a17b156.html"/>
+    <id>http://lwblog.xyz/posts/4a17b156.html</id>
+    <published>2020-05-08T14:53:07.000Z</published>
+    <updated>2020-05-15T02:45:06.117Z</updated>
+    
+    <content type="html"><![CDATA[<p>在系统数据和数据库数据备份或者升级的时候，我们总是全量的备份应用或者数据。在升级完成使用一段时间后突然间发现某张表的数据有问题，此时在全部的还原数据库的数据则不太合理，那如何只还原出现问题的这张表的数据呢？</p><p>首先，我们需要将升级时全量备份的数据库还原成一个新的数据库，如何还原一个新的数据库，此处不在赘述，网上有好多。自我感觉还是参考<a href="https://docs.microsoft.com/zh-cn/sql/relational-databases/backup-restore/restore-a-database-to-a-new-location-sql-server?view=sql-server-ver15" target="_blank" rel="noopener">sqlserver官方的还原说明</a>或者参考<a href="https://www.jianshu.com/p/a153c20a577d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation" target="_blank" rel="noopener">SQL Server从BAK文件还原到新数据库</a></p><p>之后，我们选择刚刚还原完成的数据库使用如下的命令将ecology.dbo.hrmresource 所有的数据导入到demo.dbo.hrmresource_Test中<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxhysb3zj31hx0u0n7s.jpg" alt=""></p><p>选中刚刚还原的数据库，执行如下的sql语句，执行完成后刷新可以看到demo中已经出现了需要还原的表单数据</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> * <span class="keyword">into</span> demo.dbo.hrmresource_test <span class="keyword">From</span> ecology.dbo.hrmresource</span><br></pre></td></tr></table></figure><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxkucf1wj319e0u0x5l.jpg" alt=""></p><p>两张表单对比,我这里的表单中没有数据，但是可以看到需要还原的demo库中对应的表单结构已经有了</p><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxp4rmjgj318s0u01kx.jpg" alt="ecology"></p><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxr7mbkxj31670u01kx.jpg" alt="demo库"></p><p>最后，我们使用下列命令将原来的表进行删除，并把HtmlLabelInfo_Test 重命名为HtmlLabelInfo</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//删除原有的表单,此处我的里边没有对用的表单,就没有执行这一步</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> [dbo].[Hrmresource]</span><br><span class="line">//表单重命名,或者在ssms操作工具中直接在actionsetting_test上摁下F2进行表单重命名</span><br><span class="line">EXEC sp_rename <span class="string">'Hrmresource_test'</span>,<span class="string">'Hrmresource'</span></span><br></pre></td></tr></table></figure><p>或者是在navicat中可以直接右键选择重命名，对表单的名称进行更改</p><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxs79m9wj30w20u07wh.jpg" alt=""></p><p>至此,在全量备份的情况下即可还原某一张表的数据。</p>]]></content>
+    
+    <summary type="html">
+    
+      sqlserver数据库通过全备份还原某张表数据
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="http://lwblog.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="sqlserver" scheme="http://lwblog.xyz/tags/sqlserver/"/>
+    
+  </entry>
+  
+  <entry>
     <title>网络在在线传输工具 --- 奶牛快传</title>
     <link href="http://lwblog.xyz/posts/994d00c4.html"/>
     <id>http://lwblog.xyz/posts/994d00c4.html</id>
@@ -105,29 +147,6 @@
       <category term="文件传输" scheme="http://lwblog.xyz/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/"/>
     
       <category term="网络在在线传输工具" scheme="http://lwblog.xyz/tags/%E7%BD%91%E7%BB%9C%E5%9C%A8%E5%9C%A8%E7%BA%BF%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sqlserver数据库还原单表数据操作</title>
-    <link href="http://lwblog.xyz/posts/4a17b156.html"/>
-    <id>http://lwblog.xyz/posts/4a17b156.html</id>
-    <published>2020-05-08T14:53:07.000Z</published>
-    <updated>2020-05-15T02:45:06.117Z</updated>
-    
-    <content type="html"><![CDATA[<p>在系统数据和数据库数据备份或者升级的时候，我们总是全量的备份应用或者数据。在升级完成使用一段时间后突然间发现某张表的数据有问题，此时在全部的还原数据库的数据则不太合理，那如何只还原出现问题的这张表的数据呢？</p><p>首先，我们需要将升级时全量备份的数据库还原成一个新的数据库，如何还原一个新的数据库，此处不在赘述，网上有好多。自我感觉还是参考<a href="https://docs.microsoft.com/zh-cn/sql/relational-databases/backup-restore/restore-a-database-to-a-new-location-sql-server?view=sql-server-ver15" target="_blank" rel="noopener">sqlserver官方的还原说明</a>或者参考<a href="https://www.jianshu.com/p/a153c20a577d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation" target="_blank" rel="noopener">SQL Server从BAK文件还原到新数据库</a></p><p>之后，我们选择刚刚还原完成的数据库使用如下的命令将ecology.dbo.hrmresource 所有的数据导入到demo.dbo.hrmresource_Test中<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxhysb3zj31hx0u0n7s.jpg" alt=""></p><p>选中刚刚还原的数据库，执行如下的sql语句，执行完成后刷新可以看到demo中已经出现了需要还原的表单数据</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> * <span class="keyword">into</span> demo.dbo.hrmresource_test <span class="keyword">From</span> ecology.dbo.hrmresource</span><br></pre></td></tr></table></figure><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxkucf1wj319e0u0x5l.jpg" alt=""></p><p>两张表单对比,我这里的表单中没有数据，但是可以看到需要还原的demo库中对应的表单结构已经有了</p><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxp4rmjgj318s0u01kx.jpg" alt="ecology"></p><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxr7mbkxj31670u01kx.jpg" alt="demo库"></p><p>最后，我们使用下列命令将原来的表进行删除，并把HtmlLabelInfo_Test 重命名为HtmlLabelInfo</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//删除原有的表单,此处我的里边没有对用的表单,就没有执行这一步</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> [dbo].[Hrmresource]</span><br><span class="line">//表单重命名,或者在ssms操作工具中直接在actionsetting_test上摁下F2进行表单重命名</span><br><span class="line">EXEC sp_rename <span class="string">'Hrmresource_test'</span>,<span class="string">'Hrmresource'</span></span><br></pre></td></tr></table></figure><p>或者是在navicat中可以直接右键选择重命名，对表单的名称进行更改</p><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxs79m9wj30w20u07wh.jpg" alt=""></p><p>至此,在全量备份的情况下即可还原某一张表的数据。</p>]]></content>
-    
-    <summary type="html">
-    
-      sqlserver数据库通过全备份还原某张表数据
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="http://lwblog.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="sqlserver" scheme="http://lwblog.xyz/tags/sqlserver/"/>
     
   </entry>
   
