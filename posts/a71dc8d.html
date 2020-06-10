@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Mybatis学习笔记二 | 随笔小记</title>
+  <meta name="description" content="1. Mybatis逆向工程1.1 说明 MyBatis Generator官方文档地址  官方工程地址  依赖的包  1234567891011&lt;!--mybatis逆向工程依赖包--&gt;       &lt;dependency&gt;           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis学习笔记二">
+<meta property="og:url" content="http://lwblog.xyz/posts/a71dc8d.html">
+<meta property="og:site_name" content="随笔小记">
+<meta property="og:description" content="1. Mybatis逆向工程1.1 说明 MyBatis Generator官方文档地址  官方工程地址  依赖的包  1234567891011&lt;!--mybatis逆向工程依赖包--&gt;       &lt;dependency&gt;           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1ec5vpzj30pc0eqdi7.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1fqhsrdj315l0u07b9.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8jtopjwj315e0q6jwj.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8l20ikdj30oy08amyc.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lcrpp2j30wy0n6gqg.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lnaxpkj310m0pijwy.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lu4tvtj31ca094tbp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8m1jq87j316q0cotc7.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mhihjrj30s408mdhp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mo15jrj30s408mdhp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn931bghjj317a0mcn16.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn9ey08pxj312a0lon0i.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfnagofu78j30zm0u043h.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfng3gzkm0j30qh05f0uv.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngak3h1uj30ur02kt9l.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngl1c895j30ol066gn3.jpg">
+<meta property="article:published_time" content="2020-06-10T13:17:53.000Z">
+<meta property="article:modified_time" content="2020-06-10T13:18:55.544Z">
+<meta property="article:author" content="Mr.Wang">
+<meta property="article:tag" content="mybatis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1ec5vpzj30pc0eqdi7.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://lwblog.xyz/posts/a71dc8d.html">
+  
+    <link rel="alternate" href="/atom.xml" title="随笔小记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/wangyufei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Mr.Wang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 北京, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wangyufei123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">学习计划</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%9C%A8%E5%9C%A8%E7%BA%BF%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/">网络在在线传输工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK1-8/" rel="tag">JDK1.8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/activiti6-0/" rel="tag">activiti6.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-diriver/" rel="tag">google diriver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlserver/" rel="tag">sqlserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A5%B6%E7%89%9B%E5%BF%AB%E4%BC%A0/" rel="tag">奶牛快传</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" rel="tag">学习计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" rel="tag">文件传输</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B2%B9%E7%8C%B4/" rel="tag">油猴</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%9C%A8%E5%9C%A8%E7%BA%BF%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/" rel="tag">网络在在线传输工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/JDK1-8/" style="font-size: 13px;">JDK1.8</a> <a href="/tags/Mac/" style="font-size: 13px;">Mac</a> <a href="/tags/Tampermonkey/" style="font-size: 13px;">Tampermonkey</a> <a href="/tags/activiti6-0/" style="font-size: 13px;">activiti6.0</a> <a href="/tags/google-diriver/" style="font-size: 13px;">google diriver</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/maven/" style="font-size: 14px;">maven</a> <a href="/tags/mybatis/" style="font-size: 13px;">mybatis</a> <a href="/tags/sqlserver/" style="font-size: 13px;">sqlserver</a> <a href="/tags/%E5%A5%B6%E7%89%9B%E5%BF%AB%E4%BC%A0/" style="font-size: 13px;">奶牛快传</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" style="font-size: 13px;">学习计划</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" style="font-size: 13px;">文件传输</a> <a href="/tags/%E6%B2%B9%E7%8C%B4/" style="font-size: 13px;">油猴</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%9C%A8%E5%9C%A8%E7%BA%BF%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">网络在在线传输工具</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 13px;">调试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mybatis/">mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/a71dc8d.html" class="title">Mybatis学习笔记二</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-10T13:17:53.000Z" itemprop="datePublished">2020-06-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">学习计划</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/5e21c553.html" class="title">学习计划</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-10T13:11:13.000Z" itemprop="datePublished">2020-06-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/be02a930.html" class="title">Maven学习笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-05T05:33:18.000Z" itemprop="datePublished">2020-06-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/c9331070.html" class="title">IDEA中查看maven的依赖关系</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-05T05:32:58.000Z" itemprop="datePublished">2020-06-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/1d8f65f1.html" class="title">Activiti6.0工作流引擎学习(二) -- 引擎配置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-28T03:09:05.000Z" itemprop="datePublished">2020-05-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Mybatis学习笔记二" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        <!--首页的文章标题会走到这个页面-->
+
+  
+    <h1 class="article-title" itemprop="name">
+      Mybatis学习笔记二
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/a71dc8d.html" class="article-date">
+	  <time datetime="2020-06-10T13:17:53.000Z" itemprop="datePublished">2020-06-10</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/mybatis/" rel="tag">mybatis</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/a71dc8d.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.7k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="1-Mybatis逆向工程"><a href="#1-Mybatis逆向工程" class="headerlink" title="1. Mybatis逆向工程"></a>1. Mybatis逆向工程</h2><h3 id="1-1-说明"><a href="#1-1-说明" class="headerlink" title="1.1 说明"></a>1.1 说明</h3><ol>
+<li><p>MyBatis Generator<a href="http://mybatis.org/generator/#" target="_blank" rel="noopener">官方文档地址</a></p>
+</li>
+<li><p><a href="https://github.com/mybatis/generator/releases" target="_blank" rel="noopener">官方工程地址</a></p>
+</li>
+<li><p>依赖的包</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mybatis逆向工程依赖包--&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-逆向功能的配置文件"><a href="#1-2-逆向功能的配置文件" class="headerlink" title="1.2 逆向功能的配置文件"></a>1.2 逆向功能的配置文件</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">  PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD MyBatis Generator Configuration 1.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">  &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- </span><br><span class="line">		targetRuntime&#x3D;&quot;MyBatis3Simple&quot;:生成简单版的CRUD</span><br><span class="line">		MyBatis3:豪华版</span><br><span class="line">	</span><br><span class="line">	 --&gt;</span><br><span class="line">  &lt;context id&#x3D;&quot;DB2Tables&quot; targetRuntime&#x3D;&quot;MyBatis3&quot;&gt;</span><br><span class="line">  	&lt;!-- jdbcConnection：指定如何连接到目标数据库 --&gt;</span><br><span class="line">    &lt;jdbcConnection driverClass&#x3D;&quot;com.mysql.jdbc.Driver&quot;</span><br><span class="line">        connectionURL&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;mybatis?allowMultiQueries&#x3D;true&quot;</span><br><span class="line">        userId&#x3D;&quot;root&quot;</span><br><span class="line">        password&#x3D;&quot;123456&quot;&gt;</span><br><span class="line">    &lt;&#x2F;jdbcConnection&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--  --&gt;</span><br><span class="line">    &lt;javaTypeResolver &gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;forceBigDecimals&quot; value&#x3D;&quot;false&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaTypeResolver&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaModelGenerator：指定javaBean的生成策略 </span><br><span class="line">	targetPackage&#x3D;&quot;test.model&quot;：目标包名</span><br><span class="line">	targetProject&#x3D;&quot;\MBGTestProject\src&quot;：目标工程</span><br><span class="line">	--&gt;</span><br><span class="line">    &lt;javaModelGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.bean&quot; </span><br><span class="line">    		targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;trimStrings&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaModelGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- sqlMapGenerator：sql映射生成策略： --&gt;</span><br><span class="line">    &lt;sqlMapGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\conf&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;sqlMapGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaClientGenerator:指定mapper接口所在的位置 --&gt;</span><br><span class="line">    &lt;javaClientGenerator type&#x3D;&quot;XMLMAPPER&quot; targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaClientGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 指定要逆向分析哪些表：根据表要创建javaBean --&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_dept&quot; domainObjectName&#x3D;&quot;Department&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_employee&quot; domainObjectName&#x3D;&quot;Employee&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;context&gt;</span><br><span class="line">&lt;&#x2F;generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="2-Mybatis的运行原理"><a href="#2-Mybatis的运行原理" class="headerlink" title="2. Mybatis的运行原理"></a>2. Mybatis的运行原理</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1ec5vpzj30pc0eqdi7.jpg" alt="运行原理图"><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1fqhsrdj315l0u07b9.jpg" alt="框架原理图"></p>
+<h3 id="2-1-sqlsessionFactory的初始化"><a href="#2-1-sqlsessionFactory的初始化" class="headerlink" title="2.1 sqlsessionFactory的初始化"></a>2.1 sqlsessionFactory的初始化</h3><ol>
+<li>根据配置文件创建sqlsessionFactory<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8jtopjwj315e0q6jwj.jpg" alt=""></li>
+<li>几个重要的类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8l20ikdj30oy08amyc.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lcrpp2j30wy0n6gqg.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lnaxpkj310m0pijwy.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lu4tvtj31ca094tbp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8m1jq87j316q0cotc7.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mhihjrj30s408mdhp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mo15jrj30s408mdhp.jpg" alt="缓存中保存的key：方法id+sql+参数xxx"></li>
+</ol>
+<h3 id="2-2-openSession获取SqlSession对象"><a href="#2-2-openSession获取SqlSession对象" class="headerlink" title="2.2 openSession获取SqlSession对象"></a>2.2 openSession获取SqlSession对象</h3><p>返回SqlSession的实现类DefaultSqlSession对象。他里面包含了Executor和Configuration；Executor会在这一步被创建<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn931bghjj317a0mcn16.jpg" alt=""></p>
+<h3 id="2-3-getMapper获取到接口的代理对象"><a href="#2-3-getMapper获取到接口的代理对象" class="headerlink" title="2.3 getMapper获取到接口的代理对象"></a>2.3 getMapper获取到接口的代理对象</h3><p>getMapper返回接口的代理对象包含了SqlSession对象<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn9ey08pxj312a0lon0i.jpg" alt=""></p>
+<h3 id="2-4-查询实现"><a href="#2-4-查询实现" class="headerlink" title="2.4 查询实现"></a>2.4 查询实现</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfnagofu78j30zm0u043h.jpg" alt=""></p>
+<h2 id="3-插件"><a href="#3-插件" class="headerlink" title="3.插件"></a>3.插件</h2><p>MyBatis在四大对象的创建过程中，都会有插件进行介入。插件可以利用动态代理机制一层层的包装目标对象，而实现在目标对象执行目标方法之前进行拦截的效果。<br>MyBatis 允许在已映射语句执行过程中的某一点进行拦截调用。<br>默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：</p>
+<ul>
+<li>Executor(update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)</li>
+<li>ParameterHandler(getParameterObject, setParameters)</li>
+<li>ResultSetHandler(handleResultSets, handleOutputParameters)</li>
+<li>StatementHandler(prepare, parameterize, batch, update, query)</li>
+</ul>
+<h3 id="3-1-插件开发的步骤"><a href="#3-1-插件开发的步骤" class="headerlink" title="3.1 插件开发的步骤"></a>3.1 插件开发的步骤</h3><ol>
+<li><p>编写插件实现Interceptor接口并使用@Intercepts注解完成插件签名</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.in;</span><br><span class="line"></span><br><span class="line">import org.apache.ibatis.executor.statement.StatementHandler;</span><br><span class="line">import org.apache.ibatis.plugin.*;</span><br><span class="line"></span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * intercept:拦截目标对象的目标方法的执行</span><br><span class="line"> * 完成插件的签名：</span><br><span class="line"> *      告诉mybatis当前插件来拦截那个执行器的那个方法</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Intercepts(&#123;</span><br><span class="line">        @Signature(</span><br><span class="line">                type &#x3D; StatementHandler.class,method &#x3D; &quot;parameterize&quot;,args&#x3D;java.sql.Statement.class</span><br><span class="line">        )</span><br><span class="line">&#125;)</span><br><span class="line">public class MyFirstIn implements Interceptor &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Object intercept(Invocation invocation) throws Throwable &#123;</span><br><span class="line">        &#x2F;&#x2F;放行执行目标方法</span><br><span class="line">        Object proceed &#x3D; invocation.proceed();</span><br><span class="line">        return proceed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 插件包装</span><br><span class="line">     * 为目标对象创建一个代理对象</span><br><span class="line">     * @param target</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Object plugin(Object target) &#123;</span><br><span class="line">        Object wrap &#x3D; Plugin.wrap(target, this);</span><br><span class="line">        &#x2F;&#x2F;我们可以借助Plugin的wrap方法来使用当前的拦截器包装我们的对象</span><br><span class="line">        &#x2F;&#x2F;返回为当前target创建的动态代理</span><br><span class="line">        return wrap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 将插件注册时的properties属性注册出来</span><br><span class="line">     * @param properties</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void setProperties(Properties properties) &#123;</span><br><span class="line">        System.out.println(&quot;可以拿到插件的信息&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre></li>
+<li><p>在全局配置文件中注册插件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugins&gt;</span><br><span class="line">        &lt;plugin interceptor&#x3D;&quot;com.atguigu.in.MyFirstIn&quot;&gt;</span><br><span class="line">            &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;ceshi&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;plugins&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="4-mybatis批量操作"><a href="#4-mybatis批量操作" class="headerlink" title="4. mybatis批量操作"></a>4. mybatis批量操作</h2><ul>
+<li><p>默认的openSession() 方法没有参数,它会创建有如下特性的</p>
+<ul>
+<li>会开启一个事务(也就是不自动提交)</li>
+<li>连接对象会从由活动环境配置的数据源实例得到</li>
+<li>事务隔离级别将会使用驱动或数据源的默认设置</li>
+<li>预处理语句不会被复用,也不会批量处理更</li>
+</ul>
+</li>
+<li><p>openSession 方法的ExecutorType类型的参数，枚举类型:</p>
+<ul>
+<li>ExecutorType.SIMPLE: 这个执行器类型不做特殊的事情（这是默认装配的）。它为每个语句的执行创建一个新的预处理语句</li>
+<li>ExecutorType.REUSE: 这个执行器类型会复用预处理语句</li>
+<li>ExecutorType.BATCH: 这个执行器会批量执行所有更新语句<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfng3gzkm0j30qh05f0uv.jpg" alt=""></li>
+</ul>
+</li>
+<li><p>批量操作我们是使用MyBatis提供的BatchExecutor进行的，他的底层就是通过jdbc攒sql的方式进行的。我们可以让他攒够一定数量后发给数据库一次</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    publicvoidtest01() &#123;</span><br><span class="line">SqlSession openSession &#x3D; build.openSession(ExecutorType.BATCH);</span><br><span class="line">UserDao mapper &#x3D; openSession.getMapper(UserDao.class);</span><br><span class="line">longstart &#x3D; System.currentTimeMillis();</span><br><span class="line">for(inti &#x3D; 0; i &lt; 1000000; i++) &#123;</span><br><span class="line">String name &#x3D; UUID.randomUUID().toString().substring(0, 5);</span><br><span class="line">mapper.addUser(newUser(null, name, 13));</span><br><span class="line">&#125;</span><br><span class="line">openSession.commit();</span><br><span class="line">openSession.close();</span><br><span class="line">longend &#x3D; System.currentTimeMillis();</span><br><span class="line">System.out.println(&quot;耗时时间：&quot;+(end-start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>与Spring整合中，我们推荐，额外的配置一个可以专门用来执行批量操作的sqlSession<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngak3h1uj30ur02kt9l.jpg" alt=""></p>
+</li>
+<li><p>需要用到批量操作的时候，我们可以注入配置的这个批量SqlSession。通过他获取到mapper映射器进行操作</p>
+</li>
+</ul>
+<p><strong><em>注意</em></strong></p>
+<ol>
+<li>批量操作是在session.commit()以后才发送sql语句给数据库进行执行的</li>
+<li>如果我们想让其提前执行，以方便后续可能的查询操作获取数据，我们可以使用sqlSession.flushStatements()方法，让其直接冲刷到数据库进行执行</li>
+</ol>
+<h2 id="5-一个带游标的存储过程"><a href="#5-一个带游标的存储过程" class="headerlink" title="5. 一个带游标的存储过程"></a>5. 一个带游标的存储过程</h2><ul>
+<li><p>MyBatis对存储过程的游标提供了一个JdbcType=CURSOR的支持，可以智能的把游标读取到的数据，映射到我们声明的结果集中</p>
+</li>
+<li><p>存储过程的调用</p>
+<ul>
+<li><p>select标签中statementType=“CALLABLE”</p>
+</li>
+<li><p>标签体中调用语法：{call procedure_name(#{param1_info},#{param2_info})}</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngl1c895j30ol066gn3.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-自定义TypeHandler处理枚举"><a href="#6-自定义TypeHandler处理枚举" class="headerlink" title="6.自定义TypeHandler处理枚举"></a>6.自定义TypeHandler处理枚举</h2><ul>
+<li>我们可以通过自定义TypeHandler的形式来在设置参数或者取出结果集的时候自定义参数封装策略</li>
+<li>步骤<ul>
+<li>实现TypeHandler接口或者继承BaseTypeHandler</li>
+<li>使用@MappedTypes定义处理的java类型</li>
+<li>使用@MappedJdbcTypes定义jdbcType类型</li>
+<li>在自定义结果集标签或者参数处理的时候声明使用自定义TypeHandler进行处理，或者在全局配置TypeHandler要处理的javaType</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <!--每篇文章下的版权说明-->
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://lwblog.xyz/posts/a71dc8d.html" title="Mybatis学习笔记二" target="_blank" rel="external">http://lwblog.xyz/posts/a71dc8d.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+<!--每篇文章最底部的个人信息说明-->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/wangyufei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpeg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/wangyufei123" target="_blank"><span class="text-dark">Mr.Wang</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>一个热爱生活的小开发....</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+    <!--上一篇或者是下一篇的位置-->
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/posts/5e21c553.html" title="学习计划"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!--捐赠信息是否需要显示的图标-->
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wangyufei123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+	<!-- 侧边栏版权问题修改 -->
+    <div class="copyright">
+    	
+        &copy; 2020 Mr.Wang
+        
+        <!-- 页面侧边栏脚标修改 -->
+        <div class="publishby">
+        	Theme by <a href="https://github.com/wangyufei123" target="_blank"> 随笔小记 </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'a1SlXAotYrikeQEkob4dUwEO-gzGzoHsz',
+    appKey: 'A9wmspkpn043w1kJDU9CEXgt',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+<!--背景3D动画-->
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<!--点击出现小爱心-->
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js"></script>
+<!-- 代码块复制功能 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/clipboard.js"></script>  -->
+<script type="text/javascript" src="/js/clipboard_use.js"></script>
+</html>

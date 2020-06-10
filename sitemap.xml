@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lwblog.xyz/posts/a71dc8d.html</loc>
+    
+    <lastmod>2020-06-10T13:18:55.544Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lwblog.xyz/posts/5e21c553.html</loc>
+    
+    <lastmod>2020-06-10T13:15:05.248Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lwblog.xyz/posts/c9331070.html</loc>
     
     <lastmod>2020-06-05T05:36:44.215Z</lastmod>
@@ -86,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://lwblog.xyz/lib/jquery_lazyload/bower.json</loc>
+    <loc>http://lwblog.xyz/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2020-05-08T14:21:38.767Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lwblog.xyz/lib/jquery_lazyload/README.html</loc>
+    <loc>http://lwblog.xyz/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2020-05-08T14:21:38.767Z</lastmod>
     
