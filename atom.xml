@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lwblog.xyz/"/>
-  <updated>2020-06-10T13:18:55.544Z</updated>
+  <updated>2020-08-13T01:37:41.416Z</updated>
   <id>http://lwblog.xyz/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>StartUML使用技巧.md</title>
+    <link href="http://lwblog.xyz/posts/80aa353a.html"/>
+    <id>http://lwblog.xyz/posts/80aa353a.html</id>
+    <published>2020-08-13T01:36:12.000Z</published>
+    <updated>2020-08-13T01:37:41.416Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="StartUML使用技巧"><a href="#StartUML使用技巧" class="headerlink" title="StartUML使用技巧"></a>StartUML使用技巧</h1><h2 id="1-工作界面简单介绍"><a href="#1-工作界面简单介绍" class="headerlink" title="1. 工作界面简单介绍"></a>1. 工作界面简单介绍</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdlytwsyij31dc0u0ass.jpg" alt=""></p><h2 id="2-类组件的基本操作介绍"><a href="#2-类组件的基本操作介绍" class="headerlink" title="2.类组件的基本操作介绍"></a>2.类组件的基本操作介绍</h2><p>单击选择Class，至工作区域内单机左键，即可创建一个class实例。创建实例后，周围会出现一堆，功能按钮，去描述这个类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdm3rtyovj30zc0fk77t.jpg" alt=""><br>功能介绍：</p><ol><li>用来标识Class的可见性</li><li>用来添加note的，比如：类的说明</li><li>增加类的属性</li><li>增加类的操作方法</li><li>增加Reception</li><li>增加子类</li><li>增加父类</li><li>添加已有的接口</li><li>添加需要的接口</li><li>添加关联</li><li>添加聚合</li><li>添加组合</li><li>添加端口</li><li>添加部件</li></ol><h2 id="3-类与类之间的关系"><a href="#3-类与类之间的关系" class="headerlink" title="3. 类与类之间的关系"></a>3. 类与类之间的关系</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmh7zo5mj30s60l8whj.jpg" alt=""></p><ol><li><strong>聚合关系(Aggregation)</strong>：表示一个整体与部分的关系。在聚合关系中，成员类是整体类的一部分，即成员对象是整体对象的一部分，成员对象可以脱离整体对象独立存在。  在 UML 中，<em>聚合关系用带空心菱形的直线表示</em>。</li><li><strong>组合关系(Composition)</strong>：组合关系也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在，部分对象与整体对象之间具有同生共死的关系。在组合关系中，成员类是整体类的一部分，而且整体类可以控制成员类的生命周期，即成员类的存在依赖于整体类。   在UML中，<em>组合关系用带实心菱形的直线表示</em>。</li><li><strong>依赖关系(Dependency)</strong>：依赖关系是一种使用关系，特定事物的改变有可能会影响到使用该事物的其他事物，在需要表示一个事物使用另一个事物时使用依赖关系。大多数情况下，依赖关系体现在某个类的方法使用另一个类的对象作为参数。在UML中，<em>依赖关系用带箭头的虚线表示</em>，由依赖的一方指向被依赖的一方。</li><li><strong>泛化关系(Generalization)</strong>：也就是继承关系，也称为“is-a-kind-of”关系，泛化关系用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在 UML 中，<em>泛化关系用带空心三角形的直线来表示</em>。</li><li><strong>实现关系</strong>：实现关系(Realization)是类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，<em>类与接口之间的实现关系用带空心三角形的虚线来表示</em>。</li><li><strong>关联关系(Association)</strong>：类与类之间最常用的一种关系，它是一种结构化关系，用于表示一个类对象与另一个类对象之间有联系。在 UML 类图中，用实线连接有关联的对象所对应的类。在实现关联关系时，通常将一个类的对象作为另一个类的属性。<ul><li><strong>单向关联</strong>：类的关联关系可以是单向的，<em>单向关联用带箭头的实线表示。Ctril + L</em>  弄直<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmzpjhldj30lp02rmxh.jpg" alt=""> </li><li><strong>双向关联</strong>：默认情况下，<em>关联是双向的</em><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn06ezb6j30lu02t74o.jpg" alt=""></li><li><strong>自关联</strong>：在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0jz27zj30ax05nq34.jpg" alt=""></li><li><strong>重数性关联</strong>：重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。在 UML 中多重性关系可以直接在关联直线上增加一个数字表示与之对应的另一个类的对象的个数<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0v8ff2j30m402x0t0.jpg" alt=""><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn128z7pj30ix07ogmi.jpg" alt=""></li></ul></li></ol><h2 id="4-UML方法的返回值"><a href="#4-UML方法的返回值" class="headerlink" title="4. UML方法的返回值"></a>4. UML方法的返回值</h2><p>Operation的返回值：StarUML添加一个Operation，要Add一个Parameter，将这个Parameter的DirectionKind设为RETURN。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdnfom3v9j31do0u0q9o.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;StartUML使用技巧&quot;&gt;&lt;a href=&quot;#StartUML使用技巧&quot; class=&quot;headerlink&quot; title=&quot;StartUML使用技巧&quot;&gt;&lt;/a&gt;StartUML使用技巧&lt;/h1&gt;&lt;h2 id=&quot;1-工作界面简单介绍&quot;&gt;&lt;a href=&quot;#1-工
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Mybatis学习笔记二</title>
