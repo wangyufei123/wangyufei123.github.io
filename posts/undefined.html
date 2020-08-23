@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Centos7下静默安装Oracle 11g | 随笔小记</title>
+  <meta name="description" content="[TOC] Centos7下静默安装Oracle 11g(无图形化界面)说明: 因为使用的是静默安装，所以我们不需要安装Linux的图形界面，只需要对Linux进行最小化安装即可  前提准备1. Centos7 的系统环境 系统版本：CentOS Linux release 7.6.1810 (Core)  腾讯云系统 内核版本： 系统配置 交换空间  因为腾讯云的原因，默认是不提供swap分区的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos7下静默安装Oracle 11g">
+<meta property="og:url" content="http://lwblog.xyz/posts/undefined.html">
+<meta property="og:site_name" content="随笔小记">
+<meta property="og:description" content="[TOC] Centos7下静默安装Oracle 11g(无图形化界面)说明: 因为使用的是静默安装，所以我们不需要安装Linux的图形界面，只需要对Linux进行最小化安装即可  前提准备1. Centos7 的系统环境 系统版本：CentOS Linux release 7.6.1810 (Core)  腾讯云系统 内核版本： 系统配置 交换空间  因为腾讯云的原因，默认是不提供swap分区的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0rgdg0jhj31ek0u0wnn.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0tm4nn0aj314o0j6k29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0uit4zvzj31da0oogoq.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0uk1jac2j31580qa41x.jpg">
+<meta property="article:published_time" content="2020-08-23T09:38:23.000Z">
+<meta property="article:modified_time" content="2020-08-23T09:39:36.586Z">
+<meta property="article:author" content="Mr.Wang">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0rgdg0jhj31ek0u0wnn.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://lwblog.xyz/posts/undefined.html">
+  
+    <link rel="alternate" href="/atom.xml" title="随笔小记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/wangyufei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Mr.Wang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 北京, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wangyufei123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">学习计划</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%9C%A8%E5%9C%A8%E7%BA%BF%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/">网络在在线传输工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK1-8/" rel="tag">JDK1.8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/activiti6-0/" rel="tag">activiti6.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-diriver/" rel="tag">google diriver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/" rel="tag">oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlserver/" rel="tag">sqlserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A5%B6%E7%89%9B%E5%BF%AB%E4%BC%A0/" rel="tag">奶牛快传</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" rel="tag">学习计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" rel="tag">文件传输</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B2%B9%E7%8C%B4/" rel="tag">油猴</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%9C%A8%E5%9C%A8%E7%BA%BF%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/" rel="tag">网络在在线传输工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/JDK1-8/" style="font-size: 13px;">JDK1.8</a> <a href="/tags/Mac/" style="font-size: 13px;">Mac</a> <a href="/tags/Tampermonkey/" style="font-size: 13px;">Tampermonkey</a> <a href="/tags/activiti6-0/" style="font-size: 13px;">activiti6.0</a> <a href="/tags/google-diriver/" style="font-size: 13px;">google diriver</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/maven/" style="font-size: 14px;">maven</a> <a href="/tags/mybatis/" style="font-size: 13px;">mybatis</a> <a href="/tags/oracle/" style="font-size: 13px;">oracle</a> <a href="/tags/sqlserver/" style="font-size: 13px;">sqlserver</a> <a href="/tags/%E5%A5%B6%E7%89%9B%E5%BF%AB%E4%BC%A0/" style="font-size: 13px;">奶牛快传</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" style="font-size: 13px;">学习计划</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" style="font-size: 13px;">文件传输</a> <a href="/tags/%E6%B2%B9%E7%8C%B4/" style="font-size: 13px;">油猴</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%9C%A8%E5%9C%A8%E7%BA%BF%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">网络在在线传输工具</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 13px;">调试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/posts/undefined.html" class="title">Centos7下静默安装Oracle 11g</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-23T09:38:23.000Z" itemprop="datePublished">2020-08-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/posts/671486fb.html" class="title">MySQL学习笔记二</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-17T01:04:45.000Z" itemprop="datePublished">2020-08-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/posts/f2612c14.html" class="title">MySQL高级部分学习一</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-17T01:04:14.000Z" itemprop="datePublished">2020-08-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/posts/8d9f420d.html" class="title">MySQL数据库学习笔记.md</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-17T01:03:37.000Z" itemprop="datePublished">2020-08-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/posts/80aa353a.html" class="title">StartUML使用技巧.md</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-13T01:36:12.000Z" itemprop="datePublished">2020-08-13</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="centos7下静默安装oracle-11g" class="article article-type-centos7下静默安装oracle" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        <!--首页的文章标题会走到这个页面-->
+
+  
+    <h1 class="article-title" itemprop="name">
+      Centos7下静默安装Oracle 11g
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/undefined.html" class="article-date">
+	  <time datetime="2020-08-23T09:38:23.000Z" itemprop="datePublished">2020-08-23</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/oracle/" rel="tag">oracle</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/undefined.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 5.7k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 26(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="Centos7下静默安装Oracle-11g-无图形化界面"><a href="#Centos7下静默安装Oracle-11g-无图形化界面" class="headerlink" title="Centos7下静默安装Oracle 11g(无图形化界面)"></a>Centos7下静默安装Oracle 11g(无图形化界面)</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h2><ul>
+<li>因为使用的是静默安装，所以我们不需要安装Linux的图形界面，只需要对Linux进行最小化安装即可</li>
+</ul>
+<h2 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h2><h3 id="1-Centos7-的系统环境"><a href="#1-Centos7-的系统环境" class="headerlink" title="1. Centos7 的系统环境"></a>1. Centos7 的系统环境</h3><ul>
+<li>系统版本：CentOS Linux release 7.6.1810 (Core) </li>
+<li>腾讯云系统</li>
+<li>内核版本：</li>
+<li>系统配置</li>
+<li>交换空间</li>
+</ul>
+<p>因为腾讯云的原因，默认是不提供swap分区的，这里需要自己手动添加一下。在别的系统上可以视情况而定。如果没有swap的分区的，在安装数据库的时候会出现报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;swap bs&#x3D;1024 count&#x3D;2048000</span><br><span class="line">mkswap &#x2F;swap</span><br><span class="line">chmod 600 &#x2F;swap</span><br><span class="line">swapon &#x2F;swap</span><br><span class="line">echo &quot;&#x2F;swap swap swap default 0 0&quot;&gt;&gt;&#x2F;etc&#x2F;fstab  #设置成自动挂载</span><br></pre></td></tr></table></figure>
+<h3 id="2-配置hostname"><a href="#2-配置hostname" class="headerlink" title="2.配置hostname"></a>2.配置hostname</h3><p>此步骤不是必须滴</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname oracledb</span><br><span class="line">echo &quot;127.0.0.1     oracledb&quot; &gt;&gt;&#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
+<h3 id="3-关闭selinux"><a href="#3-关闭selinux" class="headerlink" title="3.关闭selinux"></a>3.关闭selinux</h3><p>此步骤可以视情况而定，本次案例安装的时候执行了此命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;s&#x2F;SELINUX&#x3D;enforcing&#x2F;SELINUX&#x3D;disabled&#x2F;&quot; &#x2F;etc&#x2F;selinux&#x2F;config  </span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-下载Oracle"><a href="#2-下载Oracle" class="headerlink" title="2. 下载Oracle"></a>2. 下载Oracle</h2><p><a href="https://www.oracle.com/database/technologies/oracle-database-software-downloads.html" target="_blank" rel="noopener">官网下载地址</a><br>根据自己的服务器，下载相应的软件，我的系统是centos7 64位的，所以下载是Linux x86-64的，下载完成后的两个文件如下:</p>
+<ul>
+<li>linux.x64_11gR2_database_1of2.zip</li>
+<li>linux.x64_11gR2_database_2of2.zip<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0rgdg0jhj31ek0u0wnn.jpg" alt=""></li>
+<li><strong>说明:*</strong><br>Oracle系统下载的时候请下载Linux x86-64位的系统，请不要下载zlinux，zlinux是IBM的操作系统的一bai个版本。zLinux就是在baiIBM大机上装Linux，目前主要有RedHat与SUSE for z</li>
+</ul>
+<h2 id="3-检查软件依赖环境"><a href="#3-检查软件依赖环境" class="headerlink" title="3.检查软件依赖环境"></a>3.检查软件依赖环境</h2><p><span style="color:red">注意：从Oracle 11g 11.2.0.2版本开始，在Linux x86_64上安装时，只需要安装64位的软件包，但是，对于11.2.0.2之前的任何Oracle database 11g,下表中列出的32位和64位的安装包都必须安装</span></p>
+<p>需要安装的依赖包(版本号只能大于规定的版本，不能小于)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">binutils-2.23.52.0.1-12.el7.x86_64 </span><br><span class="line">compat-libcap1-1.10-3.el7.x86_64 </span><br><span class="line">compat-libstdc++-33-3.2.3-71.el7.i686</span><br><span class="line">compat-libstdc++-33-3.2.3-71.el7.x86_64</span><br><span class="line">gcc-4.8.2-3.el7.x86_64 </span><br><span class="line">gcc-c++-4.8.2-3.el7.x86_64 </span><br><span class="line">glibc-2.17-36.el7.i686 </span><br><span class="line">glibc-2.17-36.el7.x86_64 </span><br><span class="line">glibc-devel-2.17-36.el7.i686 </span><br><span class="line">glibc-devel-2.17-36.el7.x86_64 </span><br><span class="line">ksh</span><br><span class="line">libaio-0.3.109-9.el7.i686 </span><br><span class="line">libaio-0.3.109-9.el7.x86_64 </span><br><span class="line">libaio-devel-0.3.109-9.el7.i686 </span><br><span class="line">libaio-devel-0.3.109-9.el7.x86_64 </span><br><span class="line">libgcc-4.8.2-3.el7.i686 </span><br><span class="line">libgcc-4.8.2-3.el7.x86_64 </span><br><span class="line">libstdc++-4.8.2-3.el7.i686 </span><br><span class="line">libstdc++-4.8.2-3.el7.x86_64 </span><br><span class="line">libstdc++-devel-4.8.2-3.el7.i686 </span><br><span class="line">libstdc++-devel-4.8.2-3.el7.x86_64 </span><br><span class="line">libXi-1.7.2-1.el7.i686 </span><br><span class="line">libXi-1.7.2-1.el7.x86_64 </span><br><span class="line">libXtst-1.2.2-1.el7.i686 </span><br><span class="line">libXtst-1.2.2-1.el7.x86_64 </span><br><span class="line">make-3.82-19.el7.x86_64 </span><br><span class="line">sysstat-10.1.5-1.el7.x86_64</span><br><span class="line">unixODBC-2.3.1-6.el7.i686</span><br><span class="line">unixODBC-2.3.1-6.el7.x86_64</span><br><span class="line">unixODBC-devel-2.3.1-6.el7.i686</span><br><span class="line">unixODBC-devel-2.3.1-6.el7.x86_64</span><br></pre></td></tr></table></figure>
+<p>安装命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install binutils compat-libcap1 compat-libstdc++-33 gcc gcc-c++ glibc glibc-devel ksh libaio libaio-devel libgcc libstdc++ libstdc++-devel libXi libXtst make sysstat unixODBC unixODBC-devel</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，检查依赖是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -q binutils compat-libcap1 compat-libstdc++-33 gcc gcc-c++ glibc glibc-devel ksh libaio libaio-devel libgcc libstdc++ libstdc++-devel libXi libXtst make sysstat unixODBC unixODBC-devel | grep &quot;not installed&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>注：本次安装使用的是腾讯云的centos服务器，腾讯云的yum源已经有了。如果您使用的是其他环境，缺少那个依赖包，就手动下载安装即可。</strong></p>
+<h2 id="4-创建所需的操作系统组和用户"><a href="#4-创建所需的操作系统组和用户" class="headerlink" title="4. 创建所需的操作系统组和用户"></a>4. 创建所需的操作系统组和用户</h2><p>如果要安装Oracle数据库，则需要以下本地操作系统组和用户:</p>
+<ul>
+<li>Oracle inventory组(通常为 oinstall)</li>
+<li>OSDBA组 (通常为 dba)</li>
+<li>OSOPER组 (通常为 oper)</li>
+<li>Oracle软件所有者(通常为 oracle)</li>
+</ul>
+<p>添加命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd oinstall</span><br><span class="line">groupadd dba</span><br><span class="line">groupadd oper</span><br><span class="line">useradd -g oinstall -G dba,oper oracle</span><br></pre></td></tr></table></figure>
+<p>添加完成后，查看oracle用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id oracle</span><br></pre></td></tr></table></figure>
+<p>修改oracle用户密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd oracle</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-配置内核参数和资源限制"><a href="#5-配置内核参数和资源限制" class="headerlink" title="5. 配置内核参数和资源限制"></a>5. 配置内核参数和资源限制</h2><ol>
+<li>在<code>/etc/sysctl.conf</code>添加如下的参数，如果系统中某个参数高于下面的参数的值。保留较大的值，下面的数值之事官方要求的最小值。可以根据系统调整数值。以优化系统性能。具体参数说明请详见[内核参数说明](# 6.内核参数说明)</li>
+</ol>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line"></span><br><span class="line">fs.aio-max-nr &#x3D; 1048576</span><br><span class="line">fs.file-max &#x3D; 6815744</span><br><span class="line">kernel.shmall &#x3D; 2097152</span><br><span class="line">kernel.shmmax &#x3D; 536870912</span><br><span class="line">kernel.shmmni &#x3D; 4096</span><br><span class="line">kernel.sem &#x3D; 250 32000 100 128</span><br><span class="line">net.ipv4.ip_local_port_range &#x3D; 9000 65500</span><br><span class="line">net.core.rmem_default &#x3D; 262144</span><br><span class="line">net.core.rmem_max &#x3D; 4194304</span><br><span class="line">net.core.wmem_default &#x3D; 262144</span><br><span class="line">net.core.wmem_max &#x3D; 1048576</span><br></pre></td></tr></table></figure></code></pre><ol>
+<li><p>使内核参数生效</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p 或者执行：&#x2F;sbin&#x2F;sysctl -p</span><br></pre></td></tr></table></figure></li>
+<li><p>在<code>/etc/security/limits.conf</code>中添加如下参数</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;security&#x2F;limits.conf</span><br><span class="line"></span><br><span class="line">oracle              soft    nproc   2047</span><br><span class="line">oracle              hard    nproc   16384</span><br><span class="line">oracle              soft    nofile  1024</span><br><span class="line">oracle              hard    nofile  65536</span><br><span class="line">oracle              soft    stack   10240</span><br></pre></td></tr></table></figure></li>
+<li><p>在<code>/etc/pam.d/login</code>文件中，添加下面内容</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session required &#x2F;lib64&#x2F;security&#x2F;pam_limits.so</span><br><span class="line">session required pam_limits.so</span><br></pre></td></tr></table></figure></li>
+<li><p><code>/etc/profile</code>文件中添加如下内容</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if [ $USER &#x3D; &quot;oracle&quot; ]; then</span><br><span class="line">   if [ $SHELL &#x3D; &quot;&#x2F;bin&#x2F;ksh&quot; ]; then</span><br><span class="line">       ulimit -p 16384</span><br><span class="line">       ulimit -n 65536</span><br><span class="line">    else</span><br><span class="line">       ulimit -u 16384 -n 65536</span><br><span class="line">   fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></li>
+<li><p>使用<code>/etc/profile</code>文件生效</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure></li>
+<li><p>禁用使用Transparent HugePages(启用Transparent HugePages,可能会导致造成内存在运行时的延迟分配，Oracle官方建议使用标准的HugePages)</p>
+<ul>
+<li><p>查看是否启用 如果显示 [always]说明启用了</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</span><br></pre></td></tr></table></figure></li>
+<li><p>禁用Transparent HugePages,在/etc/grub.conf添加如下内容</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</span><br></pre></td></tr></table></figure></li>
+<li><p>重启系统以使更改成为永久更改：<code>reboot</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="6-内核参数说明"><a href="#6-内核参数说明" class="headerlink" title="6.内核参数说明"></a>6.内核参数说明</h2><ul>
+<li><code>fs.aio-max-nr</code>:同时可以拥有的的异步IO请求数目。1048576 即 1024*1024 也就是 1024K 个</li>
+<li><code>fs.file-max</code>:系统允许打开的文件数。</li>
+<li><code>kernel.shmall</code>:设置共享内存总页数。这个值太小有可能导致数据库启动报错,计算公式为：内存（G）* 1024 <em>1024</em>*1024/4096,4096为getconfPAGE_SIZE得到分页大小</li>
+<li><code>kernel.shmmax</code>:Linux进程可以分配的单独共享内存段的最大值。一般设置为内存总大小的一半。这个值的设置应该大于SGA_MAX_TARGET或MEMORY_MAX_TARGET的值，因此对于安装Oracle数据库的系统，shmmax的值应该比内存的二分之一大一些。</li>
+<li><code>kernel.shmmni</code>:设置系统级最大共享内存段数量。推荐最小值为4096</li>
+<li><code>kernel.sem</code>:从左到右分别为SEMMSL、SEMMNS、SEMOPM和SEMMNI。<ul>
+<li><code>SEMMSL</code>:设置每个信号灯组中信号灯最大数量，推荐的最小值是250。对于系统中存在大量并发连接的系统，推荐将这个值设置为PROCESSES初始化参数加10</li>
+<li><code>SEMMNS</code>:设置系统中信号灯的最大数量。操作系统在分配信号灯时不会超过LEAST(SEMMNS,SEMMSL<em>SEMMNI)。事实上，如果SEMMNS的值超过了SEMMSL</em>SEMMNI是非法的，因此推荐SEMMNS的值就设置为SEMMSL<em>SEMMNI。Oracle推荐SEMMNS的设置不小于32000，假如数据库的PROCESSES参数设置为600，则SEMMNS的设置应为：SQL&gt; select (600+10)</em>142 from dual;(600+10)*142/86620</li>
+<li><code>SEMOPM</code>:设置每次系统调用可以同时执行的最大信号灯操作的数量。由于一个信号灯组最多拥有SEMMSL个信号灯，因此有推荐将SEMOPM设置为SEMMSL的值。Oracle验证的10.2和11.1的SEMOPM的配置为100。</li>
+<li><code>SEMMNI</code>:设置系统中信号灯组的最大数量。Oracle10g和11g的推荐值为142</li>
+</ul>
+</li>
+<li><code>net.ipv4.ip_local_port_range</code>:ip_local_port_range表示端口的范围，为指定的内容</li>
+<li><code>net.core.rmem_default</code>:表示接收套接字缓冲区大小的缺省值（以字节为单位）。</li>
+<li><code>net.core.rmem_max</code>:表示接收套接字缓冲区大小的最大值（以字节为单位）</li>
+<li><code>net.core.wmem_default</code>:表示发送套接字缓冲区大小的缺省值（以字节为单位）</li>
+<li><code>net.core.wmem_max</code>:表示发送套接字缓冲区大小的最大值（以字节为单位）</li>
+</ul>
+<h2 id="7-创建oracle安装目录"><a href="#7-创建oracle安装目录" class="headerlink" title="7. 创建oracle安装目录"></a>7. 创建oracle安装目录</h2><p>如下目录，可以根据自己的实际情况可做修改。我这里使用的是<code>/u01</code>作为根目录的，这样在以后的配置的时候感觉会省很多的事情。主要也是为了与公司产品数据库安装的时候配置路径保持一致。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;u01&#x2F;app&#x2F;oracle </span><br><span class="line">mkdir -p &#x2F;u01&#x2F;app&#x2F;oraInventory</span><br><span class="line">chown -R oracle:oinstall &#x2F;u01&#x2F;</span><br><span class="line">chown -R oracle:oinstall &#x2F;u01&#x2F;app&#x2F;oracle</span><br><span class="line">chown -R oracle:oinstall &#x2F;u01&#x2F;app&#x2F;oraInventory</span><br><span class="line">chmod -R 775 &#x2F;u01&#x2F;</span><br></pre></td></tr></table></figure>
+<p>部分路径说明</p>
+<ul>
+<li>./app/oracle/product/11.2.0 ：数据库系统安装目录</li>
+<li>./app/oracle/backup：数据备份目录</li>
+<li>./app/oracle/oraInventory：清单目录</li>
+</ul>
+<h2 id="8-配置oracle用户环境变量"><a href="#8-配置oracle用户环境变量" class="headerlink" title="8. 配置oracle用户环境变量"></a>8. 配置oracle用户环境变量</h2><p>在文件<code>~/.bash_profile</code>里添加下面的内容(具体值根据实际情况修改)<br>切换到oracle用户:<code>su - oracle</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">TMP&#x3D;&#x2F;tmp; export TMP</span><br><span class="line">TMPDIR&#x3D;$TMP; export TMPDIR</span><br><span class="line">ORACLE_UNQNAME&#x3D;ecology; export ORACLE_UNQNAME</span><br><span class="line">ORACLE_BASE&#x3D;&#x2F;u01&#x2F;app&#x2F;oracle; export ORACLE_BASE</span><br><span class="line">ORACLE_HOME&#x3D;&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;db_1; export ORACLE_HOME</span><br><span class="line">ORACLE_SID&#x3D;ecology; export ORACLE_SID</span><br><span class="line">PATH&#x3D;$PATH:&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;db_1&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;sbin:&#x2F;usr&#x2F;sbin; export PATH</span><br><span class="line">LD_LIBRARY_PATH&#x3D;&#x2F;lib:&#x2F;lib:&#x2F;usr&#x2F;lib:$ORACLE_HOME&#x2F;lib; exoprt LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+<h2 id="9-重启一下系统"><a href="#9-重启一下系统" class="headerlink" title="9. 重启一下系统"></a>9. 重启一下系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<h2 id="10-解压下载好的两个Oracle数据库"><a href="#10-解压下载好的两个Oracle数据库" class="headerlink" title="10. 解压下载好的两个Oracle数据库"></a>10. 解压下载好的两个Oracle数据库</h2><p><span style="color:red"><strong>解压的顺序需要注意一下，先解压一，然后在解压二</strong></span><br>将上传到系统的oracle安装包解压到上边新建的<code>/u01</code>路径下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip -q linux.x64_11gR2_database_1of2.zip -d &#x2F;u01</span><br><span class="line">unzip -q linux.x64_11gR2_database_2of2.zip -d &#x2F;u01</span><br></pre></td></tr></table></figure>
+<p>创建一个新的文件夹，将解压后的应答文件放到新建的文件夹中,或者是在原路径下copy一份文件，最好是不要在原文件上修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;data&#x2F;etc</span><br><span class="line"># 复制响应文件</span><br><span class="line">cp &#x2F;u01&#x2F;database&#x2F;response&#x2F;* &#x2F;data&#x2F;etc&#x2F;</span><br><span class="line">#设置响应文件权限</span><br><span class="line">su - root</span><br><span class="line">chmod 700 &#x2F;data&#x2F;etc&#x2F;*.rsp</span><br></pre></td></tr></table></figure>
+<p>复制到<code>/data/etc</code>目录下的文件作用</p>
+<ul>
+<li>db_install.rsp:安装应答</li>
+<li>dbca.rsp：创建数据库应答</li>
+<li>netca.rsp:建立监听、本地服务名等网络设置应答</li>
+<li>特别是组件配置事后请用如右语句查询核实(select comp_id, comp_name, version, status from dba_registry)</li>
+</ul>
+<p>在<code>/data/etc/db_install.rsp</code>修改以下变量的值<br><span style="color:red">在配置对应的文件前，请先阅读 11.<code>db_install.rsp</code>应答文件参数说明 </span></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;data&#x2F;etc&#x2F;</span><br><span class="line">vim db_install.rsp</span><br><span class="line"></span><br><span class="line">oracle.install.option&#x3D;INSTALL_DB_SWONLY</span><br><span class="line">ORACLE_HOSTNAME&#x3D;xiaofeifei					#用hostname命令查看</span><br><span class="line">UNIX_GROUP_NAME&#x3D;oinstall</span><br><span class="line">INVENTORY_LOCATION&#x3D;&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;inventory</span><br><span class="line">SELECTED_LANGUAGES&#x3D;en,zh_CN</span><br><span class="line">ORACLE_HOME&#x3D;&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;db_1</span><br><span class="line">ORACLE_BASE&#x3D;&#x2F;u01&#x2F;app&#x2F;oracle</span><br><span class="line">oracle.install.db.InstallEdition&#x3D;EE</span><br><span class="line">oracle.install.db.DBA_GROUP&#x3D;dba</span><br><span class="line">oracle.install.db.OPER_GROUP&#x3D;dba</span><br><span class="line">DECLINE_SECURITY_UPDATES&#x3D;true</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-db-install-rsp应答文件参数说明"><a href="#11-db-install-rsp应答文件参数说明" class="headerlink" title="11.db_install.rsp应答文件参数说明"></a>11.<code>db_install.rsp</code>应答文件参数说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">oracle.install.responseFileVersion&#x3D;&#x2F;oracle&#x2F;install&#x2F;rspfmt_dbinstall_response_schema_v11_2_0&#x2F;&#x2F;标注响应文件版本.注解文件版本，这个版本必须和要＃安装的数据库版本相同，安装检验无法通过，不能更改 </span><br><span class="line"> oracle.install.option&#x3D;INSTALL_DB_SWONLY #INSTALL_DB_SWONLY:只装数据库软件;INSTALL_DB_AND_CONFIG:安装数据库软件并建库;UPGRADE_DB:升级数据库</span><br><span class="line"> ORACLE_HOSTNAME&#x3D;主机名 #指定操作系统主机名，通过hostname 命令获得</span><br><span class="line"> UNIX_GROUP_NAME&#x3D;oinstall&#x2F;&#x2F;指定oracle inventory目录的所有者</span><br><span class="line"> INVENTORY_LOCATION&#x3D;&#x2F;u01&#x2F;app&#x2F;oraInventory指定产品清单oracle inventory目录的路径，win平台下可以生路</span><br><span class="line"> SELECTED_LANGUAGES&#x3D;en,zh_CN&#x2F;&#x2F;指定语言,可以选择多个，用逗号隔开。选择en, zh_CN(英文和简体中文)</span><br><span class="line"> ORACLE_HOME&#x3D;&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;db_home1&#x2F;&#x2F;设置ORALCE_HOME的路径</span><br><span class="line"> ORACLE_BASE&#x3D;&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;&#x2F;指定ORALCE_BASE的路径</span><br><span class="line"> oracle.install.db.InstallEdition&#x3D;EE&#x2F;&#x2F;安装数据库软件的版本，EE:企业版;SE:标准版；SEONE：标准版1</span><br><span class="line"> oracle.install.db.EEOptionsSelection&#x3D;true&#x2F;&#x2F;手动指定企业安装组件 选true对安装大小影响不大所以选true</span><br><span class="line"> oracle.install.db.optionalComponents&#x3D;oracle.rdbms.partitioning:11.2.0.4.0,oracle.oraolap:11.2.0.4.0,oracle.rdbms.dm:11.2.0.4.0,oracle.rdbms.dv:11.2.0.4.0,oracle.rdbms.lbac:11.2.0.4.0,oracle.rdbms.rat:11.2.0.4.0&#x2F;&#x2F;如果上面选true，这些就是手动指定的组件</span><br><span class="line"> oracle.install.db.DBA_GROUP&#x3D;dba&#x2F;&#x2F;指定拥有DBA用户组，通常会是dba组</span><br><span class="line"> oracle.install.db.OPER_GROUP&#x3D;oper&#x2F;&#x2F;指定oper用户组</span><br><span class="line"> oracle.install.db.CLUSTER_NODES&#x3D;&#x2F;&#x2F;指定所有的节点</span><br><span class="line"> oracle.install.db.isRACOneInstall&#x3D;false&#x2F;&#x2F;是否是RACO方式安装</span><br><span class="line"> oracle.install.db.racOneServiceName&#x3D;</span><br><span class="line"> oracle.install.db.config.starterdb.type&#x3D;&#x2F;&#x2F;选择数据库的用途，一般用途&#x2F;事物处理，数据仓库</span><br><span class="line"> oracle.install.db.config.starterdb.globalDBName&#x3D;指定GlobalName</span><br><span class="line"> oracle.install.db.config.starterdb.SID&#x3D;&#x2F;&#x2F;你指定的SID</span><br><span class="line"> oracle.install.db.config.starterdb.characterSet&#x3D;AL32UTF8&#x2F;&#x2F;设置数据库编码</span><br><span class="line"> oracle.install.db.config.starterdb.memoryOption&#x3D;true&#x2F;&#x2F;11g的新特性自动内存管理，也就是SGA_TARGET和PAG_AGGREGATE_TARGET都，不用设置了，Oracle会自动调配两部分大小，这个要选true</span><br><span class="line"> oracle.install.db.config.starterdb.memoryLimit&#x3D;上面是true的情况下，指定Oracle自动管理内存的大小，这里不用填或者填写物理内存的40%左右等等自定义；</span><br><span class="line"> oracle.install.db.config.starterdb.installExampleSchemas&#x3D;false是否载入模板示例</span><br><span class="line"> oracle.install.db.config.starterdb.enableSecuritySettings&#x3D;true  是否启用安全设置</span><br><span class="line"> oracle.install.db.config.starterdb.password.ALL&#x3D;123456所有用户名的密码</span><br><span class="line"> oracle.install.db.config.starterdb.password.SYS&#x3D;</span><br><span class="line"> oracle.install.db.config.starterdb.password.SYSTEM&#x3D;</span><br><span class="line"> oracle.install.db.config.starterdb.password.SYSMAN&#x3D;</span><br><span class="line"> oracle.install.db.config.starterdb.password.DBSNMP&#x3D;</span><br><span class="line"> oracle.install.db.config.starterdb.control&#x3D;DB_CONTROL数据库本地管理工具DB_CONTROL，远程集中管理工具GRID_CONTROL</span><br><span class="line"> oracle.install.db.config.starterdb.gridcontrol.gridControlServiceURL&#x3D;GRID_CONTROL需要设定grid control的远程路径URL</span><br><span class="line"> oracle.install.db.config.starterdb.automatedBackup.enable&#x3D;false设置自动备份</span><br><span class="line"> oracle.install.db.config.starterdb.automatedBackup.osuid&#x3D;.自动备份会启动一个job，指定启动JOB的系统用户ID</span><br><span class="line"> oracle.install.db.config.starterdb.automatedBackup.ospwd&#x3D;自动备份会开启一个job，需要指定OSUser的密码</span><br><span class="line"> oracle.install.db.config.starterdb.storageType&#x3D;要求指定使用的文件系统存放数据库文件还是ASM</span><br><span class="line"> oracle.install.db.config.starterdb.fileSystemStorage.dataLocation&#x3D;使用文件系统存放数据库文件才需要指定数据文件、控制文件、Redo log的存放目录</span><br><span class="line"> oracle.install.db.config.starterdb.fileSystemStorage.recoveryLocation&#x3D;使用文件系统存放数据库文件才需要指定备份恢复目录</span><br><span class="line"> oracle.install.db.config.asm.diskGroup&#x3D;使用ASM存放数据库文件才需要指定存放的磁盘组</span><br><span class="line"> oracle.install.db.config.asm.ASMSNMPPassword&#x3D;使用ASM存放数据库文件才需要指定ASM实例密码</span><br><span class="line"> MYORACLESUPPORT_USERNAME&#x3D;指定metalink账户用户名</span><br><span class="line"> MYORACLESUPPORT_PASSWORD&#x3D;指定metalink账户密码</span><br><span class="line"> SECURITY_UPDATES_VIA_MYORACLESUPPORT&#x3D;用户是否可以设置metalink密码</span><br><span class="line"> DECLINE_SECURITY_UPDATES&#x3D;true是否设置安全更新，</span><br><span class="line"> PROXY_HOST&#x3D;代理服务器名</span><br><span class="line"> PROXY_PORT&#x3D;代理服务器端口</span><br><span class="line"> PROXY_USER&#x3D;代理服务器用户名</span><br><span class="line"> PROXY_PWD&#x3D;代理服务器密码</span><br><span class="line"> PROXY_REALM&#x3D;</span><br><span class="line"> COLLECTOR_SUPPORTHUB_URL&#x3D;</span><br><span class="line"> oracle.installer.autoupdates.option&#x3D;SKIP_UPDATES 自动更新</span><br><span class="line"> oracle.installer.autoupdates.downloadUpdatesLoc&#x3D;自动更新下载目录</span><br><span class="line"> AUTOUPDATES_MYORACLESUPPORT_USERNAME&#x3D;自动更新的用户名</span><br><span class="line"> AUTOUPDATES_MYORACLESUPPORT_PASSWORD&#x3D;自动更新的密码</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-开始安装"><a href="#12-开始安装" class="headerlink" title="12. 开始安装"></a>12. 开始安装</h2><p>开始安装的命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - oracle</span><br><span class="line">cd &#x2F;u01&#x2F;database</span><br><span class="line">.&#x2F;runInstaller -silent -responseFile &#x2F;data&#x2F;etc&#x2F;db_install.rsp -ignorePrereq</span><br></pre></td></tr></table></figure>
+<p>安装期间可以使用<code>tail</code>命令监看oracle的安装日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#日志文件名称根据自己的实际执行时间变更,这里的日志文件会在界面上打出，直接粘贴复制就OK</span><br><span class="line">tail -f &#x2F;data&#x2F;app&#x2F;oracle&#x2F;inventory&#x2F;logs&#x2F;installActions2019-01-02_06-03-30PM.log</span><br></pre></td></tr></table></figure>
+<p>安装完成后有如下的提示，如果有类似的提示，说明安装完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">You can find the log of this install session at:</span><br><span class="line"> &#x2F;u01&#x2F;app&#x2F;oracle&#x2F;inventory&#x2F;logs&#x2F;installActions2020-08-23_12-42-59AM.log</span><br><span class="line">The following configuration scripts need to be executed as the &quot;root&quot; user. </span><br><span class="line"> #!&#x2F;bin&#x2F;sh </span><br><span class="line"> #Root scripts to run</span><br><span class="line"></span><br><span class="line">&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;inventory&#x2F;orainstRoot.sh</span><br><span class="line">&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;db_1&#x2F;root.sh</span><br><span class="line">To execute the configuration scripts:</span><br><span class="line">  1. Open a terminal window </span><br><span class="line">  2. Log in as &quot;root&quot; </span><br><span class="line">  3. Run the scripts </span><br><span class="line">  4. Return to this window and hit &quot;Enter&quot; key to continue </span><br><span class="line"></span><br><span class="line">Successfully Setup Software.</span><br></pre></td></tr></table></figure>
+
+<p>日志部分内容说明<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0tm4nn0aj314o0j6k29.jpg" alt=""></p>
+<h2 id="13-使用root用户执行对应的脚本"><a href="#13-使用root用户执行对应的脚本" class="headerlink" title="13. 使用root用户执行对应的脚本"></a>13. 使用<code>root</code>用户执行对应的脚本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - root</span><br><span class="line">sh &#x2F;u01&#x2F;app&#x2F;oracle&#x2F;inventory&#x2F;orainstRoot.sh</span><br><span class="line">sh &#x2F;u01&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;db_1&#x2F;root.sh</span><br></pre></td></tr></table></figure>
+<h2 id="14-配置监听程序"><a href="#14-配置监听程序" class="headerlink" title="14. 配置监听程序"></a>14. 配置监听程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su - oracle</span><br><span class="line">netca &#x2F;silent &#x2F;responsefile &#x2F;data&#x2F;etc&#x2F;netca.rsp</span><br></pre></td></tr></table></figure>
+<p>注意：这里使用的命令是:<code>netca /silent /responsefile /data/etc/netca.rsp</code><br>而不是使用的<code>netca -silent -responseFile /home/oracle/database/response/netca.rsp</code>否则会报出如下的错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">****DISPLAY environment variable not set!</span><br><span class="line">    Oracle Net Configuration Assistant is a GUI tool</span><br><span class="line">    which requires that DISPLAY specify a location</span><br><span class="line">    where GUI tools can display.</span><br><span class="line">    Set and export DISPLAY, then re-run.</span><br></pre></td></tr></table></figure>
+<p>如果使用的是xmanage的连接工具，可以使用如下的命令进行设置(这个没有进行测试过)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解决方法：export DISPLAY&#x3D;192.168.8.146:0.0</span><br><span class="line">export DISPLAY&#x3D;自己的ip:0.0</span><br><span class="line">也有说的是把0.0改成1.0具体情况需要可以进行百度，网上有好多的处理方法</span><br></pre></td></tr></table></figure>
+<p>查看监听端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnpl | grep 1521</span><br><span class="line">[oracle@xiaofeifei database]$ netstat -tnpl | grep 1521</span><br><span class="line"></span><br><span class="line">tcp6       0      0 :::1521                 :::*                    LISTEN      8943&#x2F;tnslsnr</span><br></pre></td></tr></table></figure>
+<h2 id="15-静默创建数据库"><a href="#15-静默创建数据库" class="headerlink" title="15. 静默创建数据库"></a>15. 静默创建数据库</h2><ol>
+<li><p>编辑应答文件<code>/data/etc/dbca.rsp</code>，部分参数说明请详见 [16.静默创建数据库部分参数说明](# 16. 静默创建数据库部分参数说明)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GDBNAME &#x3D; &quot;ecology&quot;</span><br><span class="line">SID &#x3D; &quot;ecology&quot;</span><br><span class="line">SYSPASSWORD &#x3D; &quot;192612&quot;</span><br><span class="line">SYSTEMPASSWORD &#x3D; &quot;192612&quot;</span><br><span class="line">CHARACTERSET &#x3D; &quot;AL32UTF8&quot;</span><br><span class="line">INSTANCENAME &#x3D; &quot;ecology&quot;</span><br><span class="line">TOTALMEMORY &#x3D; &quot;800&quot;</span><br><span class="line">DB_UNIQUE_NAME &#x3D; &quot;ecology&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>执行静默建库</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su - oracle</span><br><span class="line">dbca -silent -responseFile &#x2F;data&#x2F;etc&#x2F;dbca.rsp</span><br></pre></td></tr></table></figure></li>
+<li><p>执行过程如下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[oracle@xiaofeifei database]$ dbca -silent -responseFile &#x2F;data&#x2F;etc&#x2F;dbca.rsp</span><br><span class="line">Copying database files                                                                                  </span><br><span class="line">1% complete                                                                                             </span><br><span class="line">3% complete                                                                                             </span><br><span class="line">11% complete                                                                                            </span><br><span class="line">18% complete                                                                                            </span><br><span class="line">26% complete                                                                                            </span><br><span class="line">37% complete                                                                                            </span><br><span class="line">Creating and starting Oracle instance                                                                   </span><br><span class="line">40% complete                                                                                            </span><br><span class="line">45% complete                                                                                            </span><br><span class="line">50% complete</span><br><span class="line">55% complete</span><br><span class="line">56% complete</span><br><span class="line">60% complete</span><br><span class="line">62% complete</span><br><span class="line">Completing Database Creation</span><br><span class="line">66% complete</span><br><span class="line">70% complete</span><br><span class="line">73% complete</span><br><span class="line">85% complete</span><br><span class="line">96% complete</span><br><span class="line">100% complete</span><br><span class="line">Look at the log file &quot;&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;cfgtoollogs&#x2F;dbca&#x2F;ecology&#x2F;ecology.log&quot; for further details.</span><br></pre></td></tr></table></figure></li>
+<li><p>查看进程</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep ora_ | grep -v grep</span><br></pre></td></tr></table></figure></li>
+<li><p>查看监听状态</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsnrctl status</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="16-静默创建数据库部分参数说明"><a href="#16-静默创建数据库部分参数说明" class="headerlink" title="16. 静默创建数据库部分参数说明"></a>16. 静默创建数据库部分参数说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">RESPONSEFILE_VERSION &#x3D; &quot;11.2.0&quot;      #不能更改</span><br><span class="line"> OPERATION_TYPE &#x3D; &quot;createDatabase&quot;    #不变 默认即可</span><br><span class="line"> GDBNAME &#x3D; &quot;orcl&quot;        #数据库的名字，随便怎么改，不影响，自定义 比如&quot;oracle11g.com&quot;</span><br><span class="line"> SID &#x3D; &quot;orcl&quot;            #对应的实例名字instance_name，随便怎么改，不影响，自定义 比如&quot;oracle11g.com&quot;</span><br><span class="line"> TEMPLATENAME &#x3D; &quot;General_Purpose.dbc&quot; #不变 默认即可 建库用的模板文件</span><br><span class="line"> SYSPASSWORD &#x3D; &quot;oracle&quot;   #SYS管理员密码 自定义</span><br><span class="line"> SYSTEMPASSWORD &#x3D; &quot;oracle&quot;  #SYSTEM管理员密码 自定义</span><br><span class="line"> DATAFILEDESTINATION &#x3D; &#x2F;data&#x2F;app&#x2F;oracle&#x2F;oradata   #数据文件存放目录 可自定义如&#x2F;data目录但用户和组要是oracle:oinstall即mkdir &#x2F;data ; chown -R oracle:oinstall &#x2F;data ; chmod -R 775 &#x2F;data; 当然此项默认是$ORACLE_BASE&#x2F;oradata 此项本来是注释掉的，而$ORACLE_BASE&#x2F;oradata就是&#x2F;data&#x2F;app&#x2F;oracle&#x2F;oradata，故此项可不用动，即保持注释掉即也可；</span><br><span class="line"> RECOVERYAREADESTINATION&#x3D;&#x2F;data&#x2F;app&#x2F;oracle&#x2F;flash_recovery_area #恢复数据存放目录 闪回区 可自定义</span><br><span class="line"> CHARACTERSET &#x3D; &quot;AL32UTF8&quot;   #字符集，重要!!! 建库后一般不能更改，所以建库前要确定清楚，选AL32UTF8比较合适；</span><br><span class="line"> NATIONALCHARACTERSET&#x3D; &quot;AL16UTF16&quot; #最好还是保持默认的&quot;AL16UTF16&quot;，这里我选的UTF8可能出现了后面的PLSQL中文乱码；</span><br><span class="line"> #MEMORYPERCENTAGE &#x3D; &quot;40&quot;       #服务器物理内存分配给oracle的内存比例，这里先不选</span><br><span class="line"> #TOTALMEMORY &#x3D; &quot;3500&quot;    # &#x2F;&#x2F;物理内存的60%左右，分配给oracle的总内存3500MB，可自行设定 或者注释不选因为oracle会自行管理；</span><br><span class="line"> #-----------------------*** End of CREATEDATABASE section ***------------------------</span><br><span class="line"> SOURCEDB &#x3D; &quot;myhost:1521:orcl&quot;     #End of CREATEDATABASE sectio后面的很多没有注释掉的选项不用管。</span><br></pre></td></tr></table></figure>
+
+<h2 id="17-至此数据库就安装成功了，下面我们登陆下数据库"><a href="#17-至此数据库就安装成功了，下面我们登陆下数据库" class="headerlink" title="17. 至此数据库就安装成功了，下面我们登陆下数据库"></a>17. 至此数据库就安装成功了，下面我们登陆下数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - oracle</span><br><span class="line">sqlplus &#x2F; as sysdba</span><br><span class="line">select status from v$instance;</span><br></pre></td></tr></table></figure>
+<p>执行<code>select</code>时，会出现以下情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select status from v$instance;</span><br><span class="line">select status from v$instance</span><br><span class="line">*</span><br><span class="line">ERROR at line 1:</span><br><span class="line">ORA-01034: ORACLE not available</span><br><span class="line">Process ID: 0</span><br><span class="line">Session ID: 0 Serial number: 0</span><br></pre></td></tr></table></figure>
+<p>解决方式：<br>输入<code>startup</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#startup的输出提示：</span><br><span class="line">SQL&gt; statup</span><br><span class="line">SP2-0042: unknown command &quot;statup&quot; - rest of line ignored.</span><br><span class="line">SQL&gt; startup</span><br><span class="line">#如果是在&#x2F;u01的路径下则不会出现以下问题</span><br><span class="line">#ORA-01078: failure in processing system parameters</span><br><span class="line">#LRM-00109: could not open parameter file &#39;&#x2F;data&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;dbs&#x2F;initORCL.ora&#39;</span><br></pre></td></tr></table></figure>
+<p>激活scott用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter user scott account unlock;</span><br><span class="line">alter user scott identified by tiger;</span><br><span class="line">select username,account_status from dba_users;</span><br></pre></td></tr></table></figure>
+<h2 id="18-设置Oracle开机启动"><a href="#18-设置Oracle开机启动" class="headerlink" title="18. 设置Oracle开机启动"></a>18. 设置Oracle开机启动</h2><p><span style="color:red"><strong><em>这个步骤还未进行操作….</em></strong></span></p>
+<h2 id="19-结合业务系统配置ecology数据库"><a href="#19-结合业务系统配置ecology数据库" class="headerlink" title="19. 结合业务系统配置ecology数据库"></a>19. 结合业务系统配置ecology数据库</h2><ol>
+<li><p>创建Ecology数据库用户前的检查工作，首选需要确认监听是否正常</p>
+<ul>
+<li><p>切换到oracle用户下:<code>su - oracle</code></p>
+</li>
+<li><p>启动监听：<code>lsnrctl start</code></p>
+</li>
+<li><p>查看监听状态:<code>lsnrctl status</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[oracle@xiaofeifei database]$ lsnrctl status</span><br><span class="line">LSNRCTL for Linux: Version 11.2.0.1.0 - Production on 23-AUG-2020 16:49:31 </span><br><span class="line">Copyright (c) 1991, 2009, Oracle.  All rights reserved. </span><br><span class="line">Connecting to (DESCRIPTION&#x3D;(ADDRESS&#x3D;(PROTOCOL&#x3D;IPC)(KEY&#x3D;EXTPROC1521)))</span><br><span class="line">STATUS of the LISTENER</span><br><span class="line">Alias                     LISTENER</span><br><span class="line">Version                   TNSLSNR for Linux: Version 11.2.0.1.0 - Production</span><br><span class="line">Start Date                23-AUG-2020 11:02:27</span><br><span class="line">Uptime                    0 days 5 hr. 47 min. 4 sec</span><br><span class="line">Trace Level               off</span><br><span class="line">Security                  ON: Local OS Authentication</span><br><span class="line">SNMP                      OFF</span><br><span class="line">Listener Parameter File   &#x2F;u01&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;db_1&#x2F;network&#x2F;admin&#x2F;listener.ora</span><br><span class="line">Listener Log File         &#x2F;u01&#x2F;app&#x2F;oracle&#x2F;diag&#x2F;tnslsnr&#x2F;xiaofeifei&#x2F;listener&#x2F;alert&#x2F;log.xml</span><br><span class="line">Listening Endpoints Summary...</span><br><span class="line">  (DESCRIPTION&#x3D;(ADDRESS&#x3D;(PROTOCOL&#x3D;ipc)(KEY&#x3D;EXTPROC1521)))</span><br><span class="line">  (DESCRIPTION&#x3D;(ADDRESS&#x3D;(PROTOCOL&#x3D;tcp)(HOST&#x3D;xiaofeifei)(PORT&#x3D;1521)))</span><br><span class="line">Services Summary...</span><br><span class="line">Service &quot;ecology&quot; has 1 instance(s).</span><br><span class="line">  Instance &quot;ecology&quot;, status READY, has 1 handler(s) for this service...</span><br><span class="line">Service &quot;ecologyXDB&quot; has 1 instance(s).</span><br><span class="line">  Instance &quot;ecology&quot;, status READY, has 1 handler(s) for this service...</span><br><span class="line">The command completed successfully</span><br></pre></td></tr></table></figure></li>
+<li><p>使用sysdba登录后，查看数据库状态(READ WRITE 为正常读写状态)</p>
+</li>
+<li><p>命令:<code>select open_mode from v$database;</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select open_mode from v$database;</span><br><span class="line">OPEN_MODE</span><br><span class="line">READ WRITE</span><br></pre></td></tr></table></figure>
+<p>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0uit4zvzj31da0oogoq.jpg" alt=""></p>
+</li>
+<li><p>查看数据库数据文件存放目录。命令为:<code>select name from v$datafile;</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select name from v$datafile;</span><br><span class="line"></span><br><span class="line">NAME</span><br><span class="line"></span><br><span class="line">&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;ecology&#x2F;system01.dbf</span><br><span class="line">&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;ecology&#x2F;sysaux01.dbf</span><br><span class="line">&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;ecology&#x2F;undotbs01.dbf</span><br><span class="line">&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;ecology&#x2F;users01.dbf</span><br><span class="line">&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;ecology&#x2F;ecology.dbf</span><br></pre></td></tr></table></figure>
+<p>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi0uk1jac2j31580qa41x.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>创建OA数据库使用用户和表空间，并赋予用户权限</p>
+<ul>
+<li><p>创建OA 程序使用的表空间，表空间名为ECOLOGY，存储路径为/u01/app/oracle/oradata/ecology/ecology.dbf(此处存储路径是根据上面查询数据库数据文件存放目录确定的)。相关命令</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create tablespace ecology datafile &#39;&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;ecology&#x2F;ecology.dbf&#39; size 2000M</span><br><span class="line">AutoExtend On Next 10M</span><br><span class="line">segment space management auto;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户，并关联用户使用的表空间和临时表空间，相关命令</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER ecology IDENTIFIED BY ecology DEFAULT TABLESPACE ecology TEMPORARY TABLESPACE Temp;</span><br></pre></td></tr></table></figure></li>
+<li><p>赋予OA 数据库用户权限（金融等行业客户无法给予DBA 权限),相关命令为：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grant connect,resource to ecology;</span><br><span class="line">alter user ecology quota unlimited on ecology;</span><br><span class="line">grant create view to ecology;</span><br><span class="line">grant DATAPUMP_EXP_FULL_DATABASE ,DATAPUMP_IMP_FULL_DATABASE to ecology;</span><br></pre></td></tr></table></figure></li>
+<li><p>需要使用sysdba 用户执行，避免初始化时出现报错。相关命令为</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter system set &quot;_allow_level_without_connect_by&quot; &#x3D; true;</span><br></pre></td></tr></table></figure></li>
+<li><p>(对于上述第三步操作说明)需要修改此参数主要是因为我们脚本中有些递归查询和上下级的查询使用了level 关<br>键字，此语法在Oracle9i 版本中默认兼容支持，在10g 及之后的版本中需要修改上面的参<br>数之后才能支持。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <!--每篇文章下的版权说明-->
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://lwblog.xyz/posts/undefined.html" title="Centos7下静默安装Oracle 11g" target="_blank" rel="external">http://lwblog.xyz/posts/undefined.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+<!--每篇文章最底部的个人信息说明-->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/wangyufei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpeg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/wangyufei123" target="_blank"><span class="text-dark">Mr.Wang</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>一个热爱生活的小开发....</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+    <!--上一篇或者是下一篇的位置-->
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/posts/671486fb.html" title="MySQL学习笔记二"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!--捐赠信息是否需要显示的图标-->
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wangyufei123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+	<!-- 侧边栏版权问题修改 -->
+    <div class="copyright">
+    	
+        &copy; 2020 Mr.Wang
+        
+        <!-- 页面侧边栏脚标修改 -->
+        <div class="publishby">
+        	Theme by <a href="https://github.com/wangyufei123" target="_blank"> 随笔小记 </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'a1SlXAotYrikeQEkob4dUwEO-gzGzoHsz',
+    appKey: 'A9wmspkpn043w1kJDU9CEXgt',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+<!--背景3D动画-->
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<!--点击出现小爱心-->
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js"></script>
+<!-- 代码块复制功能 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/clipboard.js"></script>  -->
+<script type="text/javascript" src="/js/clipboard_use.js"></script>
+</html>
