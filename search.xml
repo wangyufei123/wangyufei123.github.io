@@ -397,31 +397,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL数据库学习笔记.md</title>
-    <url>/posts/8d9f420d.html</url>
-    <content><![CDATA[<h1 id="MySQL数据库学习笔记"><a href="#MySQL数据库学习笔记" class="headerlink" title="MySQL数据库学习笔记"></a>MySQL数据库学习笔记</h1><h2 id="1-MySQL的语法规范"><a href="#1-MySQL的语法规范" class="headerlink" title="1.MySQL的语法规范"></a>1.MySQL的语法规范</h2><ol>
-<li>不区分大小写,但建议关键字大写，表名、列名小写</li>
-<li>每条命令最好用分号结尾</li>
-<li>每条命令根据需要，可以进行缩进 或换行</li>
-<li>注释<ul>
-<li>单行注释：#注释文字</li>
-<li>单行注释：– 注释文字</li>
-<li>多行注释：/* 注释文字  */<h2 id="2-SQL的语言分类"><a href="#2-SQL的语言分类" class="headerlink" title="2.SQL的语言分类"></a>2.SQL的语言分类</h2></li>
-</ul>
-</li>
-<li>DQL（Data Query Language）：数据查询语言 select</li>
-<li>DML(Data Manipulate Language):数据操作语言:insert、update、delete</li>
-<li>DDL（Data Define Languge）：数据定义语言:create alter drop</li>
-<li>TCL（Transaction Control Language）：事务控制语言 commit rollback</li>
-</ol>
-<h2 id="3-SQL的常见命令"><a href="#3-SQL的常见命令" class="headerlink" title="3.SQL的常见命令"></a>3.SQL的常见命令</h2><h2 id="4-DQL语言的学习"><a href="#4-DQL语言的学习" class="headerlink" title="4.DQL语言的学习"></a>4.DQL语言的学习</h2><p><strong><em>更加具体的讲解详见对应的尚硅谷查询语句的pdf</em></strong></p>
-<h3 id="进阶1：基础查询"><a href="#进阶1：基础查询" class="headerlink" title="进阶1：基础查询"></a>进阶1：基础查询</h3><p>语法：select 查询的东西 [from 表名]<br>特点：<br>    1. 通过select查询完的结果 ，是一个虚拟的表格，不是真实存在<br>    2. 要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数</p>
-<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>条件查询：根据条件过滤原始表的数据，查询到想要的数据<br>语法：<br>    select 要查询的字段｜表达式｜常量值｜函数<br>    from 表名<br>    where 条件;<br>分类：<br>    1. 条件表达式<br>        * &gt;<br>        * &lt;<br>        * &gt;=<br>        * &gt;=<br>        * =<br>        * !=<br>        * &lt;&gt;:建议使用，不建议使用！=<br>    2. 逻辑表达式：用于连接条件表达式<br>        * and(&amp;&amp;):两个条件如果同时成立,结果为true,否则为false<br>        * or(||)：两个条件只要有一个成立，结果为true，否则为false<br>        * not(!)：如果条件成立，则not后为false，否则为true<br>    3. 模糊查询<br>        * like<br>        * between and<br>        * in<br>        * is null</p>
-<h3 id="进阶3：排序查询"><a href="#进阶3：排序查询" class="headerlink" title="进阶3：排序查询"></a>进阶3：排序查询</h3><p><strong><em>详细笔记请见尚硅谷基础学习笔记3</em></strong></p>
-<h3 id="进阶4：常见函数"><a href="#进阶4：常见函数" class="headerlink" title="进阶4：常见函数"></a>进阶4：常见函数</h3><p>一、单行函数<br>    1、字符函数<br>        concat拼接<br>        substr截取子串<br>        upper转换成大写<br>        lower转换成小写<br>        trim去前后指定的空格和字符<br>        ltrim去左边空格<br>        rtrim去右边空格<br>        replace替换<br>        lpad左填充<br>        rpad右填充<br>        instr返回子串第一次出现的索引<br>        length 获取字节个数<br>    2、数学函数<br>        round 四舍五入<br>        rand 随机数<br>        floor向下取整<br>        ceil向上取整<br>        mod取余<br>        truncate截断<br>3、日期函数<br>        now当前系统日期+时间<br>        curdate当前系统日期<br>        curtime当前系统时间<br>        str_to_date 将字符转换成日期<br>        date_format将日期转换成字符<br>4、流程控制函数<br>        if 处理双分支<br>        case语句 处理多分支<br>            情况1：处理等值判断<br>            情况2：处理条件判断<br>5、其他函数<br>        version版本<br>        database当前库<br>        user当前连接用户</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Maven学习笔记</title>
     <url>/posts/be02a930.html</url>
     <content><![CDATA[<h2 id="1-Maven-简介"><a href="#1-Maven-简介" class="headerlink" title="1.Maven 简介"></a>1.Maven 简介</h2><p>Maven是Apache软件基金会组织维护的一款自动化构建工具专注服务于Java平台的项目构建和依赖管理 。</p>
@@ -600,237 +575,6 @@
       <tags>
         <tag>maven</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>MySQL高级部分学习一</title>
-    <url>/posts/f2612c14.html</url>
-    <content><![CDATA[<h1 id="MySQL高级部分学习一"><a href="#MySQL高级部分学习一" class="headerlink" title="MySQL高级部分学习一"></a>MySQL高级部分学习一</h1><h2 id="1-mysql的架构介绍"><a href="#1-mysql的架构介绍" class="headerlink" title="1. mysql的架构介绍"></a>1. mysql的架构介绍</h2><h3 id="1-1-mysql简介"><a href="#1-1-mysql简介" class="headerlink" title="1.1 mysql简介"></a>1.1 mysql简介</h3><h3 id="1-2-mysqlLinux版的安装"><a href="#1-2-mysqlLinux版的安装" class="headerlink" title="1.2 mysqlLinux版的安装"></a>1.2 mysqlLinux版的安装</h3><ol>
-<li>检查当前系统是否安装过mysql：<code>rpm -qa|grep -i mysql</code></li>
-<li>查看mysql安装时创建的mysql用户和mysql用户组：<code>cat /etc/password|grep mysql</code>、<code>cat /etc/group|grep mysql</code></li>
-<li>mysql服务的启动和停止：<code>service mysql start</code>,查看是否启动成功:<code>ps -ef|grep mysql</code></li>
-<li>root密码设置和设置开机随机启动:<code>chkconfig mysql on</code></li>
-<li>mysql的安装位置：<code>/var/lib/mysql</code></li>
-</ol>
-<h3 id="1-3-MySQL的配置文件-my-cnf"><a href="#1-3-MySQL的配置文件-my-cnf" class="headerlink" title="1.3 MySQL的配置文件:my.cnf"></a>1.3 MySQL的配置文件:my.cnf</h3><p><del>1. client:客户端的配置</del></p>
-<h3 id="1-4-Mysql逻辑架构介绍"><a href="#1-4-Mysql逻辑架构介绍" class="headerlink" title="1.4 Mysql逻辑架构介绍"></a>1.4 Mysql逻辑架构介绍</h3><h3 id="1-5-mysql存储引擎"><a href="#1-5-mysql存储引擎" class="headerlink" title="1.5 mysql存储引擎"></a>1.5 mysql存储引擎</h3><ol>
-<li>查看mysql提供的存储引擎:<code>show engines;</code></li>
-<li>查看mysql抢天默认的存储引擎:<code>show variables like &#39;%storage_engine%&#39;;</code></li>
-</ol>
-<h2 id="2-索引优化分析"><a href="#2-索引优化分析" class="headerlink" title="2. 索引优化分析"></a>2. 索引优化分析</h2><h3 id="2-1-SQL性能下降原因"><a href="#2-1-SQL性能下降原因" class="headerlink" title="2.1 SQL性能下降原因"></a>2.1 SQL性能下降原因</h3><ol>
-<li>索引失效</li>
-<li>关联查询太多join(设计缺陷或不得已的需求)</li>
-<li>服务器调优及各个参数设置(缓冲、线程数等)</li>
-</ol>
-<h3 id="2-2-SQL执行加载顺序"><a href="#2-2-SQL执行加载顺序" class="headerlink" title="2.2 SQL执行加载顺序"></a>2.2 SQL执行加载顺序</h3><p>from–on–join–where–group by–having–select–distinct–order by –limit<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxfq06gqj30i60ecwh3.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxh4irx6j312o0aw419.jpg" alt=""></p>
-<h3 id="2-3-七种JOIN理论"><a href="#2-3-七种JOIN理论" class="headerlink" title="2.3 七种JOIN理论"></a>2.3 七种JOIN理论</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxiygg3sj30ze0haqew.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxqhppfbj30zm0aw477.jpg" alt=""></p>
-<h3 id="2-4-七种JOIN的SQL编写"><a href="#2-4-七种JOIN的SQL编写" class="headerlink" title="2.4 七种JOIN的SQL编写"></a>2.4 七种JOIN的SQL编写</h3><h3 id="2-5-索引是什么"><a href="#2-5-索引是什么" class="headerlink" title="2.5 索引是什么"></a>2.5 索引是什么</h3><p>索引(index)是帮助mysql高效获取数据的数据结构。可以理解为<strong><em>“排好顺序快速查找数据结构”</em></strong></p>
-<h3 id="2-6-索引优势劣势"><a href="#2-6-索引优势劣势" class="headerlink" title="2.6 索引优势劣势"></a>2.6 索引优势劣势</h3><p>优势：</p>
-<ol>
-<li>提高检索效率，降低数据库的IO成本</li>
-<li>通过索引对数据进行排序，降低数据排序的成本，降低了COU的小号</li>
-</ol>
-<p>劣势：</p>
-<ol>
-<li>实际上索引也是一张表，该表保存了主键与索引字段，并且指向实体表记录，所以索引也是要占用空间的</li>
-<li>虽然索引大大提高了查询速度，但是却会降低更新表的速度</li>
-<li>都会调整因为更新所带来的键值变化后的索引信息</li>
-</ol>
-<h3 id="2-7-索引分类和建索引命令语句"><a href="#2-7-索引分类和建索引命令语句" class="headerlink" title="2.7 索引分类和建索引命令语句"></a>2.7 索引分类和建索引命令语句</h3><p>分类</p>
-<ol>
-<li>单值索引：即一个索引只包含单个列，一个表可以有多个单列索引</li>
-<li>唯一索引：索引列的值唯一，但允许有空值</li>
-<li>复合索引：即一个索引包含多个列</li>
-</ol>
-<p>语法</p>
-<ol>
-<li>创建<code>create [unique] index indexname on mytable(columnname(length))``alter mytable add [unique] index [indexname] on (columnname(length))</code></li>
-<li>删除：<code>drop index [indexname] on mytable</code></li>
-<li>查看：<code>show index from table_name\G</code></li>
-</ol>
-<h3 id="2-8-索引结构与检索原理"><a href="#2-8-索引结构与检索原理" class="headerlink" title="2.8 索引结构与检索原理"></a>2.8 索引结构与检索原理</h3><p>BTree索引、Hash索引、full-text全文索引、R-Tree索引</p>
-<h3 id="2-9-哪些情况适合建索引"><a href="#2-9-哪些情况适合建索引" class="headerlink" title="2.9 哪些情况适合建索引"></a>2.9 哪些情况适合建索引</h3><ol>
-<li>主键自动建立唯一索引</li>
-<li>频繁作为查询条件的字段应该创建索引</li>
-<li>查询中与其他表关联的字段，外键关系建立索引</li>
-<li>频繁更新的字段不适合创建索引，因为每次更新不单单是更新了记录还会更新索引</li>
-<li>where条件里用不到的字段不创建索引</li>
-<li>单键/组合索引的选择问题，who(在高并发下倾向创建组合索引)</li>
-<li>查询中排序的字段，排序字段若通过索引去访问将大大提高排序的速度</li>
-<li>查询中统计或者分组的字段</li>
-</ol>
-<h3 id="2-10-哪些情况不适合建索引"><a href="#2-10-哪些情况不适合建索引" class="headerlink" title="2.10 哪些情况不适合建索引"></a>2.10 哪些情况不适合建索引</h3><ol>
-<li>表记录太少</li>
-<li>经常增删改的表</li>
-<li>数据重复且分布平均的表字段，因此应该只为最经常查询和最经常排序的数据建立索引。⚠️如果某个数据列包含许多重复内容，为他建立索引就没有太大的实际效果</li>
-</ol>
-<h3 id="2-11-性能分析"><a href="#2-11-性能分析" class="headerlink" title="2.11 性能分析"></a>2.11 性能分析</h3><h4 id="2-11-1-性能分析前提知识"><a href="#2-11-1-性能分析前提知识" class="headerlink" title="2.11.1 性能分析前提知识"></a>2.11.1 性能分析前提知识</h4><p>MySQL常见瓶颈：</p>
-<ol>
-<li>CPU在饱和的时候一般发生在数据装入内存或从磁盘上读取数据的时候</li>
-<li>磁盘I/O瓶颈发生在装入数据远大于内存容量的时候</li>
-<li>服务器硬件的性能瓶颈，top,free,iostat和vmstat来查看系统的性能状态</li>
-</ol>
-<h4 id="2-11-2-explain使用简介"><a href="#2-11-2-explain使用简介" class="headerlink" title="2.11.2 explain使用简介"></a>2.11.2 explain使用简介</h4><p>使用explain关键字可以模拟优化器执行sql查询语句，从而知道mysql是如何处理sql语句的。分析查询语句或是表结构的性能瓶颈</p>
-<p>使用方法：<code>explain + 对应的查询语句</code></p>
-<p>能干啥：</p>
-<ol>
-<li>表的读取顺序</li>
-<li>数据读取操作的操作类型</li>
-<li>哪些索引可以使用</li>
-<li>哪些索引被实际使用</li>
-<li>表之间的引用</li>
-<li>每张表有多少行被优化器查询</li>
-</ol>
-<h4 id="2-11-3-explain之ID介绍"><a href="#2-11-3-explain之ID介绍" class="headerlink" title="2.11.3 explain之ID介绍"></a>2.11.3 explain之ID介绍</h4><p>select查询的序列号，包含一组数字，表示查询中select子句或操作表的顺序<br>三种情况：</p>
-<ol>
-<li>id相同，执行顺序由上至下</li>
-<li>id不相同，如果是子查询，id的序号会递增，id越大优先级越高，越先被执行</li>
-<li>id相同和不同同时存在，id越大，越先执行，id相同的，同时执行</li>
-</ol>
-<h4 id="2-11-4-explain之select-type和table介绍"><a href="#2-11-4-explain之select-type和table介绍" class="headerlink" title="2.11.4 explain之select_type和table介绍"></a>2.11.4 explain之select_type和table介绍</h4><p>type:查询的类型，主要用于区别普通查询、联合查询、子查询等复杂的查询</p>
-<ol>
-<li>simple:简单的select查询，查询中不包含子查询或者union</li>
-<li>primary：查询中若包含任何复杂的字部分，最外层查询则被标记为</li>
-<li>subquery:在select或where列表中包含了子查询</li>
-<li>derived:在from列表中包含的资产讯被标记为derived(衍生)，mysql会递归执行这些子查询，把结果放在临时表</li>
-<li>union：若第二个select出现在union之后，则被标记为union，若union包含在from的子句的子查询中，外层select将被标记为derived</li>
-<li>union result:从union表中select获取的结果</li>
-</ol>
-<p>table:是表示这一行的数据表示哪张表</p>
-<h4 id="2-11-5-explain之type介绍"><a href="#2-11-5-explain之type介绍" class="headerlink" title="2.11.5 explain之type介绍"></a>2.11.5 explain之type介绍</h4><p>显示查询使用了何种类型：<br>从最好到最差依次是：<code>system&gt;const&gt;eq_ref&gt;ref&gt;range&gt;index&gt;all</code></p>
-<p><strong><em>system:</em></strong>表只有一行记录等于系统表，这是const类型的特例，平常不会出现，可以忽略不计<br><strong><em>const:</em></strong>表示通过索引一次就找到了，const用于比较primary key或者是unique索引。因为之匹配一行数据，所以很快如将主键置于where列表中，mysql就能将该查询装换为一个常量<br><strong><em>eq_ref:</em></strong>唯一索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描<br><strong><em>ref:</em></strong>非唯一性索引扫描，返回匹配某个值的所有行.本质上也是一种索引访问，它返回所有匹配某个单独值的行。然而，他可能会找到多个复合条件的行，所以它属于查找和扫描的混合体<br><strong><em>range:</em></strong>只检索给定范围的行，使用一个索引来选定行，key列显示使用了哪个索引。一般就是在你的where语句中出现了between、&lt;、&gt;、in等的查询，这种范围扫描索引扫描比全表扫描要好。因为它只需要开始与索引的某一个点，而结束于另一点，不用扫描全部索引<br><strong><em>index:</em></strong>full index sacn。index与all区别为index类型值遍历索引树。通常比all快。index从所有的索引中取值。<br><strong><em>all:</em></strong>full table scan将遍历全表以找到适合的行</p>
-<h4 id="2-11-6-explain之possible-key和key介绍"><a href="#2-11-6-explain之possible-key和key介绍" class="headerlink" title="2.11.6 explain之possible_key和key介绍"></a>2.11.6 explain之possible_key和key介绍</h4><p>possible_key:显示可能应用在这张表中的索引，一个或者多个。查询涉及到字段上若存在索引，则该索引将被列出。但不一定被查询实际使用<br>key:实际使用的索引。如果没有则显示为null.查询中若使用了覆盖索引。则该索引仅出现在key列表中</p>
-<h4 id="2-11-7-explain之key-len介绍"><a href="#2-11-7-explain之key-len介绍" class="headerlink" title="2.11.7 explain之key_len介绍"></a>2.11.7 explain之key_len介绍</h4><p>表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好。key_len现实的值为索引字段的最大可能长度，并非实际使用长度，即key_len是分局表定义计算而得。不是通过表内检索出的</p>
-<h4 id="2-11-8-explain之ref介绍"><a href="#2-11-8-explain之ref介绍" class="headerlink" title="2.11.8 explain之ref介绍"></a>2.11.8 explain之ref介绍</h4><p>显示索引哪一列被使用了。如果可能的话，是一个常数，哪些列或常量被用于查找索引列上的值</p>
-<h4 id="2-11-9-explain之rows介绍"><a href="#2-11-9-explain之rows介绍" class="headerlink" title="2.11.9 explain之rows介绍"></a>2.11.9 explain之rows介绍</h4><p>根据表统计信息及索引选用情况。大致估算出找到所需的记录所需要读取的行数</p>
-<h4 id="2-11-10-explain之extra介绍"><a href="#2-11-10-explain之extra介绍" class="headerlink" title="2.11.10 explain之extra介绍"></a>2.11.10 explain之extra介绍</h4><p>包含不在其他列展示，但是又十分重要的额外信息</p>
-<ol>
-<li>using filesort:说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作称为“文件排序”</li>
-<li>using temporary:使用临时表保存中间结果，mysql在对查询结果排序时使用临时表。常见于排序order by和分组查询group by</li>
-<li>using index:表示相应的select操作中使用了覆盖索引(Covering index),避免访问了表的数据行，效率不错！如果同时出现using where ，表明索引被用来执行索引键值的查找。如果没有同时出现 using where ，表明索引用来读取数据而非执行查找动作。</li>
-<li>using where：表明使用了where过滤</li>
-<li>using join buffer</li>
-<li>impossible where:where子句的值总是false,不能用来获取任何元组</li>
-<li>select tables optimized away</li>
-<li>distinct:</li>
-</ol>
-<h3 id="2-12-索引优化"><a href="#2-12-索引优化" class="headerlink" title="2.12 索引优化"></a>2.12 索引优化</h3><ol>
-<li>全值匹配我最爱</li>
-<li>最佳左前缀法则：如果索引了多列，要遵守最左前缀法则。指的是查询从索引的最左前列开始并且不跳过索引中列</li>
-<li>不在索引列上做任何操作(计算、函数、(自动or手动)类型转换)，会导致索引失效而转向全表扫描</li>
-<li>存储引擎不能使用索引中范围条件右边的列(范围之后的索引全都失效)</li>
-<li>尽量使用覆盖索引(只访问索引的查询(索引和查询列一致))，减少select *</li>
-<li>mysql在使用不等于(!= 或者&lt;&gt;)的时候无法使用索引或导致全表扫描</li>
-<li>is null,is not null 也无法使用索引</li>
-<li>like以通配符开头，mysql索引失效会变成全表扫描的操作</li>
-<li>字符串不加单引号索引失效</li>
-<li>少用or,用它来连接时会索引失效</li>
-</ol>
-<h2 id="3-查询截取分析"><a href="#3-查询截取分析" class="headerlink" title="3.查询截取分析"></a>3.查询截取分析</h2><h3 id="3-1-查询优化"><a href="#3-1-查询优化" class="headerlink" title="3.1 查询优化"></a>3.1 查询优化</h3><h4 id="3-1-1-小表驱动大表"><a href="#3-1-1-小表驱动大表" class="headerlink" title="3.1.1 小表驱动大表"></a>3.1.1 小表驱动大表</h4><p>小表驱动大表，即小的数据集驱动大的数据集<br>当B表的数据集必须小于A表的数据集时，用in优于exists<br>当A表数据集小于B表的数据集时，用exist优于in<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghi9hjlvmwj30om0gkwj2.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghi9kd8ynfj31e20akaff.jpg" alt=""></p>
-<h4 id="3-1-2-in和exists"><a href="#3-1-2-in和exists" class="headerlink" title="3.1.2 in和exists"></a>3.1.2 in和exists</h4><h4 id="3-1-3-使用索引orderby优化"><a href="#3-1-3-使用索引orderby优化" class="headerlink" title="3.1.3 使用索引orderby优化"></a>3.1.3 使用索引orderby优化</h4><ol>
-<li>order by子句，尽量使用index方式排序，避免使用filesort的方式排序</li>
-<li>尽可能在索引列上完成排序操作，遵照索引建的最佳左前缀</li>
-<li>如果不在索引列上 filesort有两种算法</li>
-</ol>
-<h4 id="3-1-4-group-by优化"><a href="#3-1-4-group-by优化" class="headerlink" title="3.1.4 group by优化"></a>3.1.4 group by优化</h4><p>基本上和order by的情况相同</p>
-<h3 id="3-2-慢查询日志"><a href="#3-2-慢查询日志" class="headerlink" title="3.2 慢查询日志"></a>3.2 慢查询日志</h3><p>默认情况下，MySQL数据库没有开启慢查询日志，需要我们手动来设置这个参数。当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定性能影响。慢查询日志支持将日志记录写入文件</p>
-<ol>
-<li>查看是否开启及如何开启<br> 默认：<code>show variables like &#39;%slow_query_log%&#39;</code><br> 开启：<code>set global slow_query_log = 1</code>，只对当前数据库生效，mysql重启后失效</li>
-<li>开启后什么样的sql会写入<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghibx93564j31160hg7ca.jpg" alt=""></li>
-<li>设置慢的阙值时间：<code>set global long_query_time = 3;</code></li>
-<li>看不到改变的原因:需要重新连接或者新开一个会话才能看到修改值。 <code>show variables like &#39;long_query_time%&#39;</code>、<code>show global variables like &#39;long_query_time&#39;</code></li>
-<li>记录慢SQL后并后续分析</li>
-<li>日志分析工具mysqldunpslow<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghice893tuj311o0kodjm.jpg" alt=""><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghicen234tj30ye0i67dp.jpg" alt=""></li>
-</ol>
-<h3 id="3-3-批量数据脚本"><a href="#3-3-批量数据脚本" class="headerlink" title="3.3 批量数据脚本"></a>3.3 批量数据脚本</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghickdsh3sj31300ho46b.jpg" alt=""></p>
-<h3 id="3-4-show-Profile"><a href="#3-4-show-Profile" class="headerlink" title="3.4 show Profile"></a>3.4 show Profile</h3><p><strong><em>是什么：</em></strong>是mysql提供剋月用来分析当前会话中语句执行的资源消耗情况。可以用于SQL的调优测量<br>默认情况下，参数处于关闭状态，并保存最近15次的运行结果。<br><strong><em>分析步骤：</em></strong></p>
-<ol>
-<li><p>是否支持，看看当前的mysql版本是否支持<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghigr2l8n3j30ia0hqjuh.jpg" alt=""></p>
-</li>
-<li><p>开启功能，默认是关闭的，使用前需要开启<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghigsph5hjj30m60kyq5y.jpg" alt=""></p>
-</li>
-<li><p>运行sql</p>
-</li>
-<li><p>查看结果，show profiles</p>
-</li>
-<li><p>诊断SQL：<code>show profile cpu,block io for query 上一步前面问题sql数字号码</code><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghih6afod4j314q0hyqb2.jpg" alt=""></p>
-</li>
-<li><p>日常开发需要注意的结论</p>
-<ul>
-<li>converting heap to myisam 查询结果太大，内存都不够用了，往磁盘上办了</li>
-<li>creating tmp table 创建临时表(拷贝数据到临时表，用完在删除)</li>
-<li>copying to tmp table on disk 把内存中临时表复制到磁盘，危险！！！</li>
-<li>locked<h3 id="3-5-全局查询日志"><a href="#3-5-全局查询日志" class="headerlink" title="3.5 全局查询日志"></a>3.5 全局查询日志</h3></li>
-</ul>
-</li>
-<li><p>配置启用<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghihkcf6fjj30fy0c6414.jpg" alt=""></p>
-</li>
-<li><p>编码启用<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghihkomj0dj31700jqn2g.jpg" alt=""></p>
-</li>
-<li><p>永远不要在生产环境中启用</p>
-<h2 id="4-MySQL锁机制"><a href="#4-MySQL锁机制" class="headerlink" title="4. MySQL锁机制"></a>4. MySQL锁机制</h2><h3 id="4-1-数据库锁理论概述"><a href="#4-1-数据库锁理论概述" class="headerlink" title="4.1 数据库锁理论概述"></a>4.1 数据库锁理论概述</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghihuq1prwj31fo092ahe.jpg" alt=""></p>
-</li>
-</ol>
-<p><strong><em>锁的分类：</em></strong><br>从对数据操作的类型(读/写)分<br><strong><em>读锁(共享锁)：</em></strong>针对同一份数据，多个读操作可以同时进行而不会互相影响<br><strong><em>行锁(排他锁)：</em></strong>当前写操作没有完成前，他会阻断其他写锁和读锁<br>从对数据操作的粒度分：表锁/行锁</p>
-<h3 id="4-2-读锁案例讲解"><a href="#4-2-读锁案例讲解" class="headerlink" title="4.2 读锁案例讲解"></a>4.2 读锁案例讲解</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghii4kaa1yj30pk06wgnm.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiih2oo1pj31ee0my0yz.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiii02u2aj31dc0hqwkv.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiiihnxfoj318o05atay.jpg" alt=""></p>
-<hr>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiin5iacdj31540niaiy.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiiodvv1wj311q08s40u.jpg" alt=""></p>
-<hr>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiip42lv5j31fi0mgtl8.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiipq4xc0j30w6018t9w.jpg" alt=""></p>
-<hr>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiirel3s0j31fk0lqgw8.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiislmhomj31fm02qjud.jpg" alt=""></p>
-<h3 id="4-3-行锁理论"><a href="#4-3-行锁理论" class="headerlink" title="4.3 行锁理论"></a>4.3 行锁理论</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghijdqt0quj31cg0myahp.jpg" alt=""></p>
-<h3 id="4-4-索引失效行锁变表锁"><a href="#4-4-索引失效行锁变表锁" class="headerlink" title="4.4 索引失效行锁变表锁"></a>4.4 索引失效行锁变表锁</h3><h3 id="4-5-间隙锁危害"><a href="#4-5-间隙锁危害" class="headerlink" title="4.5 间隙锁危害"></a>4.5 间隙锁危害</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghik0ej11zj31fy0deqf4.jpg" alt=""></p>
-<h3 id="4-6-如何锁定一行"><a href="#4-6-如何锁定一行" class="headerlink" title="4.6 如何锁定一行"></a>4.6 如何锁定一行</h3><h3 id="4-7-行锁总结"><a href="#4-7-行锁总结" class="headerlink" title="4.7 行锁总结"></a>4.7 行锁总结</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghik7r83nsj31g60bkwmx.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghik9c7sxmj313q0n8tgi.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghikb51r6qj30vw0aoq92.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghikbigutej31fk092wk6.jpg" alt=""></p>
-<h2 id="5-主从复制"><a href="#5-主从复制" class="headerlink" title="5. 主从复制"></a>5. 主从复制</h2><ol>
-<li><p>复制的基本原理<br> slave会从master读取binlog来进行数据同步<br> 三个步骤：<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiki7gwqjj315q0lmk34.jpg" alt=""></p>
-</li>
-<li><p>复制的基本原则<br> 每个slave只有一个master</p>
-</li>
-<li><p>复制的最大问题<br> 延时</p>
-</li>
-<li><p>主从常见配置</p>
-</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>StartUML使用技巧.md</title>
-    <url>/posts/80aa353a.html</url>
-    <content><![CDATA[<h1 id="StartUML使用技巧"><a href="#StartUML使用技巧" class="headerlink" title="StartUML使用技巧"></a>StartUML使用技巧</h1><h2 id="1-工作界面简单介绍"><a href="#1-工作界面简单介绍" class="headerlink" title="1. 工作界面简单介绍"></a>1. 工作界面简单介绍</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdlytwsyij31dc0u0ass.jpg" alt=""></p>
-<h2 id="2-类组件的基本操作介绍"><a href="#2-类组件的基本操作介绍" class="headerlink" title="2.类组件的基本操作介绍"></a>2.类组件的基本操作介绍</h2><p>单击选择Class，至工作区域内单机左键，即可创建一个class实例。创建实例后，周围会出现一堆，功能按钮，去描述这个类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdm3rtyovj30zc0fk77t.jpg" alt=""><br>功能介绍：</p>
-<ol>
-<li>用来标识Class的可见性</li>
-<li>用来添加note的，比如：类的说明</li>
-<li>增加类的属性</li>
-<li>增加类的操作方法</li>
-<li>增加Reception</li>
-<li>增加子类</li>
-<li>增加父类</li>
-<li>添加已有的接口</li>
-<li>添加需要的接口</li>
-<li>添加关联</li>
-<li>添加聚合</li>
-<li>添加组合</li>
-<li>添加端口</li>
-<li>添加部件</li>
-</ol>
-<h2 id="3-类与类之间的关系"><a href="#3-类与类之间的关系" class="headerlink" title="3. 类与类之间的关系"></a>3. 类与类之间的关系</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmh7zo5mj30s60l8whj.jpg" alt=""></p>
-<ol>
-<li><strong>聚合关系(Aggregation)</strong>：表示一个整体与部分的关系。在聚合关系中，成员类是整体类的一部分，即成员对象是整体对象的一部分，成员对象可以脱离整体对象独立存在。  在 UML 中，<em>聚合关系用带空心菱形的直线表示</em>。</li>
-<li><strong>组合关系(Composition)</strong>：组合关系也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在，部分对象与整体对象之间具有同生共死的关系。在组合关系中，成员类是整体类的一部分，而且整体类可以控制成员类的生命周期，即成员类的存在依赖于整体类。   在UML中，<em>组合关系用带实心菱形的直线表示</em>。</li>
-<li><strong>依赖关系(Dependency)</strong>：依赖关系是一种使用关系，特定事物的改变有可能会影响到使用该事物的其他事物，在需要表示一个事物使用另一个事物时使用依赖关系。大多数情况下，依赖关系体现在某个类的方法使用另一个类的对象作为参数。在UML中，<em>依赖关系用带箭头的虚线表示</em>，由依赖的一方指向被依赖的一方。</li>
-<li><strong>泛化关系(Generalization)</strong>：也就是继承关系，也称为“is-a-kind-of”关系，泛化关系用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在 UML 中，<em>泛化关系用带空心三角形的直线来表示</em>。</li>
-<li><strong>实现关系</strong>：实现关系(Realization)是类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，<em>类与接口之间的实现关系用带空心三角形的虚线来表示</em>。</li>
-<li><strong>关联关系(Association)</strong>：类与类之间最常用的一种关系，它是一种结构化关系，用于表示一个类对象与另一个类对象之间有联系。在 UML 类图中，用实线连接有关联的对象所对应的类。在实现关联关系时，通常将一个类的对象作为另一个类的属性。<ul>
-<li><strong>单向关联</strong>：类的关联关系可以是单向的，<em>单向关联用带箭头的实线表示。Ctril + L</em>  弄直<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmzpjhldj30lp02rmxh.jpg" alt=""> </li>
-<li><strong>双向关联</strong>：默认情况下，<em>关联是双向的</em><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn06ezb6j30lu02t74o.jpg" alt=""></li>
-<li><strong>自关联</strong>：在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0jz27zj30ax05nq34.jpg" alt=""></li>
-<li><strong>重数性关联</strong>：重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。在 UML 中多重性关系可以直接在关联直线上增加一个数字表示与之对应的另一个类的对象的个数<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0v8ff2j30m402x0t0.jpg" alt=""><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn128z7pj30ix07ogmi.jpg" alt=""></li>
-</ul>
-</li>
-</ol>
-<h2 id="4-UML方法的返回值"><a href="#4-UML方法的返回值" class="headerlink" title="4. UML方法的返回值"></a>4. UML方法的返回值</h2><p>Operation的返回值：StarUML添加一个Operation，要Add一个Parameter，将这个Parameter的DirectionKind设为RETURN。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdnfom3v9j31do0u0q9o.jpg" alt=""></p>
-]]></content>
   </entry>
   <entry>
     <title>MySQL学习笔记二</title>
@@ -1126,6 +870,31 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TRUNCATE TABLE admin$</span><br><span class="line">DROP PROCEDURE test_while1$</span><br><span class="line">CREATE PROCEDURE test_while1(IN insertCount INT)</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE i INT DEFAULT 0;</span><br><span class="line">	a:WHILE i&lt;&#x3D;insertCount DO</span><br><span class="line">		SET i&#x3D;i+1;</span><br><span class="line">		IF MOD(i,2)!&#x3D;0 THEN ITERATE a;</span><br><span class="line">		END IF;</span><br><span class="line">		</span><br><span class="line">		INSERT INTO admin(username,&#96;password&#96;) VALUES(CONCAT(&#39;xiaohua&#39;,i),&#39;0000&#39;);</span><br><span class="line">		</span><br><span class="line">	END WHILE a;</span><br><span class="line">END $</span><br><span class="line">CALL test_while1(100)$</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
+    <title>MySQL数据库学习笔记.md</title>
+    <url>/posts/8d9f420d.html</url>
+    <content><![CDATA[<h1 id="MySQL数据库学习笔记"><a href="#MySQL数据库学习笔记" class="headerlink" title="MySQL数据库学习笔记"></a>MySQL数据库学习笔记</h1><h2 id="1-MySQL的语法规范"><a href="#1-MySQL的语法规范" class="headerlink" title="1.MySQL的语法规范"></a>1.MySQL的语法规范</h2><ol>
+<li>不区分大小写,但建议关键字大写，表名、列名小写</li>
+<li>每条命令最好用分号结尾</li>
+<li>每条命令根据需要，可以进行缩进 或换行</li>
+<li>注释<ul>
+<li>单行注释：#注释文字</li>
+<li>单行注释：– 注释文字</li>
+<li>多行注释：/* 注释文字  */<h2 id="2-SQL的语言分类"><a href="#2-SQL的语言分类" class="headerlink" title="2.SQL的语言分类"></a>2.SQL的语言分类</h2></li>
+</ul>
+</li>
+<li>DQL（Data Query Language）：数据查询语言 select</li>
+<li>DML(Data Manipulate Language):数据操作语言:insert、update、delete</li>
+<li>DDL（Data Define Languge）：数据定义语言:create alter drop</li>
+<li>TCL（Transaction Control Language）：事务控制语言 commit rollback</li>
+</ol>
+<h2 id="3-SQL的常见命令"><a href="#3-SQL的常见命令" class="headerlink" title="3.SQL的常见命令"></a>3.SQL的常见命令</h2><h2 id="4-DQL语言的学习"><a href="#4-DQL语言的学习" class="headerlink" title="4.DQL语言的学习"></a>4.DQL语言的学习</h2><p><strong><em>更加具体的讲解详见对应的尚硅谷查询语句的pdf</em></strong></p>
+<h3 id="进阶1：基础查询"><a href="#进阶1：基础查询" class="headerlink" title="进阶1：基础查询"></a>进阶1：基础查询</h3><p>语法：select 查询的东西 [from 表名]<br>特点：<br>    1. 通过select查询完的结果 ，是一个虚拟的表格，不是真实存在<br>    2. 要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数</p>
+<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>条件查询：根据条件过滤原始表的数据，查询到想要的数据<br>语法：<br>    select 要查询的字段｜表达式｜常量值｜函数<br>    from 表名<br>    where 条件;<br>分类：<br>    1. 条件表达式<br>        * &gt;<br>        * &lt;<br>        * &gt;=<br>        * &gt;=<br>        * =<br>        * !=<br>        * &lt;&gt;:建议使用，不建议使用！=<br>    2. 逻辑表达式：用于连接条件表达式<br>        * and(&amp;&amp;):两个条件如果同时成立,结果为true,否则为false<br>        * or(||)：两个条件只要有一个成立，结果为true，否则为false<br>        * not(!)：如果条件成立，则not后为false，否则为true<br>    3. 模糊查询<br>        * like<br>        * between and<br>        * in<br>        * is null</p>
+<h3 id="进阶3：排序查询"><a href="#进阶3：排序查询" class="headerlink" title="进阶3：排序查询"></a>进阶3：排序查询</h3><p><strong><em>详细笔记请见尚硅谷基础学习笔记3</em></strong></p>
+<h3 id="进阶4：常见函数"><a href="#进阶4：常见函数" class="headerlink" title="进阶4：常见函数"></a>进阶4：常见函数</h3><p>一、单行函数<br>    1、字符函数<br>        concat拼接<br>        substr截取子串<br>        upper转换成大写<br>        lower转换成小写<br>        trim去前后指定的空格和字符<br>        ltrim去左边空格<br>        rtrim去右边空格<br>        replace替换<br>        lpad左填充<br>        rpad右填充<br>        instr返回子串第一次出现的索引<br>        length 获取字节个数<br>    2、数学函数<br>        round 四舍五入<br>        rand 随机数<br>        floor向下取整<br>        ceil向上取整<br>        mod取余<br>        truncate截断<br>3、日期函数<br>        now当前系统日期+时间<br>        curdate当前系统日期<br>        curtime当前系统时间<br>        str_to_date 将字符转换成日期<br>        date_format将日期转换成字符<br>4、流程控制函数<br>        if 处理双分支<br>        case语句 处理多分支<br>            情况1：处理等值判断<br>            情况2：处理条件判断<br>5、其他函数<br>        version版本<br>        database当前库<br>        user当前连接用户</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Mybatis学习笔记二</title>
     <url>/posts/a71dc8d.html</url>
     <content><![CDATA[<h2 id="1-Mybatis逆向工程"><a href="#1-Mybatis逆向工程" class="headerlink" title="1. Mybatis逆向工程"></a>1. Mybatis逆向工程</h2><h3 id="1-1-说明"><a href="#1-1-说明" class="headerlink" title="1.1 说明"></a>1.1 说明</h3><ol>
@@ -1222,30 +991,235 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </tags>
   </entry>
   <entry>
-    <title>学习计划</title>
-    <url>/posts/5e21c553.html</url>
-    <content><![CDATA[<h2 id="Java基础和框架学习计划"><a href="#Java基础和框架学习计划" class="headerlink" title="Java基础和框架学习计划"></a>Java基础和框架学习计划</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> Spring Boot视频教程（上）核心技术篇</li>
-<li><input disabled="" type="checkbox"> Spring Boot视频教程（下）整合篇</li>
-<li><input disabled="" type="checkbox"> JAVA常用类</li>
-<li><input checked="" disabled="" type="checkbox"> MyBatis-Plus </li>
-<li><input disabled="" type="checkbox"> 通用Mapper</li>
-<li><input disabled="" type="checkbox"> JVM</li>
-<li><input disabled="" type="checkbox"> SpringCloud</li>
-<li><input disabled="" type="checkbox"> 尚硅谷Dubbo视频</li>
-<li><input disabled="" type="checkbox"> redis</li>
-<li><input disabled="" type="checkbox"> JDBC升级版</li>
-<li><input disabled="" type="checkbox"> Java8新特性</li>
-<li><input disabled="" type="checkbox"> JUC</li>
-<li><input disabled="" type="checkbox"> NIO</li>
+    <title>MySQL高级部分学习一</title>
+    <url>/posts/f2612c14.html</url>
+    <content><![CDATA[<h1 id="MySQL高级部分学习一"><a href="#MySQL高级部分学习一" class="headerlink" title="MySQL高级部分学习一"></a>MySQL高级部分学习一</h1><h2 id="1-mysql的架构介绍"><a href="#1-mysql的架构介绍" class="headerlink" title="1. mysql的架构介绍"></a>1. mysql的架构介绍</h2><h3 id="1-1-mysql简介"><a href="#1-1-mysql简介" class="headerlink" title="1.1 mysql简介"></a>1.1 mysql简介</h3><h3 id="1-2-mysqlLinux版的安装"><a href="#1-2-mysqlLinux版的安装" class="headerlink" title="1.2 mysqlLinux版的安装"></a>1.2 mysqlLinux版的安装</h3><ol>
+<li>检查当前系统是否安装过mysql：<code>rpm -qa|grep -i mysql</code></li>
+<li>查看mysql安装时创建的mysql用户和mysql用户组：<code>cat /etc/password|grep mysql</code>、<code>cat /etc/group|grep mysql</code></li>
+<li>mysql服务的启动和停止：<code>service mysql start</code>,查看是否启动成功:<code>ps -ef|grep mysql</code></li>
+<li>root密码设置和设置开机随机启动:<code>chkconfig mysql on</code></li>
+<li>mysql的安装位置：<code>/var/lib/mysql</code></li>
+</ol>
+<h3 id="1-3-MySQL的配置文件-my-cnf"><a href="#1-3-MySQL的配置文件-my-cnf" class="headerlink" title="1.3 MySQL的配置文件:my.cnf"></a>1.3 MySQL的配置文件:my.cnf</h3><p><del>1. client:客户端的配置</del></p>
+<h3 id="1-4-Mysql逻辑架构介绍"><a href="#1-4-Mysql逻辑架构介绍" class="headerlink" title="1.4 Mysql逻辑架构介绍"></a>1.4 Mysql逻辑架构介绍</h3><h3 id="1-5-mysql存储引擎"><a href="#1-5-mysql存储引擎" class="headerlink" title="1.5 mysql存储引擎"></a>1.5 mysql存储引擎</h3><ol>
+<li>查看mysql提供的存储引擎:<code>show engines;</code></li>
+<li>查看mysql抢天默认的存储引擎:<code>show variables like &#39;%storage_engine%&#39;;</code></li>
+</ol>
+<h2 id="2-索引优化分析"><a href="#2-索引优化分析" class="headerlink" title="2. 索引优化分析"></a>2. 索引优化分析</h2><h3 id="2-1-SQL性能下降原因"><a href="#2-1-SQL性能下降原因" class="headerlink" title="2.1 SQL性能下降原因"></a>2.1 SQL性能下降原因</h3><ol>
+<li>索引失效</li>
+<li>关联查询太多join(设计缺陷或不得已的需求)</li>
+<li>服务器调优及各个参数设置(缓冲、线程数等)</li>
+</ol>
+<h3 id="2-2-SQL执行加载顺序"><a href="#2-2-SQL执行加载顺序" class="headerlink" title="2.2 SQL执行加载顺序"></a>2.2 SQL执行加载顺序</h3><p>from–on–join–where–group by–having–select–distinct–order by –limit<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxfq06gqj30i60ecwh3.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxh4irx6j312o0aw419.jpg" alt=""></p>
+<h3 id="2-3-七种JOIN理论"><a href="#2-3-七种JOIN理论" class="headerlink" title="2.3 七种JOIN理论"></a>2.3 七种JOIN理论</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxiygg3sj30ze0haqew.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghgxqhppfbj30zm0aw477.jpg" alt=""></p>
+<h3 id="2-4-七种JOIN的SQL编写"><a href="#2-4-七种JOIN的SQL编写" class="headerlink" title="2.4 七种JOIN的SQL编写"></a>2.4 七种JOIN的SQL编写</h3><h3 id="2-5-索引是什么"><a href="#2-5-索引是什么" class="headerlink" title="2.5 索引是什么"></a>2.5 索引是什么</h3><p>索引(index)是帮助mysql高效获取数据的数据结构。可以理解为<strong><em>“排好顺序快速查找数据结构”</em></strong></p>
+<h3 id="2-6-索引优势劣势"><a href="#2-6-索引优势劣势" class="headerlink" title="2.6 索引优势劣势"></a>2.6 索引优势劣势</h3><p>优势：</p>
+<ol>
+<li>提高检索效率，降低数据库的IO成本</li>
+<li>通过索引对数据进行排序，降低数据排序的成本，降低了COU的小号</li>
+</ol>
+<p>劣势：</p>
+<ol>
+<li>实际上索引也是一张表，该表保存了主键与索引字段，并且指向实体表记录，所以索引也是要占用空间的</li>
+<li>虽然索引大大提高了查询速度，但是却会降低更新表的速度</li>
+<li>都会调整因为更新所带来的键值变化后的索引信息</li>
+</ol>
+<h3 id="2-7-索引分类和建索引命令语句"><a href="#2-7-索引分类和建索引命令语句" class="headerlink" title="2.7 索引分类和建索引命令语句"></a>2.7 索引分类和建索引命令语句</h3><p>分类</p>
+<ol>
+<li>单值索引：即一个索引只包含单个列，一个表可以有多个单列索引</li>
+<li>唯一索引：索引列的值唯一，但允许有空值</li>
+<li>复合索引：即一个索引包含多个列</li>
+</ol>
+<p>语法</p>
+<ol>
+<li>创建<code>create [unique] index indexname on mytable(columnname(length))``alter mytable add [unique] index [indexname] on (columnname(length))</code></li>
+<li>删除：<code>drop index [indexname] on mytable</code></li>
+<li>查看：<code>show index from table_name\G</code></li>
+</ol>
+<h3 id="2-8-索引结构与检索原理"><a href="#2-8-索引结构与检索原理" class="headerlink" title="2.8 索引结构与检索原理"></a>2.8 索引结构与检索原理</h3><p>BTree索引、Hash索引、full-text全文索引、R-Tree索引</p>
+<h3 id="2-9-哪些情况适合建索引"><a href="#2-9-哪些情况适合建索引" class="headerlink" title="2.9 哪些情况适合建索引"></a>2.9 哪些情况适合建索引</h3><ol>
+<li>主键自动建立唯一索引</li>
+<li>频繁作为查询条件的字段应该创建索引</li>
+<li>查询中与其他表关联的字段，外键关系建立索引</li>
+<li>频繁更新的字段不适合创建索引，因为每次更新不单单是更新了记录还会更新索引</li>
+<li>where条件里用不到的字段不创建索引</li>
+<li>单键/组合索引的选择问题，who(在高并发下倾向创建组合索引)</li>
+<li>查询中排序的字段，排序字段若通过索引去访问将大大提高排序的速度</li>
+<li>查询中统计或者分组的字段</li>
+</ol>
+<h3 id="2-10-哪些情况不适合建索引"><a href="#2-10-哪些情况不适合建索引" class="headerlink" title="2.10 哪些情况不适合建索引"></a>2.10 哪些情况不适合建索引</h3><ol>
+<li>表记录太少</li>
+<li>经常增删改的表</li>
+<li>数据重复且分布平均的表字段，因此应该只为最经常查询和最经常排序的数据建立索引。⚠️如果某个数据列包含许多重复内容，为他建立索引就没有太大的实际效果</li>
+</ol>
+<h3 id="2-11-性能分析"><a href="#2-11-性能分析" class="headerlink" title="2.11 性能分析"></a>2.11 性能分析</h3><h4 id="2-11-1-性能分析前提知识"><a href="#2-11-1-性能分析前提知识" class="headerlink" title="2.11.1 性能分析前提知识"></a>2.11.1 性能分析前提知识</h4><p>MySQL常见瓶颈：</p>
+<ol>
+<li>CPU在饱和的时候一般发生在数据装入内存或从磁盘上读取数据的时候</li>
+<li>磁盘I/O瓶颈发生在装入数据远大于内存容量的时候</li>
+<li>服务器硬件的性能瓶颈，top,free,iostat和vmstat来查看系统的性能状态</li>
+</ol>
+<h4 id="2-11-2-explain使用简介"><a href="#2-11-2-explain使用简介" class="headerlink" title="2.11.2 explain使用简介"></a>2.11.2 explain使用简介</h4><p>使用explain关键字可以模拟优化器执行sql查询语句，从而知道mysql是如何处理sql语句的。分析查询语句或是表结构的性能瓶颈</p>
+<p>使用方法：<code>explain + 对应的查询语句</code></p>
+<p>能干啥：</p>
+<ol>
+<li>表的读取顺序</li>
+<li>数据读取操作的操作类型</li>
+<li>哪些索引可以使用</li>
+<li>哪些索引被实际使用</li>
+<li>表之间的引用</li>
+<li>每张表有多少行被优化器查询</li>
+</ol>
+<h4 id="2-11-3-explain之ID介绍"><a href="#2-11-3-explain之ID介绍" class="headerlink" title="2.11.3 explain之ID介绍"></a>2.11.3 explain之ID介绍</h4><p>select查询的序列号，包含一组数字，表示查询中select子句或操作表的顺序<br>三种情况：</p>
+<ol>
+<li>id相同，执行顺序由上至下</li>
+<li>id不相同，如果是子查询，id的序号会递增，id越大优先级越高，越先被执行</li>
+<li>id相同和不同同时存在，id越大，越先执行，id相同的，同时执行</li>
+</ol>
+<h4 id="2-11-4-explain之select-type和table介绍"><a href="#2-11-4-explain之select-type和table介绍" class="headerlink" title="2.11.4 explain之select_type和table介绍"></a>2.11.4 explain之select_type和table介绍</h4><p>type:查询的类型，主要用于区别普通查询、联合查询、子查询等复杂的查询</p>
+<ol>
+<li>simple:简单的select查询，查询中不包含子查询或者union</li>
+<li>primary：查询中若包含任何复杂的字部分，最外层查询则被标记为</li>
+<li>subquery:在select或where列表中包含了子查询</li>
+<li>derived:在from列表中包含的资产讯被标记为derived(衍生)，mysql会递归执行这些子查询，把结果放在临时表</li>
+<li>union：若第二个select出现在union之后，则被标记为union，若union包含在from的子句的子查询中，外层select将被标记为derived</li>
+<li>union result:从union表中select获取的结果</li>
+</ol>
+<p>table:是表示这一行的数据表示哪张表</p>
+<h4 id="2-11-5-explain之type介绍"><a href="#2-11-5-explain之type介绍" class="headerlink" title="2.11.5 explain之type介绍"></a>2.11.5 explain之type介绍</h4><p>显示查询使用了何种类型：<br>从最好到最差依次是：<code>system&gt;const&gt;eq_ref&gt;ref&gt;range&gt;index&gt;all</code></p>
+<p><strong><em>system:</em></strong>表只有一行记录等于系统表，这是const类型的特例，平常不会出现，可以忽略不计<br><strong><em>const:</em></strong>表示通过索引一次就找到了，const用于比较primary key或者是unique索引。因为之匹配一行数据，所以很快如将主键置于where列表中，mysql就能将该查询装换为一个常量<br><strong><em>eq_ref:</em></strong>唯一索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描<br><strong><em>ref:</em></strong>非唯一性索引扫描，返回匹配某个值的所有行.本质上也是一种索引访问，它返回所有匹配某个单独值的行。然而，他可能会找到多个复合条件的行，所以它属于查找和扫描的混合体<br><strong><em>range:</em></strong>只检索给定范围的行，使用一个索引来选定行，key列显示使用了哪个索引。一般就是在你的where语句中出现了between、&lt;、&gt;、in等的查询，这种范围扫描索引扫描比全表扫描要好。因为它只需要开始与索引的某一个点，而结束于另一点，不用扫描全部索引<br><strong><em>index:</em></strong>full index sacn。index与all区别为index类型值遍历索引树。通常比all快。index从所有的索引中取值。<br><strong><em>all:</em></strong>full table scan将遍历全表以找到适合的行</p>
+<h4 id="2-11-6-explain之possible-key和key介绍"><a href="#2-11-6-explain之possible-key和key介绍" class="headerlink" title="2.11.6 explain之possible_key和key介绍"></a>2.11.6 explain之possible_key和key介绍</h4><p>possible_key:显示可能应用在这张表中的索引，一个或者多个。查询涉及到字段上若存在索引，则该索引将被列出。但不一定被查询实际使用<br>key:实际使用的索引。如果没有则显示为null.查询中若使用了覆盖索引。则该索引仅出现在key列表中</p>
+<h4 id="2-11-7-explain之key-len介绍"><a href="#2-11-7-explain之key-len介绍" class="headerlink" title="2.11.7 explain之key_len介绍"></a>2.11.7 explain之key_len介绍</h4><p>表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好。key_len现实的值为索引字段的最大可能长度，并非实际使用长度，即key_len是分局表定义计算而得。不是通过表内检索出的</p>
+<h4 id="2-11-8-explain之ref介绍"><a href="#2-11-8-explain之ref介绍" class="headerlink" title="2.11.8 explain之ref介绍"></a>2.11.8 explain之ref介绍</h4><p>显示索引哪一列被使用了。如果可能的话，是一个常数，哪些列或常量被用于查找索引列上的值</p>
+<h4 id="2-11-9-explain之rows介绍"><a href="#2-11-9-explain之rows介绍" class="headerlink" title="2.11.9 explain之rows介绍"></a>2.11.9 explain之rows介绍</h4><p>根据表统计信息及索引选用情况。大致估算出找到所需的记录所需要读取的行数</p>
+<h4 id="2-11-10-explain之extra介绍"><a href="#2-11-10-explain之extra介绍" class="headerlink" title="2.11.10 explain之extra介绍"></a>2.11.10 explain之extra介绍</h4><p>包含不在其他列展示，但是又十分重要的额外信息</p>
+<ol>
+<li>using filesort:说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作称为“文件排序”</li>
+<li>using temporary:使用临时表保存中间结果，mysql在对查询结果排序时使用临时表。常见于排序order by和分组查询group by</li>
+<li>using index:表示相应的select操作中使用了覆盖索引(Covering index),避免访问了表的数据行，效率不错！如果同时出现using where ，表明索引被用来执行索引键值的查找。如果没有同时出现 using where ，表明索引用来读取数据而非执行查找动作。</li>
+<li>using where：表明使用了where过滤</li>
+<li>using join buffer</li>
+<li>impossible where:where子句的值总是false,不能用来获取任何元组</li>
+<li>select tables optimized away</li>
+<li>distinct:</li>
+</ol>
+<h3 id="2-12-索引优化"><a href="#2-12-索引优化" class="headerlink" title="2.12 索引优化"></a>2.12 索引优化</h3><ol>
+<li>全值匹配我最爱</li>
+<li>最佳左前缀法则：如果索引了多列，要遵守最左前缀法则。指的是查询从索引的最左前列开始并且不跳过索引中列</li>
+<li>不在索引列上做任何操作(计算、函数、(自动or手动)类型转换)，会导致索引失效而转向全表扫描</li>
+<li>存储引擎不能使用索引中范围条件右边的列(范围之后的索引全都失效)</li>
+<li>尽量使用覆盖索引(只访问索引的查询(索引和查询列一致))，减少select *</li>
+<li>mysql在使用不等于(!= 或者&lt;&gt;)的时候无法使用索引或导致全表扫描</li>
+<li>is null,is not null 也无法使用索引</li>
+<li>like以通配符开头，mysql索引失效会变成全表扫描的操作</li>
+<li>字符串不加单引号索引失效</li>
+<li>少用or,用它来连接时会索引失效</li>
+</ol>
+<h2 id="3-查询截取分析"><a href="#3-查询截取分析" class="headerlink" title="3.查询截取分析"></a>3.查询截取分析</h2><h3 id="3-1-查询优化"><a href="#3-1-查询优化" class="headerlink" title="3.1 查询优化"></a>3.1 查询优化</h3><h4 id="3-1-1-小表驱动大表"><a href="#3-1-1-小表驱动大表" class="headerlink" title="3.1.1 小表驱动大表"></a>3.1.1 小表驱动大表</h4><p>小表驱动大表，即小的数据集驱动大的数据集<br>当B表的数据集必须小于A表的数据集时，用in优于exists<br>当A表数据集小于B表的数据集时，用exist优于in<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghi9hjlvmwj30om0gkwj2.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghi9kd8ynfj31e20akaff.jpg" alt=""></p>
+<h4 id="3-1-2-in和exists"><a href="#3-1-2-in和exists" class="headerlink" title="3.1.2 in和exists"></a>3.1.2 in和exists</h4><h4 id="3-1-3-使用索引orderby优化"><a href="#3-1-3-使用索引orderby优化" class="headerlink" title="3.1.3 使用索引orderby优化"></a>3.1.3 使用索引orderby优化</h4><ol>
+<li>order by子句，尽量使用index方式排序，避免使用filesort的方式排序</li>
+<li>尽可能在索引列上完成排序操作，遵照索引建的最佳左前缀</li>
+<li>如果不在索引列上 filesort有两种算法</li>
+</ol>
+<h4 id="3-1-4-group-by优化"><a href="#3-1-4-group-by优化" class="headerlink" title="3.1.4 group by优化"></a>3.1.4 group by优化</h4><p>基本上和order by的情况相同</p>
+<h3 id="3-2-慢查询日志"><a href="#3-2-慢查询日志" class="headerlink" title="3.2 慢查询日志"></a>3.2 慢查询日志</h3><p>默认情况下，MySQL数据库没有开启慢查询日志，需要我们手动来设置这个参数。当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定性能影响。慢查询日志支持将日志记录写入文件</p>
+<ol>
+<li>查看是否开启及如何开启<br> 默认：<code>show variables like &#39;%slow_query_log%&#39;</code><br> 开启：<code>set global slow_query_log = 1</code>，只对当前数据库生效，mysql重启后失效</li>
+<li>开启后什么样的sql会写入<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghibx93564j31160hg7ca.jpg" alt=""></li>
+<li>设置慢的阙值时间：<code>set global long_query_time = 3;</code></li>
+<li>看不到改变的原因:需要重新连接或者新开一个会话才能看到修改值。 <code>show variables like &#39;long_query_time%&#39;</code>、<code>show global variables like &#39;long_query_time&#39;</code></li>
+<li>记录慢SQL后并后续分析</li>
+<li>日志分析工具mysqldunpslow<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghice893tuj311o0kodjm.jpg" alt=""><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghicen234tj30ye0i67dp.jpg" alt=""></li>
+</ol>
+<h3 id="3-3-批量数据脚本"><a href="#3-3-批量数据脚本" class="headerlink" title="3.3 批量数据脚本"></a>3.3 批量数据脚本</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghickdsh3sj31300ho46b.jpg" alt=""></p>
+<h3 id="3-4-show-Profile"><a href="#3-4-show-Profile" class="headerlink" title="3.4 show Profile"></a>3.4 show Profile</h3><p><strong><em>是什么：</em></strong>是mysql提供剋月用来分析当前会话中语句执行的资源消耗情况。可以用于SQL的调优测量<br>默认情况下，参数处于关闭状态，并保存最近15次的运行结果。<br><strong><em>分析步骤：</em></strong></p>
+<ol>
+<li><p>是否支持，看看当前的mysql版本是否支持<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghigr2l8n3j30ia0hqjuh.jpg" alt=""></p>
+</li>
+<li><p>开启功能，默认是关闭的，使用前需要开启<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghigsph5hjj30m60kyq5y.jpg" alt=""></p>
+</li>
+<li><p>运行sql</p>
+</li>
+<li><p>查看结果，show profiles</p>
+</li>
+<li><p>诊断SQL：<code>show profile cpu,block io for query 上一步前面问题sql数字号码</code><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghih6afod4j314q0hyqb2.jpg" alt=""></p>
+</li>
+<li><p>日常开发需要注意的结论</p>
+<ul>
+<li>converting heap to myisam 查询结果太大，内存都不够用了，往磁盘上办了</li>
+<li>creating tmp table 创建临时表(拷贝数据到临时表，用完在删除)</li>
+<li>copying to tmp table on disk 把内存中临时表复制到磁盘，危险！！！</li>
+<li>locked<h3 id="3-5-全局查询日志"><a href="#3-5-全局查询日志" class="headerlink" title="3.5 全局查询日志"></a>3.5 全局查询日志</h3></li>
 </ul>
+</li>
+<li><p>配置启用<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghihkcf6fjj30fy0c6414.jpg" alt=""></p>
+</li>
+<li><p>编码启用<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghihkomj0dj31700jqn2g.jpg" alt=""></p>
+</li>
+<li><p>永远不要在生产环境中启用</p>
+<h2 id="4-MySQL锁机制"><a href="#4-MySQL锁机制" class="headerlink" title="4. MySQL锁机制"></a>4. MySQL锁机制</h2><h3 id="4-1-数据库锁理论概述"><a href="#4-1-数据库锁理论概述" class="headerlink" title="4.1 数据库锁理论概述"></a>4.1 数据库锁理论概述</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghihuq1prwj31fo092ahe.jpg" alt=""></p>
+</li>
+</ol>
+<p><strong><em>锁的分类：</em></strong><br>从对数据操作的类型(读/写)分<br><strong><em>读锁(共享锁)：</em></strong>针对同一份数据，多个读操作可以同时进行而不会互相影响<br><strong><em>行锁(排他锁)：</em></strong>当前写操作没有完成前，他会阻断其他写锁和读锁<br>从对数据操作的粒度分：表锁/行锁</p>
+<h3 id="4-2-读锁案例讲解"><a href="#4-2-读锁案例讲解" class="headerlink" title="4.2 读锁案例讲解"></a>4.2 读锁案例讲解</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghii4kaa1yj30pk06wgnm.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiih2oo1pj31ee0my0yz.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiii02u2aj31dc0hqwkv.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiiihnxfoj318o05atay.jpg" alt=""></p>
+<hr>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiin5iacdj31540niaiy.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiiodvv1wj311q08s40u.jpg" alt=""></p>
+<hr>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiip42lv5j31fi0mgtl8.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiipq4xc0j30w6018t9w.jpg" alt=""></p>
+<hr>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiirel3s0j31fk0lqgw8.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiislmhomj31fm02qjud.jpg" alt=""></p>
+<h3 id="4-3-行锁理论"><a href="#4-3-行锁理论" class="headerlink" title="4.3 行锁理论"></a>4.3 行锁理论</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghijdqt0quj31cg0myahp.jpg" alt=""></p>
+<h3 id="4-4-索引失效行锁变表锁"><a href="#4-4-索引失效行锁变表锁" class="headerlink" title="4.4 索引失效行锁变表锁"></a>4.4 索引失效行锁变表锁</h3><h3 id="4-5-间隙锁危害"><a href="#4-5-间隙锁危害" class="headerlink" title="4.5 间隙锁危害"></a>4.5 间隙锁危害</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghik0ej11zj31fy0deqf4.jpg" alt=""></p>
+<h3 id="4-6-如何锁定一行"><a href="#4-6-如何锁定一行" class="headerlink" title="4.6 如何锁定一行"></a>4.6 如何锁定一行</h3><h3 id="4-7-行锁总结"><a href="#4-7-行锁总结" class="headerlink" title="4.7 行锁总结"></a>4.7 行锁总结</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghik7r83nsj31g60bkwmx.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghik9c7sxmj313q0n8tgi.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghikb51r6qj30vw0aoq92.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghikbigutej31fk092wk6.jpg" alt=""></p>
+<h2 id="5-主从复制"><a href="#5-主从复制" class="headerlink" title="5. 主从复制"></a>5. 主从复制</h2><ol>
+<li><p>复制的基本原理<br> slave会从master读取binlog来进行数据同步<br> 三个步骤：<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghiki7gwqjj315q0lmk34.jpg" alt=""></p>
+</li>
+<li><p>复制的基本原则<br> 每个slave只有一个master</p>
+</li>
+<li><p>复制的最大问题<br> 延时</p>
+</li>
+<li><p>主从常见配置</p>
+</li>
+</ol>
 ]]></content>
-      <categories>
-        <category>学习计划</category>
-      </categories>
-      <tags>
-        <tag>学习计划</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>StartUML使用技巧.md</title>
+    <url>/posts/80aa353a.html</url>
+    <content><![CDATA[<h1 id="StartUML使用技巧"><a href="#StartUML使用技巧" class="headerlink" title="StartUML使用技巧"></a>StartUML使用技巧</h1><h2 id="1-工作界面简单介绍"><a href="#1-工作界面简单介绍" class="headerlink" title="1. 工作界面简单介绍"></a>1. 工作界面简单介绍</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdlytwsyij31dc0u0ass.jpg" alt=""></p>
+<h2 id="2-类组件的基本操作介绍"><a href="#2-类组件的基本操作介绍" class="headerlink" title="2.类组件的基本操作介绍"></a>2.类组件的基本操作介绍</h2><p>单击选择Class，至工作区域内单机左键，即可创建一个class实例。创建实例后，周围会出现一堆，功能按钮，去描述这个类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdm3rtyovj30zc0fk77t.jpg" alt=""><br>功能介绍：</p>
+<ol>
+<li>用来标识Class的可见性</li>
+<li>用来添加note的，比如：类的说明</li>
+<li>增加类的属性</li>
+<li>增加类的操作方法</li>
+<li>增加Reception</li>
+<li>增加子类</li>
+<li>增加父类</li>
+<li>添加已有的接口</li>
+<li>添加需要的接口</li>
+<li>添加关联</li>
+<li>添加聚合</li>
+<li>添加组合</li>
+<li>添加端口</li>
+<li>添加部件</li>
+</ol>
+<h2 id="3-类与类之间的关系"><a href="#3-类与类之间的关系" class="headerlink" title="3. 类与类之间的关系"></a>3. 类与类之间的关系</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmh7zo5mj30s60l8whj.jpg" alt=""></p>
+<ol>
+<li><strong>聚合关系(Aggregation)</strong>：表示一个整体与部分的关系。在聚合关系中，成员类是整体类的一部分，即成员对象是整体对象的一部分，成员对象可以脱离整体对象独立存在。  在 UML 中，<em>聚合关系用带空心菱形的直线表示</em>。</li>
+<li><strong>组合关系(Composition)</strong>：组合关系也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在，部分对象与整体对象之间具有同生共死的关系。在组合关系中，成员类是整体类的一部分，而且整体类可以控制成员类的生命周期，即成员类的存在依赖于整体类。   在UML中，<em>组合关系用带实心菱形的直线表示</em>。</li>
+<li><strong>依赖关系(Dependency)</strong>：依赖关系是一种使用关系，特定事物的改变有可能会影响到使用该事物的其他事物，在需要表示一个事物使用另一个事物时使用依赖关系。大多数情况下，依赖关系体现在某个类的方法使用另一个类的对象作为参数。在UML中，<em>依赖关系用带箭头的虚线表示</em>，由依赖的一方指向被依赖的一方。</li>
+<li><strong>泛化关系(Generalization)</strong>：也就是继承关系，也称为“is-a-kind-of”关系，泛化关系用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在 UML 中，<em>泛化关系用带空心三角形的直线来表示</em>。</li>
+<li><strong>实现关系</strong>：实现关系(Realization)是类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，<em>类与接口之间的实现关系用带空心三角形的虚线来表示</em>。</li>
+<li><strong>关联关系(Association)</strong>：类与类之间最常用的一种关系，它是一种结构化关系，用于表示一个类对象与另一个类对象之间有联系。在 UML 类图中，用实线连接有关联的对象所对应的类。在实现关联关系时，通常将一个类的对象作为另一个类的属性。<ul>
+<li><strong>单向关联</strong>：类的关联关系可以是单向的，<em>单向关联用带箭头的实线表示。Ctril + L</em>  弄直<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmzpjhldj30lp02rmxh.jpg" alt=""> </li>
+<li><strong>双向关联</strong>：默认情况下，<em>关联是双向的</em><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn06ezb6j30lu02t74o.jpg" alt=""></li>
+<li><strong>自关联</strong>：在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0jz27zj30ax05nq34.jpg" alt=""></li>
+<li><strong>重数性关联</strong>：重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。在 UML 中多重性关系可以直接在关联直线上增加一个数字表示与之对应的另一个类的对象的个数<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0v8ff2j30m402x0t0.jpg" alt=""><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn128z7pj30ix07ogmi.jpg" alt=""></li>
+</ul>
+</li>
+</ol>
+<h2 id="4-UML方法的返回值"><a href="#4-UML方法的返回值" class="headerlink" title="4. UML方法的返回值"></a>4. UML方法的返回值</h2><p>Operation的返回值：StarUML添加一个Operation，要Add一个Parameter，将这个Parameter的DirectionKind设为RETURN。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdnfom3v9j31do0u0q9o.jpg" alt=""></p>
+]]></content>
   </entry>
   <entry>
     <title>sqlserver数据库还原单表数据操作</title>
@@ -1272,43 +1246,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </categories>
       <tags>
         <tag>sqlserver</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络在在线传输工具 --- 奶牛快传</title>
-    <url>/posts/994d00c4.html</url>
-    <content><![CDATA[<h2 id="1-奶牛快传"><a href="#1-奶牛快传" class="headerlink" title="1.奶牛快传"></a>1.<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a></h2><h3 id="1-1-免费超快的传文件工具"><a href="#1-1-免费超快的传文件工具" class="headerlink" title="1.1 免费超快的传文件工具"></a>1.1 免费超快的传文件工具</h3><p>奶牛快传是一款免费、无需注册即可直接使用的网页端大文件临时传输网盘服务。它提供了网页版、微信小程序、IOS以及安卓端。无论是办公文档、照片、还是电影视频通通都能轻松分享。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
-<p>未注册用户则可最大传输 2GB 文件,默认保留7天，可以免费下载100次。支持加密、邮件和短信分享</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerskqbjt2j31uf0u0u0x.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersldpc6tj31vn0u0u0x.jpg" alt=""></p>
-<h3 id="1-2-奶牛快传的使用"><a href="#1-2-奶牛快传的使用" class="headerlink" title="1.2 奶牛快传的使用"></a>1.2 奶牛快传的使用</h3><p>你只需在任何浏览器打开<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a>的网站，通过点击上传按钮或拖放文件即可开始上传，支持一次批量上传多个文件。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
-<p>之后你就能获得文件的共享链接了。你只需将链接发给别人，对方就能直接通过浏览器下载了，对方并不需要注册登录，也无需下载 APP 等麻烦操作，实用性很强。同时，奶牛快传还提供了共享网址所对应的二维码以及微信小程序二维码，这样不管用手机还是电脑来下载文件都更方便。起码自己用电脑给手机发文件的场景也是经常会用到的。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersrgbg0gj31un0u01ky.jpg" alt=""></p>
-<h3 id="1-3-奶牛快传注册账户"><a href="#1-3-奶牛快传注册账户" class="headerlink" title="1.3 奶牛快传注册账户"></a>1.3 奶牛快传注册账户</h3><p>还未体验过注册账户，待体验后在进行分享…..</p>
-]]></content>
-      <categories>
-        <category>网络在在线传输工具</category>
-      </categories>
-      <tags>
-        <tag>奶牛快传</tag>
-        <tag>文件传输</tag>
-        <tag>网络在在线传输工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>油猴(Tampermonkey)常用脚本</title>
-    <url>/posts/44e1e43b.html</url>
-    <content><![CDATA[<h2 id="1-什么是油猴"><a href="#1-什么是油猴" class="headerlink" title="1.什么是油猴"></a>1.什么是油猴</h2><p>从英文翻译而来-Tampermonkey是一个捐赠软件用户脚本管理器，可用作浏览器扩展。该软件使用户能够添加和使用用户脚本，这些脚本是可用于修改网页的JavaScript程序</p>
-<h2 id="2-油猴下载地址"><a href="#2-油猴下载地址" class="headerlink" title="2.油猴下载地址"></a>2.油猴下载地址</h2><ul>
-<li><a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">官网下载</a></li>
-<li><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank" rel="noopener">谷歌商店</a><h2 id="3-常用插件"><a href="#3-常用插件" class="headerlink" title="3.常用插件"></a>3.常用插件</h2><h3 id="3-1-批量下载网页图片-Picviewer-CE"><a href="#3-1-批量下载网页图片-Picviewer-CE" class="headerlink" title="3.1 批量下载网页图片 - Picviewer CE+"></a>3.1 批量下载网页图片 - Picviewer CE+</h3><a href="https://greasyfork.org/zh-CN/scripts/24204-picviewer-ce" target="_blank" rel="noopener">Picviewer CE+</a> 是一款浏览器油猴脚本，可以将包含很多图片的网页变成图片浏览器，还能对图片进行翻转、旋转、放大，显示原始大图、收藏、批量保存，聚合所有分页大图，图片在线编辑等操作</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>油猴</tag>
-        <tag>Tampermonkey</tag>
       </tags>
   </entry>
   <entry>
@@ -1405,14 +1342,66 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </tags>
   </entry>
   <entry>
-    <title>谷歌浏览器调试技巧</title>
-    <url>/posts/4cc93b7c.html</url>
-    <content><![CDATA[]]></content>
+    <title>学习计划</title>
+    <url>/posts/5e21c553.html</url>
+    <content><![CDATA[<h2 id="Java基础和框架学习计划"><a href="#Java基础和框架学习计划" class="headerlink" title="Java基础和框架学习计划"></a>Java基础和框架学习计划</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> Spring Boot视频教程（上）核心技术篇</li>
+<li><input disabled="" type="checkbox"> Spring Boot视频教程（下）整合篇</li>
+<li><input disabled="" type="checkbox"> JAVA常用类</li>
+<li><input checked="" disabled="" type="checkbox"> MyBatis-Plus </li>
+<li><input disabled="" type="checkbox"> 通用Mapper</li>
+<li><input disabled="" type="checkbox"> JVM</li>
+<li><input disabled="" type="checkbox"> SpringCloud</li>
+<li><input disabled="" type="checkbox"> 尚硅谷Dubbo视频</li>
+<li><input disabled="" type="checkbox"> redis</li>
+<li><input disabled="" type="checkbox"> JDBC升级版</li>
+<li><input disabled="" type="checkbox"> Java8新特性</li>
+<li><input disabled="" type="checkbox"> JUC</li>
+<li><input disabled="" type="checkbox"> NIO</li>
+</ul>
+]]></content>
       <categories>
-        <category>google</category>
+        <category>学习计划</category>
       </categories>
       <tags>
-        <tag>调试</tag>
+        <tag>学习计划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络在在线传输工具 --- 奶牛快传</title>
+    <url>/posts/994d00c4.html</url>
+    <content><![CDATA[<h2 id="1-奶牛快传"><a href="#1-奶牛快传" class="headerlink" title="1.奶牛快传"></a>1.<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a></h2><h3 id="1-1-免费超快的传文件工具"><a href="#1-1-免费超快的传文件工具" class="headerlink" title="1.1 免费超快的传文件工具"></a>1.1 免费超快的传文件工具</h3><p>奶牛快传是一款免费、无需注册即可直接使用的网页端大文件临时传输网盘服务。它提供了网页版、微信小程序、IOS以及安卓端。无论是办公文档、照片、还是电影视频通通都能轻松分享。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
+<p>未注册用户则可最大传输 2GB 文件,默认保留7天，可以免费下载100次。支持加密、邮件和短信分享</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerskqbjt2j31uf0u0u0x.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersldpc6tj31vn0u0u0x.jpg" alt=""></p>
+<h3 id="1-2-奶牛快传的使用"><a href="#1-2-奶牛快传的使用" class="headerlink" title="1.2 奶牛快传的使用"></a>1.2 奶牛快传的使用</h3><p>你只需在任何浏览器打开<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a>的网站，通过点击上传按钮或拖放文件即可开始上传，支持一次批量上传多个文件。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
+<p>之后你就能获得文件的共享链接了。你只需将链接发给别人，对方就能直接通过浏览器下载了，对方并不需要注册登录，也无需下载 APP 等麻烦操作，实用性很强。同时，奶牛快传还提供了共享网址所对应的二维码以及微信小程序二维码，这样不管用手机还是电脑来下载文件都更方便。起码自己用电脑给手机发文件的场景也是经常会用到的。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersrgbg0gj31un0u01ky.jpg" alt=""></p>
+<h3 id="1-3-奶牛快传注册账户"><a href="#1-3-奶牛快传注册账户" class="headerlink" title="1.3 奶牛快传注册账户"></a>1.3 奶牛快传注册账户</h3><p>还未体验过注册账户，待体验后在进行分享…..</p>
+]]></content>
+      <categories>
+        <category>网络在在线传输工具</category>
+      </categories>
+      <tags>
+        <tag>奶牛快传</tag>
+        <tag>文件传输</tag>
+        <tag>网络在在线传输工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>油猴(Tampermonkey)常用脚本</title>
+    <url>/posts/44e1e43b.html</url>
+    <content><![CDATA[<h2 id="1-什么是油猴"><a href="#1-什么是油猴" class="headerlink" title="1.什么是油猴"></a>1.什么是油猴</h2><p>从英文翻译而来-Tampermonkey是一个捐赠软件用户脚本管理器，可用作浏览器扩展。该软件使用户能够添加和使用用户脚本，这些脚本是可用于修改网页的JavaScript程序</p>
+<h2 id="2-油猴下载地址"><a href="#2-油猴下载地址" class="headerlink" title="2.油猴下载地址"></a>2.油猴下载地址</h2><ul>
+<li><a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">官网下载</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank" rel="noopener">谷歌商店</a><h2 id="3-常用插件"><a href="#3-常用插件" class="headerlink" title="3.常用插件"></a>3.常用插件</h2><h3 id="3-1-批量下载网页图片-Picviewer-CE"><a href="#3-1-批量下载网页图片-Picviewer-CE" class="headerlink" title="3.1 批量下载网页图片 - Picviewer CE+"></a>3.1 批量下载网页图片 - Picviewer CE+</h3><a href="https://greasyfork.org/zh-CN/scripts/24204-picviewer-ce" target="_blank" rel="noopener">Picviewer CE+</a> 是一款浏览器油猴脚本，可以将包含很多图片的网页变成图片浏览器，还能对图片进行翻转、旋转、放大，显示原始大图、收藏、批量保存，聚合所有分页大图，图片在线编辑等操作</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>油猴</tag>
+        <tag>Tampermonkey</tag>
       </tags>
   </entry>
   <entry>
@@ -1438,6 +1427,17 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </categories>
       <tags>
         <tag>google diriver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器调试技巧</title>
+    <url>/posts/4cc93b7c.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>google</category>
+      </categories>
+      <tags>
+        <tag>调试</tag>
       </tags>
   </entry>
 </search>
