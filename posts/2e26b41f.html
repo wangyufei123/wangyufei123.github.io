@@ -75,7 +75,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gib6j3wn7cj31ey0osdzr.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gib6pq9zqfj30n60ey43r.jpg">
 <meta property="article:published_time" content="2020-09-05T04:47:11.000Z">
-<meta property="article:modified_time" content="2020-09-05T06:56:13.286Z">
+<meta property="article:modified_time" content="2020-09-05T06:57:57.820Z">
 <meta property="article:author" content="Mr.Wang">
 <meta property="article:tag" content="java 前端">
 <meta name="twitter:card" content="summary">
@@ -1276,10 +1276,10 @@
 <li><p>业务类</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@HystrixCommand(fallbackMethod &#x3D; &quot;paymentTimeoutFallcackMethod&quot;,commandProperties  &#x3D;&#123;</span><br><span class="line">           @HystrixProperty(name &#x3D; &quot;execution.isolation.thread.timeoutInMilliseconds&quot;,value &#x3D; &quot;1500&quot;)</span><br><span class="line">    &#125;)</span><br><span class="line">    @GetMapping(&quot;&#x2F;consumer&#x2F;payment&#x2F;hystrix&#x2F;timeout&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paymentInfo_timeout(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">        return paymentHystrixService.paymentInfo_timeout(id);</span><br><span class="line">    &#125;</span><br><span class="line">    public String paymentTimeoutFallcackMethod(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">        return &quot;消费者客户端80的服务报错了&quot;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghy9ec2kokj31ok0pg7wi.jpg" alt=""></p>
-<h5 id="7-3-1-5-目前问题"><a href="#7-3-1-5-目前问题" class="headerlink" title="7.3.1.5. 目前问题"></a>7.3.1.5. 目前问题</h5></li>
-<li><p>每个业务方法对应一个兜底的方法，代码膨胀</p>
-</li>
-<li><p>统一和自定义的分开</p>
+<h5 id="7-3-1-5-目前问题"><a href="#7-3-1-5-目前问题" class="headerlink" title="7.3.1.5. 目前问题"></a>7.3.1.5. 目前问题</h5><ol>
+<li>每个业务方法对应一个兜底的方法，代码膨胀</li>
+<li>统一和自定义的分开</li>
+</ol>
 </li>
 </ol>
 <h5 id="7-3-1-6-解决问题"><a href="#7-3-1-6-解决问题" class="headerlink" title="7.3.1.6. 解决问题"></a>7.3.1.6. 解决问题</h5><ol>
