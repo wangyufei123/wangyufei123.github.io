@@ -204,41 +204,6 @@
       </tags>
   </entry>
   <entry>
-    <title>IDEA中查看maven的依赖关系</title>
-    <url>/posts/c9331070.html</url>
-    <content><![CDATA[<h2 id="1-使用maven自带的工具"><a href="#1-使用maven自带的工具" class="headerlink" title="1. 使用maven自带的工具"></a>1. 使用maven自带的工具</h2><h3 id="1-1-确保idea中UML的插件可以使用"><a href="#1-1-确保idea中UML的插件可以使用" class="headerlink" title="1.1 确保idea中UML的插件可以使用"></a>1.1 确保idea中UML的插件可以使用</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb2uvgs8j314r0u0afz.jpg" alt=""></p>
-<h3 id="1-2-pom-xml文件依赖分析"><a href="#1-2-pom-xml文件依赖分析" class="headerlink" title="1.2 pom.xml文件依赖分析"></a>1.2 pom.xml文件依赖分析</h3><ol>
-<li>在需要分析的pom.xml文件中右键选择<code>maven</code>-&gt;<code>Show Dependencies</code><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb5cwrgej30u00zyx6f.jpg" alt=""><br>打开后的图形<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbae8o9oj315c0u04qr.jpg" alt=""></li>
-<li>使用技巧<ul>
-<li>按住<code>option</code>,移动鼠标会出现放大镜,放大当前的依赖</li>
-<li>按住<code>control</code>,滚轮向前 放大整个屏幕</li>
-<li>红色实现表示冲突的文件,右键，排除，他就自动在pom文件里面给exclud啦</li>
-<li>红色的虚线表示用一个jar包都在哪里被多次引用</li>
-</ul>
-</li>
-</ol>
-<h2 id="2-使用maven-helper插件"><a href="#2-使用maven-helper插件" class="headerlink" title="2. 使用maven helper插件"></a>2. 使用maven helper插件</h2><ol>
-<li><p>打开需要查看的pom.xml文件,下边会出现<code>Denpendency Anlyzar</code>，点击按钮<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbmhob3ij31cm0u01l1.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbnq116yj31fk0u0hdw.jpg" alt=""></p>
-</li>
-<li><p>菜单功能</p>
-<ul>
-<li>Conflicts：冲突</li>
-<li>All Dependencies as List：列表形式查看所有依赖</li>
-<li>All Dependencies as Tree：树结构查看所有依赖</li>
-</ul>
-</li>
-<li><p>冲突jar包的解决<br> 切换到maven 依赖视图选择冲突选项，如果有冲突，在左下面区域会有红色显示。<br> 解决冲突，右键单击红色区域，弹出菜单选择Exclude命令，对冲突进行排除<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhcdt8upij316c0u0qv7.jpg" alt=""></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Activiti6.0工作流引擎学习(二) -- 引擎配置</title>
     <url>/posts/1d8f65f1.html</url>
     <content><![CDATA[<h1 id="Activiti6-0工作流引擎学习-二-–-引擎配置"><a href="#Activiti6-0工作流引擎学习-二-–-引擎配置" class="headerlink" title="Activiti6.0工作流引擎学习(二) – 引擎配置"></a>Activiti6.0工作流引擎学习(二) – 引擎配置</h1><h2 id="1-Activiti流程引擎配置涉及的类"><a href="#1-Activiti流程引擎配置涉及的类" class="headerlink" title="1.Activiti流程引擎配置涉及的类"></a>1.Activiti流程引擎配置涉及的类</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf6rcr6dzaj31b40nw4bp.jpg" alt="Activiti流程引擎配置"></p>
@@ -369,6 +334,41 @@
       </categories>
       <tags>
         <tag>activiti6.0</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA中查看maven的依赖关系</title>
+    <url>/posts/c9331070.html</url>
+    <content><![CDATA[<h2 id="1-使用maven自带的工具"><a href="#1-使用maven自带的工具" class="headerlink" title="1. 使用maven自带的工具"></a>1. 使用maven自带的工具</h2><h3 id="1-1-确保idea中UML的插件可以使用"><a href="#1-1-确保idea中UML的插件可以使用" class="headerlink" title="1.1 确保idea中UML的插件可以使用"></a>1.1 确保idea中UML的插件可以使用</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb2uvgs8j314r0u0afz.jpg" alt=""></p>
+<h3 id="1-2-pom-xml文件依赖分析"><a href="#1-2-pom-xml文件依赖分析" class="headerlink" title="1.2 pom.xml文件依赖分析"></a>1.2 pom.xml文件依赖分析</h3><ol>
+<li>在需要分析的pom.xml文件中右键选择<code>maven</code>-&gt;<code>Show Dependencies</code><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb5cwrgej30u00zyx6f.jpg" alt=""><br>打开后的图形<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbae8o9oj315c0u04qr.jpg" alt=""></li>
+<li>使用技巧<ul>
+<li>按住<code>option</code>,移动鼠标会出现放大镜,放大当前的依赖</li>
+<li>按住<code>control</code>,滚轮向前 放大整个屏幕</li>
+<li>红色实现表示冲突的文件,右键，排除，他就自动在pom文件里面给exclud啦</li>
+<li>红色的虚线表示用一个jar包都在哪里被多次引用</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-使用maven-helper插件"><a href="#2-使用maven-helper插件" class="headerlink" title="2. 使用maven helper插件"></a>2. 使用maven helper插件</h2><ol>
+<li><p>打开需要查看的pom.xml文件,下边会出现<code>Denpendency Anlyzar</code>，点击按钮<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbmhob3ij31cm0u01l1.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbnq116yj31fk0u0hdw.jpg" alt=""></p>
+</li>
+<li><p>菜单功能</p>
+<ul>
+<li>Conflicts：冲突</li>
+<li>All Dependencies as List：列表形式查看所有依赖</li>
+<li>All Dependencies as Tree：树结构查看所有依赖</li>
+</ul>
+</li>
+<li><p>冲突jar包的解决<br> 切换到maven 依赖视图选择冲突选项，如果有冲突，在左下面区域会有红色显示。<br> 解决冲突，右键单击红色区域，弹出菜单选择Exclude命令，对冲突进行排除<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhcdt8upij316c0u0qv7.jpg" alt=""></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -575,31 +575,6 @@
       <tags>
         <tag>maven</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>MySQL数据库学习笔记.md</title>
-    <url>/posts/8d9f420d.html</url>
-    <content><![CDATA[<h1 id="MySQL数据库学习笔记"><a href="#MySQL数据库学习笔记" class="headerlink" title="MySQL数据库学习笔记"></a>MySQL数据库学习笔记</h1><h2 id="1-MySQL的语法规范"><a href="#1-MySQL的语法规范" class="headerlink" title="1.MySQL的语法规范"></a>1.MySQL的语法规范</h2><ol>
-<li>不区分大小写,但建议关键字大写，表名、列名小写</li>
-<li>每条命令最好用分号结尾</li>
-<li>每条命令根据需要，可以进行缩进 或换行</li>
-<li>注释<ul>
-<li>单行注释：#注释文字</li>
-<li>单行注释：– 注释文字</li>
-<li>多行注释：/* 注释文字  */<h2 id="2-SQL的语言分类"><a href="#2-SQL的语言分类" class="headerlink" title="2.SQL的语言分类"></a>2.SQL的语言分类</h2></li>
-</ul>
-</li>
-<li>DQL（Data Query Language）：数据查询语言 select</li>
-<li>DML(Data Manipulate Language):数据操作语言:insert、update、delete</li>
-<li>DDL（Data Define Languge）：数据定义语言:create alter drop</li>
-<li>TCL（Transaction Control Language）：事务控制语言 commit rollback</li>
-</ol>
-<h2 id="3-SQL的常见命令"><a href="#3-SQL的常见命令" class="headerlink" title="3.SQL的常见命令"></a>3.SQL的常见命令</h2><h2 id="4-DQL语言的学习"><a href="#4-DQL语言的学习" class="headerlink" title="4.DQL语言的学习"></a>4.DQL语言的学习</h2><p><strong><em>更加具体的讲解详见对应的尚硅谷查询语句的pdf</em></strong></p>
-<h3 id="进阶1：基础查询"><a href="#进阶1：基础查询" class="headerlink" title="进阶1：基础查询"></a>进阶1：基础查询</h3><p>语法：select 查询的东西 [from 表名]<br>特点：<br>    1. 通过select查询完的结果 ，是一个虚拟的表格，不是真实存在<br>    2. 要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数</p>
-<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>条件查询：根据条件过滤原始表的数据，查询到想要的数据<br>语法：<br>    select 要查询的字段｜表达式｜常量值｜函数<br>    from 表名<br>    where 条件;<br>分类：<br>    1. 条件表达式<br>        * &gt;<br>        * &lt;<br>        * &gt;=<br>        * &gt;=<br>        * =<br>        * !=<br>        * &lt;&gt;:建议使用，不建议使用！=<br>    2. 逻辑表达式：用于连接条件表达式<br>        * and(&amp;&amp;):两个条件如果同时成立,结果为true,否则为false<br>        * or(||)：两个条件只要有一个成立，结果为true，否则为false<br>        * not(!)：如果条件成立，则not后为false，否则为true<br>    3. 模糊查询<br>        * like<br>        * between and<br>        * in<br>        * is null</p>
-<h3 id="进阶3：排序查询"><a href="#进阶3：排序查询" class="headerlink" title="进阶3：排序查询"></a>进阶3：排序查询</h3><p><strong><em>详细笔记请见尚硅谷基础学习笔记3</em></strong></p>
-<h3 id="进阶4：常见函数"><a href="#进阶4：常见函数" class="headerlink" title="进阶4：常见函数"></a>进阶4：常见函数</h3><p>一、单行函数<br>    1、字符函数<br>        concat拼接<br>        substr截取子串<br>        upper转换成大写<br>        lower转换成小写<br>        trim去前后指定的空格和字符<br>        ltrim去左边空格<br>        rtrim去右边空格<br>        replace替换<br>        lpad左填充<br>        rpad右填充<br>        instr返回子串第一次出现的索引<br>        length 获取字节个数<br>    2、数学函数<br>        round 四舍五入<br>        rand 随机数<br>        floor向下取整<br>        ceil向上取整<br>        mod取余<br>        truncate截断<br>3、日期函数<br>        now当前系统日期+时间<br>        curdate当前系统日期<br>        curtime当前系统时间<br>        str_to_date 将字符转换成日期<br>        date_format将日期转换成字符<br>4、流程控制函数<br>        if 处理双分支<br>        case语句 处理多分支<br>            情况1：处理等值判断<br>            情况2：处理条件判断<br>5、其他函数<br>        version版本<br>        database当前库<br>        user当前连接用户</p>
-]]></content>
   </entry>
   <entry>
     <title>MySQL学习笔记二</title>
@@ -895,6 +870,166 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TRUNCATE TABLE admin$</span><br><span class="line">DROP PROCEDURE test_while1$</span><br><span class="line">CREATE PROCEDURE test_while1(IN insertCount INT)</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE i INT DEFAULT 0;</span><br><span class="line">	a:WHILE i&lt;&#x3D;insertCount DO</span><br><span class="line">		SET i&#x3D;i+1;</span><br><span class="line">		IF MOD(i,2)!&#x3D;0 THEN ITERATE a;</span><br><span class="line">		END IF;</span><br><span class="line">		</span><br><span class="line">		INSERT INTO admin(username,&#96;password&#96;) VALUES(CONCAT(&#39;xiaohua&#39;,i),&#39;0000&#39;);</span><br><span class="line">		</span><br><span class="line">	END WHILE a;</span><br><span class="line">END $</span><br><span class="line">CALL test_while1(100)$</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
+    <title>MySQL数据库学习笔记.md</title>
+    <url>/posts/8d9f420d.html</url>
+    <content><![CDATA[<h1 id="MySQL数据库学习笔记"><a href="#MySQL数据库学习笔记" class="headerlink" title="MySQL数据库学习笔记"></a>MySQL数据库学习笔记</h1><h2 id="1-MySQL的语法规范"><a href="#1-MySQL的语法规范" class="headerlink" title="1.MySQL的语法规范"></a>1.MySQL的语法规范</h2><ol>
+<li>不区分大小写,但建议关键字大写，表名、列名小写</li>
+<li>每条命令最好用分号结尾</li>
+<li>每条命令根据需要，可以进行缩进 或换行</li>
+<li>注释<ul>
+<li>单行注释：#注释文字</li>
+<li>单行注释：– 注释文字</li>
+<li>多行注释：/* 注释文字  */<h2 id="2-SQL的语言分类"><a href="#2-SQL的语言分类" class="headerlink" title="2.SQL的语言分类"></a>2.SQL的语言分类</h2></li>
+</ul>
+</li>
+<li>DQL（Data Query Language）：数据查询语言 select</li>
+<li>DML(Data Manipulate Language):数据操作语言:insert、update、delete</li>
+<li>DDL（Data Define Languge）：数据定义语言:create alter drop</li>
+<li>TCL（Transaction Control Language）：事务控制语言 commit rollback</li>
+</ol>
+<h2 id="3-SQL的常见命令"><a href="#3-SQL的常见命令" class="headerlink" title="3.SQL的常见命令"></a>3.SQL的常见命令</h2><h2 id="4-DQL语言的学习"><a href="#4-DQL语言的学习" class="headerlink" title="4.DQL语言的学习"></a>4.DQL语言的学习</h2><p><strong><em>更加具体的讲解详见对应的尚硅谷查询语句的pdf</em></strong></p>
+<h3 id="进阶1：基础查询"><a href="#进阶1：基础查询" class="headerlink" title="进阶1：基础查询"></a>进阶1：基础查询</h3><p>语法：select 查询的东西 [from 表名]<br>特点：<br>    1. 通过select查询完的结果 ，是一个虚拟的表格，不是真实存在<br>    2. 要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数</p>
+<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>条件查询：根据条件过滤原始表的数据，查询到想要的数据<br>语法：<br>    select 要查询的字段｜表达式｜常量值｜函数<br>    from 表名<br>    where 条件;<br>分类：<br>    1. 条件表达式<br>        * &gt;<br>        * &lt;<br>        * &gt;=<br>        * &gt;=<br>        * =<br>        * !=<br>        * &lt;&gt;:建议使用，不建议使用！=<br>    2. 逻辑表达式：用于连接条件表达式<br>        * and(&amp;&amp;):两个条件如果同时成立,结果为true,否则为false<br>        * or(||)：两个条件只要有一个成立，结果为true，否则为false<br>        * not(!)：如果条件成立，则not后为false，否则为true<br>    3. 模糊查询<br>        * like<br>        * between and<br>        * in<br>        * is null</p>
+<h3 id="进阶3：排序查询"><a href="#进阶3：排序查询" class="headerlink" title="进阶3：排序查询"></a>进阶3：排序查询</h3><p><strong><em>详细笔记请见尚硅谷基础学习笔记3</em></strong></p>
+<h3 id="进阶4：常见函数"><a href="#进阶4：常见函数" class="headerlink" title="进阶4：常见函数"></a>进阶4：常见函数</h3><p>一、单行函数<br>    1、字符函数<br>        concat拼接<br>        substr截取子串<br>        upper转换成大写<br>        lower转换成小写<br>        trim去前后指定的空格和字符<br>        ltrim去左边空格<br>        rtrim去右边空格<br>        replace替换<br>        lpad左填充<br>        rpad右填充<br>        instr返回子串第一次出现的索引<br>        length 获取字节个数<br>    2、数学函数<br>        round 四舍五入<br>        rand 随机数<br>        floor向下取整<br>        ceil向上取整<br>        mod取余<br>        truncate截断<br>3、日期函数<br>        now当前系统日期+时间<br>        curdate当前系统日期<br>        curtime当前系统时间<br>        str_to_date 将字符转换成日期<br>        date_format将日期转换成字符<br>4、流程控制函数<br>        if 处理双分支<br>        case语句 处理多分支<br>            情况1：处理等值判断<br>            情况2：处理条件判断<br>5、其他函数<br>        version版本<br>        database当前库<br>        user当前连接用户</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Mybatis学习笔记二</title>
+    <url>/posts/a71dc8d.html</url>
+    <content><![CDATA[<h2 id="1-Mybatis逆向工程"><a href="#1-Mybatis逆向工程" class="headerlink" title="1. Mybatis逆向工程"></a>1. Mybatis逆向工程</h2><h3 id="1-1-说明"><a href="#1-1-说明" class="headerlink" title="1.1 说明"></a>1.1 说明</h3><ol>
+<li><p>MyBatis Generator<a href="http://mybatis.org/generator/#" target="_blank" rel="noopener">官方文档地址</a></p>
+</li>
+<li><p><a href="https://github.com/mybatis/generator/releases" target="_blank" rel="noopener">官方工程地址</a></p>
+</li>
+<li><p>依赖的包</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--mybatis逆向工程依赖包--&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-逆向功能的配置文件"><a href="#1-2-逆向功能的配置文件" class="headerlink" title="1.2 逆向功能的配置文件"></a>1.2 逆向功能的配置文件</h3> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">  PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD MyBatis Generator Configuration 1.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">  &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- </span><br><span class="line">		targetRuntime&#x3D;&quot;MyBatis3Simple&quot;:生成简单版的CRUD</span><br><span class="line">		MyBatis3:豪华版</span><br><span class="line">	</span><br><span class="line">	 --&gt;</span><br><span class="line">  &lt;context id&#x3D;&quot;DB2Tables&quot; targetRuntime&#x3D;&quot;MyBatis3&quot;&gt;</span><br><span class="line">  	&lt;!-- jdbcConnection：指定如何连接到目标数据库 --&gt;</span><br><span class="line">    &lt;jdbcConnection driverClass&#x3D;&quot;com.mysql.jdbc.Driver&quot;</span><br><span class="line">        connectionURL&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;mybatis?allowMultiQueries&#x3D;true&quot;</span><br><span class="line">        userId&#x3D;&quot;root&quot;</span><br><span class="line">        password&#x3D;&quot;123456&quot;&gt;</span><br><span class="line">    &lt;&#x2F;jdbcConnection&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--  --&gt;</span><br><span class="line">    &lt;javaTypeResolver &gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;forceBigDecimals&quot; value&#x3D;&quot;false&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaTypeResolver&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaModelGenerator：指定javaBean的生成策略 </span><br><span class="line">	targetPackage&#x3D;&quot;test.model&quot;：目标包名</span><br><span class="line">	targetProject&#x3D;&quot;\MBGTestProject\src&quot;：目标工程</span><br><span class="line">	--&gt;</span><br><span class="line">    &lt;javaModelGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.bean&quot; </span><br><span class="line">    		targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;trimStrings&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaModelGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- sqlMapGenerator：sql映射生成策略： --&gt;</span><br><span class="line">    &lt;sqlMapGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\conf&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;sqlMapGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaClientGenerator:指定mapper接口所在的位置 --&gt;</span><br><span class="line">    &lt;javaClientGenerator type&#x3D;&quot;XMLMAPPER&quot; targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaClientGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 指定要逆向分析哪些表：根据表要创建javaBean --&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_dept&quot; domainObjectName&#x3D;&quot;Department&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_employee&quot; domainObjectName&#x3D;&quot;Employee&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;context&gt;</span><br><span class="line">&lt;&#x2F;generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="2-Mybatis的运行原理"><a href="#2-Mybatis的运行原理" class="headerlink" title="2. Mybatis的运行原理"></a>2. Mybatis的运行原理</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1ec5vpzj30pc0eqdi7.jpg" alt="运行原理图"><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1fqhsrdj315l0u07b9.jpg" alt="框架原理图"></p>
+<h3 id="2-1-sqlsessionFactory的初始化"><a href="#2-1-sqlsessionFactory的初始化" class="headerlink" title="2.1 sqlsessionFactory的初始化"></a>2.1 sqlsessionFactory的初始化</h3><ol>
+<li>根据配置文件创建sqlsessionFactory<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8jtopjwj315e0q6jwj.jpg" alt=""></li>
+<li>几个重要的类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8l20ikdj30oy08amyc.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lcrpp2j30wy0n6gqg.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lnaxpkj310m0pijwy.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lu4tvtj31ca094tbp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8m1jq87j316q0cotc7.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mhihjrj30s408mdhp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mo15jrj30s408mdhp.jpg" alt="缓存中保存的key：方法id+sql+参数xxx"></li>
+</ol>
+<h3 id="2-2-openSession获取SqlSession对象"><a href="#2-2-openSession获取SqlSession对象" class="headerlink" title="2.2 openSession获取SqlSession对象"></a>2.2 openSession获取SqlSession对象</h3><p>返回SqlSession的实现类DefaultSqlSession对象。他里面包含了Executor和Configuration；Executor会在这一步被创建<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn931bghjj317a0mcn16.jpg" alt=""></p>
+<h3 id="2-3-getMapper获取到接口的代理对象"><a href="#2-3-getMapper获取到接口的代理对象" class="headerlink" title="2.3 getMapper获取到接口的代理对象"></a>2.3 getMapper获取到接口的代理对象</h3><p>getMapper返回接口的代理对象包含了SqlSession对象<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn9ey08pxj312a0lon0i.jpg" alt=""></p>
+<h3 id="2-4-查询实现"><a href="#2-4-查询实现" class="headerlink" title="2.4 查询实现"></a>2.4 查询实现</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfnagofu78j30zm0u043h.jpg" alt=""></p>
+<h2 id="3-插件"><a href="#3-插件" class="headerlink" title="3.插件"></a>3.插件</h2><p>MyBatis在四大对象的创建过程中，都会有插件进行介入。插件可以利用动态代理机制一层层的包装目标对象，而实现在目标对象执行目标方法之前进行拦截的效果。<br>MyBatis 允许在已映射语句执行过程中的某一点进行拦截调用。<br>默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：</p>
+<ul>
+<li>Executor(update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)</li>
+<li>ParameterHandler(getParameterObject, setParameters)</li>
+<li>ResultSetHandler(handleResultSets, handleOutputParameters)</li>
+<li>StatementHandler(prepare, parameterize, batch, update, query)</li>
+</ul>
+<h3 id="3-1-插件开发的步骤"><a href="#3-1-插件开发的步骤" class="headerlink" title="3.1 插件开发的步骤"></a>3.1 插件开发的步骤</h3><ol>
+<li><p>编写插件实现Interceptor接口并使用@Intercepts注解完成插件签名</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.in;</span><br><span class="line"></span><br><span class="line">import org.apache.ibatis.executor.statement.StatementHandler;</span><br><span class="line">import org.apache.ibatis.plugin.*;</span><br><span class="line"></span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * intercept:拦截目标对象的目标方法的执行</span><br><span class="line"> * 完成插件的签名：</span><br><span class="line"> *      告诉mybatis当前插件来拦截那个执行器的那个方法</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Intercepts(&#123;</span><br><span class="line">        @Signature(</span><br><span class="line">                type &#x3D; StatementHandler.class,method &#x3D; &quot;parameterize&quot;,args&#x3D;java.sql.Statement.class</span><br><span class="line">        )</span><br><span class="line">&#125;)</span><br><span class="line">public class MyFirstIn implements Interceptor &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Object intercept(Invocation invocation) throws Throwable &#123;</span><br><span class="line">        &#x2F;&#x2F;放行执行目标方法</span><br><span class="line">        Object proceed &#x3D; invocation.proceed();</span><br><span class="line">        return proceed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 插件包装</span><br><span class="line">     * 为目标对象创建一个代理对象</span><br><span class="line">     * @param target</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Object plugin(Object target) &#123;</span><br><span class="line">        Object wrap &#x3D; Plugin.wrap(target, this);</span><br><span class="line">        &#x2F;&#x2F;我们可以借助Plugin的wrap方法来使用当前的拦截器包装我们的对象</span><br><span class="line">        &#x2F;&#x2F;返回为当前target创建的动态代理</span><br><span class="line">        return wrap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 将插件注册时的properties属性注册出来</span><br><span class="line">     * @param properties</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void setProperties(Properties properties) &#123;</span><br><span class="line">        System.out.println(&quot;可以拿到插件的信息&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre></li>
+<li><p>在全局配置文件中注册插件</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugins&gt;</span><br><span class="line">        &lt;plugin interceptor&#x3D;&quot;com.atguigu.in.MyFirstIn&quot;&gt;</span><br><span class="line">            &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;ceshi&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;plugins&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="4-mybatis批量操作"><a href="#4-mybatis批量操作" class="headerlink" title="4. mybatis批量操作"></a>4. mybatis批量操作</h2><ul>
+<li><p>默认的openSession() 方法没有参数,它会创建有如下特性的</p>
+<ul>
+<li>会开启一个事务(也就是不自动提交)</li>
+<li>连接对象会从由活动环境配置的数据源实例得到</li>
+<li>事务隔离级别将会使用驱动或数据源的默认设置</li>
+<li>预处理语句不会被复用,也不会批量处理更</li>
+</ul>
+</li>
+<li><p>openSession 方法的ExecutorType类型的参数，枚举类型:</p>
+<ul>
+<li>ExecutorType.SIMPLE: 这个执行器类型不做特殊的事情（这是默认装配的）。它为每个语句的执行创建一个新的预处理语句</li>
+<li>ExecutorType.REUSE: 这个执行器类型会复用预处理语句</li>
+<li>ExecutorType.BATCH: 这个执行器会批量执行所有更新语句<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfng3gzkm0j30qh05f0uv.jpg" alt=""></li>
+</ul>
+</li>
+<li><p>批量操作我们是使用MyBatis提供的BatchExecutor进行的，他的底层就是通过jdbc攒sql的方式进行的。我们可以让他攒够一定数量后发给数据库一次</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    publicvoidtest01() &#123;</span><br><span class="line">SqlSession openSession &#x3D; build.openSession(ExecutorType.BATCH);</span><br><span class="line">UserDao mapper &#x3D; openSession.getMapper(UserDao.class);</span><br><span class="line">longstart &#x3D; System.currentTimeMillis();</span><br><span class="line">for(inti &#x3D; 0; i &lt; 1000000; i++) &#123;</span><br><span class="line">String name &#x3D; UUID.randomUUID().toString().substring(0, 5);</span><br><span class="line">mapper.addUser(newUser(null, name, 13));</span><br><span class="line">&#125;</span><br><span class="line">openSession.commit();</span><br><span class="line">openSession.close();</span><br><span class="line">longend &#x3D; System.currentTimeMillis();</span><br><span class="line">System.out.println(&quot;耗时时间：&quot;+(end-start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>与Spring整合中，我们推荐，额外的配置一个可以专门用来执行批量操作的sqlSession<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngak3h1uj30ur02kt9l.jpg" alt=""></p>
+</li>
+<li><p>需要用到批量操作的时候，我们可以注入配置的这个批量SqlSession。通过他获取到mapper映射器进行操作</p>
+</li>
+</ul>
+<p><strong><em>注意</em></strong></p>
+<ol>
+<li>批量操作是在session.commit()以后才发送sql语句给数据库进行执行的</li>
+<li>如果我们想让其提前执行，以方便后续可能的查询操作获取数据，我们可以使用sqlSession.flushStatements()方法，让其直接冲刷到数据库进行执行</li>
+</ol>
+<h2 id="5-一个带游标的存储过程"><a href="#5-一个带游标的存储过程" class="headerlink" title="5. 一个带游标的存储过程"></a>5. 一个带游标的存储过程</h2><ul>
+<li><p>MyBatis对存储过程的游标提供了一个JdbcType=CURSOR的支持，可以智能的把游标读取到的数据，映射到我们声明的结果集中</p>
+</li>
+<li><p>存储过程的调用</p>
+<ul>
+<li><p>select标签中statementType=“CALLABLE”</p>
+</li>
+<li><p>标签体中调用语法：{call procedure_name(#{param1_info},#{param2_info})}</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngl1c895j30ol066gn3.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-自定义TypeHandler处理枚举"><a href="#6-自定义TypeHandler处理枚举" class="headerlink" title="6.自定义TypeHandler处理枚举"></a>6.自定义TypeHandler处理枚举</h2><ul>
+<li>我们可以通过自定义TypeHandler的形式来在设置参数或者取出结果集的时候自定义参数封装策略</li>
+<li>步骤<ul>
+<li>实现TypeHandler接口或者继承BaseTypeHandler</li>
+<li>使用@MappedTypes定义处理的java类型</li>
+<li>使用@MappedJdbcTypes定义jdbcType类型</li>
+<li>在自定义结果集标签或者参数处理的时候声明使用自定义TypeHandler进行处理，或者在全局配置TypeHandler要处理的javaType</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>mybatis</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>StartUML使用技巧.md</title>
+    <url>/posts/80aa353a.html</url>
+    <content><![CDATA[<h1 id="StartUML使用技巧"><a href="#StartUML使用技巧" class="headerlink" title="StartUML使用技巧"></a>StartUML使用技巧</h1><h2 id="1-工作界面简单介绍"><a href="#1-工作界面简单介绍" class="headerlink" title="1. 工作界面简单介绍"></a>1. 工作界面简单介绍</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdlytwsyij31dc0u0ass.jpg" alt=""></p>
+<h2 id="2-类组件的基本操作介绍"><a href="#2-类组件的基本操作介绍" class="headerlink" title="2.类组件的基本操作介绍"></a>2.类组件的基本操作介绍</h2><p>单击选择Class，至工作区域内单机左键，即可创建一个class实例。创建实例后，周围会出现一堆，功能按钮，去描述这个类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdm3rtyovj30zc0fk77t.jpg" alt=""><br>功能介绍：</p>
+<ol>
+<li>用来标识Class的可见性</li>
+<li>用来添加note的，比如：类的说明</li>
+<li>增加类的属性</li>
+<li>增加类的操作方法</li>
+<li>增加Reception</li>
+<li>增加子类</li>
+<li>增加父类</li>
+<li>添加已有的接口</li>
+<li>添加需要的接口</li>
+<li>添加关联</li>
+<li>添加聚合</li>
+<li>添加组合</li>
+<li>添加端口</li>
+<li>添加部件</li>
+</ol>
+<h2 id="3-类与类之间的关系"><a href="#3-类与类之间的关系" class="headerlink" title="3. 类与类之间的关系"></a>3. 类与类之间的关系</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmh7zo5mj30s60l8whj.jpg" alt=""></p>
+<ol>
+<li><strong>聚合关系(Aggregation)</strong>：表示一个整体与部分的关系。在聚合关系中，成员类是整体类的一部分，即成员对象是整体对象的一部分，成员对象可以脱离整体对象独立存在。  在 UML 中，<em>聚合关系用带空心菱形的直线表示</em>。</li>
+<li><strong>组合关系(Composition)</strong>：组合关系也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在，部分对象与整体对象之间具有同生共死的关系。在组合关系中，成员类是整体类的一部分，而且整体类可以控制成员类的生命周期，即成员类的存在依赖于整体类。   在UML中，<em>组合关系用带实心菱形的直线表示</em>。</li>
+<li><strong>依赖关系(Dependency)</strong>：依赖关系是一种使用关系，特定事物的改变有可能会影响到使用该事物的其他事物，在需要表示一个事物使用另一个事物时使用依赖关系。大多数情况下，依赖关系体现在某个类的方法使用另一个类的对象作为参数。在UML中，<em>依赖关系用带箭头的虚线表示</em>，由依赖的一方指向被依赖的一方。</li>
+<li><strong>泛化关系(Generalization)</strong>：也就是继承关系，也称为“is-a-kind-of”关系，泛化关系用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在 UML 中，<em>泛化关系用带空心三角形的直线来表示</em>。</li>
+<li><strong>实现关系</strong>：实现关系(Realization)是类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，<em>类与接口之间的实现关系用带空心三角形的虚线来表示</em>。</li>
+<li><strong>关联关系(Association)</strong>：类与类之间最常用的一种关系，它是一种结构化关系，用于表示一个类对象与另一个类对象之间有联系。在 UML 类图中，用实线连接有关联的对象所对应的类。在实现关联关系时，通常将一个类的对象作为另一个类的属性。<ul>
+<li><strong>单向关联</strong>：类的关联关系可以是单向的，<em>单向关联用带箭头的实线表示。Ctril + L</em>  弄直<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmzpjhldj30lp02rmxh.jpg" alt=""> </li>
+<li><strong>双向关联</strong>：默认情况下，<em>关联是双向的</em><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn06ezb6j30lu02t74o.jpg" alt=""></li>
+<li><strong>自关联</strong>：在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0jz27zj30ax05nq34.jpg" alt=""></li>
+<li><strong>重数性关联</strong>：重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。在 UML 中多重性关系可以直接在关联直线上增加一个数字表示与之对应的另一个类的对象的个数<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0v8ff2j30m402x0t0.jpg" alt=""><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn128z7pj30ix07ogmi.jpg" alt=""></li>
+</ul>
+</li>
+</ol>
+<h2 id="4-UML方法的返回值"><a href="#4-UML方法的返回值" class="headerlink" title="4. UML方法的返回值"></a>4. UML方法的返回值</h2><p>Operation的返回值：StarUML添加一个Operation，要Add一个Parameter，将这个Parameter的DirectionKind设为RETURN。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdnfom3v9j31do0u0q9o.jpg" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
     <title>MySQL高级部分学习一</title>
     <url>/posts/f2612c14.html</url>
     <content><![CDATA[<h1 id="MySQL高级部分学习一"><a href="#MySQL高级部分学习一" class="headerlink" title="MySQL高级部分学习一"></a>MySQL高级部分学习一</h1><h2 id="1-mysql的架构介绍"><a href="#1-mysql的架构介绍" class="headerlink" title="1. mysql的架构介绍"></a>1. mysql的架构介绍</h2><h3 id="1-1-mysql简介"><a href="#1-1-mysql简介" class="headerlink" title="1.1 mysql简介"></a>1.1 mysql简介</h3><h3 id="1-2-mysqlLinux版的安装"><a href="#1-2-mysqlLinux版的安装" class="headerlink" title="1.2 mysqlLinux版的安装"></a>1.2 mysqlLinux版的安装</h3><ol>
@@ -1087,141 +1222,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 ]]></content>
   </entry>
   <entry>
-    <title>Mybatis学习笔记二</title>
-    <url>/posts/a71dc8d.html</url>
-    <content><![CDATA[<h2 id="1-Mybatis逆向工程"><a href="#1-Mybatis逆向工程" class="headerlink" title="1. Mybatis逆向工程"></a>1. Mybatis逆向工程</h2><h3 id="1-1-说明"><a href="#1-1-说明" class="headerlink" title="1.1 说明"></a>1.1 说明</h3><ol>
-<li><p>MyBatis Generator<a href="http://mybatis.org/generator/#" target="_blank" rel="noopener">官方文档地址</a></p>
-</li>
-<li><p><a href="https://github.com/mybatis/generator/releases" target="_blank" rel="noopener">官方工程地址</a></p>
-</li>
-<li><p>依赖的包</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--mybatis逆向工程依赖包--&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-逆向功能的配置文件"><a href="#1-2-逆向功能的配置文件" class="headerlink" title="1.2 逆向功能的配置文件"></a>1.2 逆向功能的配置文件</h3> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">  PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD MyBatis Generator Configuration 1.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">  &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- </span><br><span class="line">		targetRuntime&#x3D;&quot;MyBatis3Simple&quot;:生成简单版的CRUD</span><br><span class="line">		MyBatis3:豪华版</span><br><span class="line">	</span><br><span class="line">	 --&gt;</span><br><span class="line">  &lt;context id&#x3D;&quot;DB2Tables&quot; targetRuntime&#x3D;&quot;MyBatis3&quot;&gt;</span><br><span class="line">  	&lt;!-- jdbcConnection：指定如何连接到目标数据库 --&gt;</span><br><span class="line">    &lt;jdbcConnection driverClass&#x3D;&quot;com.mysql.jdbc.Driver&quot;</span><br><span class="line">        connectionURL&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;mybatis?allowMultiQueries&#x3D;true&quot;</span><br><span class="line">        userId&#x3D;&quot;root&quot;</span><br><span class="line">        password&#x3D;&quot;123456&quot;&gt;</span><br><span class="line">    &lt;&#x2F;jdbcConnection&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--  --&gt;</span><br><span class="line">    &lt;javaTypeResolver &gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;forceBigDecimals&quot; value&#x3D;&quot;false&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaTypeResolver&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaModelGenerator：指定javaBean的生成策略 </span><br><span class="line">	targetPackage&#x3D;&quot;test.model&quot;：目标包名</span><br><span class="line">	targetProject&#x3D;&quot;\MBGTestProject\src&quot;：目标工程</span><br><span class="line">	--&gt;</span><br><span class="line">    &lt;javaModelGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.bean&quot; </span><br><span class="line">    		targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;trimStrings&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaModelGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- sqlMapGenerator：sql映射生成策略： --&gt;</span><br><span class="line">    &lt;sqlMapGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\conf&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;sqlMapGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaClientGenerator:指定mapper接口所在的位置 --&gt;</span><br><span class="line">    &lt;javaClientGenerator type&#x3D;&quot;XMLMAPPER&quot; targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaClientGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 指定要逆向分析哪些表：根据表要创建javaBean --&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_dept&quot; domainObjectName&#x3D;&quot;Department&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_employee&quot; domainObjectName&#x3D;&quot;Employee&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;context&gt;</span><br><span class="line">&lt;&#x2F;generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="2-Mybatis的运行原理"><a href="#2-Mybatis的运行原理" class="headerlink" title="2. Mybatis的运行原理"></a>2. Mybatis的运行原理</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1ec5vpzj30pc0eqdi7.jpg" alt="运行原理图"><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1fqhsrdj315l0u07b9.jpg" alt="框架原理图"></p>
-<h3 id="2-1-sqlsessionFactory的初始化"><a href="#2-1-sqlsessionFactory的初始化" class="headerlink" title="2.1 sqlsessionFactory的初始化"></a>2.1 sqlsessionFactory的初始化</h3><ol>
-<li>根据配置文件创建sqlsessionFactory<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8jtopjwj315e0q6jwj.jpg" alt=""></li>
-<li>几个重要的类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8l20ikdj30oy08amyc.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lcrpp2j30wy0n6gqg.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lnaxpkj310m0pijwy.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lu4tvtj31ca094tbp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8m1jq87j316q0cotc7.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mhihjrj30s408mdhp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mo15jrj30s408mdhp.jpg" alt="缓存中保存的key：方法id+sql+参数xxx"></li>
-</ol>
-<h3 id="2-2-openSession获取SqlSession对象"><a href="#2-2-openSession获取SqlSession对象" class="headerlink" title="2.2 openSession获取SqlSession对象"></a>2.2 openSession获取SqlSession对象</h3><p>返回SqlSession的实现类DefaultSqlSession对象。他里面包含了Executor和Configuration；Executor会在这一步被创建<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn931bghjj317a0mcn16.jpg" alt=""></p>
-<h3 id="2-3-getMapper获取到接口的代理对象"><a href="#2-3-getMapper获取到接口的代理对象" class="headerlink" title="2.3 getMapper获取到接口的代理对象"></a>2.3 getMapper获取到接口的代理对象</h3><p>getMapper返回接口的代理对象包含了SqlSession对象<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn9ey08pxj312a0lon0i.jpg" alt=""></p>
-<h3 id="2-4-查询实现"><a href="#2-4-查询实现" class="headerlink" title="2.4 查询实现"></a>2.4 查询实现</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfnagofu78j30zm0u043h.jpg" alt=""></p>
-<h2 id="3-插件"><a href="#3-插件" class="headerlink" title="3.插件"></a>3.插件</h2><p>MyBatis在四大对象的创建过程中，都会有插件进行介入。插件可以利用动态代理机制一层层的包装目标对象，而实现在目标对象执行目标方法之前进行拦截的效果。<br>MyBatis 允许在已映射语句执行过程中的某一点进行拦截调用。<br>默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：</p>
-<ul>
-<li>Executor(update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)</li>
-<li>ParameterHandler(getParameterObject, setParameters)</li>
-<li>ResultSetHandler(handleResultSets, handleOutputParameters)</li>
-<li>StatementHandler(prepare, parameterize, batch, update, query)</li>
-</ul>
-<h3 id="3-1-插件开发的步骤"><a href="#3-1-插件开发的步骤" class="headerlink" title="3.1 插件开发的步骤"></a>3.1 插件开发的步骤</h3><ol>
-<li><p>编写插件实现Interceptor接口并使用@Intercepts注解完成插件签名</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.in;</span><br><span class="line"></span><br><span class="line">import org.apache.ibatis.executor.statement.StatementHandler;</span><br><span class="line">import org.apache.ibatis.plugin.*;</span><br><span class="line"></span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * intercept:拦截目标对象的目标方法的执行</span><br><span class="line"> * 完成插件的签名：</span><br><span class="line"> *      告诉mybatis当前插件来拦截那个执行器的那个方法</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Intercepts(&#123;</span><br><span class="line">        @Signature(</span><br><span class="line">                type &#x3D; StatementHandler.class,method &#x3D; &quot;parameterize&quot;,args&#x3D;java.sql.Statement.class</span><br><span class="line">        )</span><br><span class="line">&#125;)</span><br><span class="line">public class MyFirstIn implements Interceptor &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Object intercept(Invocation invocation) throws Throwable &#123;</span><br><span class="line">        &#x2F;&#x2F;放行执行目标方法</span><br><span class="line">        Object proceed &#x3D; invocation.proceed();</span><br><span class="line">        return proceed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 插件包装</span><br><span class="line">     * 为目标对象创建一个代理对象</span><br><span class="line">     * @param target</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Object plugin(Object target) &#123;</span><br><span class="line">        Object wrap &#x3D; Plugin.wrap(target, this);</span><br><span class="line">        &#x2F;&#x2F;我们可以借助Plugin的wrap方法来使用当前的拦截器包装我们的对象</span><br><span class="line">        &#x2F;&#x2F;返回为当前target创建的动态代理</span><br><span class="line">        return wrap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 将插件注册时的properties属性注册出来</span><br><span class="line">     * @param properties</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void setProperties(Properties properties) &#123;</span><br><span class="line">        System.out.println(&quot;可以拿到插件的信息&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre></li>
-<li><p>在全局配置文件中注册插件</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugins&gt;</span><br><span class="line">        &lt;plugin interceptor&#x3D;&quot;com.atguigu.in.MyFirstIn&quot;&gt;</span><br><span class="line">            &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;ceshi&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;plugins&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="4-mybatis批量操作"><a href="#4-mybatis批量操作" class="headerlink" title="4. mybatis批量操作"></a>4. mybatis批量操作</h2><ul>
-<li><p>默认的openSession() 方法没有参数,它会创建有如下特性的</p>
-<ul>
-<li>会开启一个事务(也就是不自动提交)</li>
-<li>连接对象会从由活动环境配置的数据源实例得到</li>
-<li>事务隔离级别将会使用驱动或数据源的默认设置</li>
-<li>预处理语句不会被复用,也不会批量处理更</li>
-</ul>
-</li>
-<li><p>openSession 方法的ExecutorType类型的参数，枚举类型:</p>
-<ul>
-<li>ExecutorType.SIMPLE: 这个执行器类型不做特殊的事情（这是默认装配的）。它为每个语句的执行创建一个新的预处理语句</li>
-<li>ExecutorType.REUSE: 这个执行器类型会复用预处理语句</li>
-<li>ExecutorType.BATCH: 这个执行器会批量执行所有更新语句<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfng3gzkm0j30qh05f0uv.jpg" alt=""></li>
-</ul>
-</li>
-<li><p>批量操作我们是使用MyBatis提供的BatchExecutor进行的，他的底层就是通过jdbc攒sql的方式进行的。我们可以让他攒够一定数量后发给数据库一次</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    publicvoidtest01() &#123;</span><br><span class="line">SqlSession openSession &#x3D; build.openSession(ExecutorType.BATCH);</span><br><span class="line">UserDao mapper &#x3D; openSession.getMapper(UserDao.class);</span><br><span class="line">longstart &#x3D; System.currentTimeMillis();</span><br><span class="line">for(inti &#x3D; 0; i &lt; 1000000; i++) &#123;</span><br><span class="line">String name &#x3D; UUID.randomUUID().toString().substring(0, 5);</span><br><span class="line">mapper.addUser(newUser(null, name, 13));</span><br><span class="line">&#125;</span><br><span class="line">openSession.commit();</span><br><span class="line">openSession.close();</span><br><span class="line">longend &#x3D; System.currentTimeMillis();</span><br><span class="line">System.out.println(&quot;耗时时间：&quot;+(end-start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>与Spring整合中，我们推荐，额外的配置一个可以专门用来执行批量操作的sqlSession<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngak3h1uj30ur02kt9l.jpg" alt=""></p>
-</li>
-<li><p>需要用到批量操作的时候，我们可以注入配置的这个批量SqlSession。通过他获取到mapper映射器进行操作</p>
-</li>
-</ul>
-<p><strong><em>注意</em></strong></p>
-<ol>
-<li>批量操作是在session.commit()以后才发送sql语句给数据库进行执行的</li>
-<li>如果我们想让其提前执行，以方便后续可能的查询操作获取数据，我们可以使用sqlSession.flushStatements()方法，让其直接冲刷到数据库进行执行</li>
-</ol>
-<h2 id="5-一个带游标的存储过程"><a href="#5-一个带游标的存储过程" class="headerlink" title="5. 一个带游标的存储过程"></a>5. 一个带游标的存储过程</h2><ul>
-<li><p>MyBatis对存储过程的游标提供了一个JdbcType=CURSOR的支持，可以智能的把游标读取到的数据，映射到我们声明的结果集中</p>
-</li>
-<li><p>存储过程的调用</p>
-<ul>
-<li><p>select标签中statementType=“CALLABLE”</p>
-</li>
-<li><p>标签体中调用语法：{call procedure_name(#{param1_info},#{param2_info})}</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngl1c895j30ol066gn3.jpg" alt=""></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="6-自定义TypeHandler处理枚举"><a href="#6-自定义TypeHandler处理枚举" class="headerlink" title="6.自定义TypeHandler处理枚举"></a>6.自定义TypeHandler处理枚举</h2><ul>
-<li>我们可以通过自定义TypeHandler的形式来在设置参数或者取出结果集的时候自定义参数封装策略</li>
-<li>步骤<ul>
-<li>实现TypeHandler接口或者继承BaseTypeHandler</li>
-<li>使用@MappedTypes定义处理的java类型</li>
-<li>使用@MappedJdbcTypes定义jdbcType类型</li>
-<li>在自定义结果集标签或者参数处理的时候声明使用自定义TypeHandler进行处理，或者在全局配置TypeHandler要处理的javaType</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>mybatis</category>
-      </categories>
-      <tags>
-        <tag>mybatis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>StartUML使用技巧.md</title>
-    <url>/posts/80aa353a.html</url>
-    <content><![CDATA[<h1 id="StartUML使用技巧"><a href="#StartUML使用技巧" class="headerlink" title="StartUML使用技巧"></a>StartUML使用技巧</h1><h2 id="1-工作界面简单介绍"><a href="#1-工作界面简单介绍" class="headerlink" title="1. 工作界面简单介绍"></a>1. 工作界面简单介绍</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdlytwsyij31dc0u0ass.jpg" alt=""></p>
-<h2 id="2-类组件的基本操作介绍"><a href="#2-类组件的基本操作介绍" class="headerlink" title="2.类组件的基本操作介绍"></a>2.类组件的基本操作介绍</h2><p>单击选择Class，至工作区域内单机左键，即可创建一个class实例。创建实例后，周围会出现一堆，功能按钮，去描述这个类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdm3rtyovj30zc0fk77t.jpg" alt=""><br>功能介绍：</p>
-<ol>
-<li>用来标识Class的可见性</li>
-<li>用来添加note的，比如：类的说明</li>
-<li>增加类的属性</li>
-<li>增加类的操作方法</li>
-<li>增加Reception</li>
-<li>增加子类</li>
-<li>增加父类</li>
-<li>添加已有的接口</li>
-<li>添加需要的接口</li>
-<li>添加关联</li>
-<li>添加聚合</li>
-<li>添加组合</li>
-<li>添加端口</li>
-<li>添加部件</li>
-</ol>
-<h2 id="3-类与类之间的关系"><a href="#3-类与类之间的关系" class="headerlink" title="3. 类与类之间的关系"></a>3. 类与类之间的关系</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmh7zo5mj30s60l8whj.jpg" alt=""></p>
-<ol>
-<li><strong>聚合关系(Aggregation)</strong>：表示一个整体与部分的关系。在聚合关系中，成员类是整体类的一部分，即成员对象是整体对象的一部分，成员对象可以脱离整体对象独立存在。  在 UML 中，<em>聚合关系用带空心菱形的直线表示</em>。</li>
-<li><strong>组合关系(Composition)</strong>：组合关系也表示类之间整体和部分的关系，但是组合关系中部分和整体具有统一的生存期。一旦整体对象不存在，部分对象也将不存在，部分对象与整体对象之间具有同生共死的关系。在组合关系中，成员类是整体类的一部分，而且整体类可以控制成员类的生命周期，即成员类的存在依赖于整体类。   在UML中，<em>组合关系用带实心菱形的直线表示</em>。</li>
-<li><strong>依赖关系(Dependency)</strong>：依赖关系是一种使用关系，特定事物的改变有可能会影响到使用该事物的其他事物，在需要表示一个事物使用另一个事物时使用依赖关系。大多数情况下，依赖关系体现在某个类的方法使用另一个类的对象作为参数。在UML中，<em>依赖关系用带箭头的虚线表示</em>，由依赖的一方指向被依赖的一方。</li>
-<li><strong>泛化关系(Generalization)</strong>：也就是继承关系，也称为“is-a-kind-of”关系，泛化关系用于描述父类与子类之间的关系，父类又称作基类或超类，子类又称作派生类。在 UML 中，<em>泛化关系用带空心三角形的直线来表示</em>。</li>
-<li><strong>实现关系</strong>：实现关系(Realization)是类实现了接口，类中的操作实现了接口中所声明的操作。在UML中，<em>类与接口之间的实现关系用带空心三角形的虚线来表示</em>。</li>
-<li><strong>关联关系(Association)</strong>：类与类之间最常用的一种关系，它是一种结构化关系，用于表示一个类对象与另一个类对象之间有联系。在 UML 类图中，用实线连接有关联的对象所对应的类。在实现关联关系时，通常将一个类的对象作为另一个类的属性。<ul>
-<li><strong>单向关联</strong>：类的关联关系可以是单向的，<em>单向关联用带箭头的实线表示。Ctril + L</em>  弄直<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdmzpjhldj30lp02rmxh.jpg" alt=""> </li>
-<li><strong>双向关联</strong>：默认情况下，<em>关联是双向的</em><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn06ezb6j30lu02t74o.jpg" alt=""></li>
-<li><strong>自关联</strong>：在系统中可能会存在一些类的属性对象类型为该类本身，这种特殊的关联关系称为自关联。<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0jz27zj30ax05nq34.jpg" alt=""></li>
-<li><strong>重数性关联</strong>：重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。在 UML 中多重性关系可以直接在关联直线上增加一个数字表示与之对应的另一个类的对象的个数<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn0v8ff2j30m402x0t0.jpg" alt=""><br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdn128z7pj30ix07ogmi.jpg" alt=""></li>
-</ul>
-</li>
-</ol>
-<h2 id="4-UML方法的返回值"><a href="#4-UML方法的返回值" class="headerlink" title="4. UML方法的返回值"></a>4. UML方法的返回值</h2><p>Operation的返回值：StarUML添加一个Operation，要Add一个Parameter，将这个Parameter的DirectionKind设为RETURN。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdnfom3v9j31do0u0q9o.jpg" alt=""></p>
-]]></content>
-  </entry>
-  <entry>
     <title>sqlserver数据库还原单表数据操作</title>
     <url>/posts/4a17b156.html</url>
     <content><![CDATA[<p>在系统数据和数据库数据备份或者升级的时候，我们总是全量的备份应用或者数据。在升级完成使用一段时间后突然间发现某张表的数据有问题，此时在全部的还原数据库的数据则不太合理，那如何只还原出现问题的这张表的数据呢？</p>
@@ -1405,17 +1405,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </tags>
   </entry>
   <entry>
-    <title>谷歌浏览器调试技巧</title>
-    <url>/posts/4cc93b7c.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>google</category>
-      </categories>
-      <tags>
-        <tag>调试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>谷歌云盘折腾记</title>
     <url>/posts/af6fa0b3.html</url>
     <content><![CDATA[<h2 id="折腾原因"><a href="#折腾原因" class="headerlink" title="折腾原因"></a>折腾原因</h2><p>前段时间由于某些原因，Goindex基于rclone挂载的谷歌云盘在某些原因的情况下不能免科学上网进行访问。这对于我这个大量文件都存放在谷歌云盘上的人来说就有点难受了。毕竟咱是一个无产阶级没有那么多的money进行购买机场流量。只能在茫茫的查找对应的替代品，功夫不负有心人。最终在努力下终于找到一个解决的办法，故此在这里记录一下</p>
@@ -1438,6 +1427,17 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </categories>
       <tags>
         <tag>google diriver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器调试技巧</title>
+    <url>/posts/4cc93b7c.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>google</category>
+      </categories>
+      <tags>
+        <tag>调试</tag>
       </tags>
   </entry>
   <entry>
@@ -2314,182 +2314,199 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 <li><p>根据cloud-consumer-feign-hystrix-order80已经有的PaymentHystrixService接口，重新新建一个类（PaymentFallbackService）实现该接口，统一为接口里面的方法进行异常处理</p>
 </li>
 <li><p>PaymentFallbackService类实现PaymentFeignClientService接口     </p>
-</li>
-<li><p>YML   </p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true  #如果处理自身的容错就开启。开启方式与生产端不一样。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PaymentFeignClientService接口</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.springcloud.service;</span><br><span class="line"></span><br><span class="line">import org.springframework.cloud.openfeign.FeignClient;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @program: cloud2020</span><br><span class="line"> * @description: 服务类</span><br><span class="line"> * @author: Mr.Wang</span><br><span class="line"> * @create: 2020-08-20-22-29</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Component</span><br><span class="line">@FeignClient(name &#x3D; &quot;CLOUD-PROVIDER-HYSTRIX-PAYMENT&quot; ,fallback &#x3D; PaymentFallbackHystrixService.class)</span><br><span class="line">public interface PaymentHystrixService &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;payment&#x2F;hystrix&#x2F;ok&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paymentInfo_ok(@PathVariable(&quot;id&quot;) Integer id);</span><br><span class="line">    @GetMapping(&quot;&#x2F;payment&#x2F;hystrix&#x2F;timeout&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paymentInfo_timeout(@PathVariable(&quot;id&quot;) Integer id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">          package com.atguigu.springcloud.service;</span><br><span class="line">          </span><br><span class="line">          import org.springframework.stereotype.Component;</span><br><span class="line">          </span><br><span class="line">          @Component</span><br><span class="line">          public class PaymentFallbackHystrixService implements PaymentHystrixService&#123;</span><br><span class="line">              @Override</span><br><span class="line">              public String paymentInfo_ok(Integer id) &#123;</span><br><span class="line">                  return &quot;------PaymentFallbackHystrixService-------&quot;;</span><br><span class="line">              &#125;</span><br><span class="line">          </span><br><span class="line">              @Override</span><br><span class="line">              public String paymentInfo_timeout(Integer id) &#123;</span><br><span class="line">                  return &quot;-----PaymentFallbackHystrixService---超时-----&quot;;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        </span><br><span class="line">       &#96;&#96;&#96;  </span><br><span class="line">* YML</span><br></pre></td></tr></table></figure>
+<p>  feign:</p>
+<pre><code>hystrix:
+  enabled: true  #如果处理自身的容错就开启。开启方式与生产端不一样。</code></pre>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   </span><br><span class="line">* PaymentFeignClientService接口</span><br></pre></td></tr></table></figure>
+<pre><code>package com.atguigu.springcloud.service;
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghyds9vj9zj31js0mqqv5.jpg)</code></pre></li>
-<li><p>测试</p>
-<ul>
-<li>单个eureka先启动7001</li>
-<li>PaymentHystrixMain8001启动</li>
-<li>正常访问测试：<a href="http://localhost/consumer/payment/hystrix/ok/31" target="_blank" rel="noopener">http://localhost/consumer/payment/hystrix/ok/31</a></li>
-<li>故意关闭微服务8001</li>
-<li>客户端自己调用提升：此时服务端provider已经down了，但是我们做了服务降级处理，让客户端在服务端不可用时也会获得提示信息而不会挂起耗死服务器</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="7-3-2-服务熔断"><a href="#7-3-2-服务熔断" class="headerlink" title="7.3.2 服务熔断"></a>7.3.2 服务熔断</h4><ol>
-<li><p>断路器<br>一句话就是家里的保险丝</p>
-</li>
-<li><p>熔断是什么<br><a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener">https://martinfowler.com/bliki/CircuitBreaker.html</a><br>类比保险丝，达到最大访问后直接拒绝访问，拉闸限电，然后调用服务降级。当检测==到该节点微服务调用正常后，恢复调用链路。==<br>当失败的调用达到一定阈值，缺省是5s内20次调用失败，就会启动熔断机制。熔断机制的注解是，@HystrixCommand</p>
-</li>
-<li><p>实操</p>
-<ul>
-<li><p>修改cloud-provider-hystrix-payment8001</p>
-</li>
-<li><p>PaymentService(为什么配置这些参数)</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * 服务熔断</span><br><span class="line">    *&#x2F;</span><br><span class="line">   @HystrixCommand(fallbackMethod &#x3D; &quot;paymentCircuitBreaker_fallback&quot;,commandProperties &#x3D; &#123;</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.enabled&quot;,value &#x3D; &quot;true&quot;),&#x2F;&#x2F;是否开启断路器</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.requestVolumeThreshold&quot;,value &#x3D; &quot;10&quot;),&#x2F;&#x2F;请求次数</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.sleepWindowInMilliseconds&quot;,value &#x3D; &quot;10000&quot;),&#x2F;&#x2F;时间范围</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.errorThresholdPercentage&quot;,value &#x3D; &quot;60&quot;),&#x2F;&#x2F;失败率达到多少次后跳闸</span><br><span class="line">   &#125;)</span><br><span class="line">   &#x2F;&#x2F;&#x2F;&#x2F; 加起来就是在10s内的10次请求中如果失败超过6次进入服务熔断</span><br><span class="line">   public String paymentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">       if(id &lt; 0)&#123;</span><br><span class="line">           throw new RuntimeException(&quot;*****id 不能为负数&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       String serialNumber &#x3D; IdUtil.simpleUUID();</span><br><span class="line">       return Thread.currentThread().getName()+&quot; \t 调用成功，流水号&quot;+serialNumber;</span><br><span class="line">   &#125;</span><br><span class="line">   public String paymentCircuitBreaker_fallback(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">       return &quot;id不能为附属，请稍后在是&quot;;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
+/**
+ * @program: cloud2020
+ * @description: 服务类
+ * @author: Mr.Wang
+ * @create: 2020-08-20-22-29
+ */
+@Component
+@FeignClient(name = &quot;CLOUD-PROVIDER-HYSTRIX-PAYMENT&quot; ,fallback = PaymentFallbackHystrixService.class)
+public interface PaymentHystrixService {
+
+    @GetMapping(&quot;/payment/hystrix/ok/{id}&quot;)
+    public String paymentInfo_ok(@PathVariable(&quot;id&quot;) Integer id);
+    @GetMapping(&quot;/payment/hystrix/timeout/{id}&quot;)
+    public String paymentInfo_timeout(@PathVariable(&quot;id&quot;) Integer id);
+}
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">           </span><br><span class="line">            ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyds9vj9zj31js0mqqv5.jpg)</span><br><span class="line">    * 测试</span><br><span class="line">        * 单个eureka先启动7001</span><br><span class="line">        * PaymentHystrixMain8001启动</span><br><span class="line">        * 正常访问测试：http:&#x2F;&#x2F;localhost&#x2F;consumer&#x2F;payment&#x2F;hystrix&#x2F;ok&#x2F;31</span><br><span class="line">        * 故意关闭微服务8001</span><br><span class="line">        * 客户端自己调用提升：此时服务端provider已经down了，但是我们做了服务降级处理，让客户端在服务端不可用时也会获得提示信息而不会挂起耗死服务器</span><br><span class="line"></span><br><span class="line">#### 7.3.2 服务熔断</span><br><span class="line">1. 断路器</span><br><span class="line">一句话就是家里的保险丝</span><br><span class="line">2. 熔断是什么</span><br><span class="line">https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CircuitBreaker.html</span><br><span class="line">类比保险丝，达到最大访问后直接拒绝访问，拉闸限电，然后调用服务降级。当检测&#x3D;&#x3D;到该节点微服务调用正常后，恢复调用链路。&#x3D;&#x3D;</span><br><span class="line">当失败的调用达到一定阈值，缺省是5s内20次调用失败，就会启动熔断机制。熔断机制的注解是，@HystrixCommand</span><br><span class="line">3. 实操</span><br><span class="line">    * 修改cloud-provider-hystrix-payment8001</span><br><span class="line">    * PaymentService(为什么配置这些参数)</span><br></pre></td></tr></table></figure></code></pre><p>   /**</p>
+<pre><code> * 服务熔断
+ */
+@HystrixCommand(fallbackMethod = &quot;paymentCircuitBreaker_fallback&quot;,commandProperties = {
+        @HystrixProperty(name=&quot;circuitBreaker.enabled&quot;,value = &quot;true&quot;),//是否开启断路器
+        @HystrixProperty(name=&quot;circuitBreaker.requestVolumeThreshold&quot;,value = &quot;10&quot;),//请求次数
+        @HystrixProperty(name=&quot;circuitBreaker.sleepWindowInMilliseconds&quot;,value = &quot;10000&quot;),//时间范围
+        @HystrixProperty(name=&quot;circuitBreaker.errorThresholdPercentage&quot;,value = &quot;60&quot;),//失败率达到多少次后跳闸
+})
+//// 加起来就是在10s内的10次请求中如果失败超过6次进入服务熔断
+public String paymentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id){
+    if(id &lt; 0){
+        throw new RuntimeException(&quot;*****id 不能为负数&quot;);
+    }
+    String serialNumber = IdUtil.simpleUUID();
+    return Thread.currentThread().getName()+&quot; \t 调用成功，流水号&quot;+serialNumber;
+}
+public String paymentCircuitBreaker_fallback(@PathVariable(&quot;id&quot;) Integer id){
+    return &quot;id不能为附属，请稍后在是&quot;;
+}</code></pre>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>  @GetMapping(“/payment/circuit/{id}”)</p>
+<pre><code>public String paumentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id){
+    String result = paymentService.paymentCircuitBreaker(id);
+    log.info(&quot;*****info&quot;+result);
+    return result;
+}</code></pre>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    * 测试</span><br><span class="line">        * 自测cloud-provider-hystrix-payment8001</span><br><span class="line">        * 正确：http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;31</span><br><span class="line">        * 错误：http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;-31</span><br><span class="line">        * 一次正确一次错误trytry</span><br><span class="line">        * 重点测试:多次错误,然后慢慢正确，发现刚开始不满足条件，就算是正确的访问地址也不能进行访问，需要慢慢的恢复链路</span><br><span class="line">        * 结果：一直输入id为负数，达到失败率后即使输入id为正数也进入错误页面。</span><br><span class="line">4. 原理(小结)</span><br><span class="line">    * 断路器在什么情况下开始起作用</span><br><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyfe2vjddj318s0k6tup.jpg)</span><br><span class="line">    设计三个参数：时间窗，请求总阈值，错误百分比阈值</span><br><span class="line"></span><br><span class="line">    1. 快照时间窗：默认为最近的10s</span><br><span class="line">    2. 请求总数阈值：必须满足请求总阈值才有资格熔断。默认为20。意味着在10s内，如果命令调用次数不足20次，即使所有请求都超时或其他原因失败断路器都不会打开</span><br><span class="line">    3. 错误百分比阈值：在快照时间窗内请求总数超过阈值，且错误次数占总请求次数的比值大于阈值，断路器将会打开</span><br><span class="line">    * 断路器开启或者关闭的条件</span><br><span class="line">        * 当满足一定阀值的时候（默认10秒内超过20个请求次数）</span><br><span class="line">        * 当失败率达到一定的时候（默认10秒内超过50%请求失败）</span><br><span class="line">        * 到达以上阀值，断路器将会开启</span><br><span class="line">        * 当开启的时候，所有请求都不会进行转发</span><br><span class="line">        * 一段时间之后（默认是5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器会关闭，若失败，继续开启。重复4和5</span><br><span class="line">    * 断路器打开之后</span><br><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyfh27eksj31980cg145.jpg)</span><br><span class="line">    * all配置:详细的看官网</span><br><span class="line"></span><br><span class="line">#### 7.3.3 服务限流</span><br><span class="line">后面高级篇讲解alibaba的Sentinel说明</span><br><span class="line">### 7.4 hystrix工作流程</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;Netflix&#x2F;Hystrix&#x2F;wiki&#x2F;How-it-Works</span><br><span class="line">### 7.5 服务监控hystrixDashboard</span><br><span class="line">* 概述</span><br><span class="line">* 仪表盘9001</span><br><span class="line">    * 新建cloud-consumer-hystrix-dashboard9001</span><br><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghygoe9t00j319m08a111.jpg)</span><br><span class="line">    * POM</span><br></pre></td></tr></table></figure>
+  <?xml version="1.0" encoding="UTF-8"?>
+<p>  &lt;project xmlns=”<a href="http://maven.apache.org/POM/4.0.0&quot;" target="_blank" rel="noopener">http://maven.apache.org/POM/4.0.0&quot;</a></p>
+<pre><code>     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+     xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+&lt;parent&gt;
+    &lt;artifactId&gt;cloud2020&lt;/artifactId&gt;
+    &lt;groupId&gt;com.atguigu.springcloud&lt;/groupId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+&lt;/parent&gt;
+&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+&lt;artifactId&gt;cloud-consumer-hystrix-dashboard9001&lt;/artifactId&gt;
+
+&lt;dependencies&gt;
+    &lt;!--新增hystrix dashboard--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+        &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>  </project>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* YML</span><br><span class="line">&#96;server.port:9001&#96;</span><br><span class="line">* HystrixDashboardMain9001+新注解@EnableHystrixDashboard</span><br></pre></td></tr></table></figure>
+  package com.atguigu.springcloud;
+
+<p>  import org.springframework.boot.SpringApplication;<br>  import org.springframework.boot.autoconfigure.SpringBootApplication;<br>  import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;</p>
+<p>  /**</p>
+<ul>
+<li><p>@program: cloud2020</p>
+</li>
+<li><p>@description: qidonglei</p>
+</li>
+<li><p>@author: Mr.Wang</p>
+</li>
+<li><p>@create: 2020-08-21-15-37</p>
+</li>
+<li><p>/<br>@SpringBootApplication<br>@EnableHystrixDashboard<br>public class HystrixDashboardMain9001 {<br>  public static void main(String[] args) {</p>
+<pre><code>SpringApplication.run(HystrixDashboardMain9001.class,args);</code></pre><p>  }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    * 所有Provider微服务提供类（8001&#x2F;8002&#x2F;8003）都需要监控依赖配</span><br><span class="line">    * 启动cloud-consumer-hystrix-dashboard9001该微服务后续将监控微服务8001</span><br><span class="line">        http:&#x2F;&#x2F;localhost:9001&#x2F;hystrix</span><br><span class="line">* 断路器演示</span><br><span class="line">    * 修改cloud-provider-hystrix-payment8001</span><br><span class="line">    注意：新版本Hystrix需要在主启动类MainAppHystrix8001中指定监控路径</span><br><span class="line">    Unable to connect to Command Metric Stream</span><br><span class="line">    404</span><br></pre></td></tr></table></figure>
+<p>@Bean<br>  public ServletRegistrationBean getServlet(){</p>
+<pre><code>HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
+registrationBean.setLoadOnStartup(1);
+registrationBean.addUrlMappings(&quot;/hystrix.stream&quot;);
+registrationBean.setName(&quot;HystrixMetricsStreamServlet&quot;);
+return registrationBean;</code></pre><p>  }</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    * 监控测试</span><br><span class="line">        1. 启动1个eureka或者3个eureka集群均可</span><br><span class="line">        2. 观察监控窗口</span><br><span class="line">            * 9001监控8001:填写监控地址：http:&#x2F;&#x2F;localhost:8001&#x2F;hystrix.stream</span><br><span class="line">            ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhmfgdejj31pw0u0nau.jpg)</span><br><span class="line">            * 测试地址</span><br><span class="line">                * http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;31，http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;-31</span><br><span class="line">                * 结果：测试通过</span><br><span class="line">                * 先访问正确地址，再访问错误地址，再正确地址，会发现图示断路器都是慢慢放开的：先是成功后是失败</span><br><span class="line">            * 如何看</span><br><span class="line">                * 7色</span><br><span class="line">               ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhwhmruej31de0pqal6.jpg)</span><br><span class="line">                * 1圈</span><br><span class="line">                ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhx2vfjnj319q08c7au.jpg)</span><br><span class="line">                * 1线：访问趋势</span><br><span class="line">                * 整图说明</span><br><span class="line">                ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhxzb7d0j31900ji16m.jpg)</span><br><span class="line">                * 正图说明2</span><br><span class="line">                    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhygi7zvj31aa0imk9g.jpg)</span><br><span class="line">            * 搞懂一个才能看懂复杂的</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">## 8. zuul路由网关（没讲）</span><br><span class="line">## 9. Gateway新一代网关</span><br><span class="line">### 9.1 概述简介</span><br><span class="line">1. 官网</span><br><span class="line">    * 上一代zuul 1.x:https:&#x2F;&#x2F;github.com&#x2F;Netflix&#x2F;zuul&#x2F;wiki</span><br><span class="line">    * 当前gateway:https:&#x2F;&#x2F;cloud.spring.io&#x2F;spring-cloud-static&#x2F;spring-cloud-gateway&#x2F;2.2.1.RELEASE&#x2F;reference&#x2F;html&#x2F;</span><br><span class="line">2. 是什么</span><br><span class="line">Spring Cloud Gateway 使用的Webflux中的reactor-netty响应式编程组件，底层使用了Netty通讯框架</span><br><span class="line">3. 能干嘛</span><br><span class="line">    * 反向代理</span><br><span class="line">    * 鉴权</span><br><span class="line">    * 流量控制</span><br><span class="line">    * 熔断</span><br><span class="line">    * 日志监控</span><br><span class="line">4. 微服务架构中网关在哪里</span><br><span class="line">![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gi1nmie3cwj31560jigrc.jpg)</span><br><span class="line">![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gi1nn2t1rhj30qm0ibqcq.jpg)</span><br><span class="line">5. 有了zuul怎么又出来gateway</span><br><span class="line">spring cloud gateway具有如下的特性</span><br><span class="line">    * 基于Spring Framework5 ,Project Reactor和Spring boot 2.0进行构建的</span><br><span class="line">    * 动态路由：能够匹配任何请求属性</span><br><span class="line">    * 可以对路由指定Preidcate(断言)和Filter(过滤器)</span><br><span class="line">    * 集成Hystrix的断路器功能</span><br><span class="line">    * 集成Spring Cloud 服务发现功能</span><br><span class="line">    * 易于编写的Predicate(断言)和Filter(过滤器)</span><br><span class="line">    * 请求限流功能</span><br><span class="line">    * 支持路径重写</span><br><span class="line"></span><br><span class="line">### 9.2 三大核心概念</span><br><span class="line">1. Route(路由)</span><br><span class="line">路由是构建网关的基本模块，它由ID，目标URI，一系列的断言和过滤器组成，如果断言为true则匹配该路由</span><br><span class="line">2. Predicate(断言)</span><br><span class="line">参考的是java8的java.util.function.Predicate开发人员可以匹配HTTP请求中的所有内容（例如请求头或请求参数），如果请求与断言相匹配则进行路由</span><br><span class="line">3. Filter(过滤)</span><br><span class="line">指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。</span><br><span class="line">4. 总体</span><br><span class="line">web请求，通过一些匹配条件，定位到真正的服务节点。并在这个转发过程的前后进行一些精细化控制。predicate就是我们的匹配条件；而filter，就可以理解为一个无所不能的拦截器，有了这两个元素，在加上目标uri就可以实现一个具体的路由了</span><br><span class="line">### 9.3 Gateway工作流程</span><br><span class="line">客户端向Spring Cloud Gateway发出请求。如果网关处理程序映射确定请求与路由匹配，则将其发送到网关Web处理程序。该处理程序通过特定于请求的过滤器链来运行请求。筛选器由虚线分隔的原因是，筛选器可以在发送代理请求之前和之后运行逻辑。所有“前置”过滤器逻辑均被执行。然后发出代理请求。发出代理请求后，将运行“后”过滤器逻辑。</span><br><span class="line">![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gi1ob6owtrj30cb0gjdfw.jpg)</span><br><span class="line"></span><br><span class="line">### 9.4 入门配置</span><br><span class="line">1. 新建module:&#96;cloud-gateway-gateway9527&#96;</span><br><span class="line">2. POM文件</span><br></pre></td></tr></table></figure>
+<?xml version="1.0" encoding="UTF-8"?>
+<p><project xmlns="http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"></p>
+<parent>
+  <artifactId>cloud2020</artifactId>
+  <groupId>com.atguigu.springcloud</groupId>
+  <version>1.0-SNAPSHOT</version>
+</parent>
+<modelVersion>4.0.0</modelVersion>
+
+<p><artifactId>cloud-gateway-gateway9527</artifactId></p>
+<dependencies>
+  <!--新增gateway-->
+  <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
+  </dependency>
+  <dependency>
+      <groupId>com.atguigu.springcloud</groupId>
+      <artifactId>cloud-api-commons</artifactId>
+      <version>1.0-SNAPSHOT</version>
+  </dependency>
+  <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+  </dependency>
+  <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+  </dependency>
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+  </dependency>
+  <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+  </dependency>
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+  </dependency>
+</dependencies>
 
 </li>
 </ul>
-</li>
-</ol>
-<pre><code>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;payment&#x2F;circuit&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paumentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">        String result &#x3D; paymentService.paymentCircuitBreaker(id);</span><br><span class="line">        log.info(&quot;*****info&quot;+result);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-* 测试
-    * 自测cloud-provider-hystrix-payment8001
-    * 正确：http://localhost:8001/payment/circuit/31
-    * 错误：http://localhost:8001/payment/circuit/-31
-    * 一次正确一次错误trytry
-    * 重点测试:多次错误,然后慢慢正确，发现刚开始不满足条件，就算是正确的访问地址也不能进行访问，需要慢慢的恢复链路
-    * 结果：一直输入id为负数，达到失败率后即使输入id为正数也进入错误页面。</code></pre><ol start="4">
-<li><p>原理(小结)</p>
-<ul>
-<li>断路器在什么情况下开始起作用<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyfe2vjddj318s0k6tup.jpg" alt=""><br>设计三个参数：时间窗，请求总阈值，错误百分比阈值</li>
-</ul>
-<ol>
-<li>快照时间窗：默认为最近的10s</li>
-<li>请求总数阈值：必须满足请求总阈值才有资格熔断。默认为20。意味着在10s内，如果命令调用次数不足20次，即使所有请求都超时或其他原因失败断路器都不会打开</li>
-<li>错误百分比阈值：在快照时间窗内请求总数超过阈值，且错误次数占总请求次数的比值大于阈值，断路器将会打开</li>
-</ol>
-<ul>
-<li>断路器开启或者关闭的条件<ul>
-<li>当满足一定阀值的时候（默认10秒内超过20个请求次数）</li>
-<li>当失败率达到一定的时候（默认10秒内超过50%请求失败）</li>
-<li>到达以上阀值，断路器将会开启</li>
-<li>当开启的时候，所有请求都不会进行转发</li>
-<li>一段时间之后（默认是5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器会关闭，若失败，继续开启。重复4和5</li>
-</ul>
-</li>
-<li>断路器打开之后<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyfh27eksj31980cg145.jpg" alt=""></li>
-<li>all配置:详细的看官网</li>
-</ul>
-</li>
-</ol>
-<h4 id="7-3-3-服务限流"><a href="#7-3-3-服务限流" class="headerlink" title="7.3.3 服务限流"></a>7.3.3 服务限流</h4><p>后面高级篇讲解alibaba的Sentinel说明</p>
-<h3 id="7-4-hystrix工作流程"><a href="#7-4-hystrix工作流程" class="headerlink" title="7.4 hystrix工作流程"></a>7.4 hystrix工作流程</h3><p><a href="https://github.com/Netflix/Hystrix/wiki/How-it-Works" target="_blank" rel="noopener">https://github.com/Netflix/Hystrix/wiki/How-it-Works</a></p>
-<h3 id="7-5-服务监控hystrixDashboard"><a href="#7-5-服务监控hystrixDashboard" class="headerlink" title="7.5 服务监控hystrixDashboard"></a>7.5 服务监控hystrixDashboard</h3><ul>
-<li><p>概述</p>
-</li>
-<li><p>仪表盘9001</p>
-<ul>
-<li><p>新建cloud-consumer-hystrix-dashboard9001<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghygoe9t00j319m08a111.jpg" alt=""></p>
-</li>
-<li><p>POM</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;</span><br><span class="line">         xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;artifactId&gt;cloud2020&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;groupId&gt;com.atguigu.springcloud&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;parent&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;artifactId&gt;cloud-consumer-hystrix-dashboard9001&lt;&#x2F;artifactId&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;!--新增hystrix dashboard--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-actuator&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-devtools&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;&#x2F;scope&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.projectlombok&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lombok&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;&#x2F;dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>YML<br><code>server.port:9001</code></p>
-</li>
-<li><p>HystrixDashboardMain9001+新注解@EnableHystrixDashboard</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.springcloud;</span><br><span class="line"></span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line">import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @program: cloud2020</span><br><span class="line"> * @description: qidonglei</span><br><span class="line"> * @author: Mr.Wang</span><br><span class="line"> * @create: 2020-08-21-15-37</span><br><span class="line"> *&#x2F;</span><br><span class="line">@SpringBootApplication</span><br><span class="line">@EnableHystrixDashboard</span><br><span class="line">public class HystrixDashboardMain9001 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(HystrixDashboardMain9001.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>所有Provider微服务提供类（8001/8002/8003）都需要监控依赖配</p>
-</li>
-<li><p>启动cloud-consumer-hystrix-dashboard9001该微服务后续将监控微服务8001<br>  <a href="http://localhost:9001/hystrix" target="_blank" rel="noopener">http://localhost:9001/hystrix</a></p>
+</project>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gib5uwic7wj31cs0u07wj.jpg)</span><br><span class="line">3. YML配置</span><br></pre></td></tr></table></figure>
+server:
+port: 9527
+
+<p>spring:<br>application:<br>  name: cloud-gateway<br>eureka:<br>instance:<br>  hostname: cloud-gateway-service<br>client:<br>  service-url:</p>
+<pre><code>register-with-eureka: true
+fetch-registry: true
+defaultZone: http://localhost:7001/eureka</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 业务类:无</span><br><span class="line">2. 主启动类：同前几个步骤中的主启动类</span><br><span class="line">3. 9527网关如何做路由映射</span><br><span class="line">    * cloud-provider-payment8001看看controller的访问地址:get&#x2F;lib</span><br><span class="line">    * 我们目前不想暴露8001端口，希望在8001外面套一层9527</span><br><span class="line">4. YML新增网关配置</span><br></pre></td></tr></table></figure>
+<p>server:<br>port: 9527</p>
+<p>spring:<br>application:<br>  name: cloud-gateway<br>cloud:<br>  gateway:</p>
+<pre><code>routes:
+  - id: payment_routh # 路由的ID没有固定规则，但是要求统一，建议配合服务名
+    uri: http://localhost:8001 #匹配后提供服务的路由地址
+    predicates:
+      - Path=/payment/get/** #断言，路由匹配进行路由
+  - id: payment_routh2
+    uri: http://localhost:8001
+    predicates:
+      - Path=/payment/lb/**</code></pre><p>eureka:<br>instance:<br>  hostname: cloud-gateway-service<br>client:<br>  service-url:</p>
+<pre><code>register-with-eureka: true
+fetch-registry: true
+defaultZone: http://localhost:7001/eureka</code></pre><p>```<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gib5z5mab2j315z0u07wj.jpg" alt=""></p>
 </li>
 </ul>
-</li>
-<li><p>断路器演示</p>
-<ul>
-<li><p>修改cloud-provider-hystrix-payment8001<br>注意：新版本Hystrix需要在主启动类MainAppHystrix8001中指定监控路径<br>Unable to connect to Command Metric Stream<br>404</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Bean</span><br><span class="line">   public ServletRegistrationBean getServlet()&#123;</span><br><span class="line">       HystrixMetricsStreamServlet streamServlet &#x3D; new HystrixMetricsStreamServlet();</span><br><span class="line">       ServletRegistrationBean registrationBean &#x3D; new ServletRegistrationBean(streamServlet);</span><br><span class="line">       registrationBean.setLoadOnStartup(1);</span><br><span class="line">       registrationBean.addUrlMappings(&quot;&#x2F;hystrix.stream&quot;);</span><br><span class="line">       registrationBean.setName(&quot;HystrixMetricsStreamServlet&quot;);</span><br><span class="line">       return registrationBean;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>监控测试</p>
-<ol>
-<li>启动1个eureka或者3个eureka集群均可</li>
-<li>观察监控窗口<ul>
-<li>9001监控8001:填写监控地址：<a href="http://localhost:8001/hystrix.stream" target="_blank" rel="noopener">http://localhost:8001/hystrix.stream</a><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhmfgdejj31pw0u0nau.jpg" alt=""></li>
-<li>测试地址<ul>
-<li><a href="http://localhost:8001/payment/circuit/31，http://localhost:8001/payment/circuit/-31" target="_blank" rel="noopener">http://localhost:8001/payment/circuit/31，http://localhost:8001/payment/circuit/-31</a></li>
-<li>结果：测试通过</li>
-<li>先访问正确地址，再访问错误地址，再正确地址，会发现图示断路器都是慢慢放开的：先是成功后是失败</li>
-</ul>
-</li>
-<li>如何看<ul>
-<li>7色<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhwhmruej31de0pqal6.jpg" alt=""></li>
-<li>1圈<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhx2vfjnj319q08c7au.jpg" alt=""></li>
-<li>1线：访问趋势</li>
-<li>整图说明<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhxzb7d0j31900ji16m.jpg" alt=""></li>
-<li>正图说明2<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhygi7zvj31aa0imk9g.jpg" alt=""></li>
-</ul>
-</li>
-<li>搞懂一个才能看懂复杂的</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="8-zuul路由网关（没讲）"><a href="#8-zuul路由网关（没讲）" class="headerlink" title="8. zuul路由网关（没讲）"></a>8. zuul路由网关（没讲）</h2><h2 id="9-Gateway新一代网关"><a href="#9-Gateway新一代网关" class="headerlink" title="9. Gateway新一代网关"></a>9. Gateway新一代网关</h2><h3 id="9-1-概述简介"><a href="#9-1-概述简介" class="headerlink" title="9.1 概述简介"></a>9.1 概述简介</h3><ol>
-<li>官网<ul>
-<li>上一代zuul 1.x:<a href="https://github.com/Netflix/zuul/wiki" target="_blank" rel="noopener">https://github.com/Netflix/zuul/wiki</a></li>
-<li>当前gateway:<a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/" target="_blank" rel="noopener">https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/</a></li>
-</ul>
-</li>
-<li>是什么<br>Spring Cloud Gateway 使用的Webflux中的reactor-netty响应式编程组件，底层使用了Netty通讯框架</li>
-<li>能干嘛<ul>
-<li>反向代理</li>
-<li>鉴权</li>
-<li>流量控制</li>
-<li>熔断</li>
-<li>日志监控</li>
-</ul>
-</li>
-<li>微服务架构中网关在哪里<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gi1nmie3cwj31560jigrc.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gi1nn2t1rhj30qm0ibqcq.jpg" alt=""></li>
-<li>有了zuul怎么又出来gateway<br>spring cloud gateway具有如下的特性<ul>
-<li>基于Spring Framework5 ,Project Reactor和Spring boot 2.0进行构建的</li>
-<li>动态路由：能够匹配任何请求属性</li>
-<li>可以对路由指定Preidcate(断言)和Filter(过滤器)</li>
-<li>集成Hystrix的断路器功能</li>
-<li>集成Spring Cloud 服务发现功能</li>
-<li>易于编写的Predicate(断言)和Filter(过滤器)</li>
-<li>请求限流功能</li>
-<li>支持路径重写</li>
-</ul>
-</li>
-</ol>
-<h3 id="9-2-三大核心概念"><a href="#9-2-三大核心概念" class="headerlink" title="9.2 三大核心概念"></a>9.2 三大核心概念</h3><ol>
-<li>Route(路由)<br>路由是构建网关的基本模块，它由ID，目标URI，一系列的断言和过滤器组成，如果断言为true则匹配该路由</li>
-<li>Predicate(断言)<br>参考的是java8的java.util.function.Predicate开发人员可以匹配HTTP请求中的所有内容（例如请求头或请求参数），如果请求与断言相匹配则进行路由</li>
-<li>Filter(过滤)<br>指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。</li>
-<li>总体<br>web请求，通过一些匹配条件，定位到真正的服务节点。并在这个转发过程的前后进行一些精细化控制。predicate就是我们的匹配条件；而filter，就可以理解为一个无所不能的拦截器，有了这两个元素，在加上目标uri就可以实现一个具体的路由了<h3 id="9-3-Gateway工作流程"><a href="#9-3-Gateway工作流程" class="headerlink" title="9.3 Gateway工作流程"></a>9.3 Gateway工作流程</h3>客户端向Spring Cloud Gateway发出请求。如果网关处理程序映射确定请求与路由匹配，则将其发送到网关Web处理程序。该处理程序通过特定于请求的过滤器链来运行请求。筛选器由虚线分隔的原因是，筛选器可以在发送代理请求之前和之后运行逻辑。所有“前置”过滤器逻辑均被执行。然后发出代理请求。发出代理请求后，将运行“后”过滤器逻辑。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gi1ob6owtrj30cb0gjdfw.jpg" alt=""></li>
-</ol>
-<h3 id="9-4-入门配置"><a href="#9-4-入门配置" class="headerlink" title="9.4 入门配置"></a>9.4 入门配置</h3><ol>
-<li><p>新建module:<code>cloud-gateway-gateway9527</code></p>
-</li>
-<li><p>POM文件</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;</span><br><span class="line">         xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;artifactId&gt;cloud2020&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;groupId&gt;com.atguigu.springcloud&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;parent&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;artifactId&gt;cloud-gateway-gateway9527&lt;&#x2F;artifactId&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;!--新增gateway--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-gateway&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.atguigu.springcloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cloud-api-commons&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-devtools&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;&#x2F;scope&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.projectlombok&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lombok&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;&#x2F;dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure>
-<p> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gib5uwic7wj31cs0u07wj.jpg" alt=""></p>
-</li>
-<li><p>YML配置</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 9527</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: cloud-gateway</span><br><span class="line">  eureka:</span><br><span class="line">  instance:</span><br><span class="line">    hostname: cloud-gateway-service</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      register-with-eureka: true</span><br><span class="line">      fetch-registry: true</span><br><span class="line">      defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka</span><br></pre></td></tr></table></figure></li>
-<li><p>业务类:无</p>
-</li>
-<li><p>主启动类：同前几个步骤中的主启动类</p>
-</li>
-<li><p>9527网关如何做路由映射</p>
-<ul>
-<li>cloud-provider-payment8001看看controller的访问地址:get/lib</li>
-<li>我们目前不想暴露8001端口，希望在8001外面套一层9527</li>
-</ul>
-</li>
-<li><p>YML新增网关配置</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 9527</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: cloud-gateway</span><br><span class="line">  cloud:</span><br><span class="line">    gateway:</span><br><span class="line">      routes:</span><br><span class="line">        - id: payment_routh # 路由的ID没有固定规则，但是要求统一，建议配合服务名</span><br><span class="line">          uri: http:&#x2F;&#x2F;localhost:8001 #匹配后提供服务的路由地址</span><br><span class="line">          predicates:</span><br><span class="line">            - Path&#x3D;&#x2F;payment&#x2F;get&#x2F;** #断言，路由匹配进行路由</span><br><span class="line">        - id: payment_routh2</span><br><span class="line">          uri: http:&#x2F;&#x2F;localhost:8001</span><br><span class="line">          predicates:</span><br><span class="line">            - Path&#x3D;&#x2F;payment&#x2F;lb&#x2F;**</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    hostname: cloud-gateway-service</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      register-with-eureka: true</span><br><span class="line">      fetch-registry: true</span><br><span class="line">      defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka</span><br></pre></td></tr></table></figure>
-<p> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gib5z5mab2j315z0u07wj.jpg" alt=""></p>
 </li>
 <li><p>测试</p>
 <ul>
