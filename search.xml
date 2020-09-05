@@ -204,6 +204,41 @@
       </tags>
   </entry>
   <entry>
+    <title>IDEA中查看maven的依赖关系</title>
+    <url>/posts/c9331070.html</url>
+    <content><![CDATA[<h2 id="1-使用maven自带的工具"><a href="#1-使用maven自带的工具" class="headerlink" title="1. 使用maven自带的工具"></a>1. 使用maven自带的工具</h2><h3 id="1-1-确保idea中UML的插件可以使用"><a href="#1-1-确保idea中UML的插件可以使用" class="headerlink" title="1.1 确保idea中UML的插件可以使用"></a>1.1 确保idea中UML的插件可以使用</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb2uvgs8j314r0u0afz.jpg" alt=""></p>
+<h3 id="1-2-pom-xml文件依赖分析"><a href="#1-2-pom-xml文件依赖分析" class="headerlink" title="1.2 pom.xml文件依赖分析"></a>1.2 pom.xml文件依赖分析</h3><ol>
+<li>在需要分析的pom.xml文件中右键选择<code>maven</code>-&gt;<code>Show Dependencies</code><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb5cwrgej30u00zyx6f.jpg" alt=""><br>打开后的图形<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbae8o9oj315c0u04qr.jpg" alt=""></li>
+<li>使用技巧<ul>
+<li>按住<code>option</code>,移动鼠标会出现放大镜,放大当前的依赖</li>
+<li>按住<code>control</code>,滚轮向前 放大整个屏幕</li>
+<li>红色实现表示冲突的文件,右键，排除，他就自动在pom文件里面给exclud啦</li>
+<li>红色的虚线表示用一个jar包都在哪里被多次引用</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-使用maven-helper插件"><a href="#2-使用maven-helper插件" class="headerlink" title="2. 使用maven helper插件"></a>2. 使用maven helper插件</h2><ol>
+<li><p>打开需要查看的pom.xml文件,下边会出现<code>Denpendency Anlyzar</code>，点击按钮<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbmhob3ij31cm0u01l1.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbnq116yj31fk0u0hdw.jpg" alt=""></p>
+</li>
+<li><p>菜单功能</p>
+<ul>
+<li>Conflicts：冲突</li>
+<li>All Dependencies as List：列表形式查看所有依赖</li>
+<li>All Dependencies as Tree：树结构查看所有依赖</li>
+</ul>
+</li>
+<li><p>冲突jar包的解决<br> 切换到maven 依赖视图选择冲突选项，如果有冲突，在左下面区域会有红色显示。<br> 解决冲突，右键单击红色区域，弹出菜单选择Exclude命令，对冲突进行排除<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhcdt8upij316c0u0qv7.jpg" alt=""></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Activiti6.0工作流引擎学习(二) -- 引擎配置</title>
     <url>/posts/1d8f65f1.html</url>
     <content><![CDATA[<h1 id="Activiti6-0工作流引擎学习-二-–-引擎配置"><a href="#Activiti6-0工作流引擎学习-二-–-引擎配置" class="headerlink" title="Activiti6.0工作流引擎学习(二) – 引擎配置"></a>Activiti6.0工作流引擎学习(二) – 引擎配置</h1><h2 id="1-Activiti流程引擎配置涉及的类"><a href="#1-Activiti流程引擎配置涉及的类" class="headerlink" title="1.Activiti流程引擎配置涉及的类"></a>1.Activiti流程引擎配置涉及的类</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf6rcr6dzaj31b40nw4bp.jpg" alt="Activiti流程引擎配置"></p>
@@ -337,38 +372,28 @@
       </tags>
   </entry>
   <entry>
-    <title>IDEA中查看maven的依赖关系</title>
-    <url>/posts/c9331070.html</url>
-    <content><![CDATA[<h2 id="1-使用maven自带的工具"><a href="#1-使用maven自带的工具" class="headerlink" title="1. 使用maven自带的工具"></a>1. 使用maven自带的工具</h2><h3 id="1-1-确保idea中UML的插件可以使用"><a href="#1-1-确保idea中UML的插件可以使用" class="headerlink" title="1.1 确保idea中UML的插件可以使用"></a>1.1 确保idea中UML的插件可以使用</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb2uvgs8j314r0u0afz.jpg" alt=""></p>
-<h3 id="1-2-pom-xml文件依赖分析"><a href="#1-2-pom-xml文件依赖分析" class="headerlink" title="1.2 pom.xml文件依赖分析"></a>1.2 pom.xml文件依赖分析</h3><ol>
-<li>在需要分析的pom.xml文件中右键选择<code>maven</code>-&gt;<code>Show Dependencies</code><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhb5cwrgej30u00zyx6f.jpg" alt=""><br>打开后的图形<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbae8o9oj315c0u04qr.jpg" alt=""></li>
-<li>使用技巧<ul>
-<li>按住<code>option</code>,移动鼠标会出现放大镜,放大当前的依赖</li>
-<li>按住<code>control</code>,滚轮向前 放大整个屏幕</li>
-<li>红色实现表示冲突的文件,右键，排除，他就自动在pom文件里面给exclud啦</li>
-<li>红色的虚线表示用一个jar包都在哪里被多次引用</li>
-</ul>
-</li>
-</ol>
-<h2 id="2-使用maven-helper插件"><a href="#2-使用maven-helper插件" class="headerlink" title="2. 使用maven helper插件"></a>2. 使用maven helper插件</h2><ol>
-<li><p>打开需要查看的pom.xml文件,下边会出现<code>Denpendency Anlyzar</code>，点击按钮<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbmhob3ij31cm0u01l1.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhbnq116yj31fk0u0hdw.jpg" alt=""></p>
-</li>
-<li><p>菜单功能</p>
-<ul>
-<li>Conflicts：冲突</li>
-<li>All Dependencies as List：列表形式查看所有依赖</li>
-<li>All Dependencies as Tree：树结构查看所有依赖</li>
-</ul>
-</li>
-<li><p>冲突jar包的解决<br> 切换到maven 依赖视图选择冲突选项，如果有冲突，在左下面区域会有红色显示。<br> 解决冲突，右键单击红色区域，弹出菜单选择Exclude命令，对冲突进行排除<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfhcdt8upij316c0u0qv7.jpg" alt=""></p>
-</li>
-</ol>
+    <title>Java8日期和时间处理</title>
+    <url>/posts/58f1702a.html</url>
+    <content><![CDATA[<h2 id="1-java8新特性-新时间与日期API本地时间与时间戳"><a href="#1-java8新特性-新时间与日期API本地时间与时间戳" class="headerlink" title="1.java8新特性-新时间与日期API本地时间与时间戳"></a>1.java8新特性-新时间与日期API本地时间与时间戳</h2><p><code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code>类的实例是不可变的对象，分别表示使用ISO-8601的日历系统的日期、时间、日期和时间。新的API提供了简单的日期和时间的获取方法。不包含与时区有关的信息</p>
+<h3 id="1-1-使用静态方法now获取本地时间"><a href="#1-1-使用静态方法now获取本地时间" class="headerlink" title="1.1 使用静态方法now获取本地时间"></a>1.1 使用静态方法now获取本地时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate now = LocalDate.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期:"</span>+now);<span class="comment">// 2020-05-25</span></span><br><span class="line">LocalTime localTime = LocalTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的时间:"</span>+localTime);<span class="comment">//20:32:55.091</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期和时间:"</span>+localDateTime);<span class="comment">//2020-05-25T20:32:55.092</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-使用静态方法of获取日期和时间"><a href="#1-2-使用静态方法of获取日期和时间" class="headerlink" title="1.2 使用静态方法of获取日期和时间"></a>1.2 使用静态方法of获取日期和时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">23</span>);</span><br><span class="line">System.out.println(localDate);<span class="comment">//2012-03-23</span></span><br><span class="line">LocalTime localTime = LocalTime.of(<span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localTime);<span class="comment">//12:12</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">24</span>, <span class="number">12</span>, <span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localDateTime);<span class="comment">//2012-03-24T12:12:12</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"><a href="#1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年" class="headerlink" title="1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"></a>1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.now();</span><br><span class="line">System.out.println(localDate);<span class="comment">//2020-05-25</span></span><br><span class="line">LocalDate localDate1 = localDate.plusDays(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate1);<span class="comment">//2020-05-27</span></span><br><span class="line">LocalDate localDate2 = localDate.plusMonths(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate2);<span class="comment">//2020-07-25</span></span><br><span class="line">LocalDate localDate3 = localDate.plusWeeks(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate3);<span class="comment">//2020-06-08</span></span><br><span class="line">LocalDate localDate4 = localDate.plusYears(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate4);<span class="comment">//2022-05-25</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-4-Instant时间戳"><a href="#1-4-Instant时间戳" class="headerlink" title="1.4 Instant时间戳"></a>1.4 Instant时间戳</h3><p>时间戳(以Unix元年：1970年1月1日00：00：00到某个时间之间的毫秒值)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认获取的是以UTC时区</span></span><br><span class="line">Instant now = Instant.now();</span><br><span class="line">System.out.println(now);<span class="comment">//2020-05-25T13:32:32.718Z</span></span><br><span class="line"><span class="comment">//对时间进行偏移量处理,以便获取当前所在时区的时间</span></span><br><span class="line">OffsetDateTime offsetDateTime=now.atOffset(ZoneOffset.ofHours(<span class="number">8</span>));</span><br><span class="line">System.out.println(offsetDateTime);<span class="comment">//2020-05-25T21:32:32.718+08:00</span></span><br><span class="line"><span class="comment">//把获取的时间转换成对应的毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = now.toEpochMilli();</span><br><span class="line">System.out.println(l);<span class="comment">//1590413552718</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔"><a href="#1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔" class="headerlink" title="1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔"></a>1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔</h2><p><code>Duration</code>和<code>Period</code>的使用方式相同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Instant now = Instant.now();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//用线程睡眠一秒钟来测试Duration的时间差</span></span><br><span class="line">    Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">   e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">Instant now2 = Instant.now();</span><br><span class="line"><span class="comment">//比较两个时间的间隔</span></span><br><span class="line">Duration duration = Duration.between(now, now2);</span><br><span class="line"><span class="comment">//默认输出`PT1.002S`为ISO-861的表示方法</span></span><br><span class="line">System.out.println(duration);</span><br><span class="line"><span class="comment">//将ISO的表示的方法转换为纳秒、或者毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = duration.toNanos();<span class="comment">//1002000000</span></span><br><span class="line"><span class="comment">//转换为毫秒值</span></span><br><span class="line"><span class="comment">//long l1 = duration.toMillis();</span></span><br><span class="line">System.out.println(l);</span><br><span class="line"><span class="comment">//System.out.println(l1);</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-java8新特性-新时间与日期API-时间校正器"><a href="#2-java8新特性-新时间与日期API-时间校正器" class="headerlink" title="2.java8新特性-新时间与日期API-时间校正器"></a>2.java8新特性-新时间与日期API-时间校正器</h2><p><code>TemporalAdjuster</code>:时间校正器。有时候我们需要获取例如：将日期调整到“下周日”等操作。<br><code>TemporalAdjusters</code>:该类通过静态方法提供了大量的常用<code>TemporalAdjuster</code>的实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDateTime ldt = LocalDateTime.now();</span><br><span class="line">System.out.println(ldt);<span class="comment">//2020-05-25T22:00:35.532</span></span><br><span class="line"><span class="comment">//获取下一个周日</span></span><br><span class="line">LocalDateTime dateTime = ldt.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));</span><br><span class="line">System.out.println(dateTime);<span class="comment">//2020-05-31T22:00:35.532</span></span><br><span class="line"><span class="comment">//自定义：下一个工作日是什么时候</span></span><br><span class="line">LocalDateTime with = ldt.with(l -&gt; &#123;</span><br><span class="line">    LocalDateTime ldt4 = (LocalDateTime) l;</span><br><span class="line">    <span class="comment">//获取今天是星期几</span></span><br><span class="line">    DayOfWeek dayOfWeek = ldt4.getDayOfWeek();</span><br><span class="line">    System.out.println(dayOfWeek);<span class="comment">//MONDAY</span></span><br><span class="line">      <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.FRIDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">3L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.SUNDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">2L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> ldt4.plusDays(<span class="number">1L</span>);</span><br><span class="line">      &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"> System.out.println(with);<span class="comment">//2020-05-26T22:06:51.576</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-java8新特性-新时间与日期API-时间格式化与时区处理"><a href="#3-java8新特性-新时间与日期API-时间格式化与时区处理" class="headerlink" title="3.java8新特性-新时间与日期API-时间格式化与时区处理"></a>3.java8新特性-新时间与日期API-时间格式化与时区处理</h2><h3 id="3-1时间和日期的格式化"><a href="#3-1时间和日期的格式化" class="headerlink" title="3.1时间和日期的格式化"></a>3.1时间和日期的格式化</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DateTimeFormatter isoLocalDate = DateTimeFormatter.ISO_LOCAL_DATE;</span><br><span class="line">LocalDateTime now = LocalDateTime.now();</span><br><span class="line">System.out.println(now);</span><br><span class="line">String format = now.format(isoLocalDate);<span class="comment">//2020-05-25T22:22:48.083</span></span><br><span class="line">System.out.println(format);<span class="comment">//2020-05-25</span></span><br><span class="line"><span class="comment">//定义自己的格式</span></span><br><span class="line">DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">String format1 = dateTimeFormatter.format(now);</span><br><span class="line">System.out.println(format1);<span class="comment">//2020年05月25日</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-时区的处理"><a href="#3-2-时区的处理" class="headerlink" title="3.2 时区的处理"></a>3.2 时区的处理</h3><p>java8中加入了对时区的支持，带时区的时间分别为<code>ZonedDate</code>,<code>ZonedTIme</code>,<code>ZoneDateTime</code>。其中每个时区都对应着ID，地区ID都是<code>区域/城市</code>的格式，例如：<code>Asia/Shanghai</code>等。<br><code>ZoneId</code>该类中包含了所有的时区信息：<br>getAvailableZoneIds():可以获取所有时区的信息<br>of(id):用指定的时区信息获取ZoneId对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取所有的时区</span></span><br><span class="line">Set&lt;String&gt; availableZoneIds = ZoneId.getAvailableZoneIds();</span><br><span class="line">availableZoneIds.forEach(System.out::println);</span><br><span class="line"><span class="comment">//获取时区为上海的时间</span></span><br><span class="line">LocalDateTime now = LocalDateTime.now(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.216</span></span><br><span class="line">System.out.println(now);</span><br><span class="line"><span class="comment">//也可以使用以下的方法设置时区,返回的是带有时区的时间和日期</span></span><br><span class="line">LocalDateTime now1 = LocalDateTime.now();</span><br><span class="line">ZonedDateTime zonedDateTime = now1.atZone(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.222+08:00[Asia/Shanghai]</span></span><br><span class="line">System.out.println(zonedDateTime);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
-        <tag>maven</tag>
+        <tag>java</tag>
+        <tag>JDK1.8</tag>
       </tags>
   </entry>
   <entry>
@@ -549,31 +574,6 @@
       </categories>
       <tags>
         <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java8日期和时间处理</title>
-    <url>/posts/58f1702a.html</url>
-    <content><![CDATA[<h2 id="1-java8新特性-新时间与日期API本地时间与时间戳"><a href="#1-java8新特性-新时间与日期API本地时间与时间戳" class="headerlink" title="1.java8新特性-新时间与日期API本地时间与时间戳"></a>1.java8新特性-新时间与日期API本地时间与时间戳</h2><p><code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code>类的实例是不可变的对象，分别表示使用ISO-8601的日历系统的日期、时间、日期和时间。新的API提供了简单的日期和时间的获取方法。不包含与时区有关的信息</p>
-<h3 id="1-1-使用静态方法now获取本地时间"><a href="#1-1-使用静态方法now获取本地时间" class="headerlink" title="1.1 使用静态方法now获取本地时间"></a>1.1 使用静态方法now获取本地时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate now = LocalDate.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期:"</span>+now);<span class="comment">// 2020-05-25</span></span><br><span class="line">LocalTime localTime = LocalTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的时间:"</span>+localTime);<span class="comment">//20:32:55.091</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期和时间:"</span>+localDateTime);<span class="comment">//2020-05-25T20:32:55.092</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-使用静态方法of获取日期和时间"><a href="#1-2-使用静态方法of获取日期和时间" class="headerlink" title="1.2 使用静态方法of获取日期和时间"></a>1.2 使用静态方法of获取日期和时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">23</span>);</span><br><span class="line">System.out.println(localDate);<span class="comment">//2012-03-23</span></span><br><span class="line">LocalTime localTime = LocalTime.of(<span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localTime);<span class="comment">//12:12</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">24</span>, <span class="number">12</span>, <span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localDateTime);<span class="comment">//2012-03-24T12:12:12</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"><a href="#1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年" class="headerlink" title="1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"></a>1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.now();</span><br><span class="line">System.out.println(localDate);<span class="comment">//2020-05-25</span></span><br><span class="line">LocalDate localDate1 = localDate.plusDays(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate1);<span class="comment">//2020-05-27</span></span><br><span class="line">LocalDate localDate2 = localDate.plusMonths(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate2);<span class="comment">//2020-07-25</span></span><br><span class="line">LocalDate localDate3 = localDate.plusWeeks(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate3);<span class="comment">//2020-06-08</span></span><br><span class="line">LocalDate localDate4 = localDate.plusYears(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate4);<span class="comment">//2022-05-25</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-4-Instant时间戳"><a href="#1-4-Instant时间戳" class="headerlink" title="1.4 Instant时间戳"></a>1.4 Instant时间戳</h3><p>时间戳(以Unix元年：1970年1月1日00：00：00到某个时间之间的毫秒值)</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认获取的是以UTC时区</span></span><br><span class="line">Instant now = Instant.now();</span><br><span class="line">System.out.println(now);<span class="comment">//2020-05-25T13:32:32.718Z</span></span><br><span class="line"><span class="comment">//对时间进行偏移量处理,以便获取当前所在时区的时间</span></span><br><span class="line">OffsetDateTime offsetDateTime=now.atOffset(ZoneOffset.ofHours(<span class="number">8</span>));</span><br><span class="line">System.out.println(offsetDateTime);<span class="comment">//2020-05-25T21:32:32.718+08:00</span></span><br><span class="line"><span class="comment">//把获取的时间转换成对应的毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = now.toEpochMilli();</span><br><span class="line">System.out.println(l);<span class="comment">//1590413552718</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔"><a href="#1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔" class="headerlink" title="1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔"></a>1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔</h2><p><code>Duration</code>和<code>Period</code>的使用方式相同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Instant now = Instant.now();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//用线程睡眠一秒钟来测试Duration的时间差</span></span><br><span class="line">    Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">   e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">Instant now2 = Instant.now();</span><br><span class="line"><span class="comment">//比较两个时间的间隔</span></span><br><span class="line">Duration duration = Duration.between(now, now2);</span><br><span class="line"><span class="comment">//默认输出`PT1.002S`为ISO-861的表示方法</span></span><br><span class="line">System.out.println(duration);</span><br><span class="line"><span class="comment">//将ISO的表示的方法转换为纳秒、或者毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = duration.toNanos();<span class="comment">//1002000000</span></span><br><span class="line"><span class="comment">//转换为毫秒值</span></span><br><span class="line"><span class="comment">//long l1 = duration.toMillis();</span></span><br><span class="line">System.out.println(l);</span><br><span class="line"><span class="comment">//System.out.println(l1);</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-java8新特性-新时间与日期API-时间校正器"><a href="#2-java8新特性-新时间与日期API-时间校正器" class="headerlink" title="2.java8新特性-新时间与日期API-时间校正器"></a>2.java8新特性-新时间与日期API-时间校正器</h2><p><code>TemporalAdjuster</code>:时间校正器。有时候我们需要获取例如：将日期调整到“下周日”等操作。<br><code>TemporalAdjusters</code>:该类通过静态方法提供了大量的常用<code>TemporalAdjuster</code>的实现</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDateTime ldt = LocalDateTime.now();</span><br><span class="line">System.out.println(ldt);<span class="comment">//2020-05-25T22:00:35.532</span></span><br><span class="line"><span class="comment">//获取下一个周日</span></span><br><span class="line">LocalDateTime dateTime = ldt.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));</span><br><span class="line">System.out.println(dateTime);<span class="comment">//2020-05-31T22:00:35.532</span></span><br><span class="line"><span class="comment">//自定义：下一个工作日是什么时候</span></span><br><span class="line">LocalDateTime with = ldt.with(l -&gt; &#123;</span><br><span class="line">    LocalDateTime ldt4 = (LocalDateTime) l;</span><br><span class="line">    <span class="comment">//获取今天是星期几</span></span><br><span class="line">    DayOfWeek dayOfWeek = ldt4.getDayOfWeek();</span><br><span class="line">    System.out.println(dayOfWeek);<span class="comment">//MONDAY</span></span><br><span class="line">      <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.FRIDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">3L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.SUNDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">2L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> ldt4.plusDays(<span class="number">1L</span>);</span><br><span class="line">      &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"> System.out.println(with);<span class="comment">//2020-05-26T22:06:51.576</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-java8新特性-新时间与日期API-时间格式化与时区处理"><a href="#3-java8新特性-新时间与日期API-时间格式化与时区处理" class="headerlink" title="3.java8新特性-新时间与日期API-时间格式化与时区处理"></a>3.java8新特性-新时间与日期API-时间格式化与时区处理</h2><h3 id="3-1时间和日期的格式化"><a href="#3-1时间和日期的格式化" class="headerlink" title="3.1时间和日期的格式化"></a>3.1时间和日期的格式化</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DateTimeFormatter isoLocalDate = DateTimeFormatter.ISO_LOCAL_DATE;</span><br><span class="line">LocalDateTime now = LocalDateTime.now();</span><br><span class="line">System.out.println(now);</span><br><span class="line">String format = now.format(isoLocalDate);<span class="comment">//2020-05-25T22:22:48.083</span></span><br><span class="line">System.out.println(format);<span class="comment">//2020-05-25</span></span><br><span class="line"><span class="comment">//定义自己的格式</span></span><br><span class="line">DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">String format1 = dateTimeFormatter.format(now);</span><br><span class="line">System.out.println(format1);<span class="comment">//2020年05月25日</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-2-时区的处理"><a href="#3-2-时区的处理" class="headerlink" title="3.2 时区的处理"></a>3.2 时区的处理</h3><p>java8中加入了对时区的支持，带时区的时间分别为<code>ZonedDate</code>,<code>ZonedTIme</code>,<code>ZoneDateTime</code>。其中每个时区都对应着ID，地区ID都是<code>区域/城市</code>的格式，例如：<code>Asia/Shanghai</code>等。<br><code>ZoneId</code>该类中包含了所有的时区信息：<br>getAvailableZoneIds():可以获取所有时区的信息<br>of(id):用指定的时区信息获取ZoneId对象</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取所有的时区</span></span><br><span class="line">Set&lt;String&gt; availableZoneIds = ZoneId.getAvailableZoneIds();</span><br><span class="line">availableZoneIds.forEach(System.out::println);</span><br><span class="line"><span class="comment">//获取时区为上海的时间</span></span><br><span class="line">LocalDateTime now = LocalDateTime.now(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.216</span></span><br><span class="line">System.out.println(now);</span><br><span class="line"><span class="comment">//也可以使用以下的方法设置时区,返回的是带有时区的时间和日期</span></span><br><span class="line">LocalDateTime now1 = LocalDateTime.now();</span><br><span class="line">ZonedDateTime zonedDateTime = now1.atZone(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.222+08:00[Asia/Shanghai]</span></span><br><span class="line">System.out.println(zonedDateTime);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>JDK1.8</tag>
       </tags>
   </entry>
   <entry>
@@ -1183,6 +1183,33 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </tags>
   </entry>
   <entry>
+    <title>sqlserver数据库还原单表数据操作</title>
+    <url>/posts/4a17b156.html</url>
+    <content><![CDATA[<p>在系统数据和数据库数据备份或者升级的时候，我们总是全量的备份应用或者数据。在升级完成使用一段时间后突然间发现某张表的数据有问题，此时在全部的还原数据库的数据则不太合理，那如何只还原出现问题的这张表的数据呢？</p>
+<p>首先，我们需要将升级时全量备份的数据库还原成一个新的数据库，如何还原一个新的数据库，此处不在赘述，网上有好多。自我感觉还是参考<a href="https://docs.microsoft.com/zh-cn/sql/relational-databases/backup-restore/restore-a-database-to-a-new-location-sql-server?view=sql-server-ver15" target="_blank" rel="noopener">sqlserver官方的还原说明</a>或者参考<a href="https://www.jianshu.com/p/a153c20a577d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation" target="_blank" rel="noopener">SQL Server从BAK文件还原到新数据库</a></p>
+<p>之后，我们选择刚刚还原完成的数据库使用如下的命令将ecology.dbo.hrmresource 所有的数据导入到demo.dbo.hrmresource_Test中<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxhysb3zj31hx0u0n7s.jpg" alt=""></p>
+<p>选中刚刚还原的数据库，执行如下的sql语句，执行完成后刷新可以看到demo中已经出现了需要还原的表单数据</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> * <span class="keyword">into</span> demo.dbo.hrmresource_test <span class="keyword">From</span> ecology.dbo.hrmresource</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxkucf1wj319e0u0x5l.jpg" alt=""></p>
+<p>两张表单对比,我这里的表单中没有数据，但是可以看到需要还原的demo库中对应的表单结构已经有了</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxp4rmjgj318s0u01kx.jpg" alt="ecology"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxr7mbkxj31670u01kx.jpg" alt="demo库"></p>
+<p>最后，我们使用下列命令将原来的表进行删除，并把HtmlLabelInfo_Test 重命名为HtmlLabelInfo</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">//删除原有的表单,此处我的里边没有对用的表单,就没有执行这一步</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> [dbo].[Hrmresource]</span><br><span class="line">//表单重命名,或者在ssms操作工具中直接在actionsetting_test上摁下F2进行表单重命名</span><br><span class="line">EXEC sp_rename <span class="string">'Hrmresource_test'</span>,<span class="string">'Hrmresource'</span></span><br></pre></td></tr></table></figure>
+
+<p>或者是在navicat中可以直接右键选择重命名，对表单的名称进行更改</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxs79m9wj30w20u07wh.jpg" alt=""></p>
+<p>至此,在全量备份的情况下即可还原某一张表的数据。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>sqlserver</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>StartUML使用技巧.md</title>
     <url>/posts/80aa353a.html</url>
     <content><![CDATA[<h1 id="StartUML使用技巧"><a href="#StartUML使用技巧" class="headerlink" title="StartUML使用技巧"></a>StartUML使用技巧</h1><h2 id="1-工作界面简单介绍"><a href="#1-工作界面简单介绍" class="headerlink" title="1. 工作界面简单介绍"></a>1. 工作界面简单介绍</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdlytwsyij31dc0u0ass.jpg" alt=""></p>
@@ -1220,33 +1247,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 </ol>
 <h2 id="4-UML方法的返回值"><a href="#4-UML方法的返回值" class="headerlink" title="4. UML方法的返回值"></a>4. UML方法的返回值</h2><p>Operation的返回值：StarUML添加一个Operation，要Add一个Parameter，将这个Parameter的DirectionKind设为RETURN。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghdnfom3v9j31do0u0q9o.jpg" alt=""></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>sqlserver数据库还原单表数据操作</title>
-    <url>/posts/4a17b156.html</url>
-    <content><![CDATA[<p>在系统数据和数据库数据备份或者升级的时候，我们总是全量的备份应用或者数据。在升级完成使用一段时间后突然间发现某张表的数据有问题，此时在全部的还原数据库的数据则不太合理，那如何只还原出现问题的这张表的数据呢？</p>
-<p>首先，我们需要将升级时全量备份的数据库还原成一个新的数据库，如何还原一个新的数据库，此处不在赘述，网上有好多。自我感觉还是参考<a href="https://docs.microsoft.com/zh-cn/sql/relational-databases/backup-restore/restore-a-database-to-a-new-location-sql-server?view=sql-server-ver15" target="_blank" rel="noopener">sqlserver官方的还原说明</a>或者参考<a href="https://www.jianshu.com/p/a153c20a577d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation" target="_blank" rel="noopener">SQL Server从BAK文件还原到新数据库</a></p>
-<p>之后，我们选择刚刚还原完成的数据库使用如下的命令将ecology.dbo.hrmresource 所有的数据导入到demo.dbo.hrmresource_Test中<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxhysb3zj31hx0u0n7s.jpg" alt=""></p>
-<p>选中刚刚还原的数据库，执行如下的sql语句，执行完成后刷新可以看到demo中已经出现了需要还原的表单数据</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> * <span class="keyword">into</span> demo.dbo.hrmresource_test <span class="keyword">From</span> ecology.dbo.hrmresource</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxkucf1wj319e0u0x5l.jpg" alt=""></p>
-<p>两张表单对比,我这里的表单中没有数据，但是可以看到需要还原的demo库中对应的表单结构已经有了</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxp4rmjgj318s0u01kx.jpg" alt="ecology"></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxr7mbkxj31670u01kx.jpg" alt="demo库"></p>
-<p>最后，我们使用下列命令将原来的表进行删除，并把HtmlLabelInfo_Test 重命名为HtmlLabelInfo</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">//删除原有的表单,此处我的里边没有对用的表单,就没有执行这一步</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> [dbo].[Hrmresource]</span><br><span class="line">//表单重命名,或者在ssms操作工具中直接在actionsetting_test上摁下F2进行表单重命名</span><br><span class="line">EXEC sp_rename <span class="string">'Hrmresource_test'</span>,<span class="string">'Hrmresource'</span></span><br></pre></td></tr></table></figure>
-
-<p>或者是在navicat中可以直接右键选择重命名，对表单的名称进行更改</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gesxs79m9wj30w20u07wh.jpg" alt=""></p>
-<p>至此,在全量备份的情况下即可还原某一张表的数据。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>sqlserver</tag>
-      </tags>
   </entry>
   <entry>
     <title>macbookpro使用技巧</title>
@@ -1342,29 +1342,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </tags>
   </entry>
   <entry>
-    <title>网络在在线传输工具 --- 奶牛快传</title>
-    <url>/posts/994d00c4.html</url>
-    <content><![CDATA[<h2 id="1-奶牛快传"><a href="#1-奶牛快传" class="headerlink" title="1.奶牛快传"></a>1.<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a></h2><h3 id="1-1-免费超快的传文件工具"><a href="#1-1-免费超快的传文件工具" class="headerlink" title="1.1 免费超快的传文件工具"></a>1.1 免费超快的传文件工具</h3><p>奶牛快传是一款免费、无需注册即可直接使用的网页端大文件临时传输网盘服务。它提供了网页版、微信小程序、IOS以及安卓端。无论是办公文档、照片、还是电影视频通通都能轻松分享。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
-<p>未注册用户则可最大传输 2GB 文件,默认保留7天，可以免费下载100次。支持加密、邮件和短信分享</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerskqbjt2j31uf0u0u0x.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersldpc6tj31vn0u0u0x.jpg" alt=""></p>
-<h3 id="1-2-奶牛快传的使用"><a href="#1-2-奶牛快传的使用" class="headerlink" title="1.2 奶牛快传的使用"></a>1.2 奶牛快传的使用</h3><p>你只需在任何浏览器打开<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a>的网站，通过点击上传按钮或拖放文件即可开始上传，支持一次批量上传多个文件。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
-<p>之后你就能获得文件的共享链接了。你只需将链接发给别人，对方就能直接通过浏览器下载了，对方并不需要注册登录，也无需下载 APP 等麻烦操作，实用性很强。同时，奶牛快传还提供了共享网址所对应的二维码以及微信小程序二维码，这样不管用手机还是电脑来下载文件都更方便。起码自己用电脑给手机发文件的场景也是经常会用到的。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersrgbg0gj31un0u01ky.jpg" alt=""></p>
-<h3 id="1-3-奶牛快传注册账户"><a href="#1-3-奶牛快传注册账户" class="headerlink" title="1.3 奶牛快传注册账户"></a>1.3 奶牛快传注册账户</h3><p>还未体验过注册账户，待体验后在进行分享…..</p>
-]]></content>
-      <categories>
-        <category>网络在在线传输工具</category>
-      </categories>
-      <tags>
-        <tag>奶牛快传</tag>
-        <tag>文件传输</tag>
-        <tag>网络在在线传输工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>学习计划</title>
     <url>/posts/5e21c553.html</url>
     <content><![CDATA[<h2 id="Java基础和框架学习计划"><a href="#Java基础和框架学习计划" class="headerlink" title="Java基础和框架学习计划"></a>Java基础和框架学习计划</h2><ul>
@@ -1391,17 +1368,26 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </tags>
   </entry>
   <entry>
-    <title>油猴(Tampermonkey)常用脚本</title>
-    <url>/posts/44e1e43b.html</url>
-    <content><![CDATA[<h2 id="1-什么是油猴"><a href="#1-什么是油猴" class="headerlink" title="1.什么是油猴"></a>1.什么是油猴</h2><p>从英文翻译而来-Tampermonkey是一个捐赠软件用户脚本管理器，可用作浏览器扩展。该软件使用户能够添加和使用用户脚本，这些脚本是可用于修改网页的JavaScript程序</p>
-<h2 id="2-油猴下载地址"><a href="#2-油猴下载地址" class="headerlink" title="2.油猴下载地址"></a>2.油猴下载地址</h2><ul>
-<li><a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">官网下载</a></li>
-<li><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank" rel="noopener">谷歌商店</a><h2 id="3-常用插件"><a href="#3-常用插件" class="headerlink" title="3.常用插件"></a>3.常用插件</h2><h3 id="3-1-批量下载网页图片-Picviewer-CE"><a href="#3-1-批量下载网页图片-Picviewer-CE" class="headerlink" title="3.1 批量下载网页图片 - Picviewer CE+"></a>3.1 批量下载网页图片 - Picviewer CE+</h3><a href="https://greasyfork.org/zh-CN/scripts/24204-picviewer-ce" target="_blank" rel="noopener">Picviewer CE+</a> 是一款浏览器油猴脚本，可以将包含很多图片的网页变成图片浏览器，还能对图片进行翻转、旋转、放大，显示原始大图、收藏、批量保存，聚合所有分页大图，图片在线编辑等操作</li>
-</ul>
+    <title>网络在在线传输工具 --- 奶牛快传</title>
+    <url>/posts/994d00c4.html</url>
+    <content><![CDATA[<h2 id="1-奶牛快传"><a href="#1-奶牛快传" class="headerlink" title="1.奶牛快传"></a>1.<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a></h2><h3 id="1-1-免费超快的传文件工具"><a href="#1-1-免费超快的传文件工具" class="headerlink" title="1.1 免费超快的传文件工具"></a>1.1 免费超快的传文件工具</h3><p>奶牛快传是一款免费、无需注册即可直接使用的网页端大文件临时传输网盘服务。它提供了网页版、微信小程序、IOS以及安卓端。无论是办公文档、照片、还是电影视频通通都能轻松分享。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
+<p>未注册用户则可最大传输 2GB 文件,默认保留7天，可以免费下载100次。支持加密、邮件和短信分享</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerskqbjt2j31uf0u0u0x.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersldpc6tj31vn0u0u0x.jpg" alt=""></p>
+<h3 id="1-2-奶牛快传的使用"><a href="#1-2-奶牛快传的使用" class="headerlink" title="1.2 奶牛快传的使用"></a>1.2 奶牛快传的使用</h3><p>你只需在任何浏览器打开<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a>的网站，通过点击上传按钮或拖放文件即可开始上传，支持一次批量上传多个文件。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
+<p>之后你就能获得文件的共享链接了。你只需将链接发给别人，对方就能直接通过浏览器下载了，对方并不需要注册登录，也无需下载 APP 等麻烦操作，实用性很强。同时，奶牛快传还提供了共享网址所对应的二维码以及微信小程序二维码，这样不管用手机还是电脑来下载文件都更方便。起码自己用电脑给手机发文件的场景也是经常会用到的。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersrgbg0gj31un0u01ky.jpg" alt=""></p>
+<h3 id="1-3-奶牛快传注册账户"><a href="#1-3-奶牛快传注册账户" class="headerlink" title="1.3 奶牛快传注册账户"></a>1.3 奶牛快传注册账户</h3><p>还未体验过注册账户，待体验后在进行分享…..</p>
 ]]></content>
+      <categories>
+        <category>网络在在线传输工具</category>
+      </categories>
       <tags>
-        <tag>油猴</tag>
-        <tag>Tampermonkey</tag>
+        <tag>奶牛快传</tag>
+        <tag>文件传输</tag>
+        <tag>网络在在线传输工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1427,6 +1413,20 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </categories>
       <tags>
         <tag>google diriver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>油猴(Tampermonkey)常用脚本</title>
+    <url>/posts/44e1e43b.html</url>
+    <content><![CDATA[<h2 id="1-什么是油猴"><a href="#1-什么是油猴" class="headerlink" title="1.什么是油猴"></a>1.什么是油猴</h2><p>从英文翻译而来-Tampermonkey是一个捐赠软件用户脚本管理器，可用作浏览器扩展。该软件使用户能够添加和使用用户脚本，这些脚本是可用于修改网页的JavaScript程序</p>
+<h2 id="2-油猴下载地址"><a href="#2-油猴下载地址" class="headerlink" title="2.油猴下载地址"></a>2.油猴下载地址</h2><ul>
+<li><a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">官网下载</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank" rel="noopener">谷歌商店</a><h2 id="3-常用插件"><a href="#3-常用插件" class="headerlink" title="3.常用插件"></a>3.常用插件</h2><h3 id="3-1-批量下载网页图片-Picviewer-CE"><a href="#3-1-批量下载网页图片-Picviewer-CE" class="headerlink" title="3.1 批量下载网页图片 - Picviewer CE+"></a>3.1 批量下载网页图片 - Picviewer CE+</h3><a href="https://greasyfork.org/zh-CN/scripts/24204-picviewer-ce" target="_blank" rel="noopener">Picviewer CE+</a> 是一款浏览器油猴脚本，可以将包含很多图片的网页变成图片浏览器，还能对图片进行翻转、旋转、放大，显示原始大图、收藏、批量保存，聚合所有分页大图，图片在线编辑等操作</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>油猴</tag>
+        <tag>Tampermonkey</tag>
       </tags>
   </entry>
   <entry>
