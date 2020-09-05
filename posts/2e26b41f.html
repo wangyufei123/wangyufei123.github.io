@@ -75,7 +75,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gib6j3wn7cj31ey0osdzr.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gib6pq9zqfj30n60ey43r.jpg">
 <meta property="article:published_time" content="2020-09-05T04:47:11.000Z">
-<meta property="article:modified_time" content="2020-09-05T04:50:11.111Z">
+<meta property="article:modified_time" content="2020-09-05T05:59:26.244Z">
 <meta property="article:author" content="Mr.Wang">
 <meta property="article:tag" content="java 前端">
 <meta name="twitter:card" content="summary">
@@ -1249,7 +1249,8 @@
 </ul>
 </li>
 </ol>
-<h4 id="7-3-1-服务降级"><a href="#7-3-1-服务降级" class="headerlink" title="7.3.1 服务降级"></a>7.3.1 服务降级</h4><p>#####7.3.1.1. 降级配置<br><code>@HystrixCommand</code><br>#####7.3.1.2. 8001先从自身找问题<br>设置自身调用超时时间的峰值，峰值内可以正常运行，超过了需要有兜底的方法处理，作服务降级fallback<br>#####7.3.1.3. 8001fallback</p>
+<h4 id="7-3-1-服务降级"><a href="#7-3-1-服务降级" class="headerlink" title="7.3.1 服务降级"></a>7.3.1 服务降级</h4><p>#####7.3.1.1. 降级配置</p>
+<p><code>@HystrixCommand</code><br>#####7.3.1.2. 8001先从自身找问题<br>设置自身调用超时时间的峰值，峰值内可以正常运行，超过了需要有兜底的方法处理，作服务降级fallback<br>#####7.3.1.3. 8001fallback</p>
 <ol>
 <li><p>业务类启用<br><code>@HystrixCommand</code>报异常后如何处理<br>一旦调用服务方法失败并抛出了错误信息后，会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法。<br>==代码示例：==</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">     * fallbackmetod：系统异常或者超时后的兜底方案</span><br><span class="line">     * commandProperties -&gt; HystrixProperty -&gt; execution.isolation.thread.timeoutInMilliseconds :系统超时的时间</span><br><span class="line">     * @param id</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @HystrixCommand(fallbackMethod &#x3D; &quot;paymentInfo_timeoutHandler&quot;,commandProperties &#x3D; &#123;</span><br><span class="line">            @HystrixProperty(name&#x3D;&quot;execution.isolation.thread.timeoutInMilliseconds&quot;,value &#x3D; &quot;3000&quot;)</span><br><span class="line">    &#125;)</span><br><span class="line">    public String paymentInfo_timeout(Integer id)&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(5);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;线程池:&quot;+Thread.currentThread().getName()+&quot; paymentInfo_timeout,id&quot;+id+&quot;\t&quot;+&quot;耗时3秒钟&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public String paymentInfo_timeoutHandler(Integer id)&#123;</span><br><span class="line">        return &quot;线程池:&quot;+Thread.currentThread().getName()+&quot; paymentInfo_timeoutHandler,id&quot;+id;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
