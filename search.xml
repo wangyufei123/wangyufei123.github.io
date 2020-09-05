@@ -372,31 +372,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java8日期和时间处理</title>
-    <url>/posts/58f1702a.html</url>
-    <content><![CDATA[<h2 id="1-java8新特性-新时间与日期API本地时间与时间戳"><a href="#1-java8新特性-新时间与日期API本地时间与时间戳" class="headerlink" title="1.java8新特性-新时间与日期API本地时间与时间戳"></a>1.java8新特性-新时间与日期API本地时间与时间戳</h2><p><code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code>类的实例是不可变的对象，分别表示使用ISO-8601的日历系统的日期、时间、日期和时间。新的API提供了简单的日期和时间的获取方法。不包含与时区有关的信息</p>
-<h3 id="1-1-使用静态方法now获取本地时间"><a href="#1-1-使用静态方法now获取本地时间" class="headerlink" title="1.1 使用静态方法now获取本地时间"></a>1.1 使用静态方法now获取本地时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate now = LocalDate.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期:"</span>+now);<span class="comment">// 2020-05-25</span></span><br><span class="line">LocalTime localTime = LocalTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的时间:"</span>+localTime);<span class="comment">//20:32:55.091</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期和时间:"</span>+localDateTime);<span class="comment">//2020-05-25T20:32:55.092</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-使用静态方法of获取日期和时间"><a href="#1-2-使用静态方法of获取日期和时间" class="headerlink" title="1.2 使用静态方法of获取日期和时间"></a>1.2 使用静态方法of获取日期和时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">23</span>);</span><br><span class="line">System.out.println(localDate);<span class="comment">//2012-03-23</span></span><br><span class="line">LocalTime localTime = LocalTime.of(<span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localTime);<span class="comment">//12:12</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">24</span>, <span class="number">12</span>, <span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localDateTime);<span class="comment">//2012-03-24T12:12:12</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"><a href="#1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年" class="headerlink" title="1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"></a>1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.now();</span><br><span class="line">System.out.println(localDate);<span class="comment">//2020-05-25</span></span><br><span class="line">LocalDate localDate1 = localDate.plusDays(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate1);<span class="comment">//2020-05-27</span></span><br><span class="line">LocalDate localDate2 = localDate.plusMonths(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate2);<span class="comment">//2020-07-25</span></span><br><span class="line">LocalDate localDate3 = localDate.plusWeeks(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate3);<span class="comment">//2020-06-08</span></span><br><span class="line">LocalDate localDate4 = localDate.plusYears(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate4);<span class="comment">//2022-05-25</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-4-Instant时间戳"><a href="#1-4-Instant时间戳" class="headerlink" title="1.4 Instant时间戳"></a>1.4 Instant时间戳</h3><p>时间戳(以Unix元年：1970年1月1日00：00：00到某个时间之间的毫秒值)</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认获取的是以UTC时区</span></span><br><span class="line">Instant now = Instant.now();</span><br><span class="line">System.out.println(now);<span class="comment">//2020-05-25T13:32:32.718Z</span></span><br><span class="line"><span class="comment">//对时间进行偏移量处理,以便获取当前所在时区的时间</span></span><br><span class="line">OffsetDateTime offsetDateTime=now.atOffset(ZoneOffset.ofHours(<span class="number">8</span>));</span><br><span class="line">System.out.println(offsetDateTime);<span class="comment">//2020-05-25T21:32:32.718+08:00</span></span><br><span class="line"><span class="comment">//把获取的时间转换成对应的毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = now.toEpochMilli();</span><br><span class="line">System.out.println(l);<span class="comment">//1590413552718</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔"><a href="#1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔" class="headerlink" title="1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔"></a>1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔</h2><p><code>Duration</code>和<code>Period</code>的使用方式相同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Instant now = Instant.now();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//用线程睡眠一秒钟来测试Duration的时间差</span></span><br><span class="line">    Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">   e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">Instant now2 = Instant.now();</span><br><span class="line"><span class="comment">//比较两个时间的间隔</span></span><br><span class="line">Duration duration = Duration.between(now, now2);</span><br><span class="line"><span class="comment">//默认输出`PT1.002S`为ISO-861的表示方法</span></span><br><span class="line">System.out.println(duration);</span><br><span class="line"><span class="comment">//将ISO的表示的方法转换为纳秒、或者毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = duration.toNanos();<span class="comment">//1002000000</span></span><br><span class="line"><span class="comment">//转换为毫秒值</span></span><br><span class="line"><span class="comment">//long l1 = duration.toMillis();</span></span><br><span class="line">System.out.println(l);</span><br><span class="line"><span class="comment">//System.out.println(l1);</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-java8新特性-新时间与日期API-时间校正器"><a href="#2-java8新特性-新时间与日期API-时间校正器" class="headerlink" title="2.java8新特性-新时间与日期API-时间校正器"></a>2.java8新特性-新时间与日期API-时间校正器</h2><p><code>TemporalAdjuster</code>:时间校正器。有时候我们需要获取例如：将日期调整到“下周日”等操作。<br><code>TemporalAdjusters</code>:该类通过静态方法提供了大量的常用<code>TemporalAdjuster</code>的实现</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDateTime ldt = LocalDateTime.now();</span><br><span class="line">System.out.println(ldt);<span class="comment">//2020-05-25T22:00:35.532</span></span><br><span class="line"><span class="comment">//获取下一个周日</span></span><br><span class="line">LocalDateTime dateTime = ldt.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));</span><br><span class="line">System.out.println(dateTime);<span class="comment">//2020-05-31T22:00:35.532</span></span><br><span class="line"><span class="comment">//自定义：下一个工作日是什么时候</span></span><br><span class="line">LocalDateTime with = ldt.with(l -&gt; &#123;</span><br><span class="line">    LocalDateTime ldt4 = (LocalDateTime) l;</span><br><span class="line">    <span class="comment">//获取今天是星期几</span></span><br><span class="line">    DayOfWeek dayOfWeek = ldt4.getDayOfWeek();</span><br><span class="line">    System.out.println(dayOfWeek);<span class="comment">//MONDAY</span></span><br><span class="line">      <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.FRIDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">3L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.SUNDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">2L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> ldt4.plusDays(<span class="number">1L</span>);</span><br><span class="line">      &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"> System.out.println(with);<span class="comment">//2020-05-26T22:06:51.576</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-java8新特性-新时间与日期API-时间格式化与时区处理"><a href="#3-java8新特性-新时间与日期API-时间格式化与时区处理" class="headerlink" title="3.java8新特性-新时间与日期API-时间格式化与时区处理"></a>3.java8新特性-新时间与日期API-时间格式化与时区处理</h2><h3 id="3-1时间和日期的格式化"><a href="#3-1时间和日期的格式化" class="headerlink" title="3.1时间和日期的格式化"></a>3.1时间和日期的格式化</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DateTimeFormatter isoLocalDate = DateTimeFormatter.ISO_LOCAL_DATE;</span><br><span class="line">LocalDateTime now = LocalDateTime.now();</span><br><span class="line">System.out.println(now);</span><br><span class="line">String format = now.format(isoLocalDate);<span class="comment">//2020-05-25T22:22:48.083</span></span><br><span class="line">System.out.println(format);<span class="comment">//2020-05-25</span></span><br><span class="line"><span class="comment">//定义自己的格式</span></span><br><span class="line">DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">String format1 = dateTimeFormatter.format(now);</span><br><span class="line">System.out.println(format1);<span class="comment">//2020年05月25日</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-2-时区的处理"><a href="#3-2-时区的处理" class="headerlink" title="3.2 时区的处理"></a>3.2 时区的处理</h3><p>java8中加入了对时区的支持，带时区的时间分别为<code>ZonedDate</code>,<code>ZonedTIme</code>,<code>ZoneDateTime</code>。其中每个时区都对应着ID，地区ID都是<code>区域/城市</code>的格式，例如：<code>Asia/Shanghai</code>等。<br><code>ZoneId</code>该类中包含了所有的时区信息：<br>getAvailableZoneIds():可以获取所有时区的信息<br>of(id):用指定的时区信息获取ZoneId对象</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取所有的时区</span></span><br><span class="line">Set&lt;String&gt; availableZoneIds = ZoneId.getAvailableZoneIds();</span><br><span class="line">availableZoneIds.forEach(System.out::println);</span><br><span class="line"><span class="comment">//获取时区为上海的时间</span></span><br><span class="line">LocalDateTime now = LocalDateTime.now(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.216</span></span><br><span class="line">System.out.println(now);</span><br><span class="line"><span class="comment">//也可以使用以下的方法设置时区,返回的是带有时区的时间和日期</span></span><br><span class="line">LocalDateTime now1 = LocalDateTime.now();</span><br><span class="line">ZonedDateTime zonedDateTime = now1.atZone(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.222+08:00[Asia/Shanghai]</span></span><br><span class="line">System.out.println(zonedDateTime);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>JDK1.8</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Maven学习笔记</title>
     <url>/posts/be02a930.html</url>
     <content><![CDATA[<h2 id="1-Maven-简介"><a href="#1-Maven-简介" class="headerlink" title="1.Maven 简介"></a>1.Maven 简介</h2><p>Maven是Apache软件基金会组织维护的一款自动化构建工具专注服务于Java平台的项目构建和依赖管理 。</p>
@@ -574,6 +549,31 @@
       </categories>
       <tags>
         <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java8日期和时间处理</title>
+    <url>/posts/58f1702a.html</url>
+    <content><![CDATA[<h2 id="1-java8新特性-新时间与日期API本地时间与时间戳"><a href="#1-java8新特性-新时间与日期API本地时间与时间戳" class="headerlink" title="1.java8新特性-新时间与日期API本地时间与时间戳"></a>1.java8新特性-新时间与日期API本地时间与时间戳</h2><p><code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code>类的实例是不可变的对象，分别表示使用ISO-8601的日历系统的日期、时间、日期和时间。新的API提供了简单的日期和时间的获取方法。不包含与时区有关的信息</p>
+<h3 id="1-1-使用静态方法now获取本地时间"><a href="#1-1-使用静态方法now获取本地时间" class="headerlink" title="1.1 使用静态方法now获取本地时间"></a>1.1 使用静态方法now获取本地时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate now = LocalDate.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期:"</span>+now);<span class="comment">// 2020-05-25</span></span><br><span class="line">LocalTime localTime = LocalTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的时间:"</span>+localTime);<span class="comment">//20:32:55.091</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.now();</span><br><span class="line">System.out.println(<span class="string">"获取系统的日期和时间:"</span>+localDateTime);<span class="comment">//2020-05-25T20:32:55.092</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-使用静态方法of获取日期和时间"><a href="#1-2-使用静态方法of获取日期和时间" class="headerlink" title="1.2 使用静态方法of获取日期和时间"></a>1.2 使用静态方法of获取日期和时间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">23</span>);</span><br><span class="line">System.out.println(localDate);<span class="comment">//2012-03-23</span></span><br><span class="line">LocalTime localTime = LocalTime.of(<span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localTime);<span class="comment">//12:12</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.of(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">24</span>, <span class="number">12</span>, <span class="number">12</span>, <span class="number">12</span>);</span><br><span class="line">System.out.println(localDateTime);<span class="comment">//2012-03-24T12:12:12</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"><a href="#1-3-plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年" class="headerlink" title="1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年"></a>1.3 plusDays、plusWeeks、plusMonths、plusYear向当前LocalDate对象添加几天、几周、几个月、几年</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDate localDate = LocalDate.now();</span><br><span class="line">System.out.println(localDate);<span class="comment">//2020-05-25</span></span><br><span class="line">LocalDate localDate1 = localDate.plusDays(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate1);<span class="comment">//2020-05-27</span></span><br><span class="line">LocalDate localDate2 = localDate.plusMonths(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate2);<span class="comment">//2020-07-25</span></span><br><span class="line">LocalDate localDate3 = localDate.plusWeeks(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate3);<span class="comment">//2020-06-08</span></span><br><span class="line">LocalDate localDate4 = localDate.plusYears(<span class="number">2L</span>);</span><br><span class="line">System.out.println(localDate4);<span class="comment">//2022-05-25</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-4-Instant时间戳"><a href="#1-4-Instant时间戳" class="headerlink" title="1.4 Instant时间戳"></a>1.4 Instant时间戳</h3><p>时间戳(以Unix元年：1970年1月1日00：00：00到某个时间之间的毫秒值)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认获取的是以UTC时区</span></span><br><span class="line">Instant now = Instant.now();</span><br><span class="line">System.out.println(now);<span class="comment">//2020-05-25T13:32:32.718Z</span></span><br><span class="line"><span class="comment">//对时间进行偏移量处理,以便获取当前所在时区的时间</span></span><br><span class="line">OffsetDateTime offsetDateTime=now.atOffset(ZoneOffset.ofHours(<span class="number">8</span>));</span><br><span class="line">System.out.println(offsetDateTime);<span class="comment">//2020-05-25T21:32:32.718+08:00</span></span><br><span class="line"><span class="comment">//把获取的时间转换成对应的毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = now.toEpochMilli();</span><br><span class="line">System.out.println(l);<span class="comment">//1590413552718</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔"><a href="#1-5-Duration计算两个时间之间的间隔-Period计算两个日期之间的间隔" class="headerlink" title="1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔"></a>1.5 Duration计算两个时间之间的间隔,Period计算两个日期之间的间隔</h2><p><code>Duration</code>和<code>Period</code>的使用方式相同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Instant now = Instant.now();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//用线程睡眠一秒钟来测试Duration的时间差</span></span><br><span class="line">    Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">   e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">Instant now2 = Instant.now();</span><br><span class="line"><span class="comment">//比较两个时间的间隔</span></span><br><span class="line">Duration duration = Duration.between(now, now2);</span><br><span class="line"><span class="comment">//默认输出`PT1.002S`为ISO-861的表示方法</span></span><br><span class="line">System.out.println(duration);</span><br><span class="line"><span class="comment">//将ISO的表示的方法转换为纳秒、或者毫秒值</span></span><br><span class="line"><span class="keyword">long</span> l = duration.toNanos();<span class="comment">//1002000000</span></span><br><span class="line"><span class="comment">//转换为毫秒值</span></span><br><span class="line"><span class="comment">//long l1 = duration.toMillis();</span></span><br><span class="line">System.out.println(l);</span><br><span class="line"><span class="comment">//System.out.println(l1);</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-java8新特性-新时间与日期API-时间校正器"><a href="#2-java8新特性-新时间与日期API-时间校正器" class="headerlink" title="2.java8新特性-新时间与日期API-时间校正器"></a>2.java8新特性-新时间与日期API-时间校正器</h2><p><code>TemporalAdjuster</code>:时间校正器。有时候我们需要获取例如：将日期调整到“下周日”等操作。<br><code>TemporalAdjusters</code>:该类通过静态方法提供了大量的常用<code>TemporalAdjuster</code>的实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocalDateTime ldt = LocalDateTime.now();</span><br><span class="line">System.out.println(ldt);<span class="comment">//2020-05-25T22:00:35.532</span></span><br><span class="line"><span class="comment">//获取下一个周日</span></span><br><span class="line">LocalDateTime dateTime = ldt.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));</span><br><span class="line">System.out.println(dateTime);<span class="comment">//2020-05-31T22:00:35.532</span></span><br><span class="line"><span class="comment">//自定义：下一个工作日是什么时候</span></span><br><span class="line">LocalDateTime with = ldt.with(l -&gt; &#123;</span><br><span class="line">    LocalDateTime ldt4 = (LocalDateTime) l;</span><br><span class="line">    <span class="comment">//获取今天是星期几</span></span><br><span class="line">    DayOfWeek dayOfWeek = ldt4.getDayOfWeek();</span><br><span class="line">    System.out.println(dayOfWeek);<span class="comment">//MONDAY</span></span><br><span class="line">      <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.FRIDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">3L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dayOfWeek.equals(DayOfWeek.SUNDAY)) &#123;</span><br><span class="line">          <span class="keyword">return</span> ldt4.plusDays(<span class="number">2L</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> ldt4.plusDays(<span class="number">1L</span>);</span><br><span class="line">      &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"> System.out.println(with);<span class="comment">//2020-05-26T22:06:51.576</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-java8新特性-新时间与日期API-时间格式化与时区处理"><a href="#3-java8新特性-新时间与日期API-时间格式化与时区处理" class="headerlink" title="3.java8新特性-新时间与日期API-时间格式化与时区处理"></a>3.java8新特性-新时间与日期API-时间格式化与时区处理</h2><h3 id="3-1时间和日期的格式化"><a href="#3-1时间和日期的格式化" class="headerlink" title="3.1时间和日期的格式化"></a>3.1时间和日期的格式化</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DateTimeFormatter isoLocalDate = DateTimeFormatter.ISO_LOCAL_DATE;</span><br><span class="line">LocalDateTime now = LocalDateTime.now();</span><br><span class="line">System.out.println(now);</span><br><span class="line">String format = now.format(isoLocalDate);<span class="comment">//2020-05-25T22:22:48.083</span></span><br><span class="line">System.out.println(format);<span class="comment">//2020-05-25</span></span><br><span class="line"><span class="comment">//定义自己的格式</span></span><br><span class="line">DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">String format1 = dateTimeFormatter.format(now);</span><br><span class="line">System.out.println(format1);<span class="comment">//2020年05月25日</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-时区的处理"><a href="#3-2-时区的处理" class="headerlink" title="3.2 时区的处理"></a>3.2 时区的处理</h3><p>java8中加入了对时区的支持，带时区的时间分别为<code>ZonedDate</code>,<code>ZonedTIme</code>,<code>ZoneDateTime</code>。其中每个时区都对应着ID，地区ID都是<code>区域/城市</code>的格式，例如：<code>Asia/Shanghai</code>等。<br><code>ZoneId</code>该类中包含了所有的时区信息：<br>getAvailableZoneIds():可以获取所有时区的信息<br>of(id):用指定的时区信息获取ZoneId对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取所有的时区</span></span><br><span class="line">Set&lt;String&gt; availableZoneIds = ZoneId.getAvailableZoneIds();</span><br><span class="line">availableZoneIds.forEach(System.out::println);</span><br><span class="line"><span class="comment">//获取时区为上海的时间</span></span><br><span class="line">LocalDateTime now = LocalDateTime.now(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.216</span></span><br><span class="line">System.out.println(now);</span><br><span class="line"><span class="comment">//也可以使用以下的方法设置时区,返回的是带有时区的时间和日期</span></span><br><span class="line">LocalDateTime now1 = LocalDateTime.now();</span><br><span class="line">ZonedDateTime zonedDateTime = now1.atZone(ZoneId.of(<span class="string">"Asia/Shanghai"</span>));<span class="comment">//2020-05-25T22:47:57.222+08:00[Asia/Shanghai]</span></span><br><span class="line">System.out.println(zonedDateTime);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>JDK1.8</tag>
       </tags>
   </entry>
   <entry>
@@ -895,6 +895,102 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 ]]></content>
   </entry>
   <entry>
+    <title>Mybatis学习笔记二</title>
+    <url>/posts/a71dc8d.html</url>
+    <content><![CDATA[<h2 id="1-Mybatis逆向工程"><a href="#1-Mybatis逆向工程" class="headerlink" title="1. Mybatis逆向工程"></a>1. Mybatis逆向工程</h2><h3 id="1-1-说明"><a href="#1-1-说明" class="headerlink" title="1.1 说明"></a>1.1 说明</h3><ol>
+<li><p>MyBatis Generator<a href="http://mybatis.org/generator/#" target="_blank" rel="noopener">官方文档地址</a></p>
+</li>
+<li><p><a href="https://github.com/mybatis/generator/releases" target="_blank" rel="noopener">官方工程地址</a></p>
+</li>
+<li><p>依赖的包</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--mybatis逆向工程依赖包--&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-逆向功能的配置文件"><a href="#1-2-逆向功能的配置文件" class="headerlink" title="1.2 逆向功能的配置文件"></a>1.2 逆向功能的配置文件</h3> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">  PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD MyBatis Generator Configuration 1.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">  &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- </span><br><span class="line">		targetRuntime&#x3D;&quot;MyBatis3Simple&quot;:生成简单版的CRUD</span><br><span class="line">		MyBatis3:豪华版</span><br><span class="line">	</span><br><span class="line">	 --&gt;</span><br><span class="line">  &lt;context id&#x3D;&quot;DB2Tables&quot; targetRuntime&#x3D;&quot;MyBatis3&quot;&gt;</span><br><span class="line">  	&lt;!-- jdbcConnection：指定如何连接到目标数据库 --&gt;</span><br><span class="line">    &lt;jdbcConnection driverClass&#x3D;&quot;com.mysql.jdbc.Driver&quot;</span><br><span class="line">        connectionURL&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;mybatis?allowMultiQueries&#x3D;true&quot;</span><br><span class="line">        userId&#x3D;&quot;root&quot;</span><br><span class="line">        password&#x3D;&quot;123456&quot;&gt;</span><br><span class="line">    &lt;&#x2F;jdbcConnection&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--  --&gt;</span><br><span class="line">    &lt;javaTypeResolver &gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;forceBigDecimals&quot; value&#x3D;&quot;false&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaTypeResolver&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaModelGenerator：指定javaBean的生成策略 </span><br><span class="line">	targetPackage&#x3D;&quot;test.model&quot;：目标包名</span><br><span class="line">	targetProject&#x3D;&quot;\MBGTestProject\src&quot;：目标工程</span><br><span class="line">	--&gt;</span><br><span class="line">    &lt;javaModelGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.bean&quot; </span><br><span class="line">    		targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;trimStrings&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaModelGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- sqlMapGenerator：sql映射生成策略： --&gt;</span><br><span class="line">    &lt;sqlMapGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\conf&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;sqlMapGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaClientGenerator:指定mapper接口所在的位置 --&gt;</span><br><span class="line">    &lt;javaClientGenerator type&#x3D;&quot;XMLMAPPER&quot; targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaClientGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 指定要逆向分析哪些表：根据表要创建javaBean --&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_dept&quot; domainObjectName&#x3D;&quot;Department&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_employee&quot; domainObjectName&#x3D;&quot;Employee&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;context&gt;</span><br><span class="line">&lt;&#x2F;generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="2-Mybatis的运行原理"><a href="#2-Mybatis的运行原理" class="headerlink" title="2. Mybatis的运行原理"></a>2. Mybatis的运行原理</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1ec5vpzj30pc0eqdi7.jpg" alt="运行原理图"><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1fqhsrdj315l0u07b9.jpg" alt="框架原理图"></p>
+<h3 id="2-1-sqlsessionFactory的初始化"><a href="#2-1-sqlsessionFactory的初始化" class="headerlink" title="2.1 sqlsessionFactory的初始化"></a>2.1 sqlsessionFactory的初始化</h3><ol>
+<li>根据配置文件创建sqlsessionFactory<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8jtopjwj315e0q6jwj.jpg" alt=""></li>
+<li>几个重要的类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8l20ikdj30oy08amyc.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lcrpp2j30wy0n6gqg.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lnaxpkj310m0pijwy.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lu4tvtj31ca094tbp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8m1jq87j316q0cotc7.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mhihjrj30s408mdhp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mo15jrj30s408mdhp.jpg" alt="缓存中保存的key：方法id+sql+参数xxx"></li>
+</ol>
+<h3 id="2-2-openSession获取SqlSession对象"><a href="#2-2-openSession获取SqlSession对象" class="headerlink" title="2.2 openSession获取SqlSession对象"></a>2.2 openSession获取SqlSession对象</h3><p>返回SqlSession的实现类DefaultSqlSession对象。他里面包含了Executor和Configuration；Executor会在这一步被创建<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn931bghjj317a0mcn16.jpg" alt=""></p>
+<h3 id="2-3-getMapper获取到接口的代理对象"><a href="#2-3-getMapper获取到接口的代理对象" class="headerlink" title="2.3 getMapper获取到接口的代理对象"></a>2.3 getMapper获取到接口的代理对象</h3><p>getMapper返回接口的代理对象包含了SqlSession对象<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn9ey08pxj312a0lon0i.jpg" alt=""></p>
+<h3 id="2-4-查询实现"><a href="#2-4-查询实现" class="headerlink" title="2.4 查询实现"></a>2.4 查询实现</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfnagofu78j30zm0u043h.jpg" alt=""></p>
+<h2 id="3-插件"><a href="#3-插件" class="headerlink" title="3.插件"></a>3.插件</h2><p>MyBatis在四大对象的创建过程中，都会有插件进行介入。插件可以利用动态代理机制一层层的包装目标对象，而实现在目标对象执行目标方法之前进行拦截的效果。<br>MyBatis 允许在已映射语句执行过程中的某一点进行拦截调用。<br>默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：</p>
+<ul>
+<li>Executor(update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)</li>
+<li>ParameterHandler(getParameterObject, setParameters)</li>
+<li>ResultSetHandler(handleResultSets, handleOutputParameters)</li>
+<li>StatementHandler(prepare, parameterize, batch, update, query)</li>
+</ul>
+<h3 id="3-1-插件开发的步骤"><a href="#3-1-插件开发的步骤" class="headerlink" title="3.1 插件开发的步骤"></a>3.1 插件开发的步骤</h3><ol>
+<li><p>编写插件实现Interceptor接口并使用@Intercepts注解完成插件签名</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.in;</span><br><span class="line"></span><br><span class="line">import org.apache.ibatis.executor.statement.StatementHandler;</span><br><span class="line">import org.apache.ibatis.plugin.*;</span><br><span class="line"></span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * intercept:拦截目标对象的目标方法的执行</span><br><span class="line"> * 完成插件的签名：</span><br><span class="line"> *      告诉mybatis当前插件来拦截那个执行器的那个方法</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Intercepts(&#123;</span><br><span class="line">        @Signature(</span><br><span class="line">                type &#x3D; StatementHandler.class,method &#x3D; &quot;parameterize&quot;,args&#x3D;java.sql.Statement.class</span><br><span class="line">        )</span><br><span class="line">&#125;)</span><br><span class="line">public class MyFirstIn implements Interceptor &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Object intercept(Invocation invocation) throws Throwable &#123;</span><br><span class="line">        &#x2F;&#x2F;放行执行目标方法</span><br><span class="line">        Object proceed &#x3D; invocation.proceed();</span><br><span class="line">        return proceed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 插件包装</span><br><span class="line">     * 为目标对象创建一个代理对象</span><br><span class="line">     * @param target</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Object plugin(Object target) &#123;</span><br><span class="line">        Object wrap &#x3D; Plugin.wrap(target, this);</span><br><span class="line">        &#x2F;&#x2F;我们可以借助Plugin的wrap方法来使用当前的拦截器包装我们的对象</span><br><span class="line">        &#x2F;&#x2F;返回为当前target创建的动态代理</span><br><span class="line">        return wrap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 将插件注册时的properties属性注册出来</span><br><span class="line">     * @param properties</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void setProperties(Properties properties) &#123;</span><br><span class="line">        System.out.println(&quot;可以拿到插件的信息&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre></li>
+<li><p>在全局配置文件中注册插件</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugins&gt;</span><br><span class="line">        &lt;plugin interceptor&#x3D;&quot;com.atguigu.in.MyFirstIn&quot;&gt;</span><br><span class="line">            &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;ceshi&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;plugins&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="4-mybatis批量操作"><a href="#4-mybatis批量操作" class="headerlink" title="4. mybatis批量操作"></a>4. mybatis批量操作</h2><ul>
+<li><p>默认的openSession() 方法没有参数,它会创建有如下特性的</p>
+<ul>
+<li>会开启一个事务(也就是不自动提交)</li>
+<li>连接对象会从由活动环境配置的数据源实例得到</li>
+<li>事务隔离级别将会使用驱动或数据源的默认设置</li>
+<li>预处理语句不会被复用,也不会批量处理更</li>
+</ul>
+</li>
+<li><p>openSession 方法的ExecutorType类型的参数，枚举类型:</p>
+<ul>
+<li>ExecutorType.SIMPLE: 这个执行器类型不做特殊的事情（这是默认装配的）。它为每个语句的执行创建一个新的预处理语句</li>
+<li>ExecutorType.REUSE: 这个执行器类型会复用预处理语句</li>
+<li>ExecutorType.BATCH: 这个执行器会批量执行所有更新语句<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfng3gzkm0j30qh05f0uv.jpg" alt=""></li>
+</ul>
+</li>
+<li><p>批量操作我们是使用MyBatis提供的BatchExecutor进行的，他的底层就是通过jdbc攒sql的方式进行的。我们可以让他攒够一定数量后发给数据库一次</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    publicvoidtest01() &#123;</span><br><span class="line">SqlSession openSession &#x3D; build.openSession(ExecutorType.BATCH);</span><br><span class="line">UserDao mapper &#x3D; openSession.getMapper(UserDao.class);</span><br><span class="line">longstart &#x3D; System.currentTimeMillis();</span><br><span class="line">for(inti &#x3D; 0; i &lt; 1000000; i++) &#123;</span><br><span class="line">String name &#x3D; UUID.randomUUID().toString().substring(0, 5);</span><br><span class="line">mapper.addUser(newUser(null, name, 13));</span><br><span class="line">&#125;</span><br><span class="line">openSession.commit();</span><br><span class="line">openSession.close();</span><br><span class="line">longend &#x3D; System.currentTimeMillis();</span><br><span class="line">System.out.println(&quot;耗时时间：&quot;+(end-start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>与Spring整合中，我们推荐，额外的配置一个可以专门用来执行批量操作的sqlSession<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngak3h1uj30ur02kt9l.jpg" alt=""></p>
+</li>
+<li><p>需要用到批量操作的时候，我们可以注入配置的这个批量SqlSession。通过他获取到mapper映射器进行操作</p>
+</li>
+</ul>
+<p><strong><em>注意</em></strong></p>
+<ol>
+<li>批量操作是在session.commit()以后才发送sql语句给数据库进行执行的</li>
+<li>如果我们想让其提前执行，以方便后续可能的查询操作获取数据，我们可以使用sqlSession.flushStatements()方法，让其直接冲刷到数据库进行执行</li>
+</ol>
+<h2 id="5-一个带游标的存储过程"><a href="#5-一个带游标的存储过程" class="headerlink" title="5. 一个带游标的存储过程"></a>5. 一个带游标的存储过程</h2><ul>
+<li><p>MyBatis对存储过程的游标提供了一个JdbcType=CURSOR的支持，可以智能的把游标读取到的数据，映射到我们声明的结果集中</p>
+</li>
+<li><p>存储过程的调用</p>
+<ul>
+<li><p>select标签中statementType=“CALLABLE”</p>
+</li>
+<li><p>标签体中调用语法：{call procedure_name(#{param1_info},#{param2_info})}</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngl1c895j30ol066gn3.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-自定义TypeHandler处理枚举"><a href="#6-自定义TypeHandler处理枚举" class="headerlink" title="6.自定义TypeHandler处理枚举"></a>6.自定义TypeHandler处理枚举</h2><ul>
+<li>我们可以通过自定义TypeHandler的形式来在设置参数或者取出结果集的时候自定义参数封装策略</li>
+<li>步骤<ul>
+<li>实现TypeHandler接口或者继承BaseTypeHandler</li>
+<li>使用@MappedTypes定义处理的java类型</li>
+<li>使用@MappedJdbcTypes定义jdbcType类型</li>
+<li>在自定义结果集标签或者参数处理的时候声明使用自定义TypeHandler进行处理，或者在全局配置TypeHandler要处理的javaType</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>mybatis</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL高级部分学习一</title>
     <url>/posts/f2612c14.html</url>
     <content><![CDATA[<h1 id="MySQL高级部分学习一"><a href="#MySQL高级部分学习一" class="headerlink" title="MySQL高级部分学习一"></a>MySQL高级部分学习一</h1><h2 id="1-mysql的架构介绍"><a href="#1-mysql的架构介绍" class="headerlink" title="1. mysql的架构介绍"></a>1. mysql的架构介绍</h2><h3 id="1-1-mysql简介"><a href="#1-1-mysql简介" class="headerlink" title="1.1 mysql简介"></a>1.1 mysql简介</h3><h3 id="1-2-mysqlLinux版的安装"><a href="#1-2-mysqlLinux版的安装" class="headerlink" title="1.2 mysqlLinux版的安装"></a>1.2 mysqlLinux版的安装</h3><ol>
@@ -1085,102 +1181,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 </li>
 </ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Mybatis学习笔记二</title>
-    <url>/posts/a71dc8d.html</url>
-    <content><![CDATA[<h2 id="1-Mybatis逆向工程"><a href="#1-Mybatis逆向工程" class="headerlink" title="1. Mybatis逆向工程"></a>1. Mybatis逆向工程</h2><h3 id="1-1-说明"><a href="#1-1-说明" class="headerlink" title="1.1 说明"></a>1.1 说明</h3><ol>
-<li><p>MyBatis Generator<a href="http://mybatis.org/generator/#" target="_blank" rel="noopener">官方文档地址</a></p>
-</li>
-<li><p><a href="https://github.com/mybatis/generator/releases" target="_blank" rel="noopener">官方工程地址</a></p>
-</li>
-<li><p>依赖的包</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--mybatis逆向工程依赖包--&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis.generator&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.4.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-逆向功能的配置文件"><a href="#1-2-逆向功能的配置文件" class="headerlink" title="1.2 逆向功能的配置文件"></a>1.2 逆向功能的配置文件</h3> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">  PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD MyBatis Generator Configuration 1.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">  &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- </span><br><span class="line">		targetRuntime&#x3D;&quot;MyBatis3Simple&quot;:生成简单版的CRUD</span><br><span class="line">		MyBatis3:豪华版</span><br><span class="line">	</span><br><span class="line">	 --&gt;</span><br><span class="line">  &lt;context id&#x3D;&quot;DB2Tables&quot; targetRuntime&#x3D;&quot;MyBatis3&quot;&gt;</span><br><span class="line">  	&lt;!-- jdbcConnection：指定如何连接到目标数据库 --&gt;</span><br><span class="line">    &lt;jdbcConnection driverClass&#x3D;&quot;com.mysql.jdbc.Driver&quot;</span><br><span class="line">        connectionURL&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;mybatis?allowMultiQueries&#x3D;true&quot;</span><br><span class="line">        userId&#x3D;&quot;root&quot;</span><br><span class="line">        password&#x3D;&quot;123456&quot;&gt;</span><br><span class="line">    &lt;&#x2F;jdbcConnection&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--  --&gt;</span><br><span class="line">    &lt;javaTypeResolver &gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;forceBigDecimals&quot; value&#x3D;&quot;false&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaTypeResolver&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaModelGenerator：指定javaBean的生成策略 </span><br><span class="line">	targetPackage&#x3D;&quot;test.model&quot;：目标包名</span><br><span class="line">	targetProject&#x3D;&quot;\MBGTestProject\src&quot;：目标工程</span><br><span class="line">	--&gt;</span><br><span class="line">    &lt;javaModelGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.bean&quot; </span><br><span class="line">    		targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;trimStrings&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaModelGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- sqlMapGenerator：sql映射生成策略： --&gt;</span><br><span class="line">    &lt;sqlMapGenerator targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\conf&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;sqlMapGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- javaClientGenerator:指定mapper接口所在的位置 --&gt;</span><br><span class="line">    &lt;javaClientGenerator type&#x3D;&quot;XMLMAPPER&quot; targetPackage&#x3D;&quot;com.atguigu.mybatis.dao&quot;  </span><br><span class="line">    	targetProject&#x3D;&quot;.\src&quot;&gt;</span><br><span class="line">      &lt;property name&#x3D;&quot;enableSubPackages&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;javaClientGenerator&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 指定要逆向分析哪些表：根据表要创建javaBean --&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_dept&quot; domainObjectName&#x3D;&quot;Department&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">    &lt;table tableName&#x3D;&quot;tbl_employee&quot; domainObjectName&#x3D;&quot;Employee&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">  &lt;&#x2F;context&gt;</span><br><span class="line">&lt;&#x2F;generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="2-Mybatis的运行原理"><a href="#2-Mybatis的运行原理" class="headerlink" title="2. Mybatis的运行原理"></a>2. Mybatis的运行原理</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1ec5vpzj30pc0eqdi7.jpg" alt="运行原理图"><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn1fqhsrdj315l0u07b9.jpg" alt="框架原理图"></p>
-<h3 id="2-1-sqlsessionFactory的初始化"><a href="#2-1-sqlsessionFactory的初始化" class="headerlink" title="2.1 sqlsessionFactory的初始化"></a>2.1 sqlsessionFactory的初始化</h3><ol>
-<li>根据配置文件创建sqlsessionFactory<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8jtopjwj315e0q6jwj.jpg" alt=""></li>
-<li>几个重要的类<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8l20ikdj30oy08amyc.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lcrpp2j30wy0n6gqg.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lnaxpkj310m0pijwy.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8lu4tvtj31ca094tbp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8m1jq87j316q0cotc7.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mhihjrj30s408mdhp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn8mo15jrj30s408mdhp.jpg" alt="缓存中保存的key：方法id+sql+参数xxx"></li>
-</ol>
-<h3 id="2-2-openSession获取SqlSession对象"><a href="#2-2-openSession获取SqlSession对象" class="headerlink" title="2.2 openSession获取SqlSession对象"></a>2.2 openSession获取SqlSession对象</h3><p>返回SqlSession的实现类DefaultSqlSession对象。他里面包含了Executor和Configuration；Executor会在这一步被创建<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn931bghjj317a0mcn16.jpg" alt=""></p>
-<h3 id="2-3-getMapper获取到接口的代理对象"><a href="#2-3-getMapper获取到接口的代理对象" class="headerlink" title="2.3 getMapper获取到接口的代理对象"></a>2.3 getMapper获取到接口的代理对象</h3><p>getMapper返回接口的代理对象包含了SqlSession对象<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfn9ey08pxj312a0lon0i.jpg" alt=""></p>
-<h3 id="2-4-查询实现"><a href="#2-4-查询实现" class="headerlink" title="2.4 查询实现"></a>2.4 查询实现</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfnagofu78j30zm0u043h.jpg" alt=""></p>
-<h2 id="3-插件"><a href="#3-插件" class="headerlink" title="3.插件"></a>3.插件</h2><p>MyBatis在四大对象的创建过程中，都会有插件进行介入。插件可以利用动态代理机制一层层的包装目标对象，而实现在目标对象执行目标方法之前进行拦截的效果。<br>MyBatis 允许在已映射语句执行过程中的某一点进行拦截调用。<br>默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：</p>
-<ul>
-<li>Executor(update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)</li>
-<li>ParameterHandler(getParameterObject, setParameters)</li>
-<li>ResultSetHandler(handleResultSets, handleOutputParameters)</li>
-<li>StatementHandler(prepare, parameterize, batch, update, query)</li>
-</ul>
-<h3 id="3-1-插件开发的步骤"><a href="#3-1-插件开发的步骤" class="headerlink" title="3.1 插件开发的步骤"></a>3.1 插件开发的步骤</h3><ol>
-<li><p>编写插件实现Interceptor接口并使用@Intercepts注解完成插件签名</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.in;</span><br><span class="line"></span><br><span class="line">import org.apache.ibatis.executor.statement.StatementHandler;</span><br><span class="line">import org.apache.ibatis.plugin.*;</span><br><span class="line"></span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * intercept:拦截目标对象的目标方法的执行</span><br><span class="line"> * 完成插件的签名：</span><br><span class="line"> *      告诉mybatis当前插件来拦截那个执行器的那个方法</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Intercepts(&#123;</span><br><span class="line">        @Signature(</span><br><span class="line">                type &#x3D; StatementHandler.class,method &#x3D; &quot;parameterize&quot;,args&#x3D;java.sql.Statement.class</span><br><span class="line">        )</span><br><span class="line">&#125;)</span><br><span class="line">public class MyFirstIn implements Interceptor &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Object intercept(Invocation invocation) throws Throwable &#123;</span><br><span class="line">        &#x2F;&#x2F;放行执行目标方法</span><br><span class="line">        Object proceed &#x3D; invocation.proceed();</span><br><span class="line">        return proceed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 插件包装</span><br><span class="line">     * 为目标对象创建一个代理对象</span><br><span class="line">     * @param target</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Object plugin(Object target) &#123;</span><br><span class="line">        Object wrap &#x3D; Plugin.wrap(target, this);</span><br><span class="line">        &#x2F;&#x2F;我们可以借助Plugin的wrap方法来使用当前的拦截器包装我们的对象</span><br><span class="line">        &#x2F;&#x2F;返回为当前target创建的动态代理</span><br><span class="line">        return wrap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 将插件注册时的properties属性注册出来</span><br><span class="line">     * @param properties</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void setProperties(Properties properties) &#123;</span><br><span class="line">        System.out.println(&quot;可以拿到插件的信息&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre></li>
-<li><p>在全局配置文件中注册插件</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugins&gt;</span><br><span class="line">        &lt;plugin interceptor&#x3D;&quot;com.atguigu.in.MyFirstIn&quot;&gt;</span><br><span class="line">            &lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;ceshi&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;plugins&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="4-mybatis批量操作"><a href="#4-mybatis批量操作" class="headerlink" title="4. mybatis批量操作"></a>4. mybatis批量操作</h2><ul>
-<li><p>默认的openSession() 方法没有参数,它会创建有如下特性的</p>
-<ul>
-<li>会开启一个事务(也就是不自动提交)</li>
-<li>连接对象会从由活动环境配置的数据源实例得到</li>
-<li>事务隔离级别将会使用驱动或数据源的默认设置</li>
-<li>预处理语句不会被复用,也不会批量处理更</li>
-</ul>
-</li>
-<li><p>openSession 方法的ExecutorType类型的参数，枚举类型:</p>
-<ul>
-<li>ExecutorType.SIMPLE: 这个执行器类型不做特殊的事情（这是默认装配的）。它为每个语句的执行创建一个新的预处理语句</li>
-<li>ExecutorType.REUSE: 这个执行器类型会复用预处理语句</li>
-<li>ExecutorType.BATCH: 这个执行器会批量执行所有更新语句<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfng3gzkm0j30qh05f0uv.jpg" alt=""></li>
-</ul>
-</li>
-<li><p>批量操作我们是使用MyBatis提供的BatchExecutor进行的，他的底层就是通过jdbc攒sql的方式进行的。我们可以让他攒够一定数量后发给数据库一次</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    publicvoidtest01() &#123;</span><br><span class="line">SqlSession openSession &#x3D; build.openSession(ExecutorType.BATCH);</span><br><span class="line">UserDao mapper &#x3D; openSession.getMapper(UserDao.class);</span><br><span class="line">longstart &#x3D; System.currentTimeMillis();</span><br><span class="line">for(inti &#x3D; 0; i &lt; 1000000; i++) &#123;</span><br><span class="line">String name &#x3D; UUID.randomUUID().toString().substring(0, 5);</span><br><span class="line">mapper.addUser(newUser(null, name, 13));</span><br><span class="line">&#125;</span><br><span class="line">openSession.commit();</span><br><span class="line">openSession.close();</span><br><span class="line">longend &#x3D; System.currentTimeMillis();</span><br><span class="line">System.out.println(&quot;耗时时间：&quot;+(end-start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>与Spring整合中，我们推荐，额外的配置一个可以专门用来执行批量操作的sqlSession<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngak3h1uj30ur02kt9l.jpg" alt=""></p>
-</li>
-<li><p>需要用到批量操作的时候，我们可以注入配置的这个批量SqlSession。通过他获取到mapper映射器进行操作</p>
-</li>
-</ul>
-<p><strong><em>注意</em></strong></p>
-<ol>
-<li>批量操作是在session.commit()以后才发送sql语句给数据库进行执行的</li>
-<li>如果我们想让其提前执行，以方便后续可能的查询操作获取数据，我们可以使用sqlSession.flushStatements()方法，让其直接冲刷到数据库进行执行</li>
-</ol>
-<h2 id="5-一个带游标的存储过程"><a href="#5-一个带游标的存储过程" class="headerlink" title="5. 一个带游标的存储过程"></a>5. 一个带游标的存储过程</h2><ul>
-<li><p>MyBatis对存储过程的游标提供了一个JdbcType=CURSOR的支持，可以智能的把游标读取到的数据，映射到我们声明的结果集中</p>
-</li>
-<li><p>存储过程的调用</p>
-<ul>
-<li><p>select标签中statementType=“CALLABLE”</p>
-</li>
-<li><p>标签体中调用语法：{call procedure_name(#{param1_info},#{param2_info})}</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfngl1c895j30ol066gn3.jpg" alt=""></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="6-自定义TypeHandler处理枚举"><a href="#6-自定义TypeHandler处理枚举" class="headerlink" title="6.自定义TypeHandler处理枚举"></a>6.自定义TypeHandler处理枚举</h2><ul>
-<li>我们可以通过自定义TypeHandler的形式来在设置参数或者取出结果集的时候自定义参数封装策略</li>
-<li>步骤<ul>
-<li>实现TypeHandler接口或者继承BaseTypeHandler</li>
-<li>使用@MappedTypes定义处理的java类型</li>
-<li>使用@MappedJdbcTypes定义jdbcType类型</li>
-<li>在自定义结果集标签或者参数处理的时候声明使用自定义TypeHandler进行处理，或者在全局配置TypeHandler要处理的javaType</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>mybatis</category>
-      </categories>
-      <tags>
-        <tag>mybatis</tag>
-      </tags>
   </entry>
   <entry>
     <title>StartUML使用技巧.md</title>
@@ -2266,8 +2266,7 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 <li><p>主启动类激活：添加新注解<code>@EnableCircuitBreaker</code></p>
 </li>
 </ol>
-<p>#####7.3.1.4. 80fallback</p>
-<ol>
+<h5 id="7-3-1-4-80fallback"><a href="#7-3-1-4-80fallback" class="headerlink" title="7.3.1.4. 80fallback"></a>7.3.1.4. 80fallback</h5><ol>
 <li><p>80订单微服务，也可以更好的保护自己，自己也依样画葫芦进行客户端降级保护</p>
 </li>
 <li><p>题外话，切记<br>我们自己配置过的热部署方式对java代码的改动明显，但对@HystrixCommand内属性的修改建议重启微服务</p>
@@ -2280,15 +2279,14 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 </li>
 <li><p>业务类</p>
  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@HystrixCommand(fallbackMethod &#x3D; &quot;paymentTimeoutFallcackMethod&quot;,commandProperties  &#x3D;&#123;</span><br><span class="line">           @HystrixProperty(name &#x3D; &quot;execution.isolation.thread.timeoutInMilliseconds&quot;,value &#x3D; &quot;1500&quot;)</span><br><span class="line">    &#125;)</span><br><span class="line">    @GetMapping(&quot;&#x2F;consumer&#x2F;payment&#x2F;hystrix&#x2F;timeout&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paymentInfo_timeout(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">        return paymentHystrixService.paymentInfo_timeout(id);</span><br><span class="line">    &#125;</span><br><span class="line">    public String paymentTimeoutFallcackMethod(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">        return &quot;消费者客户端80的服务报错了&quot;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghy9ec2kokj31ok0pg7wi.jpg" alt=""><br>#####7.3.1.5. 目前问题</p>
-</li>
+<p> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghy9ec2kokj31ok0pg7wi.jpg" alt=""></p>
+<h5 id="7-3-1-5-目前问题"><a href="#7-3-1-5-目前问题" class="headerlink" title="7.3.1.5. 目前问题"></a>7.3.1.5. 目前问题</h5></li>
 <li><p>每个业务方法对应一个兜底的方法，代码膨胀</p>
 </li>
 <li><p>统一和自定义的分开</p>
 </li>
 </ol>
-<p>#####7.3.1.6. 解决问题</p>
-<ol>
+<h5 id="7-3-1-6-解决问题"><a href="#7-3-1-6-解决问题" class="headerlink" title="7.3.1.6. 解决问题"></a>7.3.1.6. 解决问题</h5><ol>
 <li><p>每个方法配置一个？？？膨胀</p>
 <ul>
 <li><p>feign接口系列</p>
@@ -2316,7 +2314,7 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 <li><p>根据cloud-consumer-feign-hystrix-order80已经有的PaymentHystrixService接口，重新新建一个类（PaymentFallbackService）实现该接口，统一为接口里面的方法进行异常处理</p>
 </li>
 <li><p>PaymentFallbackService类实现PaymentFeignClientService接口</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    package com.atguigu.springcloud.service;</span><br><span class="line">    </span><br><span class="line">    import org.springframework.stereotype.Component;</span><br><span class="line">    </span><br><span class="line">    @Component</span><br><span class="line">    public class PaymentFallbackHystrixService implements PaymentHystrixService&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public String paymentInfo_ok(Integer id) &#123;</span><br><span class="line">            return &quot;------PaymentFallbackHystrixService-------&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        @Override</span><br><span class="line">        public String paymentInfo_timeout(Integer id) &#123;</span><br><span class="line">            return &quot;-----PaymentFallbackHystrixService---超时-----&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#96;&#96;&#96;  </span><br><span class="line">* YML</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    package com.atguigu.springcloud.service;</span><br><span class="line">    </span><br><span class="line">    import org.springframework.stereotype.Component;</span><br><span class="line">    </span><br><span class="line">    @Component</span><br><span class="line">    public class PaymentFallbackHystrixService implements PaymentHystrixService&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public String paymentInfo_ok(Integer id) &#123;</span><br><span class="line">            return &quot;------PaymentFallbackHystrixService-------&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        @Override</span><br><span class="line">        public String paymentInfo_timeout(Integer id) &#123;</span><br><span class="line">            return &quot;-----PaymentFallbackHystrixService---超时-----&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line">* YML</span><br></pre></td></tr></table></figure>
 <p>  feign:</p>
 <pre><code>hystrix:
   enabled: true  #如果处理自身的容错就开启。开启方式与生产端不一样。</code></pre>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* PaymentFeignClientService接口</span><br></pre></td></tr></table></figure>
