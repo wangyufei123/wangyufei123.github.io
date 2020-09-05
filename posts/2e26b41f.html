@@ -75,7 +75,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gib6j3wn7cj31ey0osdzr.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gib6pq9zqfj30n60ey43r.jpg">
 <meta property="article:published_time" content="2020-09-05T04:47:11.000Z">
-<meta property="article:modified_time" content="2020-09-05T06:36:50.864Z">
+<meta property="article:modified_time" content="2020-09-05T06:41:27.721Z">
 <meta property="article:author" content="Mr.Wang">
 <meta property="article:tag" content="java 前端">
 <meta name="twitter:card" content="summary">
@@ -1183,27 +1183,30 @@
 </ul>
 </li>
 </ol>
-<pre><code>* 正常测试
-    * 启动eureka7001
-    * 启动cloud-provider-hystrix-payment8001
-    * 访问：http://localhost:8001/payment/hystrix/ok/31
-    * 每次调用耗费5秒钟：http://localhost:8001/payment/hystrix/timeout/31
-    * 上述module均OK：以上述为根基平台，从正确-&gt;错误-&gt;降级熔断-&gt;恢复</code></pre><ol>
-<li><p>高并发测试</p>
 <ul>
-<li><p>上述在非高并发情形下，还能勉强满足   but…..</p>
+<li><p>正常测试</p>
+<ul>
+<li>启动eureka7001</li>
+<li>启动cloud-provider-hystrix-payment8001</li>
+<li>访问：<a href="http://localhost:8001/payment/hystrix/ok/31" target="_blank" rel="noopener">http://localhost:8001/payment/hystrix/ok/31</a></li>
+<li>每次调用耗费5秒钟：<a href="http://localhost:8001/payment/hystrix/timeout/31" target="_blank" rel="noopener">http://localhost:8001/payment/hystrix/timeout/31</a></li>
+<li>上述module均OK：以上述为根基平台，从正确-&gt;错误-&gt;降级熔断-&gt;恢复<ol>
+<li>高并发测试</li>
+</ol>
+<ul>
+<li>上述在非高并发情形下，还能勉强满足   but…..</li>
+<li>Jmeter压测测试</li>
+</ul>
 </li>
-<li><p>Jmeter压测测试</p>
-<ul>
 <li>开启Jmeter,来20000个并发压死8001，20000个请求都去访问paymentInfo_TimeOut服务</li>
 <li>再来一个访问：<a href="http://localhost:8001/payment/hystrix/ok/31、http://localhost:8001/payment/hystrix/timeout/31" target="_blank" rel="noopener">http://localhost:8001/payment/hystrix/ok/31、http://localhost:8001/payment/hystrix/timeout/31</a></li>
 <li>看演示结果：两个都在自己转圈圈</li>
-<li>为什么会被卡死：tomcat的默认的工作线程数被打满了，没有多余的线程来分解压力和处理。</li>
+<li>为什么会被卡死：tomcat的默认的工作线程数被打满了，没有多余的线程来分解压力和处理。<ul>
+<li>Jmeter压测结论<br>上面还是服务提供者8001自己测试，假如此时外部的消费者80也来访问，那消费者只能干等，最终导致消费端80不满意，服务端8001直接被拖死</li>
+<li>看热闹不嫌弃事大，80新建加入</li>
 </ul>
 </li>
-<li><p>Jmeter压测结论<br>上面还是服务提供者8001自己测试，假如此时外部的消费者80也来访问，那消费者只能干等，最终导致消费端80不满意，服务端8001直接被拖死</p>
-</li>
-<li><p>看热闹不嫌弃事大，80新建加入</p>
+</ul>
 <ol>
 <li><p>新建<code>cloud-consumer-feign-hystrix-order80</code></p>
 </li>
@@ -1228,30 +1231,27 @@
 <li>2W个线程压8001</li>
 <li>消费端80微服务再去访问正常的OK微服务8001地址</li>
 <li><a href="http://localhost/consumer/payment/hystrix/timeout/31" target="_blank" rel="noopener">http://localhost/consumer/payment/hystrix/timeout/31</a></li>
-<li>消费者80:要么转圈圈等待,要么消费端报超时错误</li>
-</ul>
-</li>
+<li>消费者80:要么转圈圈等待,要么消费端报超时错误<ol>
+<li>故障现象和导致原因<br>8001同一层次的其他接口服务被困死，因为tomcat线程里面的工作线程已经被挤占完毕,0此时调用8001，客户端访问响应缓慢，转圈圈</li>
+<li>上诉结论<br>正因为有上述故障或不佳表现，才有我们的降级/容错/限流等技术诞生</li>
+<li>如何解决，解决的要求</li>
 </ol>
-</li>
-</ul>
-</li>
-<li><p>故障现象和导致原因<br>8001同一层次的其他接口服务被困死，因为tomcat线程里面的工作线程已经被挤占完毕,0此时调用8001，客户端访问响应缓慢，转圈圈</p>
-</li>
-<li><p>上诉结论<br>正因为有上述故障或不佳表现，才有我们的降级/容错/限流等技术诞生</p>
-</li>
-<li><p>如何解决，解决的要求</p>
 <ul>
 <li>超时导致服务器变慢（转圈:超时不再等待</li>
 <li>出错(宕机或程序运行出错):出错要有兜底</li>
-<li>解决<ul>
+<li>解决</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
 <li>对方服务（8001）超时了，调用者（80）不能一直卡死等待，必须有服务降级</li>
 <li>对方服务（8001）down机了，调用者（80）不能一直卡死等待，必须有服务降级</li>
 <li>对方服务（8001）OK，调用者（80）自己出故障或有自我要求（自己的等待时间小于服务提供者），自己处理降级</li>
 </ul>
 </li>
 </ul>
-</li>
-</ol>
 <h4 id="7-3-1-服务降级"><a href="#7-3-1-服务降级" class="headerlink" title="7.3.1 服务降级"></a>7.3.1 服务降级</h4><h5 id="7-3-1-1-降级配置"><a href="#7-3-1-1-降级配置" class="headerlink" title="7.3.1.1. 降级配置"></a>7.3.1.1. 降级配置</h5><p><code>@HystrixCommand</code></p>
 <h5 id="7-3-1-2-8001先从自身找问题"><a href="#7-3-1-2-8001先从自身找问题" class="headerlink" title="7.3.1.2. 8001先从自身找问题"></a>7.3.1.2. 8001先从自身找问题</h5><p>设置自身调用超时时间的峰值，峰值内可以正常运行，超过了需要有兜底的方法处理，作服务降级fallback</p>
 <h5 id="7-3-1-3-8001fallback"><a href="#7-3-1-3-8001fallback" class="headerlink" title="7.3.1.3. 8001fallback"></a>7.3.1.3. 8001fallback</h5><ol>
