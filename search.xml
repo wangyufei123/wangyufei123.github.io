@@ -372,6 +372,186 @@
       </tags>
   </entry>
   <entry>
+    <title>Maven学习笔记</title>
+    <url>/posts/be02a930.html</url>
+    <content><![CDATA[<h2 id="1-Maven-简介"><a href="#1-Maven-简介" class="headerlink" title="1.Maven 简介"></a>1.Maven 简介</h2><p>Maven是Apache软件基金会组织维护的一款自动化构建工具专注服务于Java平台的项目构建和依赖管理 。</p>
+<h2 id="2-构建过程的主要几个环节"><a href="#2-构建过程的主要几个环节" class="headerlink" title="2. 构建过程的主要几个环节"></a>2. 构建过程的主要几个环节</h2><p>①清理 ：删除以前的编译结果，为重新编译做好准备。<br>②编译 ：将Java源程序编译为字节码文件。<br>③测试 ：针对项目中的关键点进行测试，确保项目在迭代开发过程中关键点的正确性。<br>④报告 ：在每一次测试后以标准的格式记录和展示测试结果。<br>⑤打包 ：将一个包含诸多文件的工程封装为一个压缩文件用于安装或部署。Java工程对应jar包，Web工程对应war包。<br>⑥安装 ：在 Maven 环境下特指将打包的结果jar包或war包安装到本地仓库中。<br>⑦部署 ：将打包的结果部署到远程仓库或将war包部署到服务器上运行。</p>
+<h2 id="3-maven程序安装"><a href="#3-maven程序安装" class="headerlink" title="3.maven程序安装"></a>3.maven程序安装</h2><ol>
+<li><p><a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">maven下载</a><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffi2t9uvej31vk0mgq7v.jpg" alt=""></p>
+<ul>
+<li>Binary：编译之后的二进制文件</li>
+<li>Source：表示可以查看源代码的，比Binary大一点</li>
+<li>tar.gz archive：Linux、macOS系统使用</li>
+<li>zip archive：windows系统使用</li>
+</ul>
+</li>
+<li><p>解压到本地,注意解压的目录下不要有中文</p>
+</li>
+<li><p>配置环境变量</p>
+<ul>
+<li><p>mac<br>打开terminel输入以下命令：<code>vim ~/.bash_profile</code>打开.bash_profile文件，在次文件中添加设置环境变量的命令</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export M2_HOME&#x3D; ***这里换成自己解压maven的地址***</span><br><span class="line">&#x2F;&#x2F;示例：export M2_HOME&#x3D;&#x2F;Users&#x2F;XXX&#x2F;Maven&#x2F;apache-maven-3.6.3</span><br><span class="line">export PATH&#x3D;$PATH:$M2_HOME&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<p>  添加之后保存并推出，执行以下命令使配置生效：<code>source ~/.bash_profile</code><br>  mac中解决<code>source ~/.bash_profile</code>关闭终端后在打开不生效的问题,需要在~/.zshrc文件最后，增加一行：<code>source ~/.bash_profile</code>。如果没有此文件可以使用<code>vim ~/.zshr</code>新建一个文件，在添加对应的命令</p>
+</li>
+<li><p>win<br>  参考<a href="https://blog.csdn.net/weixin_41557632/article/details/78939663" target="_blank" rel="noopener">WIN10下安装配置mave</a>文章进行配置</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-配置maven本地仓库"><a href="#4-配置maven本地仓库" class="headerlink" title="4.配置maven本地仓库"></a>4.配置maven本地仓库</h2><h3 id="4-1-仓库的分类"><a href="#4-1-仓库的分类" class="headerlink" title="4.1 仓库的分类"></a>4.1 仓库的分类</h3><ol>
+<li>本地仓库:为当前本机电脑上的所有Maven工程服务。</li>
+<li>远程仓库<ul>
+<li>私服：架设在当前局域网环境下，为当前局域网范围内的所有Maven工程服务。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffiq931w6j30ie06h0ta.jpg" alt=""></li>
+<li>中央仓库：架设在 Internet 上，为全世界所有Maven工程服务。</li>
+<li>中央仓库的镜像：架设在各个大洲，为中央仓库分担流量。减轻中央仓库的压力，同时更快的响应用户请求。</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-2-本地仓库的配置"><a href="#4-2-本地仓库的配置" class="headerlink" title="4.2 本地仓库的配置"></a>4.2 本地仓库的配置</h3><p>在 conf/setting.xml的文件中更改默认的仓库位置,也就是我们jar包下载后存放的位置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--需要添加的配置--&gt;</span><br><span class="line"> &lt;localRepository&gt;&#x2F;Users&#x2F;wangyufei&#x2F;Maven&#x2F;repository&lt;&#x2F;localRepository&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffj8b8m19j316s0n0gqp.jpg" alt=""></p>
+<h2 id="5-maven的标准目录结构"><a href="#5-maven的标准目录结构" class="headerlink" title="5.maven的标准目录结构"></a>5.maven的标准目录结构</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffu24cncjj30pt0bntbh.jpg" alt=""></p>
+<h2 id="6-maven的常用命令"><a href="#6-maven的常用命令" class="headerlink" title="6.maven的常用命令"></a>6.maven的常用命令</h2><h3 id="6-1-clean命令"><a href="#6-1-clean命令" class="headerlink" title="6.1 clean命令"></a>6.1 clean命令</h3><p>清除编译产生的target文件夹内容，可以配合相应命令一起使用，如mvn clean package， mvn clean test</p>
+<h3 id="6-2-complie命令"><a href="#6-2-complie命令" class="headerlink" title="6.2 complie命令"></a>6.2 complie命令</h3><p>该命令可以对src/main/java目录的下的代码进行编译</p>
+<h3 id="6-3-test命令"><a href="#6-3-test命令" class="headerlink" title="6.3 test命令"></a>6.3 test命令</h3><p>测试命令,或执行src/test/java/下junit的测试用例</p>
+<h3 id="6-4-package命令"><a href="#6-4-package命令" class="headerlink" title="6.4 package命令"></a>6.4 package命令</h3><p>mvn package，打包项目</p>
+<h3 id="6-5-install命令"><a href="#6-5-install命令" class="headerlink" title="6.5 install命令"></a>6.5 install命令</h3><p>mvn install，打包后将其安装在本地仓库</p>
+<h2 id="7-maven的生命周期"><a href="#7-maven的生命周期" class="headerlink" title="7. maven的生命周期"></a>7. maven的生命周期</h2><h3 id="7-1-Maven-有三套相互独立的生命周期"><a href="#7-1-Maven-有三套相互独立的生命周期" class="headerlink" title="7.1 Maven 有三套相互独立的生命周期"></a>7.1 Maven 有三套相互独立的生命周期</h3><ol>
+<li>Clean Lifecycle 在进行真正的构建之前进行一些清理工作。</li>
+<li>Default Lifecycle 构建的核心部分，编译，测试，打包，安装，部署等等。</li>
+<li>Site Lifecycle 生成项目报告，站点，发布站点。<br>它们是相互独立的，你可以仅仅调用<br>clean 来清理工作目录，仅仅调用 site 来生 成站点。 当然你也可以<br>直接运行 mvn clean install site 运行所有这三套生命周期。</li>
+</ol>
+<h2 id="8-maven的概念模型图"><a href="#8-maven的概念模型图" class="headerlink" title="8. maven的概念模型图"></a>8. maven的概念模型图</h2><h3 id="8-1-POM"><a href="#8-1-POM" class="headerlink" title="8.1 POM"></a>8.1 POM</h3><p>Project Object Model：项目对象模型。将 Java 工程 的相关信息封装为 对象 作为便于操作和管理的 模型 。Maven 工程的核心配置。可以说学习Maven 就是学习 pom.xml 文件中的配置。</p>
+<h3 id="8-2-Maven-的坐标"><a href="#8-2-Maven-的坐标" class="headerlink" title="8.2 Maven 的坐标"></a>8.2 Maven 的坐标</h3><p>使用如下三个向量在Maven的仓库中唯一的确定一个Maven工程。</p>
+<ol>
+<li><p>groupid：公司或组织的域名倒序当前项目名称</p>
+</li>
+<li><p>artifactId：当前项目的模块名称</p>
+</li>
+<li><p>version：当前模块的版本</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;groupId&gt;org.example&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;wugujiawebmaven&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="8-3-如何通过坐标到仓库中查找-jar包"><a href="#8-3-如何通过坐标到仓库中查找-jar包" class="headerlink" title="8.3 如何通过坐标到仓库中查找 jar包"></a>8.3 如何通过坐标到仓库中查找 jar包</h3><ol>
+<li>将 gav 三个向量连起来<code>org.example+wugujiawebmaven+1.0-SNAPSHOT</code></li>
+<li>以连起来的字符串作为目录结构到仓库中查找<code>org/example/wugujiawebmaven/1.0-SNAPSHOT</code></li>
+</ol>
+<p><strong><em>※注意：我们自己的Maven工程必须执行安装操作才会进入仓库 。安装的命令是： mvn install</em></strong></p>
+<h2 id="9-idea集成maven插件"><a href="#9-idea集成maven插件" class="headerlink" title="9. idea集成maven插件"></a>9. idea集成maven插件</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrb1dkjqj31c00u07wh.jpg" alt=""><br>配置创建java工程<code>-DarchetypeCatalog=local</code> 是为了防止在无网络的情况下可是使用本地已经下载好的maven的骨架<br>配置路径如下：<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffreyumrvj314f0u0tf8.jpg" alt=""></p>
+<h2 id="10-使用骨架创建maven的java工程"><a href="#10-使用骨架创建maven的java工程" class="headerlink" title="10. 使用骨架创建maven的java工程"></a>10. 使用骨架创建maven的java工程</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffri7ezbpj31iu0u0k3u.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrkwyag3j31i50u079a.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrnc34uej31gz0u00xc.jpg" alt=""></p>
+<h2 id="11-不实用骨架创建maven的java工程"><a href="#11-不实用骨架创建maven的java工程" class="headerlink" title="11. 不实用骨架创建maven的java工程"></a>11. 不实用骨架创建maven的java工程</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrtdfg0nj31h70u0gyf.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrtxvpltj31ne0t0whp.jpg" alt=""></p>
+<h2 id="12-使用骨架创建maven的web工程"><a href="#12-使用骨架创建maven的web工程" class="headerlink" title="12. 使用骨架创建maven的web工程"></a>12. 使用骨架创建maven的web工程</h2><ol>
+<li>创建web工程<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffryrg9q3j31h40u0aom.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs07au3bj31i30u00wt.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs0ll4c2j31hf0u079r.jpg" alt=""></li>
+<li>创建好的javaweb工程(图1)，所以我们需要手动添加一个java的目录用于编写java代码(图2）,还要将java目录添加为Source Root(图3)<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs5okhm8j317m0m4e81.jpg" alt="图1"><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs77nvf6j31h40u0x6p.jpg" alt="图2"><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs9f0i5cj312h0u0b2a.jpg" alt="图3"></li>
+</ol>
+<h2 id="13-创建自定义的JavaWeb工程"><a href="#13-创建自定义的JavaWeb工程" class="headerlink" title="13. 创建自定义的JavaWeb工程"></a>13. 创建自定义的JavaWeb工程</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfft5u46n5j31hb0u0dqk.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfft6zy94pj31ih0u0gsk.jpg" alt=""><br>创建web工程信息<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfft8j06icj30u00wt4qp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffta8mvonj31080u07am.jpg" alt=""><br>创建好的javaweb工程目录如图所示<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfftb47ep7j326i0qwqv6.jpg" alt=""></p>
+<h2 id="14-idea中执行maven的命令"><a href="#14-idea中执行maven的命令" class="headerlink" title="14.idea中执行maven的命令"></a>14.idea中执行maven的命令</h2><ol>
+<li>clean、test、complie、package、install的命令输入方法相同<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfftegsyzaj31a50u0kjl.jpg" alt=""></li>
+</ol>
+<h2 id="15-Maven插件"><a href="#15-Maven插件" class="headerlink" title="15. Maven插件"></a>15. Maven插件</h2><p>Maven是一个核心引擎，提供了基本的项目处理能力和建设过程的管理，以及一系列的插件是用来执行实际建设任务。maven插件可以完成一些特定的功能。例如，集成jdk插件可以方便的修改项目的编译环境；集成tomcat插件后，无需安装tomcat服务器就可以运行tomcat进行项目的发布与测试。在pom.xml中通过plugin标签引入maven的功能插件。</p>
+<h3 id="15-1-JDK编译版本的插件"><a href="#15-1-JDK编译版本的插件" class="headerlink" title="15.1 JDK编译版本的插件"></a>15.1 JDK编译版本的插件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- jdk版本插件 --&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.2&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;source&gt;1.8&lt;&#x2F;source&gt;</span><br><span class="line">        &lt;target&gt;1.8&lt;&#x2F;target&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;&#x2F;encoding&gt;</span><br><span class="line">        &lt;showWarnings&gt;true&lt;&#x2F;showWarnings&gt;</span><br><span class="line">    &lt;&#x2F;configuration&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-2-Tomcat7服务端的插件"><a href="#15-2-Tomcat7服务端的插件" class="headerlink" title="15.2 Tomcat7服务端的插件"></a>15.2 Tomcat7服务端的插件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- tomcat7插件 --&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.tomcat.maven&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;tomcat7-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.1&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;port&gt;8080&lt;&#x2F;port&gt;</span><br><span class="line">        &lt;server&gt;tomcat7&lt;&#x2F;server&gt;</span><br><span class="line">    &lt;&#x2F;configuration&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>
+<p><strong><em>tomcat插件注意问题</em></strong><br>Maven的中央仓库中只有Tomcat7.X版本的插件，而之前我们使用的是8.X的版本，如果想使用Tomcat8.X的插件可以去其他第三方仓库进行寻找，或者使用IDEA集成外部Tomcat8极其以上版本，进行项目的发布</p>
+<h2 id="16-依赖范围"><a href="#16-依赖范围" class="headerlink" title="16. 依赖范围"></a>16. 依赖范围</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfftnby1jsj30dn07g0sq.jpg" alt=""></p>
+<ul>
+<li>compile 编译、测试、运行，A在编译时依赖B，并且在测试和运行时也依赖<br>  strus-core、spring-beans。打到war包或jar包</li>
+<li>provided 编译、和测试有效，A在编译和测试时需要B<br>  servlet-api就是编译和测试有用，在运行时不用（tomcat容器已提供）<br>不会打到war</li>
+<li>runtime：测试、运行有效<br>  在运行和测试时需要通过jdbc驱动包（mysql驱动）连接数据库，需要的会打到war</li>
+<li>test：只是测试有效，只在单元测试类中用<br>  例如：junit 不会打到war</li>
+<li>按照依赖强度，由强到弱来排序：(理解)<br>  compile&gt; provided&gt; runtime&gt; test</li>
+</ul>
+<h2 id="17-maven倒入jar包冲突解决"><a href="#17-maven倒入jar包冲突解决" class="headerlink" title="17. maven倒入jar包冲突解决"></a>17. maven倒入jar包冲突解决</h2><ol>
+<li>路径最短者优先<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gffzi2u0s7j30dw03oaah.jpg" alt=""></li>
+<li>路径相同时先声明者优先。这里声明的先后顺序指的是dependency标签配置的先后顺序。<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gffzigrc5cj30di03caae.jpg" alt=""></li>
+<li>使用<code>&lt;exclusions&gt;</code>标签排除</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.a tguigu.maven&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;HelloFriend&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.1 SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;type&gt;jar&lt;&#x2F;type&gt;</span><br><span class="line">    &lt;scope&gt;compile&lt;&#x2F;scope&gt;</span><br><span class="line">    &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">            &lt;groupId&gt;commons logging&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;commons logging&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;exclusion&gt;</span><br><span class="line">    &lt;&#x2F;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="18-统一管理所依赖的版本"><a href="#18-统一管理所依赖的版本" class="headerlink" title="18. 统一管理所依赖的版本"></a>18. 统一管理所依赖的版本</h2><p>对同一个框架的一组jar包最好使用相同的版本。为了方便升级框架，可以将 jar 包的版本信息统一提取出来</p>
+<ol>
+<li><p>统一声明版本号</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    &#x2F;&#x2F;其中</span><br><span class="line">atguigu.spring.version 部分 是自定义标签</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">    &lt;atguigu.spring.version&gt;4.1.1.RELEASE&lt;&#x2F;atguigu.s pring.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>引用前面声明的版本号</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;springcore&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;atguigu.spring. version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    ……</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完整示例</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;</span><br><span class="line">        xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">        xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">   &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line">   &lt;groupId&gt;com.itheima&lt;&#x2F;groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;ssm_parent_331&lt;&#x2F;artifactId&gt;</span><br><span class="line">   &lt;packaging&gt;pom&lt;&#x2F;packaging&gt;</span><br><span class="line">   &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">   &lt;modules&gt;</span><br><span class="line">       &lt;module&gt;ssm_dao_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_service_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_web_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_domain_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_utils_331&lt;&#x2F;module&gt;</span><br><span class="line">   &lt;&#x2F;modules&gt;</span><br><span class="line">   &lt;properties&gt;</span><br><span class="line">       &lt;project.build.sourceEncoding&gt;UTF-8&lt;&#x2F;project.build.sourceEncoding&gt;</span><br><span class="line">       &lt;maven.compiler.source&gt;1.7&lt;&#x2F;maven.compiler.source&gt;</span><br><span class="line">       &lt;maven.compiler.target&gt;1.7&lt;&#x2F;maven.compiler.target&gt;</span><br><span class="line">       &lt;spring.version&gt;5.0.2.RELEASE&lt;&#x2F;spring.version&gt;</span><br><span class="line">       &lt;spring.security.version&gt;5.0.2.RELEASE&lt;&#x2F;spring.security.version&gt;</span><br><span class="line">   &lt;&#x2F;properties&gt;</span><br><span class="line">   &lt;dependencies&gt;</span><br><span class="line">       &lt;!-- spring相关的jar包 --&gt;</span><br><span class="line">       &lt;!-- 容器 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 事务 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-tx&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- JDBC --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-jdbc&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 测试 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-test&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- springMVC --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-webmvc&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- mybatis --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;3.4.5&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- mybatis与Spring整合 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-spring&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.3.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- AOP切面 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.aspectj&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;aspectjweaver&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.8.7&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 数据源 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.alibaba&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;druid&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.1.9&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 单元测试 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;4.12&lt;&#x2F;version&gt;</span><br><span class="line">           &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- servletAPI --&gt;</span><br><span class="line">       &lt;!-- JSP应用 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;jsp-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.0&lt;&#x2F;version&gt;</span><br><span class="line">           &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- servlet应用 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;servlet-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.5&lt;&#x2F;version&gt;</span><br><span class="line">           &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 日志记录工具 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.2.17&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.10.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.10.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.9.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.slf4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;slf4j-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.7.25&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-slf4j-impl&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.9.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-jcl&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.9.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- mysql --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;5.1.6&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!--oracle的jar包--&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.oracle&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;ojdbc14&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;10.2.0.2.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- JSTL --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;jstl&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;jstl&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.2&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;taglibs&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;standard&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.1.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 文件上传 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;commons-fileupload&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;commons-fileupload&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.3.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;commons-io&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;commons-io&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.5&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;c3p0&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;c3p0&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;0.9.1.2&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.github.pagehelper&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;pagehelper&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;5.1.2&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-config&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-taglibs&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">   &lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="19-maven工程的拆分与聚合"><a href="#19-maven工程的拆分与聚合" class="headerlink" title="19. maven工程的拆分与聚合"></a>19. maven工程的拆分与聚合</h2><h3 id="19-1-创建父工程-只需要有pom-xnl文件"><a href="#19-1-创建父工程-只需要有pom-xnl文件" class="headerlink" title="19.1 创建父工程(只需要有pom.xnl文件)"></a>19.1 创建父工程(只需要有pom.xnl文件)</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1lp5p48j31ih0u0wrb.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1nppqvjj31i50u0gqy.jpg" alt=""><br>父工程中可以将<code>src</code>的文件夹删除掉,只留下<code>pom.xml</code>文件<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1prv2npj31fy0u01ky.jpg" alt=""></p>
+<h3 id="19-2-子模块的创建"><a href="#19-2-子模块的创建" class="headerlink" title="19.2 子模块的创建"></a>19.2 子模块的创建</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1s2lmzmj310i0u01ky.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1tfvpygj31io0u013q.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1upasaqj31ij0u0ted.jpg" alt=""></p>
+<h3 id="19-3-工程和模块的区别"><a href="#19-3-工程和模块的区别" class="headerlink" title="19.3 工程和模块的区别"></a>19.3 工程和模块的区别</h3><p>区别：</p>
+<ol>
+<li>工程不等于完整的项目,模块也不等于一个完整的项目。代码完整,就可以说这是一个完整的项目和此项目和模块没有关系</li>
+<li>工程只能使用自己的内部资源,工程天生时独立的。后天可以和其他工程和模块建立关联关系</li>
+<li>模块天生是属于父工程的,模块一旦创建,所有父工程的资源都可以使用</li>
+</ol>
+<p>关系：</p>
+<ol>
+<li>父子工程中,子模块天生集成父工程,可以使用父工程所有的资源</li>
+<li>子模块之间是没有关联的</li>
+<li>子模块之间可以使用<code>denpendency</code>之间来互相引用,建立关联</li>
+<li>平级之间引用叫做依赖,依赖不是先天的,是后天建立的</li>
+<li>父子工程之间不用建立关系,继承关系是先天的,不需要手动建立</li>
+</ol>
+<h3 id="19-4-maven父子工程三种启动方式"><a href="#19-4-maven父子工程三种启动方式" class="headerlink" title="19.4 maven父子工程三种启动方式"></a>19.4 maven父子工程三种启动方式</h3><ol>
+<li>可以在父工程中使用 mvn run</li>
+<li>使用web模块中启动时,需要先将其依赖的jar发布到本地仓库或者远程仓库中</li>
+<li>添加本地的tomcat,不在使用maven中自带的tomcat</li>
+</ol>
+<h3 id="19-5-搭建maven的私服环境"><a href="#19-5-搭建maven的私服环境" class="headerlink" title="19.5 搭建maven的私服环境"></a>19.5 搭建maven的私服环境</h3><ol>
+<li><p>下载<a href="：http://www.sonatype.org/nexus/archived/">nexus</a><br>Nexus 是Maven仓库管理器，通过nexus可以搭建maven仓库，同时nexus还提供强大的仓库管理功能，构件搜索功能等。</p>
+</li>
+<li><p>Centos7上搭建私服</p>
+<ul>
+<li><p>上传到Centos7服务器<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg5gm5vknj31iw0fojv2.jpg" alt=""></p>
+</li>
+<li><p>使用命令<code>tar -avxf nexus-3.23.0-03-unix.tar.gz</code>解压完成后会出现一下两个文件(一个是nexus服务,一个是私有仓库)<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg5iheh9tj31gg0f60wc.jpg" alt=""></p>
+</li>
+<li><p>修改默认的端口<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg72x96olj31fo0gigoo.jpg" alt=""></p>
+</li>
+<li><p>启动nexus<br>启动 Nexus（默认端口是8081），Nexus 常用的一些命令包括：/nexus-3.23.0-03/bin/nexus {start|stop|run|run-redirect|status|restart|force-reload}，下面我们启动Nexus：  </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WARNING: ************************************************************</span><br><span class="line">WARNING: Detected execution as &quot;root&quot; user.  This is NOT recommended!</span><br><span class="line">WARNING: ************************************************************</span><br><span class="line">Starting nexus</span><br></pre></td></tr></table></figure>
+<p>上面在启动过程中出现警告：“不推荐使用root用户启动”。这个警告不影响Nexus的正常访问和使用。 如果上面的环境变量配置了,试着修改</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;bin&#x2F;nexus.rc文件中的run_as_user&#x3D; “root”</span><br></pre></td></tr></table></figure>
+<h3 id="19-6-私服的应用"><a href="#19-6-私服的应用" class="headerlink" title="19.6 私服的应用"></a>19.6 私服的应用</h3><h4 id="19-6-1-账号和密码是固定的-admin-admin123"><a href="#19-6-1-账号和密码是固定的-admin-admin123" class="headerlink" title="19.6.1 账号和密码是固定的 admin/admin123"></a>19.6.1 账号和密码是固定的 admin/admin123</h4><h4 id="19-6-2-登陆私服的配置-server-xml"><a href="#19-6-2-登陆私服的配置-server-xml" class="headerlink" title="19.6.2 登陆私服的配置(server.xml)"></a>19.6.2 登陆私服的配置(server.xml)</h4>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;server&gt;</span><br><span class="line">        &lt;id&gt;releases&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;username&gt;admin&lt;&#x2F;username&gt;</span><br><span class="line">        &lt;password&gt;admin123&lt;&#x2F;password&gt;</span><br><span class="line">      &lt;&#x2F;server&gt;</span><br><span class="line">      &lt;server&gt;</span><br><span class="line">        &lt;id&gt;snapshots&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;username&gt;admin&lt;&#x2F;username&gt;</span><br><span class="line">        &lt;password&gt;admin123&lt;&#x2F;password&gt;</span><br><span class="line">      &lt;&#x2F;server&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfgc8gj788j31a80lwjvk.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="19-6-3-配置项目pom-xml"><a href="#19-6-3-配置项目pom-xml" class="headerlink" title="19.6.3 配置项目pom.xml"></a>19.6.3 配置项目pom.xml</h4><p>配置私服仓库的地址，本公司的自己的jar包会上传到私服的宿主仓库，根据工程的版本号决定上传到哪个宿主仓库，如果版本为release则上传到私服的release仓库，如果版本为snapshot则上传到私服的snapshot仓库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">    &lt;repository&gt;</span><br><span class="line">        &lt;id&gt;release&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;name&gt;Release Repository&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;url&gt;http:&#x2F;&#x2F;ip&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;releases&lt;&#x2F;url&gt;</span><br><span class="line">    &lt;&#x2F;repository&gt;</span><br><span class="line">    &lt;snapshotRepository&gt;</span><br><span class="line">        &lt;id&gt;snapshot&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;name&gt;Snapshot Repository&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;url&gt;http:&#x2F;&#x2F;ip&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;snapshots&lt;&#x2F;url&gt;</span><br><span class="line">    &lt;&#x2F;snapshotRepository&gt;</span><br><span class="line">&lt;&#x2F;distributionManagement&gt;</span><br></pre></td></tr></table></figure>
+<p><strong><em>注意：pom.xml这里<id> 和 settings.xml 配置 <id> 对应！</em></strong></p>
+<h4 id="19-6-4-相关jar包的下载"><a href="#19-6-4-相关jar包的下载" class="headerlink" title="19.6.4 相关jar包的下载"></a>19.6.4 相关jar包的下载</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 下载jar包配置 --&gt;</span><br><span class="line">	&lt;profile&gt; </span><br><span class="line">		&lt;!--profile的id --&gt;</span><br><span class="line">		&lt;id&gt;dev&lt;&#x2F;id&gt;</span><br><span class="line">		&lt;repositories&gt;</span><br><span class="line">			&lt;repository&gt; &lt;!--仓库id，repositories可以配置多个仓库，保证id不重复 --&gt;</span><br><span class="line">				&lt;id&gt;nexus&lt;&#x2F;id&gt; &lt;!--仓库地址，即nexus仓库组的地址 --&gt;</span><br><span class="line">				&lt;url&gt;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt; &lt;!--是否下载releases构件 --&gt;</span><br><span class="line">				&lt;releases&gt;</span><br><span class="line">					&lt;enabled&gt;true&lt;&#x2F;enabled&gt;</span><br><span class="line">				&lt;&#x2F;releases&gt; &lt;!--是否下载snapshots构件 --&gt;</span><br><span class="line">				&lt;snapshots&gt;</span><br><span class="line">					&lt;enabled&gt;true&lt;&#x2F;enabled&gt;</span><br><span class="line">				&lt;&#x2F;snapshots&gt;</span><br><span class="line">			&lt;&#x2F;repository&gt;</span><br><span class="line">		&lt;&#x2F;repositories&gt;</span><br><span class="line">		&lt;pluginRepositories&gt; &lt;!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 --&gt;</span><br><span class="line">			&lt;pluginRepository&gt; &lt;!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 --&gt;</span><br><span class="line">				&lt;id&gt;public&lt;&#x2F;id&gt;</span><br><span class="line">				&lt;name&gt;Public Repositories&lt;&#x2F;name&gt;</span><br><span class="line">				&lt;url&gt;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">			&lt;&#x2F;pluginRepository&gt;</span><br><span class="line">		&lt;&#x2F;pluginRepositories&gt;</span><br><span class="line">	&lt;&#x2F;profile&gt;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;activeProfiles&gt;</span><br><span class="line">		&lt;activeProfile&gt;dev&lt;&#x2F;activeProfile&gt;</span><br><span class="line">	&lt;&#x2F;activeProfiles&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfgcmn2bayj311r0u0qit.jpg" alt=""></p>
+<h4 id="19-6-5-安装第三方jar包到本地仓库和私服"><a href="#19-6-5-安装第三方jar包到本地仓库和私服" class="headerlink" title="19.6.5 安装第三方jar包到本地仓库和私服"></a>19.6.5 安装第三方jar包到本地仓库和私服</h4><ol>
+<li>安装第三方jar包到本地仓库</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----进入jar包所在目录运行</span><br><span class="line">mvn install:install-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dfile&#x3D;fastjson-1.1.37.jar -Dpackaging&#x3D;jar</span><br><span class="line">----打开cmd直接运行</span><br><span class="line">mvn install:install-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dpackaging&#x3D;jar -Dfile&#x3D;C:\my_java\授课资料\资料：maven【高级】\安装第三方jar包\fastjson-1.1.37.jar</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装第三方jar包到私服</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--在settings配置文件中添加登录私服第三方登录信息</span><br><span class="line">&lt;server&gt;</span><br><span class="line">&lt;id&gt;thirdparty&lt;&#x2F;id&gt;</span><br><span class="line">&lt;username&gt;admin&lt;&#x2F;username&gt;</span><br><span class="line">&lt;password&gt;admin123&lt;&#x2F;password&gt;</span><br><span class="line">&lt;&#x2F;server&gt;</span><br><span class="line">----进入jar包所在目录运行</span><br><span class="line">mvn deploy:deploy-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dpackaging&#x3D;jar -Dfile&#x3D;fastjson-1.1.37.jar -Durl&#x3D;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;thirdparty&#x2F; -DrepositoryId&#x3D;thirdparty</span><br><span class="line">----打开cmd直接运行</span><br><span class="line">mvn deploy:deploy-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dpackaging&#x3D;jar -Dfile&#x3D;C:\my_java\授课资料\资料：maven【高级】\安装第三方jar包\fastjson-1.1.37.jar -Durl&#x3D;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;thirdparty&#x2F; -DrepositoryId&#x3D;thirdparty</span><br></pre></td></tr></table></figure>
+
+<h2 id="20-配置全局的jdk"><a href="#20-配置全局的jdk" class="headerlink" title="20. 配置全局的jdk"></a>20. 配置全局的jdk</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--配置全局的jdk为1.8--&gt;</span><br><span class="line">  &lt;profile&gt;</span><br><span class="line">      &lt;id&gt;jdk-1.8&lt;&#x2F;id&gt; </span><br><span class="line">      &lt;activation&gt;</span><br><span class="line">        &lt;activeByDefault&gt;true&lt;&#x2F;activeByDefault&gt;</span><br><span class="line">        &lt;jdk&gt;1.8&lt;&#x2F;jdk&gt; </span><br><span class="line">      &lt;&#x2F;activation&gt; </span><br><span class="line">         </span><br><span class="line">      &lt;properties&gt; </span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;&#x2F;maven.compiler.source&gt; </span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;&#x2F;maven.compiler.target&gt; </span><br><span class="line">        &lt;maven.compiler.compilerVersion&gt;1.8&lt;&#x2F;maven.compiler.compilerVersion&gt; </span><br><span class="line">      &lt;&#x2F;properties&gt;  </span><br><span class="line">    &lt;&#x2F;profile&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfgd6p48qbj315y0u0qar.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java8日期和时间处理</title>
     <url>/posts/58f1702a.html</url>
     <content><![CDATA[<h2 id="1-java8新特性-新时间与日期API本地时间与时间戳"><a href="#1-java8新特性-新时间与日期API本地时间与时间戳" class="headerlink" title="1.java8新特性-新时间与日期API本地时间与时间戳"></a>1.java8新特性-新时间与日期API本地时间与时间戳</h2><p><code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code>类的实例是不可变的对象，分别表示使用ISO-8601的日历系统的日期、时间、日期和时间。新的API提供了简单的日期和时间的获取方法。不包含与时区有关的信息</p>
@@ -395,6 +575,31 @@
         <tag>java</tag>
         <tag>JDK1.8</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>MySQL数据库学习笔记.md</title>
+    <url>/posts/8d9f420d.html</url>
+    <content><![CDATA[<h1 id="MySQL数据库学习笔记"><a href="#MySQL数据库学习笔记" class="headerlink" title="MySQL数据库学习笔记"></a>MySQL数据库学习笔记</h1><h2 id="1-MySQL的语法规范"><a href="#1-MySQL的语法规范" class="headerlink" title="1.MySQL的语法规范"></a>1.MySQL的语法规范</h2><ol>
+<li>不区分大小写,但建议关键字大写，表名、列名小写</li>
+<li>每条命令最好用分号结尾</li>
+<li>每条命令根据需要，可以进行缩进 或换行</li>
+<li>注释<ul>
+<li>单行注释：#注释文字</li>
+<li>单行注释：– 注释文字</li>
+<li>多行注释：/* 注释文字  */<h2 id="2-SQL的语言分类"><a href="#2-SQL的语言分类" class="headerlink" title="2.SQL的语言分类"></a>2.SQL的语言分类</h2></li>
+</ul>
+</li>
+<li>DQL（Data Query Language）：数据查询语言 select</li>
+<li>DML(Data Manipulate Language):数据操作语言:insert、update、delete</li>
+<li>DDL（Data Define Languge）：数据定义语言:create alter drop</li>
+<li>TCL（Transaction Control Language）：事务控制语言 commit rollback</li>
+</ol>
+<h2 id="3-SQL的常见命令"><a href="#3-SQL的常见命令" class="headerlink" title="3.SQL的常见命令"></a>3.SQL的常见命令</h2><h2 id="4-DQL语言的学习"><a href="#4-DQL语言的学习" class="headerlink" title="4.DQL语言的学习"></a>4.DQL语言的学习</h2><p><strong><em>更加具体的讲解详见对应的尚硅谷查询语句的pdf</em></strong></p>
+<h3 id="进阶1：基础查询"><a href="#进阶1：基础查询" class="headerlink" title="进阶1：基础查询"></a>进阶1：基础查询</h3><p>语法：select 查询的东西 [from 表名]<br>特点：<br>    1. 通过select查询完的结果 ，是一个虚拟的表格，不是真实存在<br>    2. 要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数</p>
+<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>条件查询：根据条件过滤原始表的数据，查询到想要的数据<br>语法：<br>    select 要查询的字段｜表达式｜常量值｜函数<br>    from 表名<br>    where 条件;<br>分类：<br>    1. 条件表达式<br>        * &gt;<br>        * &lt;<br>        * &gt;=<br>        * &gt;=<br>        * =<br>        * !=<br>        * &lt;&gt;:建议使用，不建议使用！=<br>    2. 逻辑表达式：用于连接条件表达式<br>        * and(&amp;&amp;):两个条件如果同时成立,结果为true,否则为false<br>        * or(||)：两个条件只要有一个成立，结果为true，否则为false<br>        * not(!)：如果条件成立，则not后为false，否则为true<br>    3. 模糊查询<br>        * like<br>        * between and<br>        * in<br>        * is null</p>
+<h3 id="进阶3：排序查询"><a href="#进阶3：排序查询" class="headerlink" title="进阶3：排序查询"></a>进阶3：排序查询</h3><p><strong><em>详细笔记请见尚硅谷基础学习笔记3</em></strong></p>
+<h3 id="进阶4：常见函数"><a href="#进阶4：常见函数" class="headerlink" title="进阶4：常见函数"></a>进阶4：常见函数</h3><p>一、单行函数<br>    1、字符函数<br>        concat拼接<br>        substr截取子串<br>        upper转换成大写<br>        lower转换成小写<br>        trim去前后指定的空格和字符<br>        ltrim去左边空格<br>        rtrim去右边空格<br>        replace替换<br>        lpad左填充<br>        rpad右填充<br>        instr返回子串第一次出现的索引<br>        length 获取字节个数<br>    2、数学函数<br>        round 四舍五入<br>        rand 随机数<br>        floor向下取整<br>        ceil向上取整<br>        mod取余<br>        truncate截断<br>3、日期函数<br>        now当前系统日期+时间<br>        curdate当前系统日期<br>        curtime当前系统时间<br>        str_to_date 将字符转换成日期<br>        date_format将日期转换成字符<br>4、流程控制函数<br>        if 处理双分支<br>        case语句 处理多分支<br>            情况1：处理等值判断<br>            情况2：处理条件判断<br>5、其他函数<br>        version版本<br>        database当前库<br>        user当前连接用户</p>
+]]></content>
   </entry>
   <entry>
     <title>MySQL学习笔记二</title>
@@ -688,211 +893,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create PROCEDURE pro_while2(in insertcount int)</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE i int DEFAULT 1;</span><br><span class="line">	a:while i &lt;&#x3D; insertcount do</span><br><span class="line">		insert into admin(username,password) values(CONCAT(&#39;xiaohua&#39;,i),&#39;6666&#39;);</span><br><span class="line">		if i&gt;&#x3D;20 then leave a;</span><br><span class="line">		end if;</span><br><span class="line">		set i &#x3D; i + 1;</span><br><span class="line">		END WHILE a;</span><br><span class="line">END</span><br><span class="line"></span><br><span class="line">call pro_while2(30);</span><br></pre></td></tr></table></figure>
 <p>案例：批量插入，根据次数插入到admin表中多条记录，只插入偶数次（添加iterate语句）</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TRUNCATE TABLE admin$</span><br><span class="line">DROP PROCEDURE test_while1$</span><br><span class="line">CREATE PROCEDURE test_while1(IN insertCount INT)</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE i INT DEFAULT 0;</span><br><span class="line">	a:WHILE i&lt;&#x3D;insertCount DO</span><br><span class="line">		SET i&#x3D;i+1;</span><br><span class="line">		IF MOD(i,2)!&#x3D;0 THEN ITERATE a;</span><br><span class="line">		END IF;</span><br><span class="line">		</span><br><span class="line">		INSERT INTO admin(username,&#96;password&#96;) VALUES(CONCAT(&#39;xiaohua&#39;,i),&#39;0000&#39;);</span><br><span class="line">		</span><br><span class="line">	END WHILE a;</span><br><span class="line">END $</span><br><span class="line">CALL test_while1(100)$</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>Maven学习笔记</title>
-    <url>/posts/be02a930.html</url>
-    <content><![CDATA[<h2 id="1-Maven-简介"><a href="#1-Maven-简介" class="headerlink" title="1.Maven 简介"></a>1.Maven 简介</h2><p>Maven是Apache软件基金会组织维护的一款自动化构建工具专注服务于Java平台的项目构建和依赖管理 。</p>
-<h2 id="2-构建过程的主要几个环节"><a href="#2-构建过程的主要几个环节" class="headerlink" title="2. 构建过程的主要几个环节"></a>2. 构建过程的主要几个环节</h2><p>①清理 ：删除以前的编译结果，为重新编译做好准备。<br>②编译 ：将Java源程序编译为字节码文件。<br>③测试 ：针对项目中的关键点进行测试，确保项目在迭代开发过程中关键点的正确性。<br>④报告 ：在每一次测试后以标准的格式记录和展示测试结果。<br>⑤打包 ：将一个包含诸多文件的工程封装为一个压缩文件用于安装或部署。Java工程对应jar包，Web工程对应war包。<br>⑥安装 ：在 Maven 环境下特指将打包的结果jar包或war包安装到本地仓库中。<br>⑦部署 ：将打包的结果部署到远程仓库或将war包部署到服务器上运行。</p>
-<h2 id="3-maven程序安装"><a href="#3-maven程序安装" class="headerlink" title="3.maven程序安装"></a>3.maven程序安装</h2><ol>
-<li><p><a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">maven下载</a><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffi2t9uvej31vk0mgq7v.jpg" alt=""></p>
-<ul>
-<li>Binary：编译之后的二进制文件</li>
-<li>Source：表示可以查看源代码的，比Binary大一点</li>
-<li>tar.gz archive：Linux、macOS系统使用</li>
-<li>zip archive：windows系统使用</li>
-</ul>
-</li>
-<li><p>解压到本地,注意解压的目录下不要有中文</p>
-</li>
-<li><p>配置环境变量</p>
-<ul>
-<li><p>mac<br>打开terminel输入以下命令：<code>vim ~/.bash_profile</code>打开.bash_profile文件，在次文件中添加设置环境变量的命令</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export M2_HOME&#x3D; ***这里换成自己解压maven的地址***</span><br><span class="line">&#x2F;&#x2F;示例：export M2_HOME&#x3D;&#x2F;Users&#x2F;XXX&#x2F;Maven&#x2F;apache-maven-3.6.3</span><br><span class="line">export PATH&#x3D;$PATH:$M2_HOME&#x2F;bin</span><br></pre></td></tr></table></figure>
-
-<p>  添加之后保存并推出，执行以下命令使配置生效：<code>source ~/.bash_profile</code><br>  mac中解决<code>source ~/.bash_profile</code>关闭终端后在打开不生效的问题,需要在~/.zshrc文件最后，增加一行：<code>source ~/.bash_profile</code>。如果没有此文件可以使用<code>vim ~/.zshr</code>新建一个文件，在添加对应的命令</p>
-</li>
-<li><p>win<br>  参考<a href="https://blog.csdn.net/weixin_41557632/article/details/78939663" target="_blank" rel="noopener">WIN10下安装配置mave</a>文章进行配置</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="4-配置maven本地仓库"><a href="#4-配置maven本地仓库" class="headerlink" title="4.配置maven本地仓库"></a>4.配置maven本地仓库</h2><h3 id="4-1-仓库的分类"><a href="#4-1-仓库的分类" class="headerlink" title="4.1 仓库的分类"></a>4.1 仓库的分类</h3><ol>
-<li>本地仓库:为当前本机电脑上的所有Maven工程服务。</li>
-<li>远程仓库<ul>
-<li>私服：架设在当前局域网环境下，为当前局域网范围内的所有Maven工程服务。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffiq931w6j30ie06h0ta.jpg" alt=""></li>
-<li>中央仓库：架设在 Internet 上，为全世界所有Maven工程服务。</li>
-<li>中央仓库的镜像：架设在各个大洲，为中央仓库分担流量。减轻中央仓库的压力，同时更快的响应用户请求。</li>
-</ul>
-</li>
-</ol>
-<h3 id="4-2-本地仓库的配置"><a href="#4-2-本地仓库的配置" class="headerlink" title="4.2 本地仓库的配置"></a>4.2 本地仓库的配置</h3><p>在 conf/setting.xml的文件中更改默认的仓库位置,也就是我们jar包下载后存放的位置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--需要添加的配置--&gt;</span><br><span class="line"> &lt;localRepository&gt;&#x2F;Users&#x2F;wangyufei&#x2F;Maven&#x2F;repository&lt;&#x2F;localRepository&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffj8b8m19j316s0n0gqp.jpg" alt=""></p>
-<h2 id="5-maven的标准目录结构"><a href="#5-maven的标准目录结构" class="headerlink" title="5.maven的标准目录结构"></a>5.maven的标准目录结构</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffu24cncjj30pt0bntbh.jpg" alt=""></p>
-<h2 id="6-maven的常用命令"><a href="#6-maven的常用命令" class="headerlink" title="6.maven的常用命令"></a>6.maven的常用命令</h2><h3 id="6-1-clean命令"><a href="#6-1-clean命令" class="headerlink" title="6.1 clean命令"></a>6.1 clean命令</h3><p>清除编译产生的target文件夹内容，可以配合相应命令一起使用，如mvn clean package， mvn clean test</p>
-<h3 id="6-2-complie命令"><a href="#6-2-complie命令" class="headerlink" title="6.2 complie命令"></a>6.2 complie命令</h3><p>该命令可以对src/main/java目录的下的代码进行编译</p>
-<h3 id="6-3-test命令"><a href="#6-3-test命令" class="headerlink" title="6.3 test命令"></a>6.3 test命令</h3><p>测试命令,或执行src/test/java/下junit的测试用例</p>
-<h3 id="6-4-package命令"><a href="#6-4-package命令" class="headerlink" title="6.4 package命令"></a>6.4 package命令</h3><p>mvn package，打包项目</p>
-<h3 id="6-5-install命令"><a href="#6-5-install命令" class="headerlink" title="6.5 install命令"></a>6.5 install命令</h3><p>mvn install，打包后将其安装在本地仓库</p>
-<h2 id="7-maven的生命周期"><a href="#7-maven的生命周期" class="headerlink" title="7. maven的生命周期"></a>7. maven的生命周期</h2><h3 id="7-1-Maven-有三套相互独立的生命周期"><a href="#7-1-Maven-有三套相互独立的生命周期" class="headerlink" title="7.1 Maven 有三套相互独立的生命周期"></a>7.1 Maven 有三套相互独立的生命周期</h3><ol>
-<li>Clean Lifecycle 在进行真正的构建之前进行一些清理工作。</li>
-<li>Default Lifecycle 构建的核心部分，编译，测试，打包，安装，部署等等。</li>
-<li>Site Lifecycle 生成项目报告，站点，发布站点。<br>它们是相互独立的，你可以仅仅调用<br>clean 来清理工作目录，仅仅调用 site 来生 成站点。 当然你也可以<br>直接运行 mvn clean install site 运行所有这三套生命周期。</li>
-</ol>
-<h2 id="8-maven的概念模型图"><a href="#8-maven的概念模型图" class="headerlink" title="8. maven的概念模型图"></a>8. maven的概念模型图</h2><h3 id="8-1-POM"><a href="#8-1-POM" class="headerlink" title="8.1 POM"></a>8.1 POM</h3><p>Project Object Model：项目对象模型。将 Java 工程 的相关信息封装为 对象 作为便于操作和管理的 模型 。Maven 工程的核心配置。可以说学习Maven 就是学习 pom.xml 文件中的配置。</p>
-<h3 id="8-2-Maven-的坐标"><a href="#8-2-Maven-的坐标" class="headerlink" title="8.2 Maven 的坐标"></a>8.2 Maven 的坐标</h3><p>使用如下三个向量在Maven的仓库中唯一的确定一个Maven工程。</p>
-<ol>
-<li><p>groupid：公司或组织的域名倒序当前项目名称</p>
-</li>
-<li><p>artifactId：当前项目的模块名称</p>
-</li>
-<li><p>version：当前模块的版本</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;groupId&gt;org.example&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;wugujiawebmaven&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="8-3-如何通过坐标到仓库中查找-jar包"><a href="#8-3-如何通过坐标到仓库中查找-jar包" class="headerlink" title="8.3 如何通过坐标到仓库中查找 jar包"></a>8.3 如何通过坐标到仓库中查找 jar包</h3><ol>
-<li>将 gav 三个向量连起来<code>org.example+wugujiawebmaven+1.0-SNAPSHOT</code></li>
-<li>以连起来的字符串作为目录结构到仓库中查找<code>org/example/wugujiawebmaven/1.0-SNAPSHOT</code></li>
-</ol>
-<p><strong><em>※注意：我们自己的Maven工程必须执行安装操作才会进入仓库 。安装的命令是： mvn install</em></strong></p>
-<h2 id="9-idea集成maven插件"><a href="#9-idea集成maven插件" class="headerlink" title="9. idea集成maven插件"></a>9. idea集成maven插件</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrb1dkjqj31c00u07wh.jpg" alt=""><br>配置创建java工程<code>-DarchetypeCatalog=local</code> 是为了防止在无网络的情况下可是使用本地已经下载好的maven的骨架<br>配置路径如下：<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffreyumrvj314f0u0tf8.jpg" alt=""></p>
-<h2 id="10-使用骨架创建maven的java工程"><a href="#10-使用骨架创建maven的java工程" class="headerlink" title="10. 使用骨架创建maven的java工程"></a>10. 使用骨架创建maven的java工程</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffri7ezbpj31iu0u0k3u.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrkwyag3j31i50u079a.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrnc34uej31gz0u00xc.jpg" alt=""></p>
-<h2 id="11-不实用骨架创建maven的java工程"><a href="#11-不实用骨架创建maven的java工程" class="headerlink" title="11. 不实用骨架创建maven的java工程"></a>11. 不实用骨架创建maven的java工程</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrtdfg0nj31h70u0gyf.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffrtxvpltj31ne0t0whp.jpg" alt=""></p>
-<h2 id="12-使用骨架创建maven的web工程"><a href="#12-使用骨架创建maven的web工程" class="headerlink" title="12. 使用骨架创建maven的web工程"></a>12. 使用骨架创建maven的web工程</h2><ol>
-<li>创建web工程<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffryrg9q3j31h40u0aom.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs07au3bj31i30u00wt.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs0ll4c2j31hf0u079r.jpg" alt=""></li>
-<li>创建好的javaweb工程(图1)，所以我们需要手动添加一个java的目录用于编写java代码(图2）,还要将java目录添加为Source Root(图3)<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs5okhm8j317m0m4e81.jpg" alt="图1"><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs77nvf6j31h40u0x6p.jpg" alt="图2"><br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffs9f0i5cj312h0u0b2a.jpg" alt="图3"></li>
-</ol>
-<h2 id="13-创建自定义的JavaWeb工程"><a href="#13-创建自定义的JavaWeb工程" class="headerlink" title="13. 创建自定义的JavaWeb工程"></a>13. 创建自定义的JavaWeb工程</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfft5u46n5j31hb0u0dqk.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfft6zy94pj31ih0u0gsk.jpg" alt=""><br>创建web工程信息<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfft8j06icj30u00wt4qp.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gffta8mvonj31080u07am.jpg" alt=""><br>创建好的javaweb工程目录如图所示<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfftb47ep7j326i0qwqv6.jpg" alt=""></p>
-<h2 id="14-idea中执行maven的命令"><a href="#14-idea中执行maven的命令" class="headerlink" title="14.idea中执行maven的命令"></a>14.idea中执行maven的命令</h2><ol>
-<li>clean、test、complie、package、install的命令输入方法相同<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfftegsyzaj31a50u0kjl.jpg" alt=""></li>
-</ol>
-<h2 id="15-Maven插件"><a href="#15-Maven插件" class="headerlink" title="15. Maven插件"></a>15. Maven插件</h2><p>Maven是一个核心引擎，提供了基本的项目处理能力和建设过程的管理，以及一系列的插件是用来执行实际建设任务。maven插件可以完成一些特定的功能。例如，集成jdk插件可以方便的修改项目的编译环境；集成tomcat插件后，无需安装tomcat服务器就可以运行tomcat进行项目的发布与测试。在pom.xml中通过plugin标签引入maven的功能插件。</p>
-<h3 id="15-1-JDK编译版本的插件"><a href="#15-1-JDK编译版本的插件" class="headerlink" title="15.1 JDK编译版本的插件"></a>15.1 JDK编译版本的插件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- jdk版本插件 --&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.2&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;source&gt;1.8&lt;&#x2F;source&gt;</span><br><span class="line">        &lt;target&gt;1.8&lt;&#x2F;target&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;&#x2F;encoding&gt;</span><br><span class="line">        &lt;showWarnings&gt;true&lt;&#x2F;showWarnings&gt;</span><br><span class="line">    &lt;&#x2F;configuration&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="15-2-Tomcat7服务端的插件"><a href="#15-2-Tomcat7服务端的插件" class="headerlink" title="15.2 Tomcat7服务端的插件"></a>15.2 Tomcat7服务端的插件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- tomcat7插件 --&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.tomcat.maven&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;tomcat7-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.1&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;port&gt;8080&lt;&#x2F;port&gt;</span><br><span class="line">        &lt;server&gt;tomcat7&lt;&#x2F;server&gt;</span><br><span class="line">    &lt;&#x2F;configuration&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>
-<p><strong><em>tomcat插件注意问题</em></strong><br>Maven的中央仓库中只有Tomcat7.X版本的插件，而之前我们使用的是8.X的版本，如果想使用Tomcat8.X的插件可以去其他第三方仓库进行寻找，或者使用IDEA集成外部Tomcat8极其以上版本，进行项目的发布</p>
-<h2 id="16-依赖范围"><a href="#16-依赖范围" class="headerlink" title="16. 依赖范围"></a>16. 依赖范围</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfftnby1jsj30dn07g0sq.jpg" alt=""></p>
-<ul>
-<li>compile 编译、测试、运行，A在编译时依赖B，并且在测试和运行时也依赖<br>  strus-core、spring-beans。打到war包或jar包</li>
-<li>provided 编译、和测试有效，A在编译和测试时需要B<br>  servlet-api就是编译和测试有用，在运行时不用（tomcat容器已提供）<br>不会打到war</li>
-<li>runtime：测试、运行有效<br>  在运行和测试时需要通过jdbc驱动包（mysql驱动）连接数据库，需要的会打到war</li>
-<li>test：只是测试有效，只在单元测试类中用<br>  例如：junit 不会打到war</li>
-<li>按照依赖强度，由强到弱来排序：(理解)<br>  compile&gt; provided&gt; runtime&gt; test</li>
-</ul>
-<h2 id="17-maven倒入jar包冲突解决"><a href="#17-maven倒入jar包冲突解决" class="headerlink" title="17. maven倒入jar包冲突解决"></a>17. maven倒入jar包冲突解决</h2><ol>
-<li>路径最短者优先<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gffzi2u0s7j30dw03oaah.jpg" alt=""></li>
-<li>路径相同时先声明者优先。这里声明的先后顺序指的是dependency标签配置的先后顺序。<br> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gffzigrc5cj30di03caae.jpg" alt=""></li>
-<li>使用<code>&lt;exclusions&gt;</code>标签排除</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.a tguigu.maven&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;HelloFriend&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.1 SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;type&gt;jar&lt;&#x2F;type&gt;</span><br><span class="line">    &lt;scope&gt;compile&lt;&#x2F;scope&gt;</span><br><span class="line">    &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">            &lt;groupId&gt;commons logging&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;commons logging&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;exclusion&gt;</span><br><span class="line">    &lt;&#x2F;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="18-统一管理所依赖的版本"><a href="#18-统一管理所依赖的版本" class="headerlink" title="18. 统一管理所依赖的版本"></a>18. 统一管理所依赖的版本</h2><p>对同一个框架的一组jar包最好使用相同的版本。为了方便升级框架，可以将 jar 包的版本信息统一提取出来</p>
-<ol>
-<li><p>统一声明版本号</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    &#x2F;&#x2F;其中</span><br><span class="line">atguigu.spring.version 部分 是自定义标签</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">    &lt;atguigu.spring.version&gt;4.1.1.RELEASE&lt;&#x2F;atguigu.s pring.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>引用前面声明的版本号</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;springcore&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;atguigu.spring. version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    ……</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>完整示例</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;</span><br><span class="line">        xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">        xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">   &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line">   &lt;groupId&gt;com.itheima&lt;&#x2F;groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;ssm_parent_331&lt;&#x2F;artifactId&gt;</span><br><span class="line">   &lt;packaging&gt;pom&lt;&#x2F;packaging&gt;</span><br><span class="line">   &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">   &lt;modules&gt;</span><br><span class="line">       &lt;module&gt;ssm_dao_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_service_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_web_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_domain_331&lt;&#x2F;module&gt;</span><br><span class="line">       &lt;module&gt;ssm_utils_331&lt;&#x2F;module&gt;</span><br><span class="line">   &lt;&#x2F;modules&gt;</span><br><span class="line">   &lt;properties&gt;</span><br><span class="line">       &lt;project.build.sourceEncoding&gt;UTF-8&lt;&#x2F;project.build.sourceEncoding&gt;</span><br><span class="line">       &lt;maven.compiler.source&gt;1.7&lt;&#x2F;maven.compiler.source&gt;</span><br><span class="line">       &lt;maven.compiler.target&gt;1.7&lt;&#x2F;maven.compiler.target&gt;</span><br><span class="line">       &lt;spring.version&gt;5.0.2.RELEASE&lt;&#x2F;spring.version&gt;</span><br><span class="line">       &lt;spring.security.version&gt;5.0.2.RELEASE&lt;&#x2F;spring.security.version&gt;</span><br><span class="line">   &lt;&#x2F;properties&gt;</span><br><span class="line">   &lt;dependencies&gt;</span><br><span class="line">       &lt;!-- spring相关的jar包 --&gt;</span><br><span class="line">       &lt;!-- 容器 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 事务 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-tx&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- JDBC --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-jdbc&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 测试 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-test&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- springMVC --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-webmvc&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- mybatis --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;3.4.5&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- mybatis与Spring整合 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mybatis-spring&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.3.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- AOP切面 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.aspectj&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;aspectjweaver&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.8.7&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 数据源 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.alibaba&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;druid&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.1.9&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 单元测试 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;4.12&lt;&#x2F;version&gt;</span><br><span class="line">           &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- servletAPI --&gt;</span><br><span class="line">       &lt;!-- JSP应用 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;jsp-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.0&lt;&#x2F;version&gt;</span><br><span class="line">           &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- servlet应用 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;servlet-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.5&lt;&#x2F;version&gt;</span><br><span class="line">           &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 日志记录工具 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.2.17&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.10.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.10.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.9.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.slf4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;slf4j-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.7.25&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-slf4j-impl&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.9.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.logging.log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j-jcl&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.9.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- mysql --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;5.1.6&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!--oracle的jar包--&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.oracle&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;ojdbc14&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;10.2.0.2.0&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- JSTL --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;jstl&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;jstl&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.2&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;taglibs&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;standard&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.1.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;!-- 文件上传 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;commons-fileupload&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;commons-fileupload&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.3.1&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;commons-io&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;commons-io&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.5&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;c3p0&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;c3p0&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;0.9.1.2&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.github.pagehelper&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;pagehelper&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;5.1.2&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-config&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.security&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-security-taglibs&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;spring.security.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">       &lt;&#x2F;dependency&gt;</span><br><span class="line">   &lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="19-maven工程的拆分与聚合"><a href="#19-maven工程的拆分与聚合" class="headerlink" title="19. maven工程的拆分与聚合"></a>19. maven工程的拆分与聚合</h2><h3 id="19-1-创建父工程-只需要有pom-xnl文件"><a href="#19-1-创建父工程-只需要有pom-xnl文件" class="headerlink" title="19.1 创建父工程(只需要有pom.xnl文件)"></a>19.1 创建父工程(只需要有pom.xnl文件)</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1lp5p48j31ih0u0wrb.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1nppqvjj31i50u0gqy.jpg" alt=""><br>父工程中可以将<code>src</code>的文件夹删除掉,只留下<code>pom.xml</code>文件<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1prv2npj31fy0u01ky.jpg" alt=""></p>
-<h3 id="19-2-子模块的创建"><a href="#19-2-子模块的创建" class="headerlink" title="19.2 子模块的创建"></a>19.2 子模块的创建</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1s2lmzmj310i0u01ky.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1tfvpygj31io0u013q.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg1upasaqj31ij0u0ted.jpg" alt=""></p>
-<h3 id="19-3-工程和模块的区别"><a href="#19-3-工程和模块的区别" class="headerlink" title="19.3 工程和模块的区别"></a>19.3 工程和模块的区别</h3><p>区别：</p>
-<ol>
-<li>工程不等于完整的项目,模块也不等于一个完整的项目。代码完整,就可以说这是一个完整的项目和此项目和模块没有关系</li>
-<li>工程只能使用自己的内部资源,工程天生时独立的。后天可以和其他工程和模块建立关联关系</li>
-<li>模块天生是属于父工程的,模块一旦创建,所有父工程的资源都可以使用</li>
-</ol>
-<p>关系：</p>
-<ol>
-<li>父子工程中,子模块天生集成父工程,可以使用父工程所有的资源</li>
-<li>子模块之间是没有关联的</li>
-<li>子模块之间可以使用<code>denpendency</code>之间来互相引用,建立关联</li>
-<li>平级之间引用叫做依赖,依赖不是先天的,是后天建立的</li>
-<li>父子工程之间不用建立关系,继承关系是先天的,不需要手动建立</li>
-</ol>
-<h3 id="19-4-maven父子工程三种启动方式"><a href="#19-4-maven父子工程三种启动方式" class="headerlink" title="19.4 maven父子工程三种启动方式"></a>19.4 maven父子工程三种启动方式</h3><ol>
-<li>可以在父工程中使用 mvn run</li>
-<li>使用web模块中启动时,需要先将其依赖的jar发布到本地仓库或者远程仓库中</li>
-<li>添加本地的tomcat,不在使用maven中自带的tomcat</li>
-</ol>
-<h3 id="19-5-搭建maven的私服环境"><a href="#19-5-搭建maven的私服环境" class="headerlink" title="19.5 搭建maven的私服环境"></a>19.5 搭建maven的私服环境</h3><ol>
-<li><p>下载<a href="：http://www.sonatype.org/nexus/archived/">nexus</a><br>Nexus 是Maven仓库管理器，通过nexus可以搭建maven仓库，同时nexus还提供强大的仓库管理功能，构件搜索功能等。</p>
-</li>
-<li><p>Centos7上搭建私服</p>
-<ul>
-<li><p>上传到Centos7服务器<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg5gm5vknj31iw0fojv2.jpg" alt=""></p>
-</li>
-<li><p>使用命令<code>tar -avxf nexus-3.23.0-03-unix.tar.gz</code>解压完成后会出现一下两个文件(一个是nexus服务,一个是私有仓库)<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg5iheh9tj31gg0f60wc.jpg" alt=""></p>
-</li>
-<li><p>修改默认的端口<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfg72x96olj31fo0gigoo.jpg" alt=""></p>
-</li>
-<li><p>启动nexus<br>启动 Nexus（默认端口是8081），Nexus 常用的一些命令包括：/nexus-3.23.0-03/bin/nexus {start|stop|run|run-redirect|status|restart|force-reload}，下面我们启动Nexus：  </p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WARNING: ************************************************************</span><br><span class="line">WARNING: Detected execution as &quot;root&quot; user.  This is NOT recommended!</span><br><span class="line">WARNING: ************************************************************</span><br><span class="line">Starting nexus</span><br></pre></td></tr></table></figure>
-<p>上面在启动过程中出现警告：“不推荐使用root用户启动”。这个警告不影响Nexus的正常访问和使用。 如果上面的环境变量配置了,试着修改</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;bin&#x2F;nexus.rc文件中的run_as_user&#x3D; “root”</span><br></pre></td></tr></table></figure>
-<h3 id="19-6-私服的应用"><a href="#19-6-私服的应用" class="headerlink" title="19.6 私服的应用"></a>19.6 私服的应用</h3><h4 id="19-6-1-账号和密码是固定的-admin-admin123"><a href="#19-6-1-账号和密码是固定的-admin-admin123" class="headerlink" title="19.6.1 账号和密码是固定的 admin/admin123"></a>19.6.1 账号和密码是固定的 admin/admin123</h4><h4 id="19-6-2-登陆私服的配置-server-xml"><a href="#19-6-2-登陆私服的配置-server-xml" class="headerlink" title="19.6.2 登陆私服的配置(server.xml)"></a>19.6.2 登陆私服的配置(server.xml)</h4>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;server&gt;</span><br><span class="line">        &lt;id&gt;releases&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;username&gt;admin&lt;&#x2F;username&gt;</span><br><span class="line">        &lt;password&gt;admin123&lt;&#x2F;password&gt;</span><br><span class="line">      &lt;&#x2F;server&gt;</span><br><span class="line">      &lt;server&gt;</span><br><span class="line">        &lt;id&gt;snapshots&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;username&gt;admin&lt;&#x2F;username&gt;</span><br><span class="line">        &lt;password&gt;admin123&lt;&#x2F;password&gt;</span><br><span class="line">      &lt;&#x2F;server&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfgc8gj788j31a80lwjvk.jpg" alt=""></p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="19-6-3-配置项目pom-xml"><a href="#19-6-3-配置项目pom-xml" class="headerlink" title="19.6.3 配置项目pom.xml"></a>19.6.3 配置项目pom.xml</h4><p>配置私服仓库的地址，本公司的自己的jar包会上传到私服的宿主仓库，根据工程的版本号决定上传到哪个宿主仓库，如果版本为release则上传到私服的release仓库，如果版本为snapshot则上传到私服的snapshot仓库</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">    &lt;repository&gt;</span><br><span class="line">        &lt;id&gt;release&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;name&gt;Release Repository&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;url&gt;http:&#x2F;&#x2F;ip&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;releases&lt;&#x2F;url&gt;</span><br><span class="line">    &lt;&#x2F;repository&gt;</span><br><span class="line">    &lt;snapshotRepository&gt;</span><br><span class="line">        &lt;id&gt;snapshot&lt;&#x2F;id&gt;</span><br><span class="line">        &lt;name&gt;Snapshot Repository&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;url&gt;http:&#x2F;&#x2F;ip&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;snapshots&lt;&#x2F;url&gt;</span><br><span class="line">    &lt;&#x2F;snapshotRepository&gt;</span><br><span class="line">&lt;&#x2F;distributionManagement&gt;</span><br></pre></td></tr></table></figure>
-<p><strong><em>注意：pom.xml这里<id> 和 settings.xml 配置 <id> 对应！</em></strong></p>
-<h4 id="19-6-4-相关jar包的下载"><a href="#19-6-4-相关jar包的下载" class="headerlink" title="19.6.4 相关jar包的下载"></a>19.6.4 相关jar包的下载</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 下载jar包配置 --&gt;</span><br><span class="line">	&lt;profile&gt; </span><br><span class="line">		&lt;!--profile的id --&gt;</span><br><span class="line">		&lt;id&gt;dev&lt;&#x2F;id&gt;</span><br><span class="line">		&lt;repositories&gt;</span><br><span class="line">			&lt;repository&gt; &lt;!--仓库id，repositories可以配置多个仓库，保证id不重复 --&gt;</span><br><span class="line">				&lt;id&gt;nexus&lt;&#x2F;id&gt; &lt;!--仓库地址，即nexus仓库组的地址 --&gt;</span><br><span class="line">				&lt;url&gt;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt; &lt;!--是否下载releases构件 --&gt;</span><br><span class="line">				&lt;releases&gt;</span><br><span class="line">					&lt;enabled&gt;true&lt;&#x2F;enabled&gt;</span><br><span class="line">				&lt;&#x2F;releases&gt; &lt;!--是否下载snapshots构件 --&gt;</span><br><span class="line">				&lt;snapshots&gt;</span><br><span class="line">					&lt;enabled&gt;true&lt;&#x2F;enabled&gt;</span><br><span class="line">				&lt;&#x2F;snapshots&gt;</span><br><span class="line">			&lt;&#x2F;repository&gt;</span><br><span class="line">		&lt;&#x2F;repositories&gt;</span><br><span class="line">		&lt;pluginRepositories&gt; &lt;!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 --&gt;</span><br><span class="line">			&lt;pluginRepository&gt; &lt;!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 --&gt;</span><br><span class="line">				&lt;id&gt;public&lt;&#x2F;id&gt;</span><br><span class="line">				&lt;name&gt;Public Repositories&lt;&#x2F;name&gt;</span><br><span class="line">				&lt;url&gt;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">			&lt;&#x2F;pluginRepository&gt;</span><br><span class="line">		&lt;&#x2F;pluginRepositories&gt;</span><br><span class="line">	&lt;&#x2F;profile&gt;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;activeProfiles&gt;</span><br><span class="line">		&lt;activeProfile&gt;dev&lt;&#x2F;activeProfile&gt;</span><br><span class="line">	&lt;&#x2F;activeProfiles&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfgcmn2bayj311r0u0qit.jpg" alt=""></p>
-<h4 id="19-6-5-安装第三方jar包到本地仓库和私服"><a href="#19-6-5-安装第三方jar包到本地仓库和私服" class="headerlink" title="19.6.5 安装第三方jar包到本地仓库和私服"></a>19.6.5 安装第三方jar包到本地仓库和私服</h4><ol>
-<li>安装第三方jar包到本地仓库</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----进入jar包所在目录运行</span><br><span class="line">mvn install:install-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dfile&#x3D;fastjson-1.1.37.jar -Dpackaging&#x3D;jar</span><br><span class="line">----打开cmd直接运行</span><br><span class="line">mvn install:install-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dpackaging&#x3D;jar -Dfile&#x3D;C:\my_java\授课资料\资料：maven【高级】\安装第三方jar包\fastjson-1.1.37.jar</span><br></pre></td></tr></table></figure>
-<ol>
-<li>安装第三方jar包到私服</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--在settings配置文件中添加登录私服第三方登录信息</span><br><span class="line">&lt;server&gt;</span><br><span class="line">&lt;id&gt;thirdparty&lt;&#x2F;id&gt;</span><br><span class="line">&lt;username&gt;admin&lt;&#x2F;username&gt;</span><br><span class="line">&lt;password&gt;admin123&lt;&#x2F;password&gt;</span><br><span class="line">&lt;&#x2F;server&gt;</span><br><span class="line">----进入jar包所在目录运行</span><br><span class="line">mvn deploy:deploy-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dpackaging&#x3D;jar -Dfile&#x3D;fastjson-1.1.37.jar -Durl&#x3D;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;thirdparty&#x2F; -DrepositoryId&#x3D;thirdparty</span><br><span class="line">----打开cmd直接运行</span><br><span class="line">mvn deploy:deploy-file -DgroupId&#x3D;com.alibaba -DartifactId&#x3D;fastjson -Dversion&#x3D;1.1.37 -Dpackaging&#x3D;jar -Dfile&#x3D;C:\my_java\授课资料\资料：maven【高级】\安装第三方jar包\fastjson-1.1.37.jar -Durl&#x3D;http:&#x2F;&#x2F;localhost:8081&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;thirdparty&#x2F; -DrepositoryId&#x3D;thirdparty</span><br></pre></td></tr></table></figure>
-
-<h2 id="20-配置全局的jdk"><a href="#20-配置全局的jdk" class="headerlink" title="20. 配置全局的jdk"></a>20. 配置全局的jdk</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--配置全局的jdk为1.8--&gt;</span><br><span class="line">  &lt;profile&gt;</span><br><span class="line">      &lt;id&gt;jdk-1.8&lt;&#x2F;id&gt; </span><br><span class="line">      &lt;activation&gt;</span><br><span class="line">        &lt;activeByDefault&gt;true&lt;&#x2F;activeByDefault&gt;</span><br><span class="line">        &lt;jdk&gt;1.8&lt;&#x2F;jdk&gt; </span><br><span class="line">      &lt;&#x2F;activation&gt; </span><br><span class="line">         </span><br><span class="line">      &lt;properties&gt; </span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;&#x2F;maven.compiler.source&gt; </span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;&#x2F;maven.compiler.target&gt; </span><br><span class="line">        &lt;maven.compiler.compilerVersion&gt;1.8&lt;&#x2F;maven.compiler.compilerVersion&gt; </span><br><span class="line">      &lt;&#x2F;properties&gt;  </span><br><span class="line">    &lt;&#x2F;profile&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gfgd6p48qbj315y0u0qar.jpg" alt=""></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL数据库学习笔记.md</title>
-    <url>/posts/8d9f420d.html</url>
-    <content><![CDATA[<h1 id="MySQL数据库学习笔记"><a href="#MySQL数据库学习笔记" class="headerlink" title="MySQL数据库学习笔记"></a>MySQL数据库学习笔记</h1><h2 id="1-MySQL的语法规范"><a href="#1-MySQL的语法规范" class="headerlink" title="1.MySQL的语法规范"></a>1.MySQL的语法规范</h2><ol>
-<li>不区分大小写,但建议关键字大写，表名、列名小写</li>
-<li>每条命令最好用分号结尾</li>
-<li>每条命令根据需要，可以进行缩进 或换行</li>
-<li>注释<ul>
-<li>单行注释：#注释文字</li>
-<li>单行注释：– 注释文字</li>
-<li>多行注释：/* 注释文字  */<h2 id="2-SQL的语言分类"><a href="#2-SQL的语言分类" class="headerlink" title="2.SQL的语言分类"></a>2.SQL的语言分类</h2></li>
-</ul>
-</li>
-<li>DQL（Data Query Language）：数据查询语言 select</li>
-<li>DML(Data Manipulate Language):数据操作语言:insert、update、delete</li>
-<li>DDL（Data Define Languge）：数据定义语言:create alter drop</li>
-<li>TCL（Transaction Control Language）：事务控制语言 commit rollback</li>
-</ol>
-<h2 id="3-SQL的常见命令"><a href="#3-SQL的常见命令" class="headerlink" title="3.SQL的常见命令"></a>3.SQL的常见命令</h2><h2 id="4-DQL语言的学习"><a href="#4-DQL语言的学习" class="headerlink" title="4.DQL语言的学习"></a>4.DQL语言的学习</h2><p><strong><em>更加具体的讲解详见对应的尚硅谷查询语句的pdf</em></strong></p>
-<h3 id="进阶1：基础查询"><a href="#进阶1：基础查询" class="headerlink" title="进阶1：基础查询"></a>进阶1：基础查询</h3><p>语法：select 查询的东西 [from 表名]<br>特点：<br>    1. 通过select查询完的结果 ，是一个虚拟的表格，不是真实存在<br>    2. 要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数</p>
-<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>条件查询：根据条件过滤原始表的数据，查询到想要的数据<br>语法：<br>    select 要查询的字段｜表达式｜常量值｜函数<br>    from 表名<br>    where 条件;<br>分类：<br>    1. 条件表达式<br>        * &gt;<br>        * &lt;<br>        * &gt;=<br>        * &gt;=<br>        * =<br>        * !=<br>        * &lt;&gt;:建议使用，不建议使用！=<br>    2. 逻辑表达式：用于连接条件表达式<br>        * and(&amp;&amp;):两个条件如果同时成立,结果为true,否则为false<br>        * or(||)：两个条件只要有一个成立，结果为true，否则为false<br>        * not(!)：如果条件成立，则not后为false，否则为true<br>    3. 模糊查询<br>        * like<br>        * between and<br>        * in<br>        * is null</p>
-<h3 id="进阶3：排序查询"><a href="#进阶3：排序查询" class="headerlink" title="进阶3：排序查询"></a>进阶3：排序查询</h3><p><strong><em>详细笔记请见尚硅谷基础学习笔记3</em></strong></p>
-<h3 id="进阶4：常见函数"><a href="#进阶4：常见函数" class="headerlink" title="进阶4：常见函数"></a>进阶4：常见函数</h3><p>一、单行函数<br>    1、字符函数<br>        concat拼接<br>        substr截取子串<br>        upper转换成大写<br>        lower转换成小写<br>        trim去前后指定的空格和字符<br>        ltrim去左边空格<br>        rtrim去右边空格<br>        replace替换<br>        lpad左填充<br>        rpad右填充<br>        instr返回子串第一次出现的索引<br>        length 获取字节个数<br>    2、数学函数<br>        round 四舍五入<br>        rand 随机数<br>        floor向下取整<br>        ceil向上取整<br>        mod取余<br>        truncate截断<br>3、日期函数<br>        now当前系统日期+时间<br>        curdate当前系统日期<br>        curtime当前系统时间<br>        str_to_date 将字符转换成日期<br>        date_format将日期转换成字符<br>4、流程控制函数<br>        if 处理双分支<br>        case语句 处理多分支<br>            情况1：处理等值判断<br>            情况2：处理条件判断<br>5、其他函数<br>        version版本<br>        database当前库<br>        user当前连接用户</p>
-]]></content>
   </entry>
   <entry>
     <title>MySQL高级部分学习一</title>
@@ -1342,6 +1342,29 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </tags>
   </entry>
   <entry>
+    <title>网络在在线传输工具 --- 奶牛快传</title>
+    <url>/posts/994d00c4.html</url>
+    <content><![CDATA[<h2 id="1-奶牛快传"><a href="#1-奶牛快传" class="headerlink" title="1.奶牛快传"></a>1.<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a></h2><h3 id="1-1-免费超快的传文件工具"><a href="#1-1-免费超快的传文件工具" class="headerlink" title="1.1 免费超快的传文件工具"></a>1.1 免费超快的传文件工具</h3><p>奶牛快传是一款免费、无需注册即可直接使用的网页端大文件临时传输网盘服务。它提供了网页版、微信小程序、IOS以及安卓端。无论是办公文档、照片、还是电影视频通通都能轻松分享。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
+<p>未注册用户则可最大传输 2GB 文件,默认保留7天，可以免费下载100次。支持加密、邮件和短信分享</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerskqbjt2j31uf0u0u0x.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersldpc6tj31vn0u0u0x.jpg" alt=""></p>
+<h3 id="1-2-奶牛快传的使用"><a href="#1-2-奶牛快传的使用" class="headerlink" title="1.2 奶牛快传的使用"></a>1.2 奶牛快传的使用</h3><p>你只需在任何浏览器打开<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a>的网站，通过点击上传按钮或拖放文件即可开始上传，支持一次批量上传多个文件。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
+<p>之后你就能获得文件的共享链接了。你只需将链接发给别人，对方就能直接通过浏览器下载了，对方并不需要注册登录，也无需下载 APP 等麻烦操作，实用性很强。同时，奶牛快传还提供了共享网址所对应的二维码以及微信小程序二维码，这样不管用手机还是电脑来下载文件都更方便。起码自己用电脑给手机发文件的场景也是经常会用到的。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersrgbg0gj31un0u01ky.jpg" alt=""></p>
+<h3 id="1-3-奶牛快传注册账户"><a href="#1-3-奶牛快传注册账户" class="headerlink" title="1.3 奶牛快传注册账户"></a>1.3 奶牛快传注册账户</h3><p>还未体验过注册账户，待体验后在进行分享…..</p>
+]]></content>
+      <categories>
+        <category>网络在在线传输工具</category>
+      </categories>
+      <tags>
+        <tag>奶牛快传</tag>
+        <tag>文件传输</tag>
+        <tag>网络在在线传输工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>学习计划</title>
     <url>/posts/5e21c553.html</url>
     <content><![CDATA[<h2 id="Java基础和框架学习计划"><a href="#Java基础和框架学习计划" class="headerlink" title="Java基础和框架学习计划"></a>Java基础和框架学习计划</h2><ul>
@@ -1365,29 +1388,6 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
       </categories>
       <tags>
         <tag>学习计划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络在在线传输工具 --- 奶牛快传</title>
-    <url>/posts/994d00c4.html</url>
-    <content><![CDATA[<h2 id="1-奶牛快传"><a href="#1-奶牛快传" class="headerlink" title="1.奶牛快传"></a>1.<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a></h2><h3 id="1-1-免费超快的传文件工具"><a href="#1-1-免费超快的传文件工具" class="headerlink" title="1.1 免费超快的传文件工具"></a>1.1 免费超快的传文件工具</h3><p>奶牛快传是一款免费、无需注册即可直接使用的网页端大文件临时传输网盘服务。它提供了网页版、微信小程序、IOS以及安卓端。无论是办公文档、照片、还是电影视频通通都能轻松分享。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
-<p>未注册用户则可最大传输 2GB 文件,默认保留7天，可以免费下载100次。支持加密、邮件和短信分享</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerskqbjt2j31uf0u0u0x.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersldpc6tj31vn0u0u0x.jpg" alt=""></p>
-<h3 id="1-2-奶牛快传的使用"><a href="#1-2-奶牛快传的使用" class="headerlink" title="1.2 奶牛快传的使用"></a>1.2 奶牛快传的使用</h3><p>你只需在任何浏览器打开<a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a>的网站，通过点击上传按钮或拖放文件即可开始上传，支持一次批量上传多个文件。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gerseagq8pj31q10u0hdt.jpg" alt=""></p>
-<p>之后你就能获得文件的共享链接了。你只需将链接发给别人，对方就能直接通过浏览器下载了，对方并不需要注册登录，也无需下载 APP 等麻烦操作，实用性很强。同时，奶牛快传还提供了共享网址所对应的二维码以及微信小程序二维码，这样不管用手机还是电脑来下载文件都更方便。起码自己用电脑给手机发文件的场景也是经常会用到的。</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gersrgbg0gj31un0u01ky.jpg" alt=""></p>
-<h3 id="1-3-奶牛快传注册账户"><a href="#1-3-奶牛快传注册账户" class="headerlink" title="1.3 奶牛快传注册账户"></a>1.3 奶牛快传注册账户</h3><p>还未体验过注册账户，待体验后在进行分享…..</p>
-]]></content>
-      <categories>
-        <category>网络在在线传输工具</category>
-      </categories>
-      <tags>
-        <tag>奶牛快传</tag>
-        <tag>文件传输</tag>
-        <tag>网络在在线传输工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2314,199 +2314,182 @@ limit (page-1)*size,size;</code></pre><h2 id="6-联合查询介绍"><a href="#6-
 <li><p>根据cloud-consumer-feign-hystrix-order80已经有的PaymentHystrixService接口，重新新建一个类（PaymentFallbackService）实现该接口，统一为接口里面的方法进行异常处理</p>
 </li>
 <li><p>PaymentFallbackService类实现PaymentFeignClientService接口     </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  &#96;&#96;&#96; </span><br><span class="line">   </span><br><span class="line">* YML</span><br></pre></td></tr></table></figure>
-<p>  feign:</p>
-<pre><code>hystrix:
-  enabled: true  #如果处理自身的容错就开启。开启方式与生产端不一样。</code></pre>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   </span><br><span class="line">* PaymentFeignClientService接口</span><br></pre></td></tr></table></figure>
-<pre><code>package com.atguigu.springcloud.service;
+</li>
+<li><p>YML   </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true  #如果处理自身的容错就开启。开启方式与生产端不一样。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PaymentFeignClientService接口</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.springcloud.service;</span><br><span class="line"></span><br><span class="line">import org.springframework.cloud.openfeign.FeignClient;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @program: cloud2020</span><br><span class="line"> * @description: 服务类</span><br><span class="line"> * @author: Mr.Wang</span><br><span class="line"> * @create: 2020-08-20-22-29</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Component</span><br><span class="line">@FeignClient(name &#x3D; &quot;CLOUD-PROVIDER-HYSTRIX-PAYMENT&quot; ,fallback &#x3D; PaymentFallbackHystrixService.class)</span><br><span class="line">public interface PaymentHystrixService &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;payment&#x2F;hystrix&#x2F;ok&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paymentInfo_ok(@PathVariable(&quot;id&quot;) Integer id);</span><br><span class="line">    @GetMapping(&quot;&#x2F;payment&#x2F;hystrix&#x2F;timeout&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paymentInfo_timeout(@PathVariable(&quot;id&quot;) Integer id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-/**
- * @program: cloud2020
- * @description: 服务类
- * @author: Mr.Wang
- * @create: 2020-08-20-22-29
- */
-@Component
-@FeignClient(name = &quot;CLOUD-PROVIDER-HYSTRIX-PAYMENT&quot; ,fallback = PaymentFallbackHystrixService.class)
-public interface PaymentHystrixService {
-
-    @GetMapping(&quot;/payment/hystrix/ok/{id}&quot;)
-    public String paymentInfo_ok(@PathVariable(&quot;id&quot;) Integer id);
-    @GetMapping(&quot;/payment/hystrix/timeout/{id}&quot;)
-    public String paymentInfo_timeout(@PathVariable(&quot;id&quot;) Integer id);
-}
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">           </span><br><span class="line">            ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyds9vj9zj31js0mqqv5.jpg)</span><br><span class="line">    * 测试</span><br><span class="line">        * 单个eureka先启动7001</span><br><span class="line">        * PaymentHystrixMain8001启动</span><br><span class="line">        * 正常访问测试：http:&#x2F;&#x2F;localhost&#x2F;consumer&#x2F;payment&#x2F;hystrix&#x2F;ok&#x2F;31</span><br><span class="line">        * 故意关闭微服务8001</span><br><span class="line">        * 客户端自己调用提升：此时服务端provider已经down了，但是我们做了服务降级处理，让客户端在服务端不可用时也会获得提示信息而不会挂起耗死服务器</span><br><span class="line"></span><br><span class="line">#### 7.3.2 服务熔断</span><br><span class="line">1. 断路器</span><br><span class="line">一句话就是家里的保险丝</span><br><span class="line">2. 熔断是什么</span><br><span class="line">https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CircuitBreaker.html</span><br><span class="line">类比保险丝，达到最大访问后直接拒绝访问，拉闸限电，然后调用服务降级。当检测&#x3D;&#x3D;到该节点微服务调用正常后，恢复调用链路。&#x3D;&#x3D;</span><br><span class="line">当失败的调用达到一定阈值，缺省是5s内20次调用失败，就会启动熔断机制。熔断机制的注解是，@HystrixCommand</span><br><span class="line">3. 实操</span><br><span class="line">    * 修改cloud-provider-hystrix-payment8001</span><br><span class="line">    * PaymentService(为什么配置这些参数)</span><br></pre></td></tr></table></figure></code></pre><p>   /**</p>
-<pre><code> * 服务熔断
- */
-@HystrixCommand(fallbackMethod = &quot;paymentCircuitBreaker_fallback&quot;,commandProperties = {
-        @HystrixProperty(name=&quot;circuitBreaker.enabled&quot;,value = &quot;true&quot;),//是否开启断路器
-        @HystrixProperty(name=&quot;circuitBreaker.requestVolumeThreshold&quot;,value = &quot;10&quot;),//请求次数
-        @HystrixProperty(name=&quot;circuitBreaker.sleepWindowInMilliseconds&quot;,value = &quot;10000&quot;),//时间范围
-        @HystrixProperty(name=&quot;circuitBreaker.errorThresholdPercentage&quot;,value = &quot;60&quot;),//失败率达到多少次后跳闸
-})
-//// 加起来就是在10s内的10次请求中如果失败超过6次进入服务熔断
-public String paymentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id){
-    if(id &lt; 0){
-        throw new RuntimeException(&quot;*****id 不能为负数&quot;);
-    }
-    String serialNumber = IdUtil.simpleUUID();
-    return Thread.currentThread().getName()+&quot; \t 调用成功，流水号&quot;+serialNumber;
-}
-public String paymentCircuitBreaker_fallback(@PathVariable(&quot;id&quot;) Integer id){
-    return &quot;id不能为附属，请稍后在是&quot;;
-}</code></pre>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
-<p>  @GetMapping(“/payment/circuit/{id}”)</p>
-<pre><code>public String paumentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id){
-    String result = paymentService.paymentCircuitBreaker(id);
-    log.info(&quot;*****info&quot;+result);
-    return result;
-}</code></pre>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    * 测试</span><br><span class="line">        * 自测cloud-provider-hystrix-payment8001</span><br><span class="line">        * 正确：http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;31</span><br><span class="line">        * 错误：http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;-31</span><br><span class="line">        * 一次正确一次错误trytry</span><br><span class="line">        * 重点测试:多次错误,然后慢慢正确，发现刚开始不满足条件，就算是正确的访问地址也不能进行访问，需要慢慢的恢复链路</span><br><span class="line">        * 结果：一直输入id为负数，达到失败率后即使输入id为正数也进入错误页面。</span><br><span class="line">4. 原理(小结)</span><br><span class="line">    * 断路器在什么情况下开始起作用</span><br><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyfe2vjddj318s0k6tup.jpg)</span><br><span class="line">    设计三个参数：时间窗，请求总阈值，错误百分比阈值</span><br><span class="line"></span><br><span class="line">    1. 快照时间窗：默认为最近的10s</span><br><span class="line">    2. 请求总数阈值：必须满足请求总阈值才有资格熔断。默认为20。意味着在10s内，如果命令调用次数不足20次，即使所有请求都超时或其他原因失败断路器都不会打开</span><br><span class="line">    3. 错误百分比阈值：在快照时间窗内请求总数超过阈值，且错误次数占总请求次数的比值大于阈值，断路器将会打开</span><br><span class="line">    * 断路器开启或者关闭的条件</span><br><span class="line">        * 当满足一定阀值的时候（默认10秒内超过20个请求次数）</span><br><span class="line">        * 当失败率达到一定的时候（默认10秒内超过50%请求失败）</span><br><span class="line">        * 到达以上阀值，断路器将会开启</span><br><span class="line">        * 当开启的时候，所有请求都不会进行转发</span><br><span class="line">        * 一段时间之后（默认是5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器会关闭，若失败，继续开启。重复4和5</span><br><span class="line">    * 断路器打开之后</span><br><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyfh27eksj31980cg145.jpg)</span><br><span class="line">    * all配置:详细的看官网</span><br><span class="line"></span><br><span class="line">#### 7.3.3 服务限流</span><br><span class="line">后面高级篇讲解alibaba的Sentinel说明</span><br><span class="line">### 7.4 hystrix工作流程</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;Netflix&#x2F;Hystrix&#x2F;wiki&#x2F;How-it-Works</span><br><span class="line">### 7.5 服务监控hystrixDashboard</span><br><span class="line">* 概述</span><br><span class="line">* 仪表盘9001</span><br><span class="line">    * 新建cloud-consumer-hystrix-dashboard9001</span><br><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghygoe9t00j319m08a111.jpg)</span><br><span class="line">    * POM</span><br></pre></td></tr></table></figure>
-  <?xml version="1.0" encoding="UTF-8"?>
-<p>  &lt;project xmlns=”<a href="http://maven.apache.org/POM/4.0.0&quot;" target="_blank" rel="noopener">http://maven.apache.org/POM/4.0.0&quot;</a></p>
-<pre><code>     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-     xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-&lt;parent&gt;
-    &lt;artifactId&gt;cloud2020&lt;/artifactId&gt;
-    &lt;groupId&gt;com.atguigu.springcloud&lt;/groupId&gt;
-    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-&lt;/parent&gt;
-&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
-&lt;artifactId&gt;cloud-consumer-hystrix-dashboard9001&lt;/artifactId&gt;
-
-&lt;dependencies&gt;
-    &lt;!--新增hystrix dashboard--&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
-        &lt;scope&gt;runtime&lt;/scope&gt;
-        &lt;optional&gt;true&lt;/optional&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
-        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
-        &lt;optional&gt;true&lt;/optional&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;</code></pre>  </project>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* YML</span><br><span class="line">&#96;server.port:9001&#96;</span><br><span class="line">* HystrixDashboardMain9001+新注解@EnableHystrixDashboard</span><br></pre></td></tr></table></figure>
-  package com.atguigu.springcloud;
-
-<p>  import org.springframework.boot.SpringApplication;<br>  import org.springframework.boot.autoconfigure.SpringBootApplication;<br>  import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;</p>
-<p>  /**</p>
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghyds9vj9zj31js0mqqv5.jpg)</code></pre></li>
+<li><p>测试</p>
 <ul>
-<li><p>@program: cloud2020</p>
+<li>单个eureka先启动7001</li>
+<li>PaymentHystrixMain8001启动</li>
+<li>正常访问测试：<a href="http://localhost/consumer/payment/hystrix/ok/31" target="_blank" rel="noopener">http://localhost/consumer/payment/hystrix/ok/31</a></li>
+<li>故意关闭微服务8001</li>
+<li>客户端自己调用提升：此时服务端provider已经down了，但是我们做了服务降级处理，让客户端在服务端不可用时也会获得提示信息而不会挂起耗死服务器</li>
+</ul>
 </li>
-<li><p>@description: qidonglei</p>
+</ul>
 </li>
-<li><p>@author: Mr.Wang</p>
+</ol>
+<h4 id="7-3-2-服务熔断"><a href="#7-3-2-服务熔断" class="headerlink" title="7.3.2 服务熔断"></a>7.3.2 服务熔断</h4><ol>
+<li><p>断路器<br>一句话就是家里的保险丝</p>
 </li>
-<li><p>@create: 2020-08-21-15-37</p>
+<li><p>熔断是什么<br><a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener">https://martinfowler.com/bliki/CircuitBreaker.html</a><br>类比保险丝，达到最大访问后直接拒绝访问，拉闸限电，然后调用服务降级。当检测==到该节点微服务调用正常后，恢复调用链路。==<br>当失败的调用达到一定阈值，缺省是5s内20次调用失败，就会启动熔断机制。熔断机制的注解是，@HystrixCommand</p>
 </li>
-<li><p>/<br>@SpringBootApplication<br>@EnableHystrixDashboard<br>public class HystrixDashboardMain9001 {<br>  public static void main(String[] args) {</p>
-<pre><code>SpringApplication.run(HystrixDashboardMain9001.class,args);</code></pre><p>  }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    * 所有Provider微服务提供类（8001&#x2F;8002&#x2F;8003）都需要监控依赖配</span><br><span class="line">    * 启动cloud-consumer-hystrix-dashboard9001该微服务后续将监控微服务8001</span><br><span class="line">        http:&#x2F;&#x2F;localhost:9001&#x2F;hystrix</span><br><span class="line">* 断路器演示</span><br><span class="line">    * 修改cloud-provider-hystrix-payment8001</span><br><span class="line">    注意：新版本Hystrix需要在主启动类MainAppHystrix8001中指定监控路径</span><br><span class="line">    Unable to connect to Command Metric Stream</span><br><span class="line">    404</span><br></pre></td></tr></table></figure>
-<p>@Bean<br>  public ServletRegistrationBean getServlet(){</p>
-<pre><code>HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
-ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
-registrationBean.setLoadOnStartup(1);
-registrationBean.addUrlMappings(&quot;/hystrix.stream&quot;);
-registrationBean.setName(&quot;HystrixMetricsStreamServlet&quot;);
-return registrationBean;</code></pre><p>  }</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    * 监控测试</span><br><span class="line">        1. 启动1个eureka或者3个eureka集群均可</span><br><span class="line">        2. 观察监控窗口</span><br><span class="line">            * 9001监控8001:填写监控地址：http:&#x2F;&#x2F;localhost:8001&#x2F;hystrix.stream</span><br><span class="line">            ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhmfgdejj31pw0u0nau.jpg)</span><br><span class="line">            * 测试地址</span><br><span class="line">                * http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;31，http:&#x2F;&#x2F;localhost:8001&#x2F;payment&#x2F;circuit&#x2F;-31</span><br><span class="line">                * 结果：测试通过</span><br><span class="line">                * 先访问正确地址，再访问错误地址，再正确地址，会发现图示断路器都是慢慢放开的：先是成功后是失败</span><br><span class="line">            * 如何看</span><br><span class="line">                * 7色</span><br><span class="line">               ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhwhmruej31de0pqal6.jpg)</span><br><span class="line">                * 1圈</span><br><span class="line">                ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhx2vfjnj319q08c7au.jpg)</span><br><span class="line">                * 1线：访问趋势</span><br><span class="line">                * 整图说明</span><br><span class="line">                ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhxzb7d0j31900ji16m.jpg)</span><br><span class="line">                * 正图说明2</span><br><span class="line">                    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1ghyhygi7zvj31aa0imk9g.jpg)</span><br><span class="line">            * 搞懂一个才能看懂复杂的</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">## 8. zuul路由网关（没讲）</span><br><span class="line">## 9. Gateway新一代网关</span><br><span class="line">### 9.1 概述简介</span><br><span class="line">1. 官网</span><br><span class="line">    * 上一代zuul 1.x:https:&#x2F;&#x2F;github.com&#x2F;Netflix&#x2F;zuul&#x2F;wiki</span><br><span class="line">    * 当前gateway:https:&#x2F;&#x2F;cloud.spring.io&#x2F;spring-cloud-static&#x2F;spring-cloud-gateway&#x2F;2.2.1.RELEASE&#x2F;reference&#x2F;html&#x2F;</span><br><span class="line">2. 是什么</span><br><span class="line">Spring Cloud Gateway 使用的Webflux中的reactor-netty响应式编程组件，底层使用了Netty通讯框架</span><br><span class="line">3. 能干嘛</span><br><span class="line">    * 反向代理</span><br><span class="line">    * 鉴权</span><br><span class="line">    * 流量控制</span><br><span class="line">    * 熔断</span><br><span class="line">    * 日志监控</span><br><span class="line">4. 微服务架构中网关在哪里</span><br><span class="line">![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gi1nmie3cwj31560jigrc.jpg)</span><br><span class="line">![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gi1nn2t1rhj30qm0ibqcq.jpg)</span><br><span class="line">5. 有了zuul怎么又出来gateway</span><br><span class="line">spring cloud gateway具有如下的特性</span><br><span class="line">    * 基于Spring Framework5 ,Project Reactor和Spring boot 2.0进行构建的</span><br><span class="line">    * 动态路由：能够匹配任何请求属性</span><br><span class="line">    * 可以对路由指定Preidcate(断言)和Filter(过滤器)</span><br><span class="line">    * 集成Hystrix的断路器功能</span><br><span class="line">    * 集成Spring Cloud 服务发现功能</span><br><span class="line">    * 易于编写的Predicate(断言)和Filter(过滤器)</span><br><span class="line">    * 请求限流功能</span><br><span class="line">    * 支持路径重写</span><br><span class="line"></span><br><span class="line">### 9.2 三大核心概念</span><br><span class="line">1. Route(路由)</span><br><span class="line">路由是构建网关的基本模块，它由ID，目标URI，一系列的断言和过滤器组成，如果断言为true则匹配该路由</span><br><span class="line">2. Predicate(断言)</span><br><span class="line">参考的是java8的java.util.function.Predicate开发人员可以匹配HTTP请求中的所有内容（例如请求头或请求参数），如果请求与断言相匹配则进行路由</span><br><span class="line">3. Filter(过滤)</span><br><span class="line">指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。</span><br><span class="line">4. 总体</span><br><span class="line">web请求，通过一些匹配条件，定位到真正的服务节点。并在这个转发过程的前后进行一些精细化控制。predicate就是我们的匹配条件；而filter，就可以理解为一个无所不能的拦截器，有了这两个元素，在加上目标uri就可以实现一个具体的路由了</span><br><span class="line">### 9.3 Gateway工作流程</span><br><span class="line">客户端向Spring Cloud Gateway发出请求。如果网关处理程序映射确定请求与路由匹配，则将其发送到网关Web处理程序。该处理程序通过特定于请求的过滤器链来运行请求。筛选器由虚线分隔的原因是，筛选器可以在发送代理请求之前和之后运行逻辑。所有“前置”过滤器逻辑均被执行。然后发出代理请求。发出代理请求后，将运行“后”过滤器逻辑。</span><br><span class="line">![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gi1ob6owtrj30cb0gjdfw.jpg)</span><br><span class="line"></span><br><span class="line">### 9.4 入门配置</span><br><span class="line">1. 新建module:&#96;cloud-gateway-gateway9527&#96;</span><br><span class="line">2. POM文件</span><br></pre></td></tr></table></figure>
-<?xml version="1.0" encoding="UTF-8"?>
-<p><project xmlns="http://maven.apache.org/POM/4.0.0"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"></p>
-<parent>
-  <artifactId>cloud2020</artifactId>
-  <groupId>com.atguigu.springcloud</groupId>
-  <version>1.0-SNAPSHOT</version>
-</parent>
-<modelVersion>4.0.0</modelVersion>
+<li><p>实操</p>
+<ul>
+<li><p>修改cloud-provider-hystrix-payment8001</p>
+</li>
+<li><p>PaymentService(为什么配置这些参数)</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * 服务熔断</span><br><span class="line">    *&#x2F;</span><br><span class="line">   @HystrixCommand(fallbackMethod &#x3D; &quot;paymentCircuitBreaker_fallback&quot;,commandProperties &#x3D; &#123;</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.enabled&quot;,value &#x3D; &quot;true&quot;),&#x2F;&#x2F;是否开启断路器</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.requestVolumeThreshold&quot;,value &#x3D; &quot;10&quot;),&#x2F;&#x2F;请求次数</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.sleepWindowInMilliseconds&quot;,value &#x3D; &quot;10000&quot;),&#x2F;&#x2F;时间范围</span><br><span class="line">           @HystrixProperty(name&#x3D;&quot;circuitBreaker.errorThresholdPercentage&quot;,value &#x3D; &quot;60&quot;),&#x2F;&#x2F;失败率达到多少次后跳闸</span><br><span class="line">   &#125;)</span><br><span class="line">   &#x2F;&#x2F;&#x2F;&#x2F; 加起来就是在10s内的10次请求中如果失败超过6次进入服务熔断</span><br><span class="line">   public String paymentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">       if(id &lt; 0)&#123;</span><br><span class="line">           throw new RuntimeException(&quot;*****id 不能为负数&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       String serialNumber &#x3D; IdUtil.simpleUUID();</span><br><span class="line">       return Thread.currentThread().getName()+&quot; \t 调用成功，流水号&quot;+serialNumber;</span><br><span class="line">   &#125;</span><br><span class="line">   public String paymentCircuitBreaker_fallback(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">       return &quot;id不能为附属，请稍后在是&quot;;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
-<p><artifactId>cloud-gateway-gateway9527</artifactId></p>
-<dependencies>
-  <!--新增gateway-->
-  <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-gateway</artifactId>
-  </dependency>
-  <dependency>
-      <groupId>com.atguigu.springcloud</groupId>
-      <artifactId>cloud-api-commons</artifactId>
-      <version>1.0-SNAPSHOT</version>
-  </dependency>
-  <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-  </dependency>
-  <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-  </dependency>
-  <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <scope>runtime</scope>
-      <optional>true</optional>
-  </dependency>
-  <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <optional>true</optional>
-  </dependency>
-  <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-  </dependency>
-</dependencies>
 
 </li>
 </ul>
-</project>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    ![](https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;007S8ZIlly1gib5uwic7wj31cs0u07wj.jpg)</span><br><span class="line">3. YML配置</span><br></pre></td></tr></table></figure>
-server:
-port: 9527
-
-<p>spring:<br>application:<br>  name: cloud-gateway<br>eureka:<br>instance:<br>  hostname: cloud-gateway-service<br>client:<br>  service-url:</p>
-<pre><code>register-with-eureka: true
-fetch-registry: true
-defaultZone: http://localhost:7001/eureka</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 业务类:无</span><br><span class="line">2. 主启动类：同前几个步骤中的主启动类</span><br><span class="line">3. 9527网关如何做路由映射</span><br><span class="line">    * cloud-provider-payment8001看看controller的访问地址:get&#x2F;lib</span><br><span class="line">    * 我们目前不想暴露8001端口，希望在8001外面套一层9527</span><br><span class="line">4. YML新增网关配置</span><br></pre></td></tr></table></figure>
-<p>server:<br>port: 9527</p>
-<p>spring:<br>application:<br>  name: cloud-gateway<br>cloud:<br>  gateway:</p>
-<pre><code>routes:
-  - id: payment_routh # 路由的ID没有固定规则，但是要求统一，建议配合服务名
-    uri: http://localhost:8001 #匹配后提供服务的路由地址
-    predicates:
-      - Path=/payment/get/** #断言，路由匹配进行路由
-  - id: payment_routh2
-    uri: http://localhost:8001
-    predicates:
-      - Path=/payment/lb/**</code></pre><p>eureka:<br>instance:<br>  hostname: cloud-gateway-service<br>client:<br>  service-url:</p>
-<pre><code>register-with-eureka: true
-fetch-registry: true
-defaultZone: http://localhost:7001/eureka</code></pre><p>```<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gib5z5mab2j315z0u07wj.jpg" alt=""></p>
+</li>
+</ol>
+<pre><code>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;payment&#x2F;circuit&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public String paumentCircuitBreaker(@PathVariable(&quot;id&quot;) Integer id)&#123;</span><br><span class="line">        String result &#x3D; paymentService.paymentCircuitBreaker(id);</span><br><span class="line">        log.info(&quot;*****info&quot;+result);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+* 测试
+    * 自测cloud-provider-hystrix-payment8001
+    * 正确：http://localhost:8001/payment/circuit/31
+    * 错误：http://localhost:8001/payment/circuit/-31
+    * 一次正确一次错误trytry
+    * 重点测试:多次错误,然后慢慢正确，发现刚开始不满足条件，就算是正确的访问地址也不能进行访问，需要慢慢的恢复链路
+    * 结果：一直输入id为负数，达到失败率后即使输入id为正数也进入错误页面。</code></pre><ol start="4">
+<li><p>原理(小结)</p>
+<ul>
+<li>断路器在什么情况下开始起作用<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyfe2vjddj318s0k6tup.jpg" alt=""><br>设计三个参数：时间窗，请求总阈值，错误百分比阈值</li>
+</ul>
+<ol>
+<li>快照时间窗：默认为最近的10s</li>
+<li>请求总数阈值：必须满足请求总阈值才有资格熔断。默认为20。意味着在10s内，如果命令调用次数不足20次，即使所有请求都超时或其他原因失败断路器都不会打开</li>
+<li>错误百分比阈值：在快照时间窗内请求总数超过阈值，且错误次数占总请求次数的比值大于阈值，断路器将会打开</li>
+</ol>
+<ul>
+<li>断路器开启或者关闭的条件<ul>
+<li>当满足一定阀值的时候（默认10秒内超过20个请求次数）</li>
+<li>当失败率达到一定的时候（默认10秒内超过50%请求失败）</li>
+<li>到达以上阀值，断路器将会开启</li>
+<li>当开启的时候，所有请求都不会进行转发</li>
+<li>一段时间之后（默认是5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器会关闭，若失败，继续开启。重复4和5</li>
+</ul>
+</li>
+<li>断路器打开之后<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyfh27eksj31980cg145.jpg" alt=""></li>
+<li>all配置:详细的看官网</li>
+</ul>
+</li>
+</ol>
+<h4 id="7-3-3-服务限流"><a href="#7-3-3-服务限流" class="headerlink" title="7.3.3 服务限流"></a>7.3.3 服务限流</h4><p>后面高级篇讲解alibaba的Sentinel说明</p>
+<h3 id="7-4-hystrix工作流程"><a href="#7-4-hystrix工作流程" class="headerlink" title="7.4 hystrix工作流程"></a>7.4 hystrix工作流程</h3><p><a href="https://github.com/Netflix/Hystrix/wiki/How-it-Works" target="_blank" rel="noopener">https://github.com/Netflix/Hystrix/wiki/How-it-Works</a></p>
+<h3 id="7-5-服务监控hystrixDashboard"><a href="#7-5-服务监控hystrixDashboard" class="headerlink" title="7.5 服务监控hystrixDashboard"></a>7.5 服务监控hystrixDashboard</h3><ul>
+<li><p>概述</p>
+</li>
+<li><p>仪表盘9001</p>
+<ul>
+<li><p>新建cloud-consumer-hystrix-dashboard9001<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghygoe9t00j319m08a111.jpg" alt=""></p>
+</li>
+<li><p>POM</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;</span><br><span class="line">         xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;artifactId&gt;cloud2020&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;groupId&gt;com.atguigu.springcloud&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;parent&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;artifactId&gt;cloud-consumer-hystrix-dashboard9001&lt;&#x2F;artifactId&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;!--新增hystrix dashboard--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-actuator&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-devtools&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;&#x2F;scope&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.projectlombok&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lombok&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;&#x2F;dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>YML<br><code>server.port:9001</code></p>
+</li>
+<li><p>HystrixDashboardMain9001+新注解@EnableHystrixDashboard</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package com.atguigu.springcloud;</span><br><span class="line"></span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line">import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @program: cloud2020</span><br><span class="line"> * @description: qidonglei</span><br><span class="line"> * @author: Mr.Wang</span><br><span class="line"> * @create: 2020-08-21-15-37</span><br><span class="line"> *&#x2F;</span><br><span class="line">@SpringBootApplication</span><br><span class="line">@EnableHystrixDashboard</span><br><span class="line">public class HystrixDashboardMain9001 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(HystrixDashboardMain9001.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>所有Provider微服务提供类（8001/8002/8003）都需要监控依赖配</p>
+</li>
+<li><p>启动cloud-consumer-hystrix-dashboard9001该微服务后续将监控微服务8001<br>  <a href="http://localhost:9001/hystrix" target="_blank" rel="noopener">http://localhost:9001/hystrix</a></p>
 </li>
 </ul>
+</li>
+<li><p>断路器演示</p>
+<ul>
+<li><p>修改cloud-provider-hystrix-payment8001<br>注意：新版本Hystrix需要在主启动类MainAppHystrix8001中指定监控路径<br>Unable to connect to Command Metric Stream<br>404</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Bean</span><br><span class="line">   public ServletRegistrationBean getServlet()&#123;</span><br><span class="line">       HystrixMetricsStreamServlet streamServlet &#x3D; new HystrixMetricsStreamServlet();</span><br><span class="line">       ServletRegistrationBean registrationBean &#x3D; new ServletRegistrationBean(streamServlet);</span><br><span class="line">       registrationBean.setLoadOnStartup(1);</span><br><span class="line">       registrationBean.addUrlMappings(&quot;&#x2F;hystrix.stream&quot;);</span><br><span class="line">       registrationBean.setName(&quot;HystrixMetricsStreamServlet&quot;);</span><br><span class="line">       return registrationBean;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>监控测试</p>
+<ol>
+<li>启动1个eureka或者3个eureka集群均可</li>
+<li>观察监控窗口<ul>
+<li>9001监控8001:填写监控地址：<a href="http://localhost:8001/hystrix.stream" target="_blank" rel="noopener">http://localhost:8001/hystrix.stream</a><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhmfgdejj31pw0u0nau.jpg" alt=""></li>
+<li>测试地址<ul>
+<li><a href="http://localhost:8001/payment/circuit/31，http://localhost:8001/payment/circuit/-31" target="_blank" rel="noopener">http://localhost:8001/payment/circuit/31，http://localhost:8001/payment/circuit/-31</a></li>
+<li>结果：测试通过</li>
+<li>先访问正确地址，再访问错误地址，再正确地址，会发现图示断路器都是慢慢放开的：先是成功后是失败</li>
+</ul>
+</li>
+<li>如何看<ul>
+<li>7色<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhwhmruej31de0pqal6.jpg" alt=""></li>
+<li>1圈<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhx2vfjnj319q08c7au.jpg" alt=""></li>
+<li>1线：访问趋势</li>
+<li>整图说明<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhxzb7d0j31900ji16m.jpg" alt=""></li>
+<li>正图说明2<br>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghyhygi7zvj31aa0imk9g.jpg" alt=""></li>
+</ul>
+</li>
+<li>搞懂一个才能看懂复杂的</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-zuul路由网关（没讲）"><a href="#8-zuul路由网关（没讲）" class="headerlink" title="8. zuul路由网关（没讲）"></a>8. zuul路由网关（没讲）</h2><h2 id="9-Gateway新一代网关"><a href="#9-Gateway新一代网关" class="headerlink" title="9. Gateway新一代网关"></a>9. Gateway新一代网关</h2><h3 id="9-1-概述简介"><a href="#9-1-概述简介" class="headerlink" title="9.1 概述简介"></a>9.1 概述简介</h3><ol>
+<li>官网<ul>
+<li>上一代zuul 1.x:<a href="https://github.com/Netflix/zuul/wiki" target="_blank" rel="noopener">https://github.com/Netflix/zuul/wiki</a></li>
+<li>当前gateway:<a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/" target="_blank" rel="noopener">https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/</a></li>
+</ul>
+</li>
+<li>是什么<br>Spring Cloud Gateway 使用的Webflux中的reactor-netty响应式编程组件，底层使用了Netty通讯框架</li>
+<li>能干嘛<ul>
+<li>反向代理</li>
+<li>鉴权</li>
+<li>流量控制</li>
+<li>熔断</li>
+<li>日志监控</li>
+</ul>
+</li>
+<li>微服务架构中网关在哪里<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gi1nmie3cwj31560jigrc.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gi1nn2t1rhj30qm0ibqcq.jpg" alt=""></li>
+<li>有了zuul怎么又出来gateway<br>spring cloud gateway具有如下的特性<ul>
+<li>基于Spring Framework5 ,Project Reactor和Spring boot 2.0进行构建的</li>
+<li>动态路由：能够匹配任何请求属性</li>
+<li>可以对路由指定Preidcate(断言)和Filter(过滤器)</li>
+<li>集成Hystrix的断路器功能</li>
+<li>集成Spring Cloud 服务发现功能</li>
+<li>易于编写的Predicate(断言)和Filter(过滤器)</li>
+<li>请求限流功能</li>
+<li>支持路径重写</li>
+</ul>
+</li>
+</ol>
+<h3 id="9-2-三大核心概念"><a href="#9-2-三大核心概念" class="headerlink" title="9.2 三大核心概念"></a>9.2 三大核心概念</h3><ol>
+<li>Route(路由)<br>路由是构建网关的基本模块，它由ID，目标URI，一系列的断言和过滤器组成，如果断言为true则匹配该路由</li>
+<li>Predicate(断言)<br>参考的是java8的java.util.function.Predicate开发人员可以匹配HTTP请求中的所有内容（例如请求头或请求参数），如果请求与断言相匹配则进行路由</li>
+<li>Filter(过滤)<br>指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。</li>
+<li>总体<br>web请求，通过一些匹配条件，定位到真正的服务节点。并在这个转发过程的前后进行一些精细化控制。predicate就是我们的匹配条件；而filter，就可以理解为一个无所不能的拦截器，有了这两个元素，在加上目标uri就可以实现一个具体的路由了<h3 id="9-3-Gateway工作流程"><a href="#9-3-Gateway工作流程" class="headerlink" title="9.3 Gateway工作流程"></a>9.3 Gateway工作流程</h3>客户端向Spring Cloud Gateway发出请求。如果网关处理程序映射确定请求与路由匹配，则将其发送到网关Web处理程序。该处理程序通过特定于请求的过滤器链来运行请求。筛选器由虚线分隔的原因是，筛选器可以在发送代理请求之前和之后运行逻辑。所有“前置”过滤器逻辑均被执行。然后发出代理请求。发出代理请求后，将运行“后”过滤器逻辑。<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gi1ob6owtrj30cb0gjdfw.jpg" alt=""></li>
+</ol>
+<h3 id="9-4-入门配置"><a href="#9-4-入门配置" class="headerlink" title="9.4 入门配置"></a>9.4 入门配置</h3><ol>
+<li><p>新建module:<code>cloud-gateway-gateway9527</code></p>
+</li>
+<li><p>POM文件</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;</span><br><span class="line">         xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;artifactId&gt;cloud2020&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;groupId&gt;com.atguigu.springcloud&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;parent&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;artifactId&gt;cloud-gateway-gateway9527&lt;&#x2F;artifactId&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;!--新增gateway--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-gateway&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.atguigu.springcloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cloud-api-commons&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-devtools&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;&#x2F;scope&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.projectlombok&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lombok&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;&#x2F;dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gib5uwic7wj31cs0u07wj.jpg" alt=""></p>
+</li>
+<li><p>YML配置</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 9527</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: cloud-gateway</span><br><span class="line">  eureka:</span><br><span class="line">  instance:</span><br><span class="line">    hostname: cloud-gateway-service</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      register-with-eureka: true</span><br><span class="line">      fetch-registry: true</span><br><span class="line">      defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka</span><br></pre></td></tr></table></figure></li>
+<li><p>业务类:无</p>
+</li>
+<li><p>主启动类：同前几个步骤中的主启动类</p>
+</li>
+<li><p>9527网关如何做路由映射</p>
+<ul>
+<li>cloud-provider-payment8001看看controller的访问地址:get/lib</li>
+<li>我们目前不想暴露8001端口，希望在8001外面套一层9527</li>
+</ul>
+</li>
+<li><p>YML新增网关配置</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 9527</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: cloud-gateway</span><br><span class="line">  cloud:</span><br><span class="line">    gateway:</span><br><span class="line">      routes:</span><br><span class="line">        - id: payment_routh # 路由的ID没有固定规则，但是要求统一，建议配合服务名</span><br><span class="line">          uri: http:&#x2F;&#x2F;localhost:8001 #匹配后提供服务的路由地址</span><br><span class="line">          predicates:</span><br><span class="line">            - Path&#x3D;&#x2F;payment&#x2F;get&#x2F;** #断言，路由匹配进行路由</span><br><span class="line">        - id: payment_routh2</span><br><span class="line">          uri: http:&#x2F;&#x2F;localhost:8001</span><br><span class="line">          predicates:</span><br><span class="line">            - Path&#x3D;&#x2F;payment&#x2F;lb&#x2F;**</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    hostname: cloud-gateway-service</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      register-with-eureka: true</span><br><span class="line">      fetch-registry: true</span><br><span class="line">      defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka</span><br></pre></td></tr></table></figure>
+<p> <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gib5z5mab2j315z0u07wj.jpg" alt=""></p>
 </li>
 <li><p>测试</p>
 <ul>
